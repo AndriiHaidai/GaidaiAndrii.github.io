@@ -1,0 +1,99 @@
+
+@import "fonts.css";
+
+body{
+  margin: 0;
+}
+.wrapper{
+  width: 1024px;
+  height: 1024px;
+  background-image: url(../images/bg-big.jpg);
+  margin: auto;
+}
+.content{
+  width: 500px;
+  margin: 0 auto;
+}
+.header img{
+  width: 200px;
+  height: 200px;
+  border: 1px solid #8f8f8f;
+  margin: 20px 149px 2px;
+}
+.h-1{
+  width: 500px;
+  padding: 42px 0 0 0;
+}
+h1{
+  text-transform: uppercase;
+  color: #010101;
+  font: 700 36px/43px Arial,sans-serif;
+  text-align: center;
+  margin: 0;
+}
+
+.position{
+  opacity: 0.8;
+  color: #1f1f1f;
+  font: normal 14px Arial,sans-serif;
+  margin-bottom: 20px;
+}
+.splitter1{
+  width: 500px;
+  height: 1px;
+}
+.splitter-img{
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 20px;
+}
+
+.motivation h3{
+  font: 18px/0px "MyriadProBold",Arial,sans-serif;
+  color: #1f1f1f;
+  margin: 7px 0 17px;
+}
+.motivation li{
+  font: 14px/18px "MyriadProRegular",Arial,sans-serif;
+  color: #4b3b3b;
+}
+
+.h3{
+  display: flex;
+  align-items: flex-start;
+  /*margin: 0 !important;*/
+}
+
+
+.contacts h3,
+.feedback h3
+{
+  font: 18px/14px "MyriadProBold",Arial,sans-serif;
+  color: #1f1f1f;
+  margin-top: 0;
+}
+.contacts p,
+.feedback p
+{
+  font: 14px "MyriadProRegular",Arial,sans-serif;
+  color: #3a3a3a;
+}
+.contacts a{
+  font: 14px "MyriadProItalic",Arial,sans-serif;
+  color: #0056d3;
+}
+.contacts img{
+  margin-top: 2px;
+}
+.contacts h3{
+  margin-bottom: 24px;
+}
+.contacts p{
+  margin-bottom: 16px;
+}
+.contacts p:last-child{
+  margin-bottom: 17px;
+}
+.feedback h3{
+  margin-bottom: 24px;
+}
