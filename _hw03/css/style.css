@@ -46,23 +46,24 @@ header{
   height: 40px;
   background-color: white;
   background-image: linear-gradient(to top, #444343 0%, #5e5e5e 100%);
-  display: flex;
 }
 .header_nav__li{
-  display: inline-flex;
-  flex-direction: row;
-  margin: auto 0;
+  display: inline-block;
+  float: left;
+}
+.header_nav__li:first-child{
+  width: 143px;
 }
 .header_nav__li_a{
+  display: block;
   box-sizing: border-box;
+  border-left: 1px solid transparent;
+  border-right: 1px solid transparent;
+  padding: 2px 30px;
   font-size: 15px;
   line-height: 36px;
   color: #FFF;
   text-shadow: 0.5px 0.9px 1px rgba(0, 0, 0, 0.5);
-  border-left: 1px solid transparent;
-  border-right: 1px solid transparent;
-  padding: 2px 30px;
-  display: block;
 }
 .header_nav__li_a:hover{
   background-image: linear-gradient(to top, #2e2e2e 0%, #4a4a4a 100%);
@@ -81,30 +82,32 @@ aside{
   float:left;
   /*margin-right: 48px;*/
   width: 240px;
-  height: 100%;
+  /*height: 100%;*/
 }
-.aside_nav_li{
+.aside_ul_li{
   display: block;
-  box-sizing: border-box;
   width: 240px;
   height: 40px;
+  box-sizing: border-box;
   border: 1px solid #c8c8c8;
-  border-bottom: 0;
+  border-bottom: none;
   line-height: 37px;
-  padding-left: 23px;
 }
-.aside_nav_li:last-of-type{
+.aside_ul_li:last-of-type{
   border-bottom: 1px solid #c8c8c8;
 }
-.aside_nav_li_a{
+.aside_ul_li_a{
   display: block;
   width: 238px;
   height: 39px;
+  padding-left: 23px;
+  width: 217px;
   color: #656363;
 }
-.aside_nav_li_a:hover{
+.aside_ul_li_a:hover{
   color: #2c2c2c;
-  padding-left: 12px;
+  padding-left: 35px;
+  width: 205px;
 }
 .fn{
   display: block;
@@ -119,21 +122,17 @@ main{
 }
 [alt="Bicycle"]{
   border: 1px solid #c8c8c8;
-  box-sizing: border-box;
-  /*width: 678px;
-  height: 400px;*/
   padding-left: 88px;
   padding-right: 88px;
   padding-top: 66px;
   padding-bottom: 45px;
   margin-bottom: 40px;
 }
-.main_article p{
-  /*width: 678px;*/
+.main_article>p{
   padding: 0 24px;
+  margin-bottom: 60px;
   line-height: 21px;
   color: #2c2c2c;
-  margin-bottom: 60px;
 }
 
 /*FOOTER*/
@@ -144,17 +143,15 @@ footer{
   line-height: 36px;
 }
 .footer_nav{
-  display: flex;
-  float: left;
 }
 .footer_nav__li{
-  display: inline-flex;
-  flex-direction: row;
-  margin: auto 0;
+  display: inline-block;
+  float: left;
+  margin: auto;
   height: 40px;
 }
 .footer_nav__li_a{
-  box-sizing: border-box;
+  /*box-sizing: border-box;*/
   padding: 2px 30px;
   color: #2c2c2c;
 }
@@ -163,7 +160,7 @@ footer{
   color: #2c2c2c;
 }
 .legal{
-  display: inline-flex;
+  display: inline-block;
   float: right;
   padding: 2px 30px;
 }
