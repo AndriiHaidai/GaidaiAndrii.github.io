@@ -1,11 +1,3 @@
-/*
-(+) структура елементов (HTML)
-(+) тексты (HTML)
-(+) изображения, фоны, иконки и т.п.
-(+/-) шрифты
-(-) цвета элементов, границы
-(-) позиции, отступы елементов
-*/
 
 @import "reset.css";
 
@@ -18,14 +10,16 @@
   display: table;
 }
 
+/*HTML*/
 html{
   font: 13.33px "Open Sans",Arial,sans-serif;
-  /*color: #FFF;*/
+  color: #2c2c2c;
 }
-
+body{
+  background-color: #f9f9f9;
+}
 .wrapper{
   width: 966px;
-  /*height: 950px;*/
   box-shadow: 0 5px 5px rgba(0, 0, 0, 0.3);
   margin: auto;
   padding: 50px 48px 0 46px;
@@ -35,16 +29,12 @@ a{
 }
 
 /*HEADER*/
-header{
-  margin-bottom: 40px;
-}
-.logo{
+header, .logo{
   margin-bottom: 40px;
 }
 .header_nav{
   width: 966px;
   height: 40px;
-  background-color: white;
   background-image: linear-gradient(to top, #444343 0%, #5e5e5e 100%);
 }
 .header_nav__li{
@@ -60,7 +50,7 @@ header{
   border-left: 1px solid transparent;
   border-right: 1px solid transparent;
   padding: 2px 30px;
-  font-size: 15px;
+  font-size: 14.67px;
   line-height: 36px;
   color: #FFF;
   text-shadow: 0.5px 0.9px 1px rgba(0, 0, 0, 0.5);
@@ -80,35 +70,32 @@ header{
 aside{
   display: block;
   float:left;
-  /*margin-right: 48px;*/
   width: 240px;
-  /*height: 100%;*/
 }
 .aside_ul_li{
-  display: block;
-  width: 240px;
-  height: 40px;
-  box-sizing: border-box;
-  border: 1px solid #c8c8c8;
-  border-bottom: none;
+  /*display: block;*/
   line-height: 37px;
-}
-.aside_ul_li:last-of-type{
-  border-bottom: 1px solid #c8c8c8;
 }
 .aside_ul_li_a{
   display: block;
-  width: 238px;
+  border: 1px solid #c8c8c8;
+  border-bottom-style: none;
+  width: 215px;
   height: 39px;
   padding-left: 23px;
-  width: 217px;
   color: #656363;
+  background-color: #fff;
+}
+.aside_ul_li:last-child>a{
+  border-bottom: 1px solid #c8c8c8;
 }
 .aside_ul_li_a:hover{
-  color: #2c2c2c;
+  width: 203px;
   padding-left: 35px;
-  width: 205px;
+  color: #2c2c2c;
+  background-color: #f9f9f9;
 }
+
 .fn{
   display: block;
   float: none;
@@ -139,28 +126,23 @@ main{
 footer{
   width: 966px;
   background-color: #e1e1e1;
-  font-size: 13.33px;
-  line-height: 36px;
-}
-.footer_nav{
 }
 .footer_nav__li{
-  display: inline-block;
+  display: block;
   float: left;
   margin: auto;
   height: 40px;
 }
 .footer_nav__li_a{
-  /*box-sizing: border-box;*/
-  padding: 2px 30px;
+  display: block;
+  padding: 14px 30px;
   color: #2c2c2c;
 }
 .footer_nav__li_a:hover{
   text-decoration: underline;
-  color: #2c2c2c;
 }
 .legal{
-  display: inline-block;
+  display: block;
   float: right;
-  padding: 2px 30px;
+  padding: 14px 30px;
 }
