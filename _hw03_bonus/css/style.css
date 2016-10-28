@@ -26,14 +26,19 @@ html{
 }
 body{
   width: 960px;
-  min-height: 830px;
+  height: 830px;
   margin: auto;
 }
 div.wrapper{
+  position: relative;
   margin: auto;
   background: #000 url(../img/background.jpg) no-repeat 0 -53px;
   padding-left: 67px;
   padding-right: 70px;
+  /*margin-left: 67px;*/
+  /*margin-right: 70px;*/
+  height: 100%;
+  /*width: 823px;    /* 960-67-70= */
 }
 
 /*HEAD*/
@@ -120,11 +125,20 @@ p.imagename{
 
 
 /*FOOTER*/
-p.legal{
-  font-size: 0.635em;
-  display: inline-block;
+footer{
   position: absolute;
   bottom: 0;
-  text-align: right;
-  
+  left: 0;
+  /*overflow: visible;*/
+  height: 41px;
+  width: 100%;
+}
+p.legal{
+  display: inline-block;
+  position: absolute;
+  bottom: 33px;
+  font-size: 0.635em;
+  white-space: nowrap;
+  width: 100%;
+  text-align: center;
 }
