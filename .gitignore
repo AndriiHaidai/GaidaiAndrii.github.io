@@ -1,0 +1,7 @@
+# »нструкци¤ по заполнению этого файла: https://github.com/progit/progit/blob/master/ru/02-git-basics/01-chapter2.markdown#»гнорирование-файлов
+# 
+# не обрабатывать файлы, им¤ которых заканчиваетс¤ на:
+*.psd
+*.pdf
+*.rar
+not_repo/
