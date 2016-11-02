@@ -1,1 +1,0 @@
-# GaidaiAndrii.github.io
