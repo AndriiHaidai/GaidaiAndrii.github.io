@@ -2,9 +2,9 @@ var body = document.body;
 
 var dbQuiz = {
   dbQuestion1: {
-    questionText: 'Вопрос №100',
-    option1: 'Вариант ответа №101',
-    option2: 'Вариант ответа №102',
+    questionText: 'Вопрос №1',
+    option1: 'Вариант ответа №1',
+    option2: 'Вариант ответа №2',
     option3: '',
     option4: ''
   },
@@ -24,7 +24,7 @@ var dbQuiz = {
   }
 };
 
-dbQuiz.addAsForm = function(parentObject, formClass, formAction, headerClass, headerText, questionClass, optionClass, submitButtonText) {
+dbQuiz.addAsForm = function(parentObject, formClass, formAction, headerClass, headerText, questionClass, optionClass, submitClass, submitButtonText) {
   var docFragment = document.createDocumentFragment();
   var form = document.createElement('form');
   form.className = formClass;
@@ -75,10 +75,10 @@ dbQuiz.addAsForm = function(parentObject, formClass, formAction, headerClass, he
   var submit = document.createElement('input');
   submit.setAttribute('type', 'submit');
   submit.setAttribute('value', submitButtonText);
+  submit.classList.add(submitClass);
   form.appendChild(submit);
 
   parentObject.appendChild(docFragment);
 };
 
-dbQuiz.addAsForm(body, 'test-form', '#'       , 'test-header', 'Тест по программированию', 'question'   , 'option', 'Проверить мои результаты');
-
+dbQuiz.addAsForm(body, 'quiz__form', '#', 'quiz__header', 'Тест по программированию', 'question', 'quiz__option', 'quiz__submit', 'Проверить мои результаты');
