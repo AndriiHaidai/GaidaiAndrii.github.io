@@ -1,59 +1,87 @@
-var stopwatch = {
-  tStart: new Date(),
-  tCurnt: new Date(),
-  tDfrns: new Date(),
-  sTime: "",
-  hour: "00",
-  minute: "00",
-  second: "00",
-  miliseconds: "000",
+(function () {
+'use strict';
+})();
 
-  setTime: function (hh, mm, ss, ms) {
-    var result = "";
-    this.hour = digits(hh, 2);
-    this.minute = digits(mm, 2);
-    this.second = digits(ss, 2);
-    this.miliseconds = digits(ms, 3);
-    result = this.hour + ":" + this.minute + ":" + this.second + "." + this.miliseconds;
-    return result;
-  },
-
-  startTimer: function (textNode, textNodeMilisec) {
-    var targetTextNode        = document.getElementById(textNode);
-    var targetTextNodeMilisec = document.getElementById(textNodeMilisec);
-    this.tStart = new Date();
-    this.tCurnt = this.tStart;
-    this.sTime = digits(this.tCurnt.getHours(), 2) + ":" +
-               digits(this.tCurnt.getMinutes(), 2) + ":" +
-               digits(this.tCurnt.getSeconds(), 2);
-    this.miliseconds = digits(this.tCurnt.getMilliseconds(), 3);
-    // debugger;
-    // console.log(this.sTime);
-    targetTextNode.textContent = this.sTime;
-    targetTextNodeMilisec.textContent = this.miliseconds;
-  }
-
-};
-
-function digits (str, len) {
-  return new Array(len + 1 - ("" + str).length).join("0") + str;
-}
-
-function startClick (){
-  stopwatch.startTimer("watch", "miliseconds");
-}
-function pauseClick (){
-  alert("Вывело что-то по Event = 'click'! (Это кнопка Pause)");
-}
-function resetClick (){
-  alert("Вывело что-то по Event = 'click'! (Это кнопка Reset)");
-}
-
-var btnStart = document.getElementById("start");
-var btnPause = document.getElementById("pause");
-var btnReset = document.getElementById("reset");
+var btnStart = document.getElementById("btnStart");
+var btnPause = document.getElementById("btnPause");
+var btnReset = document.getElementById("btnReset");
+var pageTime        = document.getElementById("watch");
+var pageTimeMilisec = document.getElementById("miliseconds");
 
 btnStart.addEventListener('click', startClick);
 btnPause.addEventListener('click', pauseClick);
 btnReset.addEventListener('click', resetClick);
 
+var timerId;
+var tStart;
+var tDfrns = new Date();
+
+var sTime;
+var sMilisec;
+
+resetTimerText();
+
+function startTimer () {
+}
+function iterateTimer () {
+  var tCurnt = new Date();
+  tDfrns.setTime(tCurnt - tStart + (tCurnt.getTimezoneOffset()) * 60000);
+  sTime = digits(tDfrns.getHours(), 2) + ":" + digits(tDfrns.getMinutes(), 2) + ":" + digits(tDfrns.getSeconds(), 2);
+  sMilisec = digits(tDfrns.getMilliseconds(), 3);
+  pageTime.textContent = sTime;
+  pageTimeMilisec.textContent = sMilisec;
+}
+
+function pauseTimer () {
+  if (btnPause.textContent === "Pause") {
+    clearInterval(timerId);
+    btnPause.textContent = "Continue";
+  } else {
+    btnPause.textContent = "Pause";
+    var cumulatedMiliseconds = tDfrns.getTime()-tDfrns.getTimezoneOffset()*60000;
+    tStart = new Date() - cumulatedMiliseconds;
+    clearInterval(timerId);
+    timerId = 0;
+    timerId = setInterval( function () {
+      iterateTimer();
+    }, 1);
+  }
+}
+
+function resetTimer () {
+  clearInterval(timerId);
+  timerId = 0;
+  resetTimerText();
+}
+
+function resetTimerText () {
+  pageTime.textContent = "00:00:00";
+  pageTimeMilisec.textContent = "000";
+}
+
+
+function startClick () {
+  tStart = new Date();
+  timerId = setInterval( iterateTimer, 1);
+
+  btnStart.setAttribute("disabled", "disabled");
+  btnPause.removeAttribute("disabled");
+  btnReset.removeAttribute("disabled");
+}
+
+function pauseClick () {
+  pauseTimer();
+}
+
+function resetClick () {
+  resetTimer();
+
+  btnStart.removeAttribute("disabled");
+  btnPause.setAttribute("disabled", "disabled");
+  btnReset.setAttribute("disabled", "disabled");
+  btnPause.textContent = "Pause";
+}
+
+function digits (str, len) {
+  return new Array(len + 1 - ("" + str).length).join("0") + str;
+}
