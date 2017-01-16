@@ -10,24 +10,24 @@
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
   <link rel="stylesheet" href="css/style.css">
-  <script src="js/script.js"></script>
 </head>
 <body>
   
   <div class="card mx-auto my-5">
     <div class="card-block">
-      <h3 class="time card-title text-right mr-5 mb-0">00:00:00</h3>
-      <p class="milisec card-text mb-3 mt-0 text-right mr-5">000</p>
+      <h3 id="watch" class="time card-title text-right mr-5 mb-0">00:00:00</h3>
+      <p id="miliseconds" class="milisec card-text mb-3 mt-0 mr-5 text-right">000</p>
     </div>
   </div>
   <div class="d-flex flex-row justify-content-around w-75 mx-auto">
-    <button type="button" class="btn btn-success w-25">Start</button>
-    <button type="button" class="btn btn-primary w-25">Pause / Continue</button>
-    <button type="button" class="btn btn-danger w-25">Reset</button>
+    <button type="button" id="start" class="btn btn-success w-25">Start</button>
+    <button type="button" id="pause" class="btn btn-primary w-25">Pause / Continue</button>
+    <button type="button" id="reset" class="btn btn-danger w-25">Reset</button>
   </div>
 
 
 
+  <script src="js/script.js"></script>
   <!-- jQuery first, then Tether, then Bootstrap JS. -->
   <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
