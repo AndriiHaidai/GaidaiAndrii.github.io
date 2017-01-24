@@ -51,3 +51,11 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
+.clr{/*После сфлоаченных блоков добавляем <div class="clr"> без содержимого и он прекратит сфлоачивание. */
+  clear:both;
+}
+.clearfix::after{/*Добавляем этот класс к parent-элементу, у которого есть только сфлоачиваемые дети. Это прекратит сфлоачивание. */
+  content: '';
+  display: table;
+  clear: both;
+}
