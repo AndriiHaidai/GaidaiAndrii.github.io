@@ -1,14 +1,5 @@
 @import "reset.css";
 
-.clr{/*После сфлоаченных блоков добавляем <div class="clr"> без содержимого и он прекратит сфлоачивание. */
-  clear:both;
-}
-.clearfix::after{/*Добавляем этот класс к parent-элементу, у которого есть только сфлоачиваемые дети. Это прекратит сфлоачивание. */
-  content: '';
-  display: table;
-  clear: both;
-}
-
 
 /* TABS ========================================================= */
 
@@ -34,8 +25,9 @@
 }
 
 .tabs__content {
-  max-height: 200px;
+  height: 200px;
   overflow: auto;
+  background-color: #ddd;
 }
 
 .tab-switcher {
@@ -69,7 +61,6 @@
   display: none;
   padding-top: 7px;
   border-top: 0px solid;
-  background-color: #ddd;
 }
 
 .tab.tab-active {
@@ -111,7 +102,6 @@ p {
   position: absolute;
   left: 270px;
   top: 0;
-  /*display: inline;*/
   min-width: 200px;
   min-height: 1.5rem;
   border: 0px solid;
@@ -133,6 +123,7 @@ p {
           border-radius: 5px;
   background-color: #ccc;
 }
+
 .button:hover {
   background-color: #ddd;
   cursor: pointer;

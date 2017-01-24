@@ -47,13 +47,22 @@ $(function () {
     hideTooltips($(this).next());
   });
 
+  $inputs.focus(function(event) {
+    /* Act on the event */
+    showTooltips($(this).next());
+  });
+  $inputs.blur(function(event) {
+    /* Act on the event */
+    hideTooltips($(this).next());
+  });
+
   $formBtn.click(function() {
     showTooltips($tooltips);
   });
 
   function showTooltips(list) {
     $(list).each(function() {
-      $(this).animate({
+      $(this).stop().animate({
         opacity: 'show',
         left: '260'},
         300, function() {
@@ -64,7 +73,7 @@ $(function () {
 
   function hideTooltips(list) {
     $(list).each(function() {
-      $(this).animate({
+      $(this).stop().animate({
         opacity: 'hide',
         left: '270'},
         150, function() {
