@@ -588,6 +588,58 @@ table {
   visibility: hidden !important;
 }
 
+.cssbox {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-flow: column wrap;
+      -ms-flex-flow: column wrap;
+          flex-flow: column wrap;
+  -webkit-justify-content: flex-start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+
+.cssbox label {
+  cursor: pointer;
+}
+
+.cssbox label:after {
+  content: "";
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  background: url("../img/chBx.png");
+  position: relative;
+  top: 3px;
+  margin-left: 15px;
+}
+
+.cssbox label:hover:after {
+  box-shadow: 0 0 1px #000;
+}
+
+.cssbox .css-checkbox {
+  position: absolute;
+  clip: rect(0, 0, 0, 0);
+}
+
+.cssbox .css-checkbox:checked + label:after {
+  background-position: 0 -16px;
+}
+
+.cssbox .css-checkbox:disabled + label:after {
+  background-position: 0 -32px;
+}
+
+.cssbox .css-checkbox:checked:disabled + label:after {
+  background-position: 0 -48px;
+}
+
+.cssbox .css-checkbox:checked:disabled + label:hover:after {
+  box-shadow: 0 0 1px #000;
+}
+
 /* 
  *fancySelect START  
  */
