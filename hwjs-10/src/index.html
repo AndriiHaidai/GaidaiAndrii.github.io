@@ -1,41 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, maximum-scale=1, initial-scale=1, user-scalable=no">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="css/style.css">
     <link rel="icon" href="favicon.ico">
     <title>Homework-09-10</title>
-</head>
-<body>
-  
-  <div class="wrapper">
 
-    <!-- Carousel -->
-    <div class="carousel-container">
-      <div class="jcarousel">
-        <ul>
-          <li><img src="img/img1.jpg" alt="img1.jpg"></li>
-          <li><img src="img/img2.jpg" alt="img2.jpg"></li>
-          <li><img src="img/img3.jpg" alt="img3.jpg"></li>
-          <li><img src="img/img4.jpg" alt="img4.jpg"></li>
-          <li><img src="img/img5.jpg" alt="img5.jpg"></li>
-        </ul>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="js/jquery.jcarousel.min.js"></script>
+    <script src="js/FancySelect.js"></script>
+    <script src="js/checkBo.min.js"></script>
+    <script src="js/common.js"></script>
+  </head>
+  <body>
+    
+    <div class="wrapper">
+      <!-- Carousel START -->
+      <div class="carousel-container">
+        <div class="jcarousel">
+          <ul>
+            <li><img src="img/img1.jpg" alt="img1.jpg"></li>
+            <li><img src="img/img2.jpg" alt="img2.jpg"></li>
+            <li><img src="img/img3.jpg" alt="img3.jpg"></li>
+            <li><img src="img/img4.jpg" alt="img4.jpg"></li>
+            <li><img src="img/img5.jpg" alt="img5.jpg"></li>
+          </ul>
+        </div>
+        <!-- Controls -->
+        <a class="jcarousel-prev" href="#">&laquo;</a>
+        <a class="jcarousel-next" href="#">&raquo;</a>
+        <!-- Pagination -->
+        <div class="jcarousel-pagination"></div>
       </div>
-      <!-- Controls -->
-      <a class="jcarousel-prev" href="#">&laquo;</a>
-      <a class="jcarousel-next" href="#">&raquo;</a>
-      <!-- Pagination -->
-      <div class="jcarousel-pagination"></div>
+      <!-- Carousel END -->
+
+      <div class="controls-block">
+        
+        <!-- Select START -->
+        <select class="basic">
+          <option value="">Select something…</option>
+          <option>Lorem</option>
+          <option>Ipsum</option>
+          <option>Dolor</option>
+          <option>Sit</option>
+          <option>Amet</option>
+        </select>
+        <!-- Select END -->
+
+        <!-- Checkbox START -->
+        <form class="chbox">
+          <label class="cb-checkbox">label 1<input type="checkbox"></label>
+          <label class="cb-checkbox">label 2<input type="checkbox" checked="checked"></label>
+          <label class="cb-checkbox">label 3<input type="checkbox" disabled="disabled"></label>
+          <label class="cb-checkbox">label 4<input type="checkbox" checked="checked" disabled="disabled"></label>
+        </form>
+        <!-- Checkbox END -->
+
+      </div>
+
     </div>
 
-    <!-- task-2 -->
-    
-  </div>
-
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-  <script src="js/jquery.jcarousel.min.js"></script>
-  <script src="js/common.js"></script>
-</body>
+  </body>
 </html>

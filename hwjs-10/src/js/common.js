@@ -22,5 +22,19 @@ $(function() {
   $('.jcarousel').jcarousel({
     wrap: 'both'
   });
+  
+});
 
+$(function() {
+  'use strict';
+
+  $('.chbox').checkBo();
+  
+});
+
+$(function() {
+  'use strict';
+
+  $('.basic').fancySelect();
+  
 });

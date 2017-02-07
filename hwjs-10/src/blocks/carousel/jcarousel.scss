@@ -8,13 +8,6 @@ $colorBgHover: rgba(#888, 0.5);
 $colorShdwHover: rgba(#888, 1);
 $colorHover: rgba(#fff, 1);
 
-.wrapper {
-  display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
-  flex-basis: 633px;
-}
-
 .carousel-container {
   position: relative;
   padding: 10px;
@@ -23,6 +16,7 @@ $colorHover: rgba(#fff, 1);
   border-radius: 10px;
   box-shadow: 0 0 10px #000;
   width: 533px;
+  // flex-basis: 633px;
   box-sizing: content-box;
 }
 
