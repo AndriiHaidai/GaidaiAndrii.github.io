@@ -3,6 +3,11 @@
   justify-content: space-around;
   flex-wrap: wrap;
   flex-basis: 633px;
+  
+  & nav {
+    width: 100vw;
+    z-index: 1;
+  }
 }
 
 .controls-block {
