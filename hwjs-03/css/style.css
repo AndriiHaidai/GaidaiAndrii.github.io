@@ -1,0 +1,51 @@
+@import "reset.css";
+
+.clr{/*После сфлоаченных блоков добавляем <div class="clr"> без содержимого и он прекратит сфлоачивание. */
+  clear:both;
+}
+.clearfix::after{/*Добавляем этот класс к parent-элементу, у которого есть только сфлоачиваемые дети. Это прекратит сфлоачивание. */
+  content: '';
+  display: table;
+  clear: both;
+}
+
+body {
+  background-color: teal;
+}
+
+.quiz__form {
+  width: 600px;
+  padding: 2rem;
+  margin: 3rem auto;
+  border: 1px solid #000;
+  background-color: white;
+  font-family: Arial;
+  font-weight: bold;
+}
+
+.quiz__header {
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: 1.25rem;
+}
+
+.question {
+  margin-top: 2rem;
+  /*margin-bottom: 1rem;*/
+}
+
+.quiz__option {
+  margin-top: 0.5rem;
+  margin-left: 1rem;
+  font-weight: normal;
+}
+
+.quiz__submit {
+  display: block;
+  margin: 2rem auto 1rem;
+  cursor: pointer;
+  border: 2px solid teal;
+  padding: 0.75rem 2rem;
+  font-size: 1rem;
+  font-weight: bold;
+}

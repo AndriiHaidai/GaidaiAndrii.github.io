@@ -1,0 +1,130 @@
+@import "reset.css";
+
+
+/* TABS ========================================================= */
+
+.wrapper {
+  width: 60%;
+  margin: 20px auto;
+  padding: 5px;
+  min-width: 300px;
+  border: 2px solid;
+  -webkit-border-radius: 10px;
+          border-radius: 10px;
+  background-color: #EEE;
+}
+
+.tabs {
+  display: block;
+  margin: 5px;
+}
+
+.tab-list {
+  border-bottom: 1px solid;
+  padding: 5px 4px 0;
+}
+
+.tabs__content {
+  height: 200px;
+  overflow: auto;
+  background-color: #ddd;
+}
+
+.tab-switcher {
+  display: inline-block;
+} 
+
+.tab-link {
+  display: inline-block;
+  position: relative;
+  top: 1px;
+  border: 1px solid;
+  border-bottom: none;
+  -webkit-border-radius: 4px;
+          border-radius: 4px;
+  -webkit-border-bottom-left-radius: 0;
+          border-bottom-left-radius: 0;
+  -webkit-border-bottom-right-radius: 0;
+          border-bottom-right-radius: 0;
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+  color: #000;
+  font-size: 1.2rem;
+}
+
+.tab-link.tab-active {
+  border-bottom: 1px solid #ddd;
+  background-color: #ddd;
+}
+
+.tab {
+  display: none;
+  padding-top: 7px;
+  border-top: 0px solid;
+}
+
+.tab.tab-active {
+  display: block;
+}
+
+p {
+  padding: 0.5rem 1rem 0.5rem 0.5rem;
+  text-align: justify;
+}
+
+
+/* FORM ========================================================= */
+
+.form {
+  display: flex;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;    
+  padding: 1rem;
+}
+
+.form__label {
+  display: block;
+  position: relative;
+  width: 300px;
+  -webkit-justify-content: space-between;
+          justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.form__input {
+  width: 170px;
+  position: absolute;
+  left: 80px;
+}
+
+.form__tooltip {
+  position: absolute;
+  left: 270px;
+  top: 0;
+  min-width: 200px;
+  min-height: 1.5rem;
+  border: 0px solid;
+  -webkit-border-radius: 3px;
+          border-radius: 3px;
+  -webkit-box-shadow: 0px 0px 0.4rem #333;
+          box-shadow: 0px 0px 0.4rem #333;
+  background: #ddd;
+  padding: 0 0.5rem;
+}
+.form__tooltip-appeared {
+  left: 260px;
+}
+
+.button {
+  width: 150px;
+  padding: 0.3rem 0;
+  -webkit-border-radius: 5px;
+          border-radius: 5px;
+  background-color: #ccc;
+}
+
+.button:hover {
+  background-color: #ddd;
+  cursor: pointer;
+}
