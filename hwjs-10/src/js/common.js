@@ -35,7 +35,14 @@ $(function() {
 $(function() {
   'use strict';
 
-  $('.basic').fancySelect();
+  $('.dropdown').hover(
+    function(){
+      $(this).children('.sub-menu').stop().slideDown(200);
+    },
+    function(){
+      $(this).children('.sub-menu').stop().slideUp(200);
+    }
+  );
   
 });
 
@@ -44,11 +51,18 @@ $(function() {
 
   $('.dropdown').hover(
     function(){
-      $(this).children('.sub-menu').slideDown(200);
+      $(this).children('.sub-menu').stop().slideDown(200);
     },
     function(){
-      $(this).children('.sub-menu').slideUp(200);
+      $(this).children('.sub-menu').stop().slideUp(200);
     }
   );
+  
+});
+
+$(function() {
+  'use strict';
+
+  $('.basic').fancySelect();
   
 });
