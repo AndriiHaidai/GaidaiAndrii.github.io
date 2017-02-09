@@ -1,0 +1,22 @@
+body {
+  background-color: #eee;
+}
+
+.wrapper {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  flex-basis: 633px;
+  
+  & nav {
+    width: 100vw;
+    z-index: 1;
+  }
+}
+
+.controls-block {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  flex-basis: 200px;
+}

@@ -1,0 +1,83 @@
+.menu-content {
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+nav {
+  background-color: #399;
+  
+  & ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    
+    & li {
+      display: inline-block;
+      position: relative;
+    }
+  }
+
+  
+}
+
+/* sub navigation */
+nav li {
+  
+  & ul {
+    background-color: #399;
+    position: absolute;
+    left: 0;
+    top: 2.5rem; /* make this equal to the line-height of the links (specified below) */
+    width: 200px;
+  }
+
+  & li {
+      position: relative;
+      margin: 0;
+      display: block;
+  }
+
+  & li ul {
+      position: absolute;
+      top: 0;
+      left: 200px; /* make this equal to the width of the sub nav above */
+      margin: 0;
+  }
+
+  /* show arrows for dropdowns */
+  &.dropdown > a {
+      background-image: url('../img/arrow-down.png');
+      background-position: right 5px center;
+      background-repeat: no-repeat;
+  }
+
+  & li.dropdown > a {
+      background-image: url('../img/arrow-right.png');
+      background-position: right 5px center;
+      background-repeat: no-repeat;
+  }
+} 
+
+/* all links */
+nav a {
+    display: block;
+    padding: 0 20px;
+    line-height: 2.5rem;
+    color: #fff;
+    text-decoration: none;
+}
+nav a:hover,
+nav a:focus,
+nav a:active {
+    background-color: #699;
+}
+
+/* sub level links */
+nav li li a {
+    padding: 0 10px;
+}
+
+/* hide sub menu links */
+ul.sub-menu {
+    display: none;
+}

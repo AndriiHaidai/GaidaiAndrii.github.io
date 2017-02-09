@@ -1,17 +1,156 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, maximum-scale=1, initial-scale=1, user-scalable=no">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="css/style.css">
     <link rel="icon" href="favicon.ico">
     <title>Homework-09-10</title>
-</head>
-<body>
-  
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-  <script src="js/jquery.jcarousel.min.js"></script>
-  <script src="js/common.js"></script>
-</body>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="js/jquery.jcarousel.min.js"></script>
+    <script src="js/FancySelect.js"></script>
+    <script src="js/checkBo.min.js"></script>
+    <script src="js/common.js"></script>
+  </head>
+  <body>
+    
+    <div class="wrapper">
+
+      <!-- Multilevel Custom Menu START -->
+      <nav>
+        <ul class="menu-content clearfix">
+          <li><a href="">Nav 1</a></li>
+          <li><a href="">Nav 2</a></li>
+          <li class="dropdown">
+            <a href="">Nav 3</a>
+            <ul class="sub-menu">
+              <li><a href="">Nav 3.1</a></li>
+              <li><a href="">Nav 3.2</a></li>
+              <li><a href="">Nav 3.3</a></li>
+              <li class="dropdown">
+                <a href="">Nav 3.4</a>
+                <ul class="sub-menu">
+                  <li><a href="">Nav 3.4.1</a></li>
+                  <li class="dropdown">
+                    <a href="">Nav 3.4.2</a>
+                    <ul class="sub-menu">
+                      <li><a href="">Nav 3.4.2.1</a></li>
+                      <li><a href="">Nav 3.4.2.2</a></li>
+                      <li><a href="">Nav 3.4.2.3</a></li>
+                      <li><a href="">Nav 3.4.2.4</a></li>
+                      <li><a href="">Nav 3.4.2.5</a></li>
+                    </ul>
+                  </li>
+                  <li><a href="">Nav 3.4.3</a></li>
+                  <li><a href="">Nav 3.4.4</a></li>
+                  <li><a href="">Nav 3.4.5</a></li>
+                </ul>
+              </li>
+              <li><a href="">Nav 3.5</a></li>
+            </ul>
+          </li>
+          <li><a href="">Nav 4</a></li>
+          <li><a href="">Nav 5</a></li>
+        </ul>
+      </nav>
+      <!-- Multilevel Custom Menu END -->
+
+      <!-- Carousel START -->
+      <div class="carousel-container">
+        <div class="jcarousel">
+          <ul>
+            <li><img src="img/img1.jpg" alt="img1.jpg"></li>
+            <li><img src="img/img2.jpg" alt="img2.jpg"></li>
+            <li><img src="img/img3.jpg" alt="img3.jpg"></li>
+            <li><img src="img/img4.jpg" alt="img4.jpg"></li>
+            <li><img src="img/img5.jpg" alt="img5.jpg"></li>
+          </ul>
+        </div>
+        <a class="jcarousel-prev" href="">&laquo;</a>
+        <a class="jcarousel-next" href="">&raquo;</a>
+        <div class="jcarousel-pagination"></div>
+      </div>
+      <!-- Carousel END -->
+
+      <div class="controls-block">
+        
+        <!-- Select START -->
+        <select class="basic">
+          <option value="">Select something…</option>
+          <option>Lorem</option>
+          <option>Ipsum</option>
+          <option>Dolor</option>
+          <option>Sit</option>
+          <option>Amet</option>
+        </select>
+        <!-- Select END -->
+
+        <!-- Checkbox jQuery START -->
+        <form class="chbox">
+          <label class="cb-checkbox">label 1<input type="checkbox"></label>
+          <label class="cb-checkbox">label 2<input type="checkbox" checked="checked"></label>
+          <label class="cb-checkbox">label 3<input type="checkbox" disabled="disabled"></label>
+          <label class="cb-checkbox">label 4<input type="checkbox" checked="checked" disabled="disabled"></label>
+        </form>
+        <!-- Checkbox jQuery END -->
+        
+        <!-- Checkbox CSS END -->
+        <form class="cssbox">
+          <input id="chBx1" class="css-checkbox" type="checkbox">
+          <label for="chBx1">Чекбокс 1:</label>
+          <input id="chBx2" class="css-checkbox" type="checkbox" checked="checked">
+          <label for="chBx2">Чекбокс 2:</label>
+          <input id="chBx3" class="css-checkbox" type="checkbox" disabled="disabled">
+          <label for="chBx3">Чекбокс 3:</label>
+          <input id="chBx4" class="css-checkbox" type="checkbox" checked="checked" disabled="disabled">
+          <label for="chBx4">Чекбокс 4:</label>
+        </form>
+        <!-- Checkbox CSS END -->
+
+      </div>
+      
+      <!-- Multilevel Custom Menu START -->
+      <nav class="footer-menu">
+        <ul class="menu-content clearfix">
+          <li><a href="">Nav 1</a></li>
+          <li><a href="">Nav 2</a></li>
+          <li class="dropdown">
+            <a href="">Nav 3</a>
+            <ul class="sub-menu">
+              <li><a href="">Nav 3.1</a></li>
+              <li><a href="">Nav 3.2</a></li>
+              <li><a href="">Nav 3.3</a></li>
+              <li class="dropdown">
+                <a href="">Nav 3.4</a>
+                <ul class="sub-menu">
+                  <li><a href="">Nav 3.4.1</a></li>
+                  <li class="dropdown">
+                    <a href="">Nav 3.4.2</a>
+                    <ul class="sub-menu">
+                      <li><a href="">Nav 3.4.2.1</a></li>
+                      <li><a href="">Nav 3.4.2.2</a></li>
+                      <li><a href="">Nav 3.4.2.3</a></li>
+                      <li><a href="">Nav 3.4.2.4</a></li>
+                      <li><a href="">Nav 3.4.2.5</a></li>
+                    </ul>
+                  </li>
+                  <li><a href="">Nav 3.4.3</a></li>
+                  <li><a href="">Nav 3.4.4</a></li>
+                  <li><a href="">Nav 3.4.5</a></li>
+                </ul>
+              </li>
+              <li><a href="">Nav 3.5</a></li>
+            </ul>
+          </li>
+          <li><a href="">Nav 4</a></li>
+          <li><a href="">Nav 5</a></li>
+        </ul>
+      </nav>
+      <!-- Multilevel Custom Menu END -->
+
+    </div>
+
+  </body>
 </html>

@@ -1,0 +1,101 @@
+$elementSize1: 2rem;
+$elementSize2: 1.7rem;
+$elementSize3: 1rem;
+$colorBg: rgba(#888, 0.2);
+$colorShdw: rgba(#888, 0.8);
+$color: rgba(#fff, 0.5);
+$colorBgHover: rgba(#888, 0.5);
+$colorShdwHover: rgba(#888, 1);
+$colorHover: rgba(#fff, 1);
+
+.carousel-container {
+  position: relative;
+  padding: 10px;
+  margin: 20px;
+  border: 10px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 0 10px #000;
+  width: 533px;
+  // flex-basis: 633px;
+  box-sizing: content-box;
+}
+
+.jcarousel {
+  position: relative;
+  width: 533px;
+  overflow: hidden;
+  
+  & ul {
+    width: 20000em;
+    position: relative;
+  }
+
+  & li {
+    float: left;
+  }
+
+  &-prev,
+  &-next {
+    position: absolute;
+    top: 205px;
+    width: $elementSize1;
+    height: $elementSize1;
+    border-radius: $elementSize1;
+    text-decoration: none;
+    text-align: center;
+    font-family: Arial, sans-serif;
+    font-size: $elementSize1;
+    line-height: $elementSize2;
+    background-color: $colorBg;
+    box-shadow: 0 0 $elementSize3 $colorShdw;
+    color: $color;
+    
+    &:hover {
+      cursor: pointer;
+      background-color: $colorBgHover;
+      box-shadow: 0 0 $elementSize3 $colorShdwHover;
+      color: $colorHover;
+    }
+  }
+
+  &-prev {
+    left: $elementSize1;
+  }
+  &-next {
+    right: $elementSize1;
+  }
+  
+  &-pagination {
+    position: absolute;
+    bottom: 0;
+    box-sizing: border-box;
+    width: inherit;
+    height: $elementSize1;
+    padding: $elementSize3;
+    text-align: center;
+    margin-bottom: $elementSize2;
+    
+    & a {
+      border: 1px solid #888;
+      width: $elementSize1;
+      height: $elementSize3;
+      border-radius: $elementSize1;
+      padding: 0 $elementSize3;
+      text-align: center;
+      font-size: $elementSize3;
+      line-height: $elementSize3;
+      text-decoration: none;
+      background-color: $colorBg;
+      color: $color;
+      
+      &:hover {
+        cursor: pointer;
+        background-color: $colorBgHover;
+        box-shadow: 0 0 $elementSize3 $colorShdwHover;
+        color: $colorHover;
+      }
+    }
+  }
+}
+
+

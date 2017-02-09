@@ -11,7 +11,7 @@ var gulp 								= require('gulp'),
 		plugins 						= require('gulp-load-plugins')();
 
 var paths = {
-		srcSass: ['./src/blocks/tools/*.scss', './src/blocks/default/*.scss', './src/blocks/*.scss'],
+		srcSass: ['./src/blocks/tools/*.scss', './src/blocks/default/*.scss', './src/blocks/**/*.scss'],
   	srcJs: './src/blocks/**/*.js',
   	srcHtml: './src/index.html',
 		srcSvg: './src/**/*.svg',
