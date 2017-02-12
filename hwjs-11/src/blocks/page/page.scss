@@ -1,0 +1,38 @@
+body {
+  // background-color: #888;
+}
+
+a {
+  display: block;
+  width: 533px;
+  
+  &.fancybox {
+    width: 250px;
+    
+  }
+}
+
+.fancybox-modal {
+  // display: inline;
+  position: absolute;
+  width: 550px;
+  height: 404px;
+  top: 50%;
+  left: 50%;
+  margin: -202px 0 0 -225px;
+  // background-color: #000;
+  text-align: center;
+  
+  & img {
+    display: inline;
+  }
+}
+
+.fancybox-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(#000, 0.5);
+}
