@@ -1,0 +1,125 @@
+
+
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+button, input, select, textarea {
+  font-family: inherit;
+  font-size: 100%;
+}
+
+article, aside, details, figcaption, figure,
+footer, header, hgroup, main, menu, nav, section, summary {
+  display: block;
+}
+
+img, embed, object, video {
+  display: block;
+  height: auto;
+  max-width: 100%;
+}
+
+body {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.carousel-wrapper {
+  display: block;
+  margin: 15px auto;
+  width: 1219px;
+}
+
+.carousel-arrow {
+  display: block;
+  float: left;
+  margin-top: 80px;
+  padding: 5px;
+  border: 1px solid grey;
+  border-radius: 5px;
+  background-color: lightgrey;
+}
+
+.carousel-arrow:hover {
+  cursor: pointer;
+  background-color: grey;
+}
+
+.carousel-arrow-left {
+  margin-right: 15px;
+}
+
+.carousel-arrow-right {
+  margin-left: 15px;
+}
+
+.carousel-hider {
+  float: left;
+  width: 1075px;
+  overflow: hidden;
+}
+
+.carousel-list {
+  position: relative;
+  width: 10000px;
+}
+
+.carousel-element {
+  display: block;
+  float: left;
+  margin-right: 25px;
+  text-align: center;
+}
+
+.carousel-element img {
+  max-width: 250px;
+}
+
+body {
+  background-color: #eff;
+}
