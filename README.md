@@ -3,8 +3,8 @@ GoIT homeworks
 
 # Flexbox lessons contents:
 
-<pre>  <a src="https://youtu.be/GPie9Mo93JE?t=26s">https://youtu.be/GPie9Mo93JE?t=26s = 
-  {
+  <a src="https://youtu.be/GPie9Mo93JE?t=26s">https://youtu.be/GPie9Mo93JE?t=26s = 
+<pre>  {
     <b>Axis</b>: 
       flex-direction; // [container property]
     <b>alignment of content-items along main axis:</b>
@@ -15,6 +15,7 @@ GoIT homeworks
   
   Movie-2: https://youtu.be/sAStjXp_4eM?t=17s = 
   {
-    
+    wrap to several rows
+      flex-wrap;  // [container property];
   }
 </pre>
