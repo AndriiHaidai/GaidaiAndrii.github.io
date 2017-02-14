@@ -1,0 +1,32 @@
+.articles-container {
+  display: flex;
+  margin: auto;
+  width: 900px;
+  height: 300px;
+  max-height: 400px;
+  flex-flow: row wrap;
+  // overflow: hidden;
+}
+
+.article {
+  // margin: 0 0px 20px;
+  display: flex;
+  flex-flow: column nowrap;
+  
+  flex-basis: 200px;
+  flex-grow: 1;
+  flex-shrink: 1;
+  padding: 0 10px 15px;
+  // border: 1px solid grey;
+  line-height: 1.4;
+  overflow: hidden;
+  font-family: sans-serif;
+  
+  &__header {
+    font-size: x-large;
+  }
+
+  &__content {
+    // width: 100%;
+  }
+}

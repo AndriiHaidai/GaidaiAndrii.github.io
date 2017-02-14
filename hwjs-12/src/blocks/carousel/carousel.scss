@@ -1,3 +1,10 @@
+.row {
+  display: block;
+  margin: 40px auto 0;
+  text-align: center;
+  // width: 100vw;
+}
+
 .carousel-wrapper {
   display: block;
   // display: flex;
@@ -6,7 +13,12 @@
   // flex-direction: row;
   margin: 15px auto;
   width: 1219px;
-  // border: 1px solid #000;
+  // border: 0px solid #000;
+  &::after {
+    content: '';
+    display: block;
+    clear: both;
+  }
 }
 
 .carousel-arrow {

@@ -69,10 +69,22 @@ table {
   border-spacing: 0;
 }
 
+.row {
+  display: block;
+  margin: 40px auto 0;
+  text-align: center;
+}
+
 .carousel-wrapper {
   display: block;
   margin: 15px auto;
   width: 1219px;
+}
+
+.carousel-wrapper::after {
+  content: '';
+  display: block;
+  clear: both;
 }
 
 .carousel-arrow {
@@ -122,4 +134,43 @@ table {
 
 body {
   background-color: #eff;
+}
+
+.articles-container {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  margin: auto;
+  width: 900px;
+  height: 300px;
+  max-height: 400px;
+  -webkit-flex-flow: row wrap;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
+}
+
+.article {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-flow: column nowrap;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
+  -webkit-flex-basis: 200px;
+      -ms-flex-preferred-size: 200px;
+          flex-basis: 200px;
+  -webkit-flex-grow: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  -webkit-flex-shrink: 1;
+      -ms-flex-negative: 1;
+          flex-shrink: 1;
+  padding: 0 10px 15px;
+  line-height: 1.4;
+  overflow: hidden;
+  font-family: sans-serif;
+}
+
+.article__header {
+  font-size: x-large;
 }
