@@ -3,7 +3,7 @@ GoIT homeworks
 
 # Flexbox lessons contents:
 
-<pre>  https://youtu.be/GPie9Mo93JE?t=26s = 
+<pre>  <a src="https://youtu.be/GPie9Mo93JE?t=26s">https://youtu.be/GPie9Mo93JE?t=26s = 
   {
     <b>Axis</b>: 
       flex-direction; // [container property]
