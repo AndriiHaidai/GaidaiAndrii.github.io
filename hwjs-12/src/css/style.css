@@ -69,12 +69,6 @@ table {
   border-spacing: 0;
 }
 
-.row {
-  display: block;
-  margin: 40px auto 0;
-  text-align: center;
-}
-
 .carousel-wrapper {
   display: block;
   margin: 15px auto;
@@ -132,45 +126,50 @@ table {
   max-width: 250px;
 }
 
+.quiz__form {
+  width: 600px;
+  padding: 2rem;
+  margin: 3rem auto;
+  border: 1px solid #000;
+  border-radius: 5px;
+  background-color: #fefefe;
+  font-family: Arial;
+  font-weight: bold;
+}
+
+.quiz__header {
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: 1.25rem;
+}
+
+.question {
+  margin-top: 2rem;
+}
+
+.quiz__option {
+  margin-top: 0.5rem;
+  margin-left: 1rem;
+  font-weight: normal;
+}
+
+.quiz__submit {
+  display: block;
+  margin: 2rem auto 1rem;
+  cursor: pointer;
+  border: 2px solid teal;
+  border-radius: 7px;
+  padding: 0.75rem 2rem;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
 body {
   background-color: #eff;
 }
 
-.articles-container {
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  margin: auto;
-  width: 900px;
-  height: 300px;
-  max-height: 400px;
-  -webkit-flex-flow: row wrap;
-      -ms-flex-flow: row wrap;
-          flex-flow: row wrap;
-}
-
-.article {
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-flow: column nowrap;
-      -ms-flex-flow: column nowrap;
-          flex-flow: column nowrap;
-  -webkit-flex-basis: 200px;
-      -ms-flex-preferred-size: 200px;
-          flex-basis: 200px;
-  -webkit-flex-grow: 1;
-      -ms-flex-positive: 1;
-          flex-grow: 1;
-  -webkit-flex-shrink: 1;
-      -ms-flex-negative: 1;
-          flex-shrink: 1;
-  padding: 0 10px 15px;
-  line-height: 1.4;
-  overflow: hidden;
-  font-family: sans-serif;
-}
-
-.article__header {
-  font-size: x-large;
+.row {
+  display: block;
+  margin: 40px auto 0;
+  text-align: center;
 }

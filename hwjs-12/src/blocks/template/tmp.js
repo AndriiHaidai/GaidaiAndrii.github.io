@@ -1,29 +1,43 @@
 $(function () {
-  
-  var html = $('#test').html();
-  var articles = [
-    {
-      title: 'Article 1',
-      content: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis perspiciatis modi ipsam deserunt, numquam ad error, rem unde omnis ea. Adipisci pariatur ipsam eos similique explicabo voluptatum asperiores nihil perspiciatis. Facilis excepturi, et eum eligendi quas. Vitae tempore eos ipsam odit architecto. Facilis facere placeat, rem nemo iusto dolor fugit.'
-    },
-    {
-      title: 'Article 2',
-      content: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Id nobis numquam, itaque! Doloribus labore laboriosam in iusto repellendus assumenda culpa, aliquid odit est consectetur dolores possimus officiis at soluta fugiat sint aspernatur error reiciendis quisquam rerum ipsa dolore explicabo aperiam perspiciatis fugit. Ratione ipsum, sequi quos excepturi cum repudiandae, quod iusto facere vel quae, dicta ab eum rerum cumque autem.'
-    },
-    {
-      title: 'Article 3',
-      content: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea et corrupti culpa laudantium beatae voluptate, sapiente perferendis enim numquam labore similique quae, aliquid inventore quisquam, blanditiis commodi hic esse! Deserunt placeat ducimus ab, repellat cumque dolore voluptatum. Quisquam, ut illo libero nihil, adipisci ipsa quae, suscipit dolores, a explicabo dignissimos consequatur! Dicta ad obcaecati vero odit reiciendis iste, tenetur quibusdam id minus, aspernatur quam quos, praesentium quo explicabo provident cumque.'
-    },
-    {
-      title: 'Article 4',
-      content: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui blanditiis non cum, voluptates illo a cumque praesentium ad rem voluptatum!'
-    },
+'use strict';
 
+
+  var html;
+  var articles;
+  var quizContent;
+
+  html = $('#quiz').html();
+  
+  articles = [
+    {
+      questionText: 'Вопрос №1',
+      correctAnswers: '1',
+      option1: 'Вариант ответа №1.1',
+      option2: 'Вариант ответа №1.2',
+      option3: '',
+      option4: ''
+    },
+    {
+      questionText: 'Вопрос №2',
+      correctAnswers: '2',
+      option1: 'Вариант ответа №2.1',
+      option2: 'Вариант ответа №2.2',
+      option3: 'Вариант ответа №2.3',
+      option4: 'Вариант ответа №2.4'
+    },
+    {
+      questionText: 'Вопрос №3',
+      correctAnswers: '2,3',
+      option1: 'Вариант ответа №3.1',
+      option2: 'Вариант ответа №3.2',
+      option3: 'Вариант ответа №3.3',
+      option4: ''
+    }
   ];
-  var content = tmpl(html, {
+
+  quizContent = tmpl(html, {
     data: articles
   });
 
-  $('body').append(content);
-
+  $('.quiz__form').append(quizContent);
 });
