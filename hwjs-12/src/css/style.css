@@ -126,6 +126,16 @@ table {
   max-width: 250px;
 }
 
+body {
+  background-color: #eff;
+}
+
+.row {
+  display: block;
+  margin: 40px auto 0;
+  text-align: center;
+}
+
 .quiz__form {
   width: 600px;
   padding: 2rem;
@@ -162,14 +172,4 @@ table {
   padding: 0.75rem 2rem;
   font-size: 1rem;
   font-weight: bold;
-}
-
-body {
-  background-color: #eff;
-}
-
-.row {
-  display: block;
-  margin: 40px auto 0;
-  text-align: center;
 }
