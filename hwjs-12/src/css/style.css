@@ -69,13 +69,14 @@ table {
   border-spacing: 0;
 }
 
-.carousel-wrapper {
+.carousel-container {
   display: block;
+  visibility: hidden;
   margin: 15px auto;
   width: 1219px;
 }
 
-.carousel-wrapper::after {
+.carousel-container::after {
   content: '';
   display: block;
   clear: both;

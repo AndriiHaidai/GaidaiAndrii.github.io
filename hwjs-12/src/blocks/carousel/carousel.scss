@@ -1,12 +1,8 @@
-.carousel-wrapper {
+.carousel-container {
   display: block;
-  // display: flex;
-  // justify-content: center;
-  // align-items: flex-start;
-  // flex-direction: row;
+  visibility: hidden;
   margin: 15px auto;
   width: 1219px;
-  // border: 0px solid #000;
   &::after {
     content: '';
     display: block;

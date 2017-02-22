@@ -1,4 +1,4 @@
-$(function () {
+(function ($) {
 'use strict';
 
 
@@ -40,4 +40,4 @@ $(function () {
   });
 
   $('.quiz__form').append(quizContent);
-});
+})(jQuery);
