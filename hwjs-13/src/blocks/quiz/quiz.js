@@ -29,50 +29,42 @@
   ];
 
   localStorage.setItem('arrQuiz', JSON.stringify(arrQuiz));
+  // Убираем в локальном хранилище пустые варианты ответов, если они есть:
   localStorage.arrQuiz = localStorage.arrQuiz.replace(/(,"option\d+":"")/g , '');
 
-  arrQuiz = window.localStorage.getItem('arrQuiz');
-  arrQuiz = JSON.parse(arrQuiz);
-  
+  arrQuiz = JSON.parse(window.localStorage.getItem('arrQuiz'));
   var quizContainer = document.getElementsByClassName('quiz-container')[0];
-
   quizContainer.innerHTML = generateQuizDocumentFragment(arrQuiz);
   
-  // 3.
-  // На странице должна быть возможность пройти тест. При клике
-  // на кнопку "Проверить мои результаты" нужно выполнить проверку
-  // правильных ответов и вывести сообщение об успешном или  не успешном
-  // прохождении теста. После вывода сообщения, обнулить отметки
-  // чтоб тест можно было пройти опять.
   var btnSubmit = document.getElementById('quiz__submit');
   btnSubmit.addEventListener("click", evalQuiz);
 
+  var btnQuizResultsOk = document.getElementsByClassName('quiz-modal__click')[0];
+  var resultsWindow = document.getElementsByClassName('quiz-modal')[0];
+  btnQuizResultsOk.addEventListener("click", function() {
+    resultsWindow.setAttribute('style', 'display: none;');
+  });
+
   function evalQuiz(){
     
-    var correctAnswers = JSON.parse(localStorage.arrQuiz).map( el => el.correctAnswers );
-
     var form = getForm(this);
-    var userResponses = Array.from(form.getElementsByClassName('question')).map( el => Array.from(el.getElementsByTagName('input'))).
+
+    var correctAnswers = JSON.parse(localStorage.arrQuiz).map( el => el.correctAnswers );
+    var userAnswers = Array.from(form.getElementsByClassName('question')).map( el => Array.from(el.getElementsByTagName('input'))).
       map( x => x.map( (bx, ind) => bx.checked ? (ind+1)+'' : '' ).join(',').replace(/,{2}/g, ',') ).map( s => s[0] === ',' ? s.substring(1) : s).map( st => st[st.length-1] === ',' ? st.substring(0,st.length-1) : st);
-
-    var matches = userResponses.map( (x, ind) => correctAnswers[ind] === x ).reduce( (x,y) => x && y );
-    /*console.log(userResponses);
-    console.log(correctAnswers);
-    console.log('matches: ', matches);
-    debugger;*/
-
+    
+    var matches = userAnswers.map( (x, ind) => correctAnswers[ind] === x ).reduce( (x,y) => x && y );
+    var quizResultMsg = document.getElementsByClassName('quiz-message')[0];
 
     if (matches) {
-      alert('Правильно! Все ответы совпали.');
+      quizResultMsg.innerHTML = 'Правильно! Все ответы совпали! :)';
     } else {
-      alert('Неправильно! Не все ответы совпали. Попытайтесь еще.');
+      quizResultMsg.innerHTML = 'Неправильно! Не все ответы совпали. :( Попытайтесь еще.';
     }
-    
-    var clearAllCheckboxes = function() {
-      Array.from(document.getElementsByTagName('input')).map( x => x.checked = false );
-    }();
-    // debugger;
 
+    // clearAllCheckboxes:
+    Array.from(document.getElementsByTagName('input')).map( x => x.checked = false );
+    resultsWindow.setAttribute('style', 'display: block;');
 
     function getForm(el){
       while (el) {
@@ -83,7 +75,6 @@
       } 
       return 0;
     }
-
   }
 
   function generateQuizDocumentFragment(obj) {
@@ -100,7 +91,7 @@
                   (obj[key] === '') ? '' : 
                     `
                       <li class="quiz__option">
-                        <label><input type="checkbox" name="${key}">${obj[key]}</label>
+                        <label class="option"><input type="checkbox" name="${key}">${obj[key]}</label>
                       </li>
                     `
                   ).join('')
@@ -110,9 +101,8 @@
           `).join('')
         }
       </ol>
-      <input type="submit" value="Проверить мои результаты" class="quiz__submit" id="quiz__submit">
+      <input type="submit" value="Проверить мои результаты" class="btn quiz__submit" id="quiz__submit">
     </form>`);
   }
   
-
 }());
