@@ -73,6 +73,10 @@ table {
   display: none;
 }
 
+.page {
+  margin: auto;
+}
+
 .search {
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -127,8 +131,4 @@ table {
   -webkit-justify-content: space-around;
       -ms-flex-pack: distribute;
           justify-content: space-around;
-}
-
-.page {
-  margin: auto;
 }
