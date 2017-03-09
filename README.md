@@ -1,6 +1,9 @@
 # GaidaiAndrii.github.io  
 GoIT homeworks
 
+# Gulp:
+<a src="https://youtu.be/xptUdO3GuG8">Как сообщить Галпу, что задача завершена.</a>
+
 # Flexbox lessons contents:
 
   <a src="https://youtu.be/GPie9Mo93JE?t=26s">https://youtu.be/GPie9Mo93JE?t=26s = 
