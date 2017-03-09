@@ -2,7 +2,7 @@
 GoIT homeworks
 
 # Gulp:
-<a src="https://youtu.be/xptUdO3GuG8">Как сообщить Галпу, что задача завершена.</a>
+Как сообщить Галпу, что задача завершена: https://youtu.be/xptUdO3GuG8
 
 # Flexbox lessons contents:
 
