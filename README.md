@@ -1,5 +1,5 @@
 # GaidaiAndrii.github.io  
-GoIT homeworks
+Frontend Lectures notes.
 
 # Gulp:
 Как сообщить Галпу, что задача завершена: https://youtu.be/xptUdO3GuG8?t=4m24s<br>
