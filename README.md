@@ -2,6 +2,7 @@
 Frontend Lectures notes.
 
 # Gulp:
+Установка Галп версии 4.0: https://youtu.be/xptUdO3GuG8?t=20s<br>
 Как сообщить Галпу, что задача завершена: https://youtu.be/xptUdO3GuG8?t=4m24s<br>
 Поддержка Source-Maps: https://youtu.be/_BFWG82mMkw?t=11m31s
 
