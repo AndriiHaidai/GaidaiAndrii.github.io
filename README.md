@@ -1,6 +1,11 @@
 # GaidaiAndrii.github.io  
 Frontend Lectures notes.
 
+# Как правильно и быстро верстать сайты.
+0. Вступление: https://youtu.be/jr-bg5HCSr4?t=35s<br>
+1. Анализ макетов и подготовка к верстке (): https://youtu.be/jr-bg5HCSr4?t=2m9s
+2.
+
 # Gulp:
 Установка Галп версии 4.0: https://youtu.be/xptUdO3GuG8?t=20s<br>
 Как сообщить Галпу, что задача завершена: https://youtu.be/xptUdO3GuG8?t=4m24s<br>
