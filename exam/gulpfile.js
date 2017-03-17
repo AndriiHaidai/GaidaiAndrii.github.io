@@ -12,8 +12,6 @@ const pngquant     = require('imagemin-pngquant');
 const cache        = require('gulp-cache');
 const autoprefixer = require('gulp-autoprefixer');
 const plugins      = require('gulp-load-plugins')();
-const sourcemaps   = require('gulp-sourcemaps');
-const gulpIf       = require('gulp-if'); // Это слишком мощная штука для цели ветвления потока от условия.
 
 const isDevelopement = !process.env.NODE_ENV || process.env.NODE_ENV == 'developement';
 // для установления режима 'Production' запускать не "gulp", а "NODE_ENV=production gulp" .
@@ -42,16 +40,12 @@ gulp.task('clean', function() {
 // Assembling .scss files
 gulp.task('styles' , function(){
   return gulp.src(source.sass)
-  // .pipe(gulpIf(isDevelopement, sourcemaps.init()))
-  .pipe(sourcemaps.init())
   .pipe(plugins.sass({
     outputStyle: 'expanded', 
     includePaths: ['node_modules/susy/sass']
   }).on('error', plugins.sass.logError))
   .pipe(plugins.concat('style.css'))
   .pipe(autoprefixer({browsers: ['last 5 versions', 'IE 9'], cascade: true }))
-  // .pipe(gulpif(isDevelopement, sourcemaps.write()))
-  .pipe(sourcemaps.write())
   .pipe(gulp.dest(destination.css))
   .pipe(browserSync.reload( {stream: true} ));
 });
