@@ -1,8 +1,9 @@
-@import "../tools/tools";
+@import '../globals/tools';
 
 .page {
 
   @include container();
+  // @include clearfix();
   background-color: red;
   
   @media (min-width: 320px) {
@@ -20,18 +21,24 @@
 
 p {
   @include span(8);
-  display: block;
+  // display: block;
+  background-color: white;
 }
 
 ul {
-  @include span(4 last);
-  display: block;
-  @include clearfix;
-  float: none;
-  
+  @include span(4);
+  // display: block;
+  // float: none;
+  background-color: grey;
 }
 
 blockquote {
   @include span(12);
-  display: block;
+  // display: block;
+  background-color: lightgrey;
+}
+
+.div {
+  @include span(12);
+  background-color: lightyellow;
 }

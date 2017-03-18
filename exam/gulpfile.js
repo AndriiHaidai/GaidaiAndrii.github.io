@@ -15,7 +15,7 @@ const sass         = require('gulp-sass');
 const source = {
   html: './src/index.html',
   sass: ['./src/blocks/tools/*.scss', './src/blocks/default/*.scss', './src/blocks/**/*.scss'],
-  js: './src/blocks/**/*.js',
+  js: './src/blocks/**/*.js'
 };
 
 const destination = {
