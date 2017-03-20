@@ -1,12 +1,35 @@
-@import '../globals/tools';
+@import '../globals/globals';
 
 .promo {
-  // @include container();
+  
   width: $desktop;
-  // @include span(12);
   height: 540px;
   background: #c6a57a url('../img/bg-promo.jpg') no-repeat center;
   background-size: cover;
+  padding-top: 38px;
+  
+  font-family: $font-main;
+  color: $main-white;
+
+  .susy {
+    @include container();
+    // @include clearfix;
+    // @include span(12);
+  }
+
+  .header {
+    @include span(12);
+    @include clearfix;
+  }
+
+  .btn-login {
+    float: right;
+    border-color: transparent;
+    
+    &:hover {
+      border-color: $main-white;
+    }
+  }
 
   @media (min-width: 320px) {
   }
@@ -18,24 +41,4 @@
   @media (min-width: 1440px) {
   }
 
-}
-
-.susy {
-  @include container();
-  @include clearfix;
-  // @include span(12);
-}
-
-.header {
-  @include clearfix;
-}
-
-.logo {
-  @include span(6);
-  height: 100px;
-}
-
-.login {
-  @include span(6 last);
-  height: 100px;
 }

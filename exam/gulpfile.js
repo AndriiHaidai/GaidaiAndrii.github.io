@@ -13,8 +13,10 @@ const sass         = require('gulp-sass');
 
 
 const source = {
+  sassTools: './src/blocks/globals/tools.scss', 
   html: './src/index.html',
   sass: ['./src/blocks/globals/*.scss', './src/blocks/**/*.scss'],
+  // sass: './src/blocks/**/*.scss',
   js: './src/blocks/**/*.js',
   img: './src/img/**/*.{jpg,png}',
   svgIco: './scr/img/**/*.svg'
@@ -43,7 +45,7 @@ gulp.task('styles' , function(){
   .pipe(plugins.sassGlobImport())
   .pipe(plugins.sass({
     outputStyle: 'expanded', 
-    includePaths: ['node_modules/susy/sass']
+    includePaths: [source.sassTools, 'node_modules/susy/sass']
   }).on('error', plugins.sass.logError))
   .pipe(plugins.concat('style.css'))
   .pipe(autoprefixer({browsers: ['last 5 versions', 'IE 9'], cascade: true }))

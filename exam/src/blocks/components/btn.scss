@@ -1,0 +1,15 @@
+@import '../globals/globals';
+
+.btn {
+  padding-left: 19px;
+  padding-right: 19px;
+  border: 2px solid $main-red;
+  border-radius: 50px;
+  font-size: 14px;
+  line-height: 39px;
+  text-decoration: none;
+  
+  &:hover {
+    cursor: pointer;
+  }
+}

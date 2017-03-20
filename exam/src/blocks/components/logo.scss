@@ -1,0 +1,11 @@
+@import '../globals/globals';
+
+.logo {
+  float: left;
+  font-size: 20px;
+  
+  &:hover {
+    cursor: pointer;
+    color: $main-red;
+  }
+}

@@ -70,21 +70,9 @@ table {
   display: none;
 }
 
-/* $susy-media: (
-  mobile: (
-    media: screen,
-    min-width: 480px
-  ), // default
-  tablet: (
-    media: screen,
-    min-width: 768px
-  ),
-  desktop: (
-    media: screen,
-    min-width: 960px
-  )
-);
- */
+/************** End of Reset **************/
+/* Globals:Tools */
+
 @font-face {
   font-family: 'Montserrat';
   src: url("../fonts/montserrat-bold-webfont.eot");
@@ -121,127 +109,52 @@ a, input[type="button"], input[type="submit"], button {
   font-family: Montserrat, Arial, sans-serif;
 }
 
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed,
-figure, figcaption, footer, header, hgroup,
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  font-size: 100%;
-  font: inherit;
-  vertical-align: baseline;
+.btn {
+  padding-left: 19px;
+  padding-right: 19px;
+  border: 2px solid #f66;
+  border-radius: 50px;
+  font-size: 14px;
+  line-height: 39px;
+  text-decoration: none;
 }
 
-html {
-  box-sizing: border-box;
+.btn:hover {
+  cursor: pointer;
 }
 
-*, *:before, *:after {
-  box-sizing: inherit;
+.logo {
+  float: left;
+  font-size: 20px;
 }
 
-button, input, select, textarea {
-  font-family: inherit;
-  font-size: 100%;
+.logo:hover {
+  cursor: pointer;
+  color: #f66;
 }
 
-article, aside, details, figcaption, figure,
-footer, header, hgroup, main, menu, nav, section, summary {
-  display: block;
+.footer {
+  width: 100%;
+  float: left;
+  padding-left: 0.83333%;
+  padding-right: 0.83333%;
+  background-color: lightgrey;
 }
 
-img, embed, object, video {
-  display: block;
-  height: auto;
-  max-width: 100%;
+.howitworks {
+  width: 100%;
+  float: left;
+  padding-left: 0.83333%;
+  padding-right: 0.83333%;
+  background-color: lightgrey;
 }
 
-body {
-  line-height: 1;
-}
-
-ol, ul {
-  list-style: none;
-}
-
-blockquote, q {
-  quotes: none;
-}
-
-blockquote:before, blockquote:after,
-q:before, q:after {
-  content: '';
-  content: none;
-}
-
-table {
-  border-collapse: collapse;
-  border-spacing: 0;
-}
-
-[hidden] {
-  display: none;
-}
-
-/* $susy-media: (
-  mobile: (
-    media: screen,
-    min-width: 480px
-  ), // default
-  tablet: (
-    media: screen,
-    min-width: 768px
-  ),
-  desktop: (
-    media: screen,
-    min-width: 960px
-  )
-);
- */
-@font-face {
-  font-family: 'Montserrat';
-  src: url("../fonts/montserrat-bold-webfont.eot");
-  src: url("../fonts/montserrat-bold-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/montserrat-bold-webfont.woff2") format("woff2"), url("../fonts/montserrat-bold-webfont.woff") format("woff"), url("../fonts/montserrat-bold-webfont.ttf") format("truetype");
-  font-weight: 700;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'Montserrat';
-  src: url("../fonts/montserrat-regular-webfont.eot");
-  src: url("../fonts/montserrat-regular-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/montserrat-regular-webfont.woff2") format("woff2"), url("../fonts/montserrat-regular-webfont.woff") format("woff"), url("../fonts/montserrat-regular-webfont.ttf") format("truetype");
-  font-weight: 400;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'Roboto';
-  src: url("../fonts/roboto-light-webfont.eot");
-  src: url("../fonts/roboto-light-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/roboto-light-webfont.woff2") format("woff2"), url("../fonts/roboto-light-webfont.woff") format("woff"), url("../fonts/roboto-light-webfont.ttf") format("truetype");
-  font-weight: 300;
-  font-style: normal;
-}
-
-h1, h2, h3, h4, h5, h6 {
-  font-family: Montserrat, Arial, sans-serif;
-}
-
-p, input[type="text"], textarea, label {
-  font-family: Roboto, Tahoma, sans-serif;
-}
-
-a, input[type="button"], input[type="submit"], button {
-  font-family: Montserrat, Arial, sans-serif;
+.ideas {
+  width: 100%;
+  float: left;
+  padding-left: 0.83333%;
+  padding-right: 0.83333%;
+  background-color: lightgrey;
 }
 
 .page {
@@ -250,16 +163,6 @@ a, input[type="button"], input[type="submit"], button {
   margin-left: auto;
   margin-right: auto;
   background-color: lightpink;
-  /*   @media (min-width: 320px) {
-  }
-  
-  @media (min-width: 768px) {
-  }
-  
-  @media (min-width: 1440px) {
-  }
-  
-  */
 }
 
 @media (min-width: 320px) {
@@ -280,14 +183,6 @@ a, input[type="button"], input[type="submit"], button {
   }
 }
 
-.howitworks {
-  width: 100%;
-  float: left;
-  padding-left: 0.83333%;
-  padding-right: 0.83333%;
-  background-color: lightgrey;
-}
-
 .partners {
   width: 100%;
   float: left;
@@ -296,173 +191,23 @@ a, input[type="button"], input[type="submit"], button {
   background-color: lightgrey;
 }
 
-.ideas {
-  width: 100%;
-  float: left;
-  padding-left: 0.83333%;
-  padding-right: 0.83333%;
-  background-color: lightgrey;
-}
-
-.search {
-  width: 100%;
-  float: left;
-  padding-left: 0.83333%;
-  padding-right: 0.83333%;
-  background-color: lightgrey;
-}
-
-.footer {
-  width: 100%;
-  float: left;
-  padding-left: 0.83333%;
-  padding-right: 0.83333%;
-  background-color: lightgrey;
-}
-
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed,
-figure, figcaption, footer, header, hgroup,
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  font-size: 100%;
-  font: inherit;
-  vertical-align: baseline;
-}
-
-html {
-  box-sizing: border-box;
-}
-
-*, *:before, *:after {
-  box-sizing: inherit;
-}
-
-button, input, select, textarea {
-  font-family: inherit;
-  font-size: 100%;
-}
-
-article, aside, details, figcaption, figure,
-footer, header, hgroup, main, menu, nav, section, summary {
-  display: block;
-}
-
-img, embed, object, video {
-  display: block;
-  height: auto;
-  max-width: 100%;
-}
-
-body {
-  line-height: 1;
-}
-
-ol, ul {
-  list-style: none;
-}
-
-blockquote, q {
-  quotes: none;
-}
-
-blockquote:before, blockquote:after,
-q:before, q:after {
-  content: '';
-  content: none;
-}
-
-table {
-  border-collapse: collapse;
-  border-spacing: 0;
-}
-
-[hidden] {
-  display: none;
-}
-
-/* $susy-media: (
-  mobile: (
-    media: screen,
-    min-width: 480px
-  ), // default
-  tablet: (
-    media: screen,
-    min-width: 768px
-  ),
-  desktop: (
-    media: screen,
-    min-width: 960px
-  )
-);
- */
-@font-face {
-  font-family: 'Montserrat';
-  src: url("../fonts/montserrat-bold-webfont.eot");
-  src: url("../fonts/montserrat-bold-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/montserrat-bold-webfont.woff2") format("woff2"), url("../fonts/montserrat-bold-webfont.woff") format("woff"), url("../fonts/montserrat-bold-webfont.ttf") format("truetype");
-  font-weight: 700;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'Montserrat';
-  src: url("../fonts/montserrat-regular-webfont.eot");
-  src: url("../fonts/montserrat-regular-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/montserrat-regular-webfont.woff2") format("woff2"), url("../fonts/montserrat-regular-webfont.woff") format("woff"), url("../fonts/montserrat-regular-webfont.ttf") format("truetype");
-  font-weight: 400;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'Roboto';
-  src: url("../fonts/roboto-light-webfont.eot");
-  src: url("../fonts/roboto-light-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/roboto-light-webfont.woff2") format("woff2"), url("../fonts/roboto-light-webfont.woff") format("woff"), url("../fonts/roboto-light-webfont.ttf") format("truetype");
-  font-weight: 300;
-  font-style: normal;
-}
-
-h1, h2, h3, h4, h5, h6 {
-  font-family: Montserrat, Arial, sans-serif;
-}
-
-p, input[type="text"], textarea, label {
-  font-family: Roboto, Tahoma, sans-serif;
-}
-
-a, input[type="button"], input[type="submit"], button {
-  font-family: Montserrat, Arial, sans-serif;
-}
-
 .promo {
   width: 1440px;
   height: 540px;
   background: #c6a57a url("../img/bg-promo.jpg") no-repeat center;
   background-size: cover;
+  padding-top: 38px;
+  font-family: Montserrat, Arial, sans-serif;
+  color: #fff;
 }
 
-@media (min-width: 768px) {
-  .promo {
-    height: 700px;
-  }
-}
-
-.susy {
+.promo .susy {
   max-width: 940px;
   margin-left: auto;
   margin-right: auto;
 }
 
-.susy:after {
+.promo .susy:after {
   content: " ";
   display: block;
   clear: both;
@@ -492,13 +237,13 @@ head:hover {
   color: red;
 }
 
-head:hover ~ .susy,
-head:hover ~ body .susy {
+head:hover ~ .promo .susy,
+head:hover ~ body .promo .susy {
   position: relative;
 }
 
-head:hover ~ .susy:before,
-head:hover ~ body .susy:before {
+head:hover ~ .promo .susy:before,
+head:hover ~ body .promo .susy:before {
   position: absolute;
   top: 0;
   left: 0;
@@ -513,30 +258,38 @@ head:hover ~ body .susy:before {
   background-position: left top;
 }
 
-.susy::after {
-  content: '';
-  display: block;
-  clear: both;
-}
-
-.header::after {
-  content: '';
-  display: block;
-  clear: both;
-}
-
-.logo {
-  width: 50%;
+.promo .header {
+  width: 100%;
   float: left;
   padding-left: 0.83333%;
   padding-right: 0.83333%;
-  height: 100px;
 }
 
-.login {
-  width: 50%;
+.promo .header::after {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+.promo .btn-login {
   float: right;
+  border-color: transparent;
+}
+
+.promo .btn-login:hover {
+  border-color: #fff;
+}
+
+@media (min-width: 768px) {
+  .promo {
+    height: 700px;
+  }
+}
+
+.search {
+  width: 100%;
+  float: left;
   padding-left: 0.83333%;
   padding-right: 0.83333%;
-  height: 100px;
+  background-color: lightgrey;
 }

@@ -1,0 +1,6 @@
+@import '../globals/globals';
+
+.howitworks {
+  @include span(12);
+  background-color: lightgrey;
+}
