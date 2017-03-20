@@ -1,6 +1,10 @@
 @import "susy";
 
-$susy_container: 1440px;
+$mobile: 320px;
+$tablet: 768px;
+$desktop: 1440px;
+
+$susy_container: 940px;
 $susy_columns: 12;
 $susy_gutter: 0.25;
 $susy: (
@@ -17,7 +21,7 @@ $susy: (
   )
 );
 
-$susy-media: (
+/* $susy-media: (
   mobile: (
     media: screen,
     min-width: 480px
@@ -31,3 +35,5 @@ $susy-media: (
     min-width: 960px
   )
 );
+ */
+

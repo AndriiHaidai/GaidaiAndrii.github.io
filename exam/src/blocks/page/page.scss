@@ -2,43 +2,48 @@
 
 .page {
 
-  @include container();
-  // @include clearfix();
-  background-color: red;
+  // @include container();
+  min-width: $mobile;
+  max-width: $desktop;
+  margin-left: auto;
+  margin-right: auto;
   
-  @media (min-width: 320px) {
-    background-color: green;
+  background-color: lightpink;
+  
+/*   @media (min-width: 320px) {
   }
   
   @media (min-width: 768px) {
-    background-color: blue;
   }
   
   @media (min-width: 1440px) {
-    background-color: yellow;
   }
+  
+  */
+
+  @media (min-width: 320px) {background-color: lightgreen; }
+  @media (min-width: 768px) {background-color: lightblue; }
+  @media (min-width: 1440px) {background-color: lightyellow; }
 }
 
-p {
-  @include span(8);
-  // display: block;
-  background-color: white;
-}
-
-ul {
-  @include span(4);
-  // display: block;
-  // float: none;
-  background-color: grey;
-}
-
-blockquote {
+.howitworks {
   @include span(12);
-  // display: block;
+  background-color: lightgrey;
+}
+.partners {
+  @include span(12);
+  background-color: lightgrey;
+}
+.ideas {
+  @include span(12);
+  background-color: lightgrey;
+}
+.search {
+  @include span(12);
+  background-color: lightgrey;
+}
+.footer {
+  @include span(12);
   background-color: lightgrey;
 }
 
-.div {
-  @include span(12);
-  background-color: lightyellow;
-}
