@@ -1,0 +1,6 @@
+@import '../globals/globals';
+
+.ideas {
+  @include span(12);
+  background-color: lightgrey;
+}

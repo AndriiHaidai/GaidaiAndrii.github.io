@@ -1,0 +1,64 @@
+@import '../globals/globals';
+
+.promo {
+  
+  width: $desktop;
+  height: 540px;
+  background: #c6a57a url('../img/bg-promo.jpg') no-repeat center;
+  background-size: cover;
+  padding-top: 38px;
+  
+  font-family: $font-main-bold;
+  font-weight: bold;
+  color: $main-white;
+
+  .susy {
+    @include container();
+    // @include clearfix;
+    // @include span(12);
+  }
+
+  .header {
+    @include span(12);
+    @include clearfix;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  @media (min-width: 320px) {
+  }
+  
+  @media (min-width: 768px) {
+    height: 700px;
+  }
+  
+  @media (min-width: 1440px) {
+  }
+
+}
+
+.btn-login {
+  float: right;
+  border-color: transparent;
+  
+  &:hover {
+    border-color: $main-white;
+  }
+}
+
+.slogan {
+  padding-top: 178px;
+  text-align: center;
+  line-height: 61px;
+  span {
+    letter-spacing: 1.0px;
+  }
+}
+
+.subslogan {
+  padding-top: 27px;
+  font-size: 24px;
+  font-family: $font-plain;
+  font-weight: lighter;
+  text-align: center;
+}

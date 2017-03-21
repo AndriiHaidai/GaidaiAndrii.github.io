@@ -1,0 +1,6 @@
+@import '../globals/globals';
+
+.partners {
+  @include span(12);
+  background-color: lightgrey;
+}

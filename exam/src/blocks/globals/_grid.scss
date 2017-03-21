@@ -1,0 +1,38 @@
+@import "susy";
+
+$mobile: 320px;
+$tablet: 768px;
+$desktop: 1440px;
+
+$susy_container: 940px;
+$susy_columns: 12;
+$susy_gutter: 0.25;
+$susy: (
+  gutter-position: inside, // before / after / inside.
+  container: $susy_container, // максимальная ширину в любых единицах, например px, em, rem и т.д.
+  container-position: center, // center / left / right
+  columns: $susy_columns, // количество колонок
+  gutters: $susy_gutter, // ширина пробельчика для каждой колонки
+  global-box-sizing: border-box, // можно еще content-box
+  debug: (
+    image: show, // варианты: show | hide | show-columns | show-baseline для показа всех вариантов колонок и линеечек
+    color: rgba(#66f, 0.4), // менять цвет у колонок
+    output: overlay, // background - постоянно, overlay - при наведении
+  )
+);
+
+// $susy-media: (
+//   mobile: (
+//     media: screen,
+//     min-width: 480px
+//   ), // default
+//   tablet: (
+//     media: screen,
+//     min-width: 768px
+//   ),
+//   desktop: (
+//     media: screen,
+//     min-width: 960px
+//   )
+// );
+

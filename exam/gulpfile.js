@@ -1,91 +1,95 @@
 /*jslint node: true */
 'use strict';
 
+const browserSync  = require('browser-sync');
+const pngquant     = require('imagemin-pngquant');
 const gulp         = require('gulp');
-const sass         = require('gulp-sass');
+const autoprefixer = require('gulp-autoprefixer');
 const concat       = require('gulp-concat');
 const cssnano      = require('gulp-cssnano');
-const browserSync  = require('browser-sync');
-const del          = require('del');
 const imagemin     = require('gulp-imagemin');
-const pngquant     = require('imagemin-pngquant');
-const cache        = require('gulp-cache');
-const autoprefixer = require('gulp-autoprefixer');
 const plugins      = require('gulp-load-plugins')();
-const sourcemaps   = require('gulp-sourcemaps');
-const gulpIf       = require('gulp-if'); // Это слишком мощная штука для цели ветвления потока от условия.
+const sass         = require('gulp-sass');
 
-const isDevelopement = !process.env.NODE_ENV || process.env.NODE_ENV == 'developement';
-// для установления режима 'Production' запускать не "gulp", а "NODE_ENV=production gulp" .
 
 const source = {
+  sassTools: './src/blocks/globals/tools.scss', 
   html: './src/index.html',
-  sass: ['./src/blocks/tools/*.scss', './src/blocks/default/*.scss', './src/blocks/**/*.scss'],
+  sass: ['./src/blocks/globals/*.scss', './src/blocks/**/*.scss'],
+  // sass: './src/blocks/**/*.scss',
   js: './src/blocks/**/*.js',
+  img: './src/img/**/*.{jpg,png}',
+  svgIco: './scr/img/**/*.svg'
 };
 
-const destination = {
-  folder: './src',
-  css: './src/css',
-  js: './src/js',
+const destin = {
+  html: './dest',
+  css: './dest/css',
+  js: './dest/js',
+  img: './dest/img',
+  svgSprite: './dest/sprite'
 };
 
-// gulp.task('cleaan', function() {
-//   return del(destination.folder);
-// });
-
-// Cleaning Dest folder
-gulp.task('clean', function() {
- return del.sync(destination.folder);
-});
-
-// Assembling .scss files
-gulp.task('styles' , function(){
-  return gulp.src(source.sass)
-  // .pipe(gulpIf(isDevelopement, sourcemaps.init()))
-  .pipe(sourcemaps.init())
-  .pipe(plugins.sass({
-    outputStyle: 'expanded', 
-    includePaths: ['node_modules/susy/sass']
-  }).on('error', plugins.sass.logError))
-  .pipe(plugins.concat('style.css'))
-  .pipe(autoprefixer({browsers: ['last 5 versions', 'IE 9'], cascade: true }))
-  // .pipe(gulpif(isDevelopement, sourcemaps.write()))
-  .pipe(sourcemaps.write())
-  .pipe(gulp.dest(destination.css))
+// HTML
+gulp.task('rigger', function() {
+  gulp.src(source.html)
+  .pipe(plugins.rigger())
+  .pipe(gulp.dest(destin.html))
   .pipe(browserSync.reload( {stream: true} ));
 });
 
-gulp.task('build', gulp.series('clean', 'styles'));
+// Styles
+gulp.task('styles' , function(){
+  return gulp.src(source.sass)
+  // .pipe(plugins.sourcemaps.init())
+  .pipe(plugins.sassGlobImport())
+  .pipe(plugins.sass({
+    outputStyle: 'expanded', 
+    includePaths: [source.sassTools, 'node_modules/susy/sass']
+  }).on('error', plugins.sass.logError))
+  .pipe(plugins.concat('style.css'))
+  .pipe(autoprefixer({browsers: ['last 5 versions', 'IE 9'], cascade: true }))
+  // .pipe(plugins.sourcemaps.write())
+  .pipe(gulp.dest(destin.css))
+  .pipe(browserSync.reload( {stream: true} ));
+});
 
-// Assembling .js files
+// Javascript
 gulp.task('bundleJs', function() {
   gulp.src(source.js)
-      // .pipe(plugins.concat('common.js'))
-      // .pipe(gulp.dest(destination.js))
-      .pipe(plugins.concat('common.min.js'))
-      .pipe(uglify())
-      .pipe(gulp.dest(destination.js))
-      .pipe(browserSync.reload( {stream: true} ));
+  .pipe(plugins.concat('common.min.js'))
+  .pipe(gulp.dest(destin.js))
+  .pipe(browserSync.reload( {stream: true} ));
 });
 
 
+// Images
+gulp.task('imgmin', function () {
+  gulp.src(source.img)
+  .pipe(imagemin({}))
+  .pipe(gulp.dest(destin.img))
+  .pipe(browserSync.reload({stream: true }));
+});
+
+
+// Watch
 gulp.task('watch', function(){
-  gulp.watch(source.html, browserSync.reload);
+  gulp.watch(destin.html, browserSync.reload);
+  gulp.watch(source.html, ['rigger'], browserSync.reload);
   gulp.watch(source.sass, {cwd: './'}, ['styles']);
+  gulp.watch(destin.img, {cwd: './'}, ['imgmin']);
   gulp.watch(source.js, {cwd: './'}, ['bundleJs']);
 });
+
 
 gulp.task('browser-sync', function(){
   browserSync({
     server: {
-      baseDir: 'src'
+      baseDir: './dest'
     },
     notify: false
   });
 });
 
 
-// gulp.task('default', ['browser-sync', 'styles', 'bundleJs', 'watch']);
-gulp.task('default', gulp.series('browser-sync', 'styles', 'bundleJs', 'watch'));
-
+gulp.task('default', ['browser-sync', 'rigger', 'styles', 'imgmin', 'bundleJs', 'watch']);

@@ -1,0 +1,16 @@
+@import '../globals/globals';
+
+.page {
+
+  min-width: $mobile;
+  max-width: $desktop;
+  margin-left: auto;
+  margin-right: auto;
+  
+  background-color: lightpink;
+
+  @media (min-width: 320px) {background-color: lightgreen; }
+  @media (min-width: 768px) {background-color: lightblue; }
+  @media (min-width: 1440px) {background-color: lightyellow; }
+
+}
