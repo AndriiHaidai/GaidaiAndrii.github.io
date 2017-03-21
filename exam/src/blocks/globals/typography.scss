@@ -1,7 +1,7 @@
 @import '../globals/globals';
 
 @font-face {
-  font-family: 'Montserrat';
+  font-family: 'MontserratBold';
   src: url('../fonts/montserrat-bold-webfont.eot');
   src: url('../fonts/montserrat-bold-webfont.eot?#iefix') format('embedded-opentype'),
   url('../fonts/montserrat-bold-webfont.woff2') format('woff2'),
@@ -12,7 +12,7 @@
 }
 
 @font-face {
-  font-family: 'Montserrat';
+  font-family: 'MontserratReg';
   src: url('../fonts/montserrat-regular-webfont.eot');
   src: url('../fonts/montserrat-regular-webfont.eot?#iefix') format('embedded-opentype'),
   url('../fonts/montserrat-regular-webfont.woff2') format('woff2'),
@@ -33,8 +33,9 @@
   font-style: normal;
 }
 
+
 h1, h2, h3, h4, h5, h6 {
-  font-family: $font-main;
+  font-family: $font-main-bold;
 }
 
 p, input[type="text"], textarea, label {
@@ -43,4 +44,10 @@ p, input[type="text"], textarea, label {
 
 a, input[type="button"], input[type="submit"], button {
   font-family: $font-main;
+}
+
+h1 {
+  font-size: 52px;
+  text-transform: uppercase;
+  // font-weight: 700;
 }

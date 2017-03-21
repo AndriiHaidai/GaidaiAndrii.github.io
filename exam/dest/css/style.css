@@ -47,6 +47,12 @@ body {
   line-height: 1;
 }
 
+a {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+
 ol, ul {
   list-style: none;
 }
@@ -71,10 +77,9 @@ table {
 }
 
 /************** End of Reset **************/
-/* Globals:Tools */
 
 @font-face {
-  font-family: 'Montserrat';
+  font-family: 'MontserratBold';
   src: url("../fonts/montserrat-bold-webfont.eot");
   src: url("../fonts/montserrat-bold-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/montserrat-bold-webfont.woff2") format("woff2"), url("../fonts/montserrat-bold-webfont.woff") format("woff"), url("../fonts/montserrat-bold-webfont.ttf") format("truetype");
   font-weight: 700;
@@ -82,7 +87,7 @@ table {
 }
 
 @font-face {
-  font-family: 'Montserrat';
+  font-family: 'MontserratReg';
   src: url("../fonts/montserrat-regular-webfont.eot");
   src: url("../fonts/montserrat-regular-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/montserrat-regular-webfont.woff2") format("woff2"), url("../fonts/montserrat-regular-webfont.woff") format("woff"), url("../fonts/montserrat-regular-webfont.ttf") format("truetype");
   font-weight: 400;
@@ -98,7 +103,7 @@ table {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: Montserrat, Arial, sans-serif;
+  font-family: MontserratBold, Arial, sans-serif;
 }
 
 p, input[type="text"], textarea, label {
@@ -106,16 +111,22 @@ p, input[type="text"], textarea, label {
 }
 
 a, input[type="button"], input[type="submit"], button {
-  font-family: Montserrat, Arial, sans-serif;
+  font-family: MontserratReg, Arial, sans-serif;
+}
+
+h1 {
+  font-size: 52px;
+  text-transform: uppercase;
 }
 
 .btn {
-  padding-left: 19px;
-  padding-right: 19px;
+  padding-left: 17px;
+  padding-right: 17px;
   border: 2px solid #f66;
   border-radius: 50px;
   font-size: 14px;
-  line-height: 39px;
+  font-weight: bold;
+  line-height: 32px;
   text-decoration: none;
 }
 
@@ -123,9 +134,33 @@ a, input[type="button"], input[type="submit"], button {
   cursor: pointer;
 }
 
+.btn-promo {
+  display: block;
+  padding-left: 21px;
+  line-height: 36px;
+  margin-top: 37px;
+  width: 226px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #f66;
+}
+
+.btn-promo span {
+  letter-spacing: 0.8px;
+}
+
+.btn-promo:hover {
+  cursor: pointer;
+  background-color: rgba(255, 102, 102, 0.7);
+  border-color: transparent;
+}
+
 .logo {
+  display: block;
   float: left;
   font-size: 20px;
+  padding-top: 10px;
+  letter-spacing: 0.9px;
 }
 
 .logo:hover {
@@ -197,7 +232,8 @@ a, input[type="button"], input[type="submit"], button {
   background: #c6a57a url("../img/bg-promo.jpg") no-repeat center;
   background-size: cover;
   padding-top: 38px;
-  font-family: Montserrat, Arial, sans-serif;
+  font-family: MontserratBold, Arial, sans-serif;
+  font-weight: bold;
   color: #fff;
 }
 
@@ -263,6 +299,8 @@ head:hover ~ body .promo .susy:before {
   float: left;
   padding-left: 0.83333%;
   padding-right: 0.83333%;
+  padding-left: 0;
+  padding-right: 0;
 }
 
 .promo .header::after {
@@ -271,19 +309,37 @@ head:hover ~ body .promo .susy:before {
   clear: both;
 }
 
-.promo .btn-login {
-  float: right;
-  border-color: transparent;
-}
-
-.promo .btn-login:hover {
-  border-color: #fff;
-}
-
 @media (min-width: 768px) {
   .promo {
     height: 700px;
   }
+}
+
+.btn-login {
+  float: right;
+  border-color: transparent;
+}
+
+.btn-login:hover {
+  border-color: #fff;
+}
+
+.slogan {
+  padding-top: 178px;
+  text-align: center;
+  line-height: 61px;
+}
+
+.slogan span {
+  letter-spacing: 1.0px;
+}
+
+.subslogan {
+  padding-top: 27px;
+  font-size: 24px;
+  font-family: Roboto, Tahoma, sans-serif;
+  font-weight: lighter;
+  text-align: center;
 }
 
 .search {

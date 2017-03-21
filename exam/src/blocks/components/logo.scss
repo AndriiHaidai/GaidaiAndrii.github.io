@@ -1,8 +1,12 @@
 @import '../globals/globals';
 
 .logo {
+  display: block;
   float: left;
   font-size: 20px;
+  padding-top: 10px;
+  // letter-spacing: 1.3px;
+  letter-spacing: 0.9px;
   
   &:hover {
     cursor: pointer;
