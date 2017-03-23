@@ -1,6 +1,17 @@
 @import '../globals/globals';
 
-.howitworks {
-  @include span(12);
+.hiw {
+  @include container();
+  @include span(12 of 12);
   background-color: lightgrey;
+}
+
+.hiw__header {
+  text-align: center;
+  padding-top: 37px;
+  font-size: 22px;
+}
+
+.hiw__steps {
+  padding-top: 10px;
 }

@@ -6,34 +6,35 @@
   border: 2px solid $main-red;
   border-radius: 50px;
   font-size: 14px;
-  font-weight: bold;
   line-height: 32px;
   text-decoration: none;
+  background-color: transparent;
+  color: inherit;
   
   &:hover {
     cursor: pointer;
   }
 }
 
-.btn-promo {
+.promo__btn-gostart {
   display: block;
-  padding-left: 21px;
   line-height: 36px;
-  margin-top: 37px;
-  width: 226px;
+  margin-top: 16px;
+  width: 280px;
   margin-left: auto;
   margin-right: auto;
   background-color: $main-red;
+  text-align: center;
   
-  span {
-    letter-spacing: 0.8px;
-  }
-
   &:hover {
-    cursor: pointer;
-    // color: $main-red;
     background-color: rgba($main-red, 0.7);
     border-color: transparent;
+  }
+
+  @media (min-width: $mediaTablet) {
+    padding-left: 21px;
+    margin-top: 37px;
+    width: 226px;
   }
 
 }

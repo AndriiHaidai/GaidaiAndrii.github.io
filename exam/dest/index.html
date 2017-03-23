@@ -4,31 +4,66 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, maximum-scale=1, initial-scale=1, user-scalable=no">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700|Roboto:300" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
   <title>Exam_Andrii.Gaidai</title>
 </head>
 <body class="page">
 
   <section class="promo">
-    <div class="susy">
-      <div class="header">
-        <a href="#" class="logo">URLAUBSGLÜCK</a>
-        <!-- <div class="logo">URLAUBSGLÜCK</div> -->
-        <div class="btn btn-login">Sign up</div>
-        <div class="btn btn-login">Log in</div>
+    <div class="promo__wraper">
+      <div class="promo__header">
+        <a href="#" class="promo__logo">URLAUBSGLÜCK</a>
+        <div class="promo__login">
+          <button class="btn promo__login-btn">Sign up</button>
+          <button class="btn promo__login-btn">Log in</button>
+        </div>
       </div>
-      <h1 class="slogan">Share your<br><span>holiday dreams</span></h1>
-      <h2 class="subslogan">And find the perfect partner to fullfill it</h2>
-      <a href="#" class="btn btn-promo">Find your holiday <span>partner</span></a>
+      <h1 class="promo__slogan">Share your<br>holiday dreams</h1>
+      <h2 class="promo__subslogan">And find the perfect partner to fullfill it</h2>
+      <a href="#" class="btn promo__btn-gostart">Find your holiday partner</a>
     </div>
   </section>
-  <section class="howitworks"></section>
+  <section class="hiw"> <!-- hiw = howitworks -->
+    <h2 class="hiw__header">How Urlaubsglück works?</h2>
+    <div class="hiw__steps">
+      <!-- Тут 3 карусели -->
+      <div class="crsl">
+        <div class="crsl__arrow crsl__arrow-left"><span></span></div>
+<!--         <div class="icon">
+          <i class="icon-btn-prev"></i>
+        </div> -->
+        <div class="crsl__hider">
+          <ul class="crsl__list">
+            <li class="crsl__element">
+              <img src="img/step1.jpg" alt="step1.jpg">
+              <div class="crsl__descr">description</div>
+              <p>Описание 1</p>
+            </li>
+            <li class="crsl__element">
+              <img src="img/step2.jpg" alt="step2.jpg">
+              <div class="crsl__descr"></div>
+              <p>Описание 2</p>
+            </li>
+            <li class="crsl__element">
+              <img src="img/step3.jpg" alt="step3.jpg">
+              <div class="crsl__descr"></div>
+              <p>Описание 3</p>
+            </li>
+          </ul>
+        </div>
+        <div class="crsl__arrow crsl__arrow-right"><span></span></div>
+      </div>
+    </div>
+  </section>
   <section class="partners"></section>
   <section class="ideas"></section>
   <section class="search"></section>
   <section class="footer"></section>
 
-  <script src="js/common.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <!-- <script src="js/jquery.templateResig.js"></script> -->
+  <script src="js/jQuery.carousel.js"></script>
+  <script src="js/common.min.js"></script>
 </body>
 </html>

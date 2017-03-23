@@ -1,0 +1,63 @@
+.crsl {
+  display: block;
+  visibility: hidden;
+  margin: 15px auto;
+  width: 1219px;
+  &::after {
+    content: '';
+    display: block;
+    clear: both;
+  }
+}
+
+.crsl__arrow {
+  display: block;
+  float: left;
+  margin-top: 80px;
+  padding: 5px;
+  border: 1px solid grey;
+  border-radius: 5px;
+  background-color: lightgrey;
+  background-image: url('../img/btn-prev.svg');
+  
+  &:hover {
+    cursor: pointer;
+    background-color: grey;
+  }
+
+  &-left {
+    margin-right: 15px;
+  }
+
+  &-right {
+    margin-left: 15px;
+  }
+}
+
+.crsl__hider {
+  float: left;
+  width: 1075px;
+  overflow: hidden;
+}
+
+.crsl__list {
+  position: relative;
+  width: 10000px;
+}
+
+.crsl__element {
+  display: block;
+  float: left;
+  margin-right: 25px;
+  text-align: center;
+  position: relative;
+  
+  & img {
+    max-width: 250px;
+  }
+}
+
+.crsl__descr {
+  position: absolute;
+  top: -50px;
+}

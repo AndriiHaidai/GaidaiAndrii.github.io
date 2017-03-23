@@ -1,14 +1,3 @@
-
-$(function() {
-  
-  $('.crsl').carousel({
-    picturesVisible: 1,
-    pictureWidthPixels: 300,
-    gutterPixels: 35
-  });
-
-});
-
 (function($, undefined) {
   'use strict()';
 
@@ -81,6 +70,5 @@ $(function() {
   };
 
 })(jQuery);
-
 
 
