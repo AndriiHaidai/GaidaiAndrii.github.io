@@ -146,20 +146,10 @@ a, input[type="button"], input[type="submit"], button {
   }
 }
 
-.icon {
-  position: relative;
-  left: 50px;
-  z-index: 10;
-}
-
-.icon * {
-  display: block;
-  z-index: 20;
-}
 
 .promo__logo {
   display: block;
-  padding-top: 115px;
+  margin-top: 115px;
   font-size: 20px;
 }
 
@@ -269,7 +259,11 @@ To change `display` (e.g. `display: inline-block;`), we suggest using a common C
   display: block;
   visibility: hidden;
   margin: 15px auto;
+  margin-left: 10px;
+  margin-right: 10px;
   width: 1219px;
+  width: 100%;
+  min-width: 300px;
 }
 
 .crsl::after {
@@ -305,6 +299,7 @@ To change `display` (e.g. `display: inline-block;`), we suggest using a common C
 .crsl__hider {
   float: left;
   width: 1075px;
+  width: 300px;
   overflow: hidden;
 }
 
@@ -322,7 +317,16 @@ To change `display` (e.g. `display: inline-block;`), we suggest using a common C
 }
 
 .crsl__element img {
-  max-width: 250px;
+  max-width: 300px;
+}
+
+.crsl__element .icon {
+  position: absolute;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  z-index: 10;
 }
 
 .crsl__descr {
@@ -338,6 +342,8 @@ To change `display` (e.g. `display: inline-block;`), we suggest using a common C
   float: left;
   padding-left: 0.83333%;
   padding-right: 0.83333%;
+  padding-left: 0;
+  padding-right: 0;
   background-color: lightgrey;
 }
 

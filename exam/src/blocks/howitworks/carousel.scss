@@ -1,8 +1,17 @@
+$picturesVisible: 1;
+$pictureWidthPixels: 300px;
+$gutterPixels: 20px;
+$hiderWidth: ($pictureWidthPixels * $picturesVisible) + ($gutterPixels * ($picturesVisible - 1));
+
 .crsl {
   display: block;
   visibility: hidden;
   margin: 15px auto;
+  margin-left: 10px;
+  margin-right: 10px;
   width: 1219px;
+  width: 100%;
+  min-width: $pictureWidthPixels;
   &::after {
     content: '';
     display: block;
@@ -37,6 +46,7 @@
 .crsl__hider {
   float: left;
   width: 1075px;
+  width: $hiderWidth;
   overflow: hidden;
 }
 
@@ -53,7 +63,21 @@
   position: relative;
   
   & img {
-    max-width: 250px;
+    max-width: 300px;
+  }
+
+  .icon {
+    position: absolute;
+    display: flex;
+    width: 100%;
+    // top: 50%;
+    // left: 50px;
+    z-index: 10;
+    
+    // * {
+    //   display: block;
+    //   z-index: 20;
+    // }
   }
 }
 

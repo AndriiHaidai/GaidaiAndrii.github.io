@@ -21,7 +21,7 @@
     var $containerWidth = $hiderWidth + $buttonsWidthOuter;
     $container.width($containerWidth + 'px');
     var $carouselHider = $container.children('.crsl__hider');
-    $carouselHider.width($hiderWidth + 'px');
+    // $carouselHider.width($hiderWidth + 'px');
     var $carouselElements = $carouselHider.find('.crsl__element');
     $carouselElements.css('margin-right', settings.gutterPixels + 'px');
     var $carouselImages = $carouselHider.find('img');
