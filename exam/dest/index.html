@@ -6,6 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link href="https://fonts.googleapis.com/css?family=Roboto:300" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
+  <link rel="shortcut icon" href="favicon.ico"/>
   <title>Exam_Andrii.Gaidai</title>
 </head>
 <body class="page">
@@ -24,47 +25,60 @@
       <a href="#" class="btn promo__btn-gostart">Find your holiday partner</a>
     </div>
   </section>
-  <section class="hiw"> <!-- hiw = howitworks -->
-    <h2 class="hiw__header">How Urlaubsglück works?</h2>
-    <div class="hiw__steps">
-      <!-- Тут 3 карусели -->
-      <div class="crsl">
-        <!-- <div class="crsl__arrow crsl__arrow-left"><span></span></div> -->
-        <div class="crsl__hider">
-          <ul class="crsl__list">
-            <li class="crsl__element">
-              <div class="icon">
-                <i class="icon-btn-prev"></i>
-                <i class="icon-btn-next"></i>
-              </div>
-              <img src="img/step1.jpg" alt="step1.jpg">
-              <div class="crsl__descr">description</div>
-              <p>Описание 1</p>
-            </li>
-            <li class="crsl__element">
-              <img src="img/step2.jpg" alt="step2.jpg">
-              <div class="crsl__descr"></div>
-              <p>Описание 2</p>
-            </li>
-            <li class="crsl__element">
-              <img src="img/step3.jpg" alt="step3.jpg">
-              <div class="crsl__descr"></div>
-              <p>Описание 3</p>
-            </li>
-          </ul>
-        </div>
-        <!-- <div class="crsl__arrow crsl__arrow-right"><span></span></div> -->
-      </div>
-    </div>
-  </section>
-  <section class="partners"></section>
-  <section class="ideas"></section>
-  <section class="search"></section>
-  <section class="footer"></section>
+  <div class="page__wrapper">
+    <section class="hiw"> <!-- hiw = howitworks -->
+      <h2 class="hiw__header">How Urlaubsglück works?</h2>
+      <div class="hiw__steps">
+        <!-- Тут 3 карусели -->
 
+        <div class="carousel-container">
+          <div class="carousel-hider">
+            <ul class="carousel-list">
+              <li class="carousel-element">
+                <img class="carousel-element-img" src="img/step1.jpg" alt="">
+                <div class="carousel-element-description">
+                  <button class="btn carousel-element-btn">Step 1</button>
+                  <h3 class="carousel-element-header">Заголовок элемента 1</h3>
+                  <p class="carousel-element-text">Текст. Описание элемента 1.</p>
+                </div>
+              </li>
+              <li class="carousel-element">
+                <img class="carousel-element-img" src="img/step2.jpg" alt="">
+                <div class="carousel-element-description">
+                  <button class="btn carousel-element-btn">Step 2</button>
+                  <h3 class="carousel-element-header">Заголовок элемента 2</h3>
+                  <p class="carousel-element-text">Текст. Описание элемента 2.</p>
+                </div>
+              </li>
+              <li class="carousel-element">
+                <img class="carousel-element-img" src="img/step3.jpg" alt="">
+                <div class="carousel-element-description">
+                  <button class="btn carousel-element-btn">Step 3</button>
+                  <h3 class="carousel-element-header">Заголовок элемента 3</h3>
+                  <p class="carousel-element-text">Текст. Описание элемента 3.</p>
+                </div>
+              </li>
+            </ul>
+            <div class="carousel-controls">
+              <div class="carousel-arrow carousel-controls-prev icon-btn-prev"></div>
+              <div class="carousel-arrow carousel-controls-next icon-btn-next"></div>
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+    </section>
+    <section class="partners"></section>
+    <section class="ideas"></section>
+    <section class="search"></section>
+    <section class="footer"></section>
+  </div>
+  
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <!-- <script src="js/jquery.templateResig.js"></script> -->
-  <script src="js/jQuery.carousel.js"></script>
+  <!-- <script src="js/jQuery.carousel.js"></script> -->
+  
   <script src="js/common.min.js"></script>
 </body>
 </html>

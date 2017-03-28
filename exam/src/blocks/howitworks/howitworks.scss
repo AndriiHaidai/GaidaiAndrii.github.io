@@ -9,11 +9,27 @@
 }
 
 .hiw__header {
+  @include span(12 of 12);
   text-align: center;
-  padding-top: 37px;
+  margin-top: 37px;
+  // padding-top: 37px;
   font-size: 22px;
+  // overflow: hidden;
 }
 
 .hiw__steps {
-  padding-top: 10px;
+  @include span(12 of 12);
+  margin-top: 16px;
+  padding-left: 0;
+  padding-right: 0;
+  // overflow: hidden;
+  
+  @media (min-width: $mediaTablet) {
+    ///
+  }
+
+  @media (min-width: $desktop) {
+    ///
+  }
+
 }

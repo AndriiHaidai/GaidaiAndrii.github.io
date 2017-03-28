@@ -19,8 +19,8 @@ const merge  = require('merge-stream');
 const source = {
   sassTools: './src/blocks/globals/tools.scss', 
   html: './src/index.html',
-  sass: ['./src/blocks/globals/*.scss', './src/blocks/**/*.scss'],
-  js: './src/blocks/**/*.js',
+  sass: ['./src/libs/*.scss', './src/blocks/globals/*.scss', './src/blocks/**/*.scss'],
+  js: ['./src/libs/**/*.js', './src/blocks/**/*.js'],
   img: './src/img/**/*.{jpg,png}',
   sprite: './src/sprite/icons/*.png'
 };
@@ -103,7 +103,7 @@ gulp.task('watch', function(){
   gulp.watch(destin.html, browserSync.reload);
   gulp.watch(source.html, ['rigger'], browserSync.reload);
   gulp.watch(source.sass, {cwd: './'}, ['styles']);
-  gulp.watch(destin.img, {cwd: './'}, ['imgmin']);
+  // gulp.watch(destin.img, {cwd: './'}, ['imgmin']);
   gulp.watch(destin.sprite, {cwd: './'}, ['sprite']);
   gulp.watch(source.js, {cwd: './'}, ['bundleJs']);
 });
