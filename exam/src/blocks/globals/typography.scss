@@ -22,17 +22,6 @@
   font-style: normal;
 }
 
-@font-face {
-  font-family: 'Roboto';
-  src: url('../fonts/roboto-light-webfont.eot');
-  src: url('../fonts/roboto-light-webfont.eot?#iefix') format('embedded-opentype'),
-  url('../fonts/roboto-light-webfont.woff2') format('woff2'),
-  url('../fonts/roboto-light-webfont.woff') format('woff'),
-  url('../fonts/roboto-light-webfont.ttf') format('truetype');
-  font-weight: 300;
-  font-style: normal;
-}
-
 
 h1, h2, h3, h4, h5, h6 {
   font-family: $font-main-bold;
@@ -44,10 +33,4 @@ p, input[type="text"], textarea, label {
 
 a, input[type="button"], input[type="submit"], button {
   font-family: $font-main;
-}
-
-h1 {
-  font-size: 52px;
-  text-transform: uppercase;
-  // font-weight: 700;
 }

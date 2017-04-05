@@ -1,0 +1,12 @@
+@import '../globals/globals';
+
+.icon {
+  display: block;
+  z-index: 10;
+  visibility: hidden;
+  
+  @media (min-width: $mediaTablet) {
+    visibility: visible;
+  }
+  
+}

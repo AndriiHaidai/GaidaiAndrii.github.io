@@ -1,15 +1,31 @@
 @import '../globals/globals';
 
-.logo {
+.promo__logo {
   display: block;
-  float: left;
+  margin-top: 115px;
   font-size: 20px;
-  padding-top: 10px;
-  // letter-spacing: 1.3px;
-  letter-spacing: 0.9px;
   
   &:hover {
     cursor: pointer;
     color: $main-red;
   }
+
+  @media (min-width: $mediaTablet) {
+    float: left;
+    font-size: 20px;
+    padding-top: 2px;
+    letter-spacing: 0.9px;
+  }
+  
+}
+
+.promo__login {
+  display: flex;
+  flex-direction: row-reverse;
+  
+  @media (min-width: $mediaTablet) {
+    justify-content: space-around;
+    align-self: flex-end;
+  }
+  
 }

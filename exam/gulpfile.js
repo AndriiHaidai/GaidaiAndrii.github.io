@@ -10,16 +10,19 @@ const cssnano      = require('gulp-cssnano');
 const imagemin     = require('gulp-imagemin');
 const plugins      = require('gulp-load-plugins')();
 const sass         = require('gulp-sass');
+const spritesmith  = require('gulp.spritesmith');
+
+const buffer = require('vinyl-buffer');
+const merge  = require('merge-stream');
 
 
 const source = {
   sassTools: './src/blocks/globals/tools.scss', 
   html: './src/index.html',
-  sass: ['./src/blocks/globals/*.scss', './src/blocks/**/*.scss'],
-  // sass: './src/blocks/**/*.scss',
-  js: './src/blocks/**/*.js',
+  sass: ['./src/libs/*.scss', './src/blocks/globals/*.scss', './src/blocks/**/*.scss'],
+  js: ['./src/libs/**/*.js', './src/blocks/**/*.js'],
   img: './src/img/**/*.{jpg,png}',
-  svgIco: './scr/img/**/*.svg'
+  sprite: './src/sprite/icons/*.png'
 };
 
 const destin = {
@@ -27,7 +30,7 @@ const destin = {
   css: './dest/css',
   js: './dest/js',
   img: './dest/img',
-  svgSprite: './dest/sprite'
+  sprite: './src/sprite'
 };
 
 // HTML
@@ -39,19 +42,42 @@ gulp.task('rigger', function() {
 });
 
 // Styles
-gulp.task('styles' , function(){
+gulp.task('styles', ['sprite'], function() {
   return gulp.src(source.sass)
-  // .pipe(plugins.sourcemaps.init())
-  .pipe(plugins.sassGlobImport())
-  .pipe(plugins.sass({
-    outputStyle: 'expanded', 
-    includePaths: [source.sassTools, 'node_modules/susy/sass']
-  }).on('error', plugins.sass.logError))
-  .pipe(plugins.concat('style.css'))
-  .pipe(autoprefixer({browsers: ['last 5 versions', 'IE 9'], cascade: true }))
-  // .pipe(plugins.sourcemaps.write())
-  .pipe(gulp.dest(destin.css))
-  .pipe(browserSync.reload( {stream: true} ));
+    // .pipe(plugins.sourcemaps.init())
+    .pipe(plugins.sassGlobImport())
+    .pipe(plugins.sass({
+      outputStyle: 'expanded', 
+      includePaths: [source.sassTools, 'node_modules/susy/sass']
+    }).on('error', plugins.sass.logError))
+    .pipe(plugins.concat('style.css'))
+    .pipe(autoprefixer({browsers: ['last 5 versions', 'IE 9'], cascade: true }))
+    // .pipe(plugins.sourcemaps.write())
+    // .pipe(cssnano()) - Это куда вообще внедрять?..
+    .pipe(gulp.dest(destin.css))
+    .pipe(browserSync.reload( {stream: true} ));
+});
+
+
+//Sprite
+gulp.task('sprite', function() {
+  var spriteData = gulp.src(source.sprite).pipe(spritesmith({
+    imgName: 'sprite.png',
+    cssName: 'sprite.css',
+    imgPath: '../img/sprite.png'
+  }));
+
+  var imgStream = spriteData.img
+    .pipe(buffer())
+    .pipe(imagemin())
+    .pipe(gulp.dest(destin.img));
+
+  var cssStream = spriteData.css
+    .pipe(plugins.rename('sprite.scss'))
+    .pipe(gulp.dest('./src/blocks/components'));
+
+  return merge(imgStream, cssStream);
+
 });
 
 // Javascript
@@ -77,7 +103,8 @@ gulp.task('watch', function(){
   gulp.watch(destin.html, browserSync.reload);
   gulp.watch(source.html, ['rigger'], browserSync.reload);
   gulp.watch(source.sass, {cwd: './'}, ['styles']);
-  gulp.watch(destin.img, {cwd: './'}, ['imgmin']);
+  // gulp.watch(destin.img, {cwd: './'}, ['imgmin']);
+  gulp.watch(destin.sprite, {cwd: './'}, ['sprite']);
   gulp.watch(source.js, {cwd: './'}, ['bundleJs']);
 });
 
@@ -92,4 +119,4 @@ gulp.task('browser-sync', function(){
 });
 
 
-gulp.task('default', ['browser-sync', 'rigger', 'styles', 'imgmin', 'bundleJs', 'watch']);
+gulp.task('default', ['browser-sync', 'rigger', 'styles', 'imgmin', 'sprite', 'bundleJs', 'watch']);

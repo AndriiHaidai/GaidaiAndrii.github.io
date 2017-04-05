@@ -1,6 +1,29 @@
 @import '../globals/globals';
 
-.howitworks {
-  @include span(12);
+.hiw {
+  @include span(12 of 12);
+  padding-left: 0;
+  padding-right: 0;
   background-color: lightgrey;
+}
+
+.hiw__header {
+  text-align: center;
+  margin-top: 37px;
+  font-size: 22px;
+}
+
+.hiw__steps {
+  margin-top: 16px;
+  padding-left: 0;
+  padding-right: 0;
+  
+  @media (min-width: $mediaTablet) {
+    ///
+  }
+
+  @media (min-width: $desktop) {
+    ///
+  }
+
 }
