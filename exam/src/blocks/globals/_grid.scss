@@ -4,8 +4,11 @@ $scrollbar: 17px;
 
 $mobile: 320px;
 $mediaMobile: $mobile + $scrollbar;
+
 $tablet: 768px;
+$mediaTablet: $tablet;
 $mediaTablet: $tablet + $scrollbar;
+
 $desktop: 1440px;
 $mediaDesktop: $desktop + $scrollbar;
 

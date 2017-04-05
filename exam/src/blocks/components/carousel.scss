@@ -1,42 +1,48 @@
+@import '../globals/globals';
+
 .carousel-container {
-  display: block;
+  @include span(full 12 of 12);
+  display: flex;
+  justify-content: center;
   visibility: hidden;
-  margin: 15px auto;
-  width: 1219px;
+  // margin: 15px auto;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  padding-left: 0;
+  padding-right: 0;
+  width: 100%;
+  
   &::after {
     content: '';
     display: block;
     clear: both;
   }
-}
 
-.carousel-arrow {
-  display: block;
-  float: left;
-  margin-top: 80px;
-  padding: 5px;
-  border: 1px solid grey;
-  border-radius: 5px;
-  background-color: lightgrey;
-  
-  &:hover {
-    cursor: pointer;
-    background-color: grey;
+  @media (min-width: $mediaTablet) {
+    @include span(4 of 12);
+    &:first-child {
+      padding-left: 0;
+    }
+    &:nth-child(3) {
+      padding-right: 0;
+    }
   }
 
-  &-left {
-    margin-right: 15px;
-  }
+    // @media (min-width: $desktop) {
+    //   @include span(4 of 12);
+    // } 
 
-  &-right {
-    margin-left: 15px;
-  }
 }
 
 .carousel-hider {
+  position: relative;
   float: left;
-  width: 1075px;
   overflow: hidden;
+  border-radius: 4px;
+  
+  &:hover .carousel-element {
+    box-shadow: none;
+  }
 }
 
 .carousel-list {
@@ -45,12 +51,136 @@
 }
 
 .carousel-element {
+  position: relative;
   display: block;
   float: left;
   margin-right: 25px;
-  text-align: center;
+  height: 240px;
   
-  & img {
-    max-width: 250px;
+  max-width: 358px;
+  
+  background-size: cover;
+  background-position: top center;
+  background-repeat: no-repeat;
+  
+  box-shadow: 0px -360px 240px -240px rgba(0, 0, 0, 0.6) inset;
+
+    @media (min-width: $mediaTablet) {
+      max-width: 620px;
+      height: 400px;
+    }
+
+  //   @media (min-width: $desktop) {
+  //     ///
+  //   } 
+
+  &-1 {
+    background-image: url(../img/Mobile-step1.jpg);
+    
+    @media (min-width: $mediaTablet) {
+      background-image: url(../img/Desktop-step1.jpg);
+    }
+
+  }
+
+  &-2 {
+    background-image: url(../img/Mobile-step2.jpg);
+    
+    @media (min-width: $mediaTablet) {
+      background-image: url(../img/Desktop-step2.jpg);
+    }
+
+  }
+
+  &-3 {
+    background-image: url(../img/Mobile-step3.jpg);
+
+    @media (min-width: $mediaTablet) {
+      background-image: url(../img/Desktop-step3.jpg);
+    }
+
+  }
+  
+  &-description {
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    padding-left: 20px;
+    padding-right: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-start;
+    z-index: 10;
+    color: $main-white;
+
+    .carousel-element-btn {
+      width: 70px;
+      background-color: $main-red;
+      font-family: $font-main;
+      font-size: 10px;
+      line-height: 14px;
+      margin-bottom: 15px;
+    }
+
+    .carousel-element-header {
+      font-family: $font-main-bold;
+      font-size: 24px;
+      line-height: 29px;
+      margin-bottom: 12px;
+    }
+    .carousel-element-text {
+      color: $plain-on-dark;
+      font-family: $font-plain;
+      font-size: 14px;
+      line-height: 16px;
+      margin-bottom: 17px;
+    }
+    
   }
 }
+
+
+.carousel-controls {
+  position: absolute;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  z-index: 10;
+  height: 100%;
+  
+  @media (min-width: $mediaTablet) {
+    // height: auto;
+  }
+  
+  .carousel-controls-next>.icon {
+    float: right;
+  } 
+  .carousel-controls-prev,
+  .carousel-controls-next {
+    width: 50%;
+
+    @media (min-width: $mediaTablet) {
+      padding: 40px 20px;
+    }
+
+    @media (min-width: $desktop) {
+      padding-top: 150px;
+    }
+
+    &:hover {
+      opacity: 0.7;
+      cursor: pointer;
+    }
+
+  }
+} 
+
+
+  // @media (min-width: $mediaTablet) {
+  //   ///
+  // }
+
+  // @media (min-width: $desktop) {
+  //   ///
+  // }

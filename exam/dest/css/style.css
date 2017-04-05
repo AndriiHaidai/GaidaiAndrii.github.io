@@ -147,10 +147,22 @@ a, input[type="button"], input[type="submit"], button {
 }
 
 .carousel-container {
-  display: block;
+  width: 100%;
+  float: left;
+  padding-left: 0.83333%;
+  padding-right: 0.83333%;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   visibility: hidden;
-  margin: 15px auto;
-  width: 1219px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  padding-left: 0;
+  padding-right: 0;
+  width: 100%;
 }
 
 .carousel-container::after {
@@ -159,33 +171,30 @@ a, input[type="button"], input[type="submit"], button {
   clear: both;
 }
 
-.carousel-arrow {
-  display: block;
-  float: left;
-  margin-top: 80px;
-  padding: 5px;
-  border: 1px solid grey;
-  border-radius: 5px;
-  background-color: lightgrey;
-}
-
-.carousel-arrow:hover {
-  cursor: pointer;
-  background-color: grey;
-}
-
-.carousel-arrow-left {
-  margin-right: 15px;
-}
-
-.carousel-arrow-right {
-  margin-left: 15px;
+@media (min-width: 785px) {
+  .carousel-container {
+    width: 33.33333%;
+    float: left;
+    padding-left: 0.83333%;
+    padding-right: 0.83333%;
+  }
+  .carousel-container:first-child {
+    padding-left: 0;
+  }
+  .carousel-container:nth-child(3) {
+    padding-right: 0;
+  }
 }
 
 .carousel-hider {
+  position: relative;
   float: left;
-  width: 1075px;
   overflow: hidden;
+  border-radius: 4px;
+}
+
+.carousel-hider:hover .carousel-element {
+  box-shadow: none;
 }
 
 .carousel-list {
@@ -194,16 +203,154 @@ a, input[type="button"], input[type="submit"], button {
 }
 
 .carousel-element {
+  position: relative;
   display: block;
   float: left;
   margin-right: 25px;
-  text-align: center;
+  height: 240px;
+  max-width: 358px;
+  background-size: cover;
+  background-position: top center;
+  background-repeat: no-repeat;
+  box-shadow: 0px -360px 240px -240px rgba(0, 0, 0, 0.6) inset;
 }
 
-.carousel-element img {
-  max-width: 250px;
+@media (min-width: 785px) {
+  .carousel-element {
+    max-width: 620px;
+    height: 400px;
+  }
 }
 
+.carousel-element-1 {
+  background-image: url(../img/Mobile-step1.jpg);
+}
+
+@media (min-width: 785px) {
+  .carousel-element-1 {
+    background-image: url(../img/Desktop-step1.jpg);
+  }
+}
+
+.carousel-element-2 {
+  background-image: url(../img/Mobile-step2.jpg);
+}
+
+@media (min-width: 785px) {
+  .carousel-element-2 {
+    background-image: url(../img/Desktop-step2.jpg);
+  }
+}
+
+.carousel-element-3 {
+  background-image: url(../img/Mobile-step3.jpg);
+}
+
+@media (min-width: 785px) {
+  .carousel-element-3 {
+    background-image: url(../img/Desktop-step3.jpg);
+  }
+}
+
+.carousel-element-description {
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  padding-left: 20px;
+  padding-right: 20px;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-justify-content: flex-end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-align-items: flex-start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  z-index: 10;
+  color: #fff;
+}
+
+.carousel-element-description .carousel-element-btn {
+  width: 70px;
+  background-color: #f66;
+  font-family: MontserratReg, Arial, sans-serif;
+  font-size: 10px;
+  line-height: 14px;
+  margin-bottom: 15px;
+}
+
+.carousel-element-description .carousel-element-header {
+  font-family: MontserratBold, Arial, sans-serif;
+  font-size: 24px;
+  line-height: 29px;
+  margin-bottom: 12px;
+}
+
+.carousel-element-description .carousel-element-text {
+  color: #ccc;
+  font-family: Roboto, Tahoma, sans-serif;
+  font-size: 14px;
+  line-height: 16px;
+  margin-bottom: 17px;
+}
+
+.carousel-controls {
+  position: absolute;
+  width: 100%;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  z-index: 10;
+  height: 100%;
+}
+
+.carousel-controls .carousel-controls-next > .icon {
+  float: right;
+}
+
+.carousel-controls .carousel-controls-prev,
+.carousel-controls .carousel-controls-next {
+  width: 50%;
+}
+
+@media (min-width: 785px) {
+  .carousel-controls .carousel-controls-prev,
+  .carousel-controls .carousel-controls-next {
+    padding: 40px 20px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .carousel-controls .carousel-controls-prev,
+  .carousel-controls .carousel-controls-next {
+    padding-top: 150px;
+  }
+}
+
+.carousel-controls .carousel-controls-prev:hover,
+.carousel-controls .carousel-controls-next:hover {
+  opacity: 0.7;
+  cursor: pointer;
+}
+
+.icon {
+  display: block;
+  z-index: 10;
+  visibility: hidden;
+}
+
+@media (min-width: 785px) {
+  .icon {
+    visibility: visible;
+  }
+}
 
 .promo__logo {
   display: block;
@@ -314,9 +461,6 @@ To change `display` (e.g. `display: inline-block;`), we suggest using a common C
 }
 
 .hiw {
-  max-width: 940px;
-  margin-left: auto;
-  margin-right: auto;
   width: 100%;
   float: left;
   padding-left: 0.83333%;
@@ -326,27 +470,13 @@ To change `display` (e.g. `display: inline-block;`), we suggest using a common C
   background-color: lightgrey;
 }
 
-.hiw:after {
-  content: " ";
-  display: block;
-  clear: both;
-}
-
 .hiw__header {
-  width: 100%;
-  float: left;
-  padding-left: 0.83333%;
-  padding-right: 0.83333%;
   text-align: center;
   margin-top: 37px;
   font-size: 22px;
 }
 
 .hiw__steps {
-  width: 100%;
-  float: left;
-  padding-left: 0.83333%;
-  padding-right: 0.83333%;
   margin-top: 16px;
   padding-left: 0;
   padding-right: 0;
@@ -361,6 +491,15 @@ To change `display` (e.g. `display: inline-block;`), we suggest using a common C
 }
 
 .page {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
   min-width: 320px;
   max-width: 1440px;
   margin-left: auto;
@@ -387,10 +526,10 @@ To change `display` (e.g. `display: inline-block;`), we suggest using a common C
 }
 
 .page__wrapper {
-  min-width: 300px;
   max-width: 940px;
   margin-left: auto;
   margin-right: auto;
+  min-width: 300px;
   margin-left: 10px;
   margin-right: 10px;
   overflow: hidden;
@@ -410,14 +549,12 @@ To change `display` (e.g. `display: inline-block;`), we suggest using a common C
 
 @media (min-width: 1440px) {
   .page__wrapper {
-    margin-left: auto;
-    margin-right: auto;
     min-width: 940px;
   }
 }
 
 .partners {
-  height: 3000px;
+  height: 300px;
   border: 10px solid #999;
   width: 100%;
   float: left;
@@ -427,7 +564,10 @@ To change `display` (e.g. `display: inline-block;`), we suggest using a common C
 }
 
 .promo {
-  min-width: 320px;
+  -webkit-align-self: stretch;
+      -ms-flex-item-align: stretch;
+              -ms-grid-row-align: stretch;
+          align-self: stretch;
   height: 540px;
   background-color: #c6a57a;
   background-image: url("../img/bg-promo.jpg");
@@ -495,11 +635,11 @@ To change `display` (e.g. `display: inline-block;`), we suggest using a common C
   }
 }
 
-.promo__login-btn {
+.promo__login > .promo__login-btn {
   border-color: transparent;
 }
 
-.promo__login-btn:hover {
+.promo__login > .promo__login-btn:hover {
   border-color: #fff;
 }
 

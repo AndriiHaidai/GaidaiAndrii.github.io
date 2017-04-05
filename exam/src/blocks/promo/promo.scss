@@ -2,7 +2,8 @@
 
 .promo {
   
-  min-width: $mobile;
+  // min-width: $mobile;
+  align-self: stretch;
   height: 540px;
   background-color: #c6a57a;
   background-image: url('../img/bg-promo.jpg');
@@ -52,7 +53,7 @@
 
 }
 
-.promo__login-btn {
+.promo__login>.promo__login-btn {
   border-color: transparent;
   
   &:hover {

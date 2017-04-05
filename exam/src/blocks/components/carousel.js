@@ -2,11 +2,17 @@
 'use strict()';
 
 
-var carousel1 = document.getElementsByClassName('carousel-container');
-carousel(carousel1, { picturesVisible: 1,
-  pictureWidthPixels: 250,
-  gutterPixels: 15
+var $carousels = document.querySelectorAll('.carousel-container');
+
+[].forEach.call($carousels, function(item){
+  carousel(item, { 
+    picturesVisible: 1,
+    pictureWidthPixels: 300,
+    gutterPixels: 20,
+    durationAnimation: 250
+  });
 });
+
 
 
 function carousel(el, options) {
@@ -14,114 +20,161 @@ function carousel(el, options) {
   var defaults = {
     picturesVisible: 4,
     pictureWidthPixels: 100,
-    gutterPixels: 15
+    gutterPixels: 15,
+    durationAnimation: 1000
   };
   var settings = extend(defaults, options);
 
-  var $container = el[0];
-  var $btnLeft = $container.getElementsByClassName('carousel-controls-prev')[0];
-  var $btnRight = $container.getElementsByClassName('carousel-controls-next')[0];
-  var btnLeftOuterWidth = $btnLeft.offsetWidth;
-  var btnRightOuterWidth = $btnRight.offsetWidth;
-  var bttnsAllOuterWidth = btnLeftOuterWidth + btnRightOuterWidth;
-  
-  var hiderWidth = (settings.pictureWidthPixels * settings.picturesVisible) + (settings.gutterPixels * (settings.picturesVisible - 1));
-  var containerWidth = hiderWidth + bttnsAllOuterWidth;
-  $container.style.width = containerWidth + 'px';
-  
-  var $carouselHider = $container.getElementsByClassName('carousel-hider')[0];
-  $carouselHider.style.width = hiderWidth + 'px';
-  
-  var $carouselList = $carouselHider.getElementsByClassName('carousel-list')[0];
+  // Присвоение Объектов
+  var page = document.querySelector('.page');
+  var pageWrapper = document.querySelector('.page__wrapper');
+  var container = el;
+  var carouselHider = container.querySelector('.carousel-hider');
+  var carouselList = carouselHider.querySelector('.carousel-list');
+  var $carouselElements = carouselList.querySelectorAll('.carousel-element');
+  var $carouselImages = carouselList.querySelectorAll('.carousel-element-img');
 
-  var $carouselElements = $carouselList.getElementsByClassName('carousel-element');
-  [].forEach.call($carouselElements, function(item) {
-    item.style.marginRight = settings.gutterPixels + 'px';
+  var btnLeft = container.querySelector('.carousel-controls-prev');
+  var btnRight = container.querySelector('.carousel-controls-next');
+  // END Присвоение Объектов.
+
+  // Объявление Ширины
+  var pageWidth = page.clientWidth;
+  var hiderWidth;
+  
+  var list = {
+    bgImageWidth: 358,
+    shiftStep: 0,
+    leftmostPosition: -1000,
+    rightmostPosition: 0,
+    currentPosition: 0,
+    prevPosition: 0,
+    currentItem: 0
+  };
+  
+  var noElementsTotal;
+  var noElementsShown;
+  var noElementsHidden;
+  // var showElementsStartingFrom; // Если мы в режиме "карусель", то с какого элемента начинаются отображаемые элемены. Нумерация с 1.
+  // END Объявление Ширины
+  
+
+  noElementsTotal = $carouselElements.length;
+  noElementsShown = settings.picturesVisible;
+  noElementsHidden = noElementsTotal - noElementsShown;
+  // showElementsStartingFrom = 1; // Нумерация порядковых номеров элементов, начиная с 1.
+  
+
+  // settings.pictureMaxWidthPixels = 358;
+
+  var initialWidth = window.innerWidth;
+  applyWidth();
+  // window.addEventListener('resize', applyWidth);
+  window.addEventListener('resize', function(event){
+    if (initialWidth != window.innerWidth) {
+      applyWidth();
+      initialWidth = window.innerWidth;
+    }
+    return event;
   });
-  var $carouselImages = $carouselList.getElementsByClassName('carousel-element-img');
-  [].forEach.call($carouselImages, function(item){
-    item.style.width = settings.pictureWidthPixels + 'px';
+  
+  
+  container.style.visibility = 'visible';
+
+
+  var finishedShiftAnimation = true;
+
+  btnLeft.addEventListener('click', function() {
+    if ( !finishedShiftAnimation ) {return false;}
+    list.prevPosition = list.currentPosition;
+    if ( list.currentPosition < list.rightmostPosition ) {
+      list.currentPosition += list.shiftStep;
+      list.currentItem--;
+    } else {
+      list.currentPosition = list.leftmostPosition;
+      list.currentItem = noElementsTotal - 1;
+    }
+    animateShift(carouselList, list.prevPosition, list.currentPosition, settings.durationAnimation);
   });
+
+  btnRight.addEventListener('click', function() {
+    if ( !finishedShiftAnimation ) {return false;}
+    list.prevPosition = list.currentPosition;
+    if ( list.currentPosition > list.leftmostPosition ) {
+      list.currentPosition -= list.shiftStep;
+      list.currentItem++;
+    } else {
+      list.currentPosition = list.rightmostPosition;
+      list.currentItem = 0;
+    }
+    animateShift(carouselList, list.prevPosition, list.currentPosition, settings.durationAnimation);
+  });
+
+
+  function checkWidthChange(target){
+
+  }
+
+  function applyWidth(){
+    
+    var pageMarginLeft = parseInt(getComputedStyle(pageWrapper).marginLeft);
+    var pageMarginRight = parseInt(getComputedStyle(pageWrapper).marginRight);
+    var pageMargins = pageMarginLeft + pageMarginRight;
+    var pageWrapperWidth = pageWrapper.offsetWidth;
+
+    list.bgImageWidth = page.offsetWidth >= 768 ? 620 : 358;
+
+    hiderWidth = Math.min(
+      list.bgImageWidth, 
+      (page.offsetWidth >= 768 ? 
+        pageWrapperWidth / 3 :
+        page.offsetWidth - pageMargins)
+    ); 
+    
+    settings.pictureWidthPixels = Math.min(
+      list.bgImageWidth,
+      hiderWidth
+    );
+    
+    carouselHider.style.width = hiderWidth + 'px';
   
-
-  var hiderHeight = $carouselHider.offsetHeight;
-  var btnHeight = $btnLeft.offsetHeight;
-  $btnLeft.style.marginTop = 0 * (hiderHeight - btnHeight) / 2 + 'px';
-  $btnRight.style.marginTop = $btnLeft.style.marginTop;
-
-  // var $btnLeft = $carouselHider.getElementsByClassName('carousel-controls-prev')[0];
-  // var $btnRight = $carouselHider.getElementsByClassName('carousel-controls-next')[0];
-
-
-  var pixelsShift = settings.pictureWidthPixels + settings.gutterPixels;
-  var currentLeftValue = 0;
-  var noElementsTotal = $carouselElements.length; // !!!
-  var noElementsShown = settings.picturesVisible;
-  var noElementsHidden = noElementsTotal - noElementsShown;
+    [].forEach.call($carouselElements, function(item) {
+      item.style.marginRight = settings.gutterPixels + 'px';
+      item.style.width = settings.pictureWidthPixels + 'px';
+    });
   
-  var minimalShift = - ( pixelsShift * noElementsHidden );
-  var maximalShift = 0;
+    // Смещаем кинопленку со слайдами.
+    list.shiftStep = settings.pictureWidthPixels + settings.gutterPixels;
+    list.leftmostPosition = - ( list.shiftStep * noElementsHidden );
+    list.currentPosition = list.rightmostPosition - list.shiftStep * list.currentItem;
+    carouselList.style.left = list.currentPosition + 'px';
+  }
 
-  
-  // $container.show();
-  // $container.css('visibility', 'visible');
-  $container.style.visibility = 'visible';
-
-    console.log('hiderHeight: ', hiderHeight);
-    // debugger;
-  
   function animateShift(item, from, to, duration) {
-    var start = Date.now(); // сохранить время начала
+    var start = Date.now();
+    finishedShiftAnimation = false;
     var fps = 50;
 
     var timer = setInterval(function() {
-      // вычислить сколько времени прошло с начала анимации
       var timePassed = Date.now() - start;
 
-      if (timePassed >= duration) {
-        clearInterval(timer); // конец через duration милисекунд
+      if ( timePassed >= duration ) {
+        clearInterval(timer);
+        draw(duration);
+        finishedShiftAnimation = true;
         return;
       }
 
-      // рисует состояние анимации, соответствующее времени timePassed
-      draw(timePassed);
+      draw(timePassed); // рисует состояние анимации, соответствующее времени timePassed
 
     }, (duration / fps));
 
-    // в то время как timePassed идёт от 0 до duration
-    // left принимает значения от 0 до 400px
     function draw(timePassed) {
       item.style.left = (timePassed / duration) * (to - from) + from + 'px';
     }
 
   }
 
-
-  // $btnLeft.on('click', function() {
-  $btnLeft.addEventListener('click', function() {
-    var prevLeftValue = currentLeftValue;
-    if ( currentLeftValue < maximalShift ) {
-      currentLeftValue += pixelsShift;
-    } else {
-      currentLeftValue = minimalShift;
-    }
-    // $carouselList.animate({left: currentLeftValue + 'px'}, 250);
-    animateShift($carouselList, prevLeftValue, currentLeftValue, 250);
-  });
-
-  // $btnRight.on('click', function() {
-  $btnRight.addEventListener('click', function() {
-    var prevLeftValue = currentLeftValue;
-    if ( currentLeftValue > minimalShift ) {
-      currentLeftValue -= pixelsShift;
-    } else {
-      currentLeftValue = maximalShift;
-    }
-    // $carouselList.animate({left: currentLeftValue + 'px'}, 250);
-    animateShift($carouselList, prevLeftValue, currentLeftValue, 250);
-  });
-
-  // return this;
   return el;
 }
 

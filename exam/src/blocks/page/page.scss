@@ -1,7 +1,9 @@
 @import '../globals/globals';
 
 .page {
-
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   min-width: $mobile;
   max-width: $desktop;
   margin-left: auto;
@@ -18,10 +20,8 @@
 }
 
 .page__wrapper {
-  // width: 100%;
-  min-width: 300px;
   @include container;
-  // @include span(12 of 12);
+  min-width: 300px;
   margin-left: 10px;
   margin-right: 10px;
   overflow: hidden;
@@ -31,8 +31,8 @@
   }
   
   @media (min-width: $desktop) {
-    margin-left: auto;
-    margin-right: auto;
+    // margin-left: auto;
+    // margin-right: auto;
     min-width: 940px;
   }
 

@@ -1,13 +1,12 @@
-// .icon {
-//   position: absolute;
-//   display: flex;
-//   width: 100%;
-//   // top: 50%;
-//   // left: 50px;
-//   z-index: 10;
+@import '../globals/globals';
+
+.icon {
+  display: block;
+  z-index: 10;
+  visibility: hidden;
   
-//   * {
-//     display: block;
-//     z-index: 20;
-//   }
-// }
+  @media (min-width: $mediaTablet) {
+    visibility: visible;
+  }
+  
+}

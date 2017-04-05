@@ -1,7 +1,6 @@
 @import '../globals/globals';
 
 .hiw {
-  @include container();
   @include span(12 of 12);
   padding-left: 0;
   padding-right: 0;
@@ -9,20 +8,15 @@
 }
 
 .hiw__header {
-  @include span(12 of 12);
   text-align: center;
   margin-top: 37px;
-  // padding-top: 37px;
   font-size: 22px;
-  // overflow: hidden;
 }
 
 .hiw__steps {
-  @include span(12 of 12);
   margin-top: 16px;
   padding-left: 0;
   padding-right: 0;
-  // overflow: hidden;
   
   @media (min-width: $mediaTablet) {
     ///
