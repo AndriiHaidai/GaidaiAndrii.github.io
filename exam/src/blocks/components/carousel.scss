@@ -1,13 +1,13 @@
 @import '../globals/globals';
 
-.carousel-container {
+.carousel__container {
   @include span(full 12 of 12);
   display: flex;
   justify-content: center;
   visibility: hidden;
   // margin: 15px auto;
-  margin-top: 15px;
-  margin-bottom: 15px;
+  margin-top: 10px;
+  margin-bottom: 0px;
   padding-left: 0;
   padding-right: 0;
   width: 100%;
@@ -28,77 +28,52 @@
     }
   }
 
-    // @media (min-width: $desktop) {
-    //   @include span(4 of 12);
-    // } 
-
 }
 
-.carousel-hider {
+
+.carousel__hider {
   position: relative;
   float: left;
   overflow: hidden;
   border-radius: 4px;
   
-  &:hover .carousel-element {
+  &:hover .carousel__element {
     box-shadow: none;
   }
 }
 
-.carousel-list {
+
+.carousel__list {
   position: relative;
   width: 10000px;
 }
 
-.carousel-element {
+
+.carousel__element {
   position: relative;
   display: block;
   float: left;
   margin-right: 25px;
   height: 240px;
   
-  max-width: 358px;
-  
   background-size: cover;
   background-position: top center;
   background-repeat: no-repeat;
-  
   box-shadow: 0px -360px 240px -240px rgba(0, 0, 0, 0.6) inset;
 
     @media (min-width: $mediaTablet) {
-      max-width: 620px;
       height: 400px;
     }
 
-  //   @media (min-width: $desktop) {
-  //     ///
-  //   } 
+  @each $n in 1, 2, 3 {
+    &-#{$n} {
+      background-image: url(../img/Mobile-step#{$n}.jpg);
+  
+      @media (min-width: $mediaTablet) {
+        background-image: url(../img/Desktop-step#{$n}.jpg);
+      }
 
-  &-1 {
-    background-image: url(../img/Mobile-step1.jpg);
-    
-    @media (min-width: $mediaTablet) {
-      background-image: url(../img/Desktop-step1.jpg);
     }
-
-  }
-
-  &-2 {
-    background-image: url(../img/Mobile-step2.jpg);
-    
-    @media (min-width: $mediaTablet) {
-      background-image: url(../img/Desktop-step2.jpg);
-    }
-
-  }
-
-  &-3 {
-    background-image: url(../img/Mobile-step3.jpg);
-
-    @media (min-width: $mediaTablet) {
-      background-image: url(../img/Desktop-step3.jpg);
-    }
-
   }
   
   &-description {
@@ -114,7 +89,7 @@
     z-index: 10;
     color: $main-white;
 
-    .carousel-element-btn {
+    .carousel__element-btn {
       width: 70px;
       background-color: $main-red;
       font-family: $font-main;
@@ -123,13 +98,13 @@
       margin-bottom: 15px;
     }
 
-    .carousel-element-header {
+    .carousel__element-header {
       font-family: $font-main-bold;
       font-size: 24px;
       line-height: 29px;
       margin-bottom: 12px;
     }
-    .carousel-element-text {
+    .carousel__element-text {
       color: $plain-on-dark;
       font-family: $font-plain;
       font-size: 14px;
@@ -141,7 +116,7 @@
 }
 
 
-.carousel-controls {
+.carousel__controls {
   position: absolute;
   width: 100%;
   display: flex;
@@ -149,16 +124,23 @@
   z-index: 10;
   height: 100%;
   
-  @media (min-width: $mediaTablet) {
-    // height: auto;
+  &-prev > .icon {
+    float: left;
   }
-  
-  .carousel-controls-next>.icon {
+  &-next > .icon {
     float: right;
-  } 
-  .carousel-controls-prev,
-  .carousel-controls-next {
+  }
+
+  &-prev,
+  &-next {
     width: 50%;
+    
+    &>.icon {
+      visibility: hidden;
+      @media (min-width: $mediaTablet) {
+        visibility: visible;
+      }
+    }
 
     @media (min-width: $mediaTablet) {
       padding: 40px 20px;
@@ -175,12 +157,3 @@
 
   }
 } 
-
-
-  // @media (min-width: $mediaTablet) {
-  //   ///
-  // }
-
-  // @media (min-width: $desktop) {
-  //   ///
-  // }

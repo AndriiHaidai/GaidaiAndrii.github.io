@@ -2,7 +2,11 @@
 'use strict()';
 
 
-var $carousels = document.querySelectorAll('.carousel-container');
+var $carousels = document.querySelectorAll('.carousel__container');
+
+for (var i = 0; i <= $carousels.length - 1; i++) {
+  $carousels[i]
+}
 
 [].forEach.call($carousels, function(item){
   carousel(item, { 
@@ -29,13 +33,13 @@ function carousel(el, options) {
   var page = document.querySelector('.page');
   var pageWrapper = document.querySelector('.page__wrapper');
   var container = el;
-  var carouselHider = container.querySelector('.carousel-hider');
-  var carouselList = carouselHider.querySelector('.carousel-list');
-  var $carouselElements = carouselList.querySelectorAll('.carousel-element');
-  var $carouselImages = carouselList.querySelectorAll('.carousel-element-img');
+  var carouselHider = container.querySelector('.carousel__hider');
+  var carouselList = carouselHider.querySelector('.carousel__list');
+  var $carouselElements = carouselList.querySelectorAll('.carousel__element');
+  var $carouselImages = carouselList.querySelectorAll('.carousel__element-img');
 
-  var btnLeft = container.querySelector('.carousel-controls-prev');
-  var btnRight = container.querySelector('.carousel-controls-next');
+  var btnLeft = container.querySelector('.carousel__controls-prev');
+  var btnRight = container.querySelector('.carousel__controls-next');
   // END Присвоение Объектов.
 
   // Объявление Ширины

@@ -146,7 +146,7 @@ a, input[type="button"], input[type="submit"], button {
   }
 }
 
-.carousel-container {
+.carousel__container {
   width: 100%;
   float: left;
   padding-left: 0.83333%;
@@ -158,57 +158,56 @@ a, input[type="button"], input[type="submit"], button {
       -ms-flex-pack: center;
           justify-content: center;
   visibility: hidden;
-  margin-top: 15px;
-  margin-bottom: 15px;
+  margin-top: 10px;
+  margin-bottom: 0px;
   padding-left: 0;
   padding-right: 0;
   width: 100%;
 }
 
-.carousel-container::after {
+.carousel__container::after {
   content: '';
   display: block;
   clear: both;
 }
 
 @media (min-width: 785px) {
-  .carousel-container {
+  .carousel__container {
     width: 33.33333%;
     float: left;
     padding-left: 0.83333%;
     padding-right: 0.83333%;
   }
-  .carousel-container:first-child {
+  .carousel__container:first-child {
     padding-left: 0;
   }
-  .carousel-container:nth-child(3) {
+  .carousel__container:nth-child(3) {
     padding-right: 0;
   }
 }
 
-.carousel-hider {
+.carousel__hider {
   position: relative;
   float: left;
   overflow: hidden;
   border-radius: 4px;
 }
 
-.carousel-hider:hover .carousel-element {
+.carousel__hider:hover .carousel__element {
   box-shadow: none;
 }
 
-.carousel-list {
+.carousel__list {
   position: relative;
   width: 10000px;
 }
 
-.carousel-element {
+.carousel__element {
   position: relative;
   display: block;
   float: left;
   margin-right: 25px;
   height: 240px;
-  max-width: 358px;
   background-size: cover;
   background-position: top center;
   background-repeat: no-repeat;
@@ -216,43 +215,42 @@ a, input[type="button"], input[type="submit"], button {
 }
 
 @media (min-width: 785px) {
-  .carousel-element {
-    max-width: 620px;
+  .carousel__element {
     height: 400px;
   }
 }
 
-.carousel-element-1 {
+.carousel__element-1 {
   background-image: url(../img/Mobile-step1.jpg);
 }
 
 @media (min-width: 785px) {
-  .carousel-element-1 {
+  .carousel__element-1 {
     background-image: url(../img/Desktop-step1.jpg);
   }
 }
 
-.carousel-element-2 {
+.carousel__element-2 {
   background-image: url(../img/Mobile-step2.jpg);
 }
 
 @media (min-width: 785px) {
-  .carousel-element-2 {
+  .carousel__element-2 {
     background-image: url(../img/Desktop-step2.jpg);
   }
 }
 
-.carousel-element-3 {
+.carousel__element-3 {
   background-image: url(../img/Mobile-step3.jpg);
 }
 
 @media (min-width: 785px) {
-  .carousel-element-3 {
+  .carousel__element-3 {
     background-image: url(../img/Desktop-step3.jpg);
   }
 }
 
-.carousel-element-description {
+.carousel__element-description {
   position: absolute;
   width: 100%;
   bottom: 0;
@@ -274,7 +272,7 @@ a, input[type="button"], input[type="submit"], button {
   color: #fff;
 }
 
-.carousel-element-description .carousel-element-btn {
+.carousel__element-description .carousel__element-btn {
   width: 70px;
   background-color: #f66;
   font-family: MontserratReg, Arial, sans-serif;
@@ -283,14 +281,14 @@ a, input[type="button"], input[type="submit"], button {
   margin-bottom: 15px;
 }
 
-.carousel-element-description .carousel-element-header {
+.carousel__element-description .carousel__element-header {
   font-family: MontserratBold, Arial, sans-serif;
   font-size: 24px;
   line-height: 29px;
   margin-bottom: 12px;
 }
 
-.carousel-element-description .carousel-element-text {
+.carousel__element-description .carousel__element-text {
   color: #ccc;
   font-family: Roboto, Tahoma, sans-serif;
   font-size: 14px;
@@ -298,7 +296,7 @@ a, input[type="button"], input[type="submit"], button {
   margin-bottom: 17px;
 }
 
-.carousel-controls {
+.carousel__controls {
   position: absolute;
   width: 100%;
   display: -webkit-flex;
@@ -311,31 +309,41 @@ a, input[type="button"], input[type="submit"], button {
   height: 100%;
 }
 
-.carousel-controls .carousel-controls-next > .icon {
+.carousel__controls-prev > .icon {
+  float: left;
+}
+
+.carousel__controls-next > .icon {
   float: right;
 }
 
-.carousel-controls .carousel-controls-prev,
-.carousel-controls .carousel-controls-next {
+.carousel__controls-prev, .carousel__controls-next {
   width: 50%;
 }
 
+.carousel__controls-prev > .icon, .carousel__controls-next > .icon {
+  visibility: hidden;
+}
+
 @media (min-width: 785px) {
-  .carousel-controls .carousel-controls-prev,
-  .carousel-controls .carousel-controls-next {
+  .carousel__controls-prev > .icon, .carousel__controls-next > .icon {
+    visibility: visible;
+  }
+}
+
+@media (min-width: 785px) {
+  .carousel__controls-prev, .carousel__controls-next {
     padding: 40px 20px;
   }
 }
 
 @media (min-width: 1440px) {
-  .carousel-controls .carousel-controls-prev,
-  .carousel-controls .carousel-controls-next {
+  .carousel__controls-prev, .carousel__controls-next {
     padding-top: 150px;
   }
 }
 
-.carousel-controls .carousel-controls-prev:hover,
-.carousel-controls .carousel-controls-next:hover {
+.carousel__controls-prev:hover, .carousel__controls-next:hover {
   opacity: 0.7;
   cursor: pointer;
 }
@@ -343,13 +351,6 @@ a, input[type="button"], input[type="submit"], button {
 .icon {
   display: block;
   z-index: 10;
-  visibility: hidden;
-}
-
-@media (min-width: 785px) {
-  .icon {
-    visibility: visible;
-  }
 }
 
 .promo__logo {
@@ -452,14 +453,6 @@ To change `display` (e.g. `display: inline-block;`), we suggest using a common C
   height: 40px;
 }
 
-.footer {
-  width: 100%;
-  float: left;
-  padding-left: 0.83333%;
-  padding-right: 0.83333%;
-  background-color: lightgrey;
-}
-
 .hiw {
   width: 100%;
   float: left;
@@ -476,13 +469,37 @@ To change `display` (e.g. `display: inline-block;`), we suggest using a common C
   font-size: 22px;
 }
 
-.hiw__steps {
+@media (min-width: 785px) {
+  .hiw__header {
+    margin-top: 97px;
+  }
+}
+
+.hiw__content {
   margin-top: 16px;
   padding-left: 0;
   padding-right: 0;
 }
 
+@media (min-width: 785px) {
+  .hiw__content {
+    margin-top: 20px;
+  }
+}
+
 .ideas {
+  height: 70px;
+  border: 10px solid #999;
+  width: 100%;
+  float: left;
+  padding-left: 0.83333%;
+  padding-right: 0.83333%;
+  background-color: lightgrey;
+}
+
+.footer {
+  height: 100px;
+  border: 10px solid #999;
   width: 100%;
   float: left;
   padding-left: 0.83333%;
@@ -554,13 +571,133 @@ To change `display` (e.g. `display: inline-block;`), we suggest using a common C
 }
 
 .partners {
-  height: 300px;
-  border: 10px solid #999;
   width: 100%;
   float: left;
   padding-left: 0.83333%;
   padding-right: 0.83333%;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
   background-color: lightgrey;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.partners .partners__header {
+  margin-top: 37px;
+  font-family: MontserratBold, Arial, sans-serif;
+  font-size: 22px;
+  text-align: center;
+}
+
+.partners .partners__content .partners__card {
+  border-color: black;
+  margin-top: 20px;
+  margin-bottom: 8px;
+  width: 100%;
+  float: left;
+  padding-left: 0.83333%;
+  padding-right: 0.83333%;
+  padding-left: 13%;
+  padding-right: 13%;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+@media (min-width: 785px) {
+  .partners .partners__content .partners__card {
+    width: 50%;
+    float: left;
+    padding-left: 0.83333%;
+    padding-right: 0.83333%;
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+@media (min-width: 1440px) {
+  .partners .partners__content .partners__card {
+    width: 25%;
+    float: left;
+    padding-left: 0.83333%;
+    padding-right: 0.83333%;
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+.partners .partners__content .partners__card .partners__avatar {
+  position: relative;
+}
+
+.partners .partners__content .partners__card .partners__avatar:hover .partners__face {
+  box-shadow: 0 0 0px 4px #f66;
+}
+
+.partners .partners__content .partners__card .partners__avatar:hover {
+  cursor: pointer;
+}
+
+.partners .partners__content .partners__card .partners__avatar > .icon {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+
+.partners .partners__content .partners__card .partners__avatar .partners__face {
+  border-radius: 50%;
+}
+
+.partners .partners__content .partners__card .partners__name {
+  font-family: MontserratBold, Arial, sans-serif;
+  font-size: 14px;
+  margin-top: 21px;
+}
+
+.partners .partners__content .partners__card .partners__about {
+  margin-top: 15px;
+  font-family: Roboto, Tahoma, sans-serif;
+  font-size: 14px;
+  line-height: 17px;
+  color: #666;
+  text-align: center;
+}
+
+.partners .partners__btn {
+  width: 93%;
+  margin-top: 17px;
+  text-align: center;
+  font-family: MontserratBold, Arial, sans-serif;
+  font-size: 14px;
+  line-height: 36px;
+  color: #f66;
+}
+
+.partners .partners__btn:hover {
+  color: #fff;
+  background-color: #f66;
+  opacity: 0.7;
+}
+
+@media (min-width: 785px) {
+  .partners .partners__btn {
+    width: auto;
+    padding-left: 28px;
+    padding-right: 28px;
+  }
 }
 
 .promo {
@@ -678,6 +815,8 @@ To change `display` (e.g. `display: inline-block;`), we suggest using a common C
 }
 
 .search {
+  height: 70px;
+  border: 10px solid #999;
   width: 100%;
   float: left;
   padding-left: 0.83333%;
