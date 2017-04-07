@@ -106,6 +106,16 @@ a, input[type="button"], input[type="submit"], button {
   font-family: MontserratReg, Arial, sans-serif;
 }
 
+.footer {
+  height: 100px;
+  border: 10px solid #999;
+  width: 100%;
+  float: left;
+  padding-left: 0.83333%;
+  padding-right: 0.83333%;
+  background-color: lightgrey;
+}
+
 .btn {
   padding-left: 17px;
   padding-right: 17px;
@@ -138,7 +148,7 @@ a, input[type="button"], input[type="submit"], button {
   border-color: transparent;
 }
 
-@media (min-width: 785px) {
+@media (min-width: 768px) {
   .promo__btn-gostart {
     padding-left: 21px;
     margin-top: 37px;
@@ -171,7 +181,7 @@ a, input[type="button"], input[type="submit"], button {
   clear: both;
 }
 
-@media (min-width: 785px) {
+@media (min-width: 768px) {
   .carousel__container {
     width: 33.33333%;
     float: left;
@@ -214,7 +224,7 @@ a, input[type="button"], input[type="submit"], button {
   box-shadow: 0px -360px 240px -240px rgba(0, 0, 0, 0.6) inset;
 }
 
-@media (min-width: 785px) {
+@media (min-width: 768px) {
   .carousel__element {
     height: 400px;
   }
@@ -224,7 +234,7 @@ a, input[type="button"], input[type="submit"], button {
   background-image: url(../img/Mobile-step1.jpg);
 }
 
-@media (min-width: 785px) {
+@media (min-width: 768px) {
   .carousel__element-1 {
     background-image: url(../img/Desktop-step1.jpg);
   }
@@ -234,7 +244,7 @@ a, input[type="button"], input[type="submit"], button {
   background-image: url(../img/Mobile-step2.jpg);
 }
 
-@media (min-width: 785px) {
+@media (min-width: 768px) {
   .carousel__element-2 {
     background-image: url(../img/Desktop-step2.jpg);
   }
@@ -244,7 +254,7 @@ a, input[type="button"], input[type="submit"], button {
   background-image: url(../img/Mobile-step3.jpg);
 }
 
-@media (min-width: 785px) {
+@media (min-width: 768px) {
   .carousel__element-3 {
     background-image: url(../img/Desktop-step3.jpg);
   }
@@ -325,13 +335,13 @@ a, input[type="button"], input[type="submit"], button {
   visibility: hidden;
 }
 
-@media (min-width: 785px) {
+@media (min-width: 768px) {
   .carousel__controls-prev > .icon, .carousel__controls-next > .icon {
     visibility: visible;
   }
 }
 
-@media (min-width: 785px) {
+@media (min-width: 768px) {
   .carousel__controls-prev, .carousel__controls-next {
     padding: 40px 20px;
   }
@@ -364,7 +374,7 @@ a, input[type="button"], input[type="submit"], button {
   color: #f66;
 }
 
-@media (min-width: 785px) {
+@media (min-width: 768px) {
   .promo__logo {
     float: left;
     font-size: 20px;
@@ -382,7 +392,7 @@ a, input[type="button"], input[type="submit"], button {
           flex-direction: row-reverse;
 }
 
-@media (min-width: 785px) {
+@media (min-width: 768px) {
   .promo__login {
     -webkit-justify-content: space-around;
         -ms-flex-pack: distribute;
@@ -460,7 +470,6 @@ To change `display` (e.g. `display: inline-block;`), we suggest using a common C
   padding-right: 0.83333%;
   padding-left: 0;
   padding-right: 0;
-  background-color: lightgrey;
 }
 
 .hiw__header {
@@ -469,7 +478,7 @@ To change `display` (e.g. `display: inline-block;`), we suggest using a common C
   font-size: 22px;
 }
 
-@media (min-width: 785px) {
+@media (min-width: 768px) {
   .hiw__header {
     margin-top: 97px;
   }
@@ -481,7 +490,7 @@ To change `display` (e.g. `display: inline-block;`), we suggest using a common C
   padding-right: 0;
 }
 
-@media (min-width: 785px) {
+@media (min-width: 768px) {
   .hiw__content {
     margin-top: 20px;
   }
@@ -489,16 +498,6 @@ To change `display` (e.g. `display: inline-block;`), we suggest using a common C
 
 .ideas {
   height: 70px;
-  border: 10px solid #999;
-  width: 100%;
-  float: left;
-  padding-left: 0.83333%;
-  padding-right: 0.83333%;
-  background-color: lightgrey;
-}
-
-.footer {
-  height: 100px;
   border: 10px solid #999;
   width: 100%;
   float: left;
@@ -558,7 +557,52 @@ To change `display` (e.g. `display: inline-block;`), we suggest using a common C
   clear: both;
 }
 
-@media (min-width: 785px) {
+head {
+  display: block;
+  position: fixed;
+  right: 10px;
+  top: 10px;
+  z-index: 999;
+  color: #333;
+  background: rgba(255, 255, 255, 0.25);
+}
+
+head:before {
+  content: "|||";
+  display: block;
+  padding: 5px 10px;
+  font-family: sans-serif;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+head:hover {
+  background: rgba(255, 255, 255, 0.5);
+  color: red;
+}
+
+head:hover ~ .page__wrapper,
+head:hover ~ body .page__wrapper {
+  position: relative;
+}
+
+head:hover ~ .page__wrapper:before,
+head:hover ~ body .page__wrapper:before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  content: " ";
+  z-index: 998;
+  background-image: linear-gradient(to right, rgba(102, 102, 255, 0.4), rgba(179, 179, 255, 0.4));
+  background-size: 8.33333%;
+  background-origin: content-box;
+  background-clip: content-box;
+  background-position: left top;
+}
+
+@media (min-width: 768px) {
   .page__wrapper {
     min-width: 748px;
   }
@@ -584,7 +628,6 @@ To change `display` (e.g. `display: inline-block;`), we suggest using a common C
   -webkit-align-items: center;
       -ms-flex-align: center;
           align-items: center;
-  background-color: lightgrey;
   padding-left: 0;
   padding-right: 0;
 }
@@ -596,8 +639,108 @@ To change `display` (e.g. `display: inline-block;`), we suggest using a common C
   text-align: center;
 }
 
+@media (min-width: 768px) {
+  .partners .partners__header {
+    margin-top: 99px;
+  }
+}
+
+.partners .partners__content {
+  width: 100%;
+  float: left;
+  padding-left: 0.83333%;
+  padding-right: 0.83333%;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+@media (min-width: 768px) {
+  .partners .partners__content {
+    width: 66.66667%;
+    float: left;
+    padding-left: 0.83333%;
+    padding-right: 0.83333%;
+    padding-left: 0;
+    padding-right: 0;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-flex-wrap: wrap;
+        -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+    -webkit-align-items: stretch;
+        -ms-flex-align: stretch;
+            align-items: stretch;
+    max-height: 550px;
+    max-width: 940px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .partners .partners__content:after {
+    content: " ";
+    display: block;
+    clear: both;
+  }
+  head {
+    display: block;
+    position: fixed;
+    right: 10px;
+    top: 10px;
+    z-index: 999;
+    color: #333;
+    background: rgba(255, 255, 255, 0.25);
+  }
+  head:before {
+    content: "|||";
+    display: block;
+    padding: 5px 10px;
+    font-family: sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+  }
+  head:hover {
+    background: rgba(255, 255, 255, 0.5);
+    color: red;
+  }
+  head:hover ~ .partners .partners__content,
+  head:hover ~ body .partners .partners__content {
+    position: relative;
+  }
+  head:hover ~ .partners .partners__content:before,
+  head:hover ~ body .partners .partners__content:before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    content: " ";
+    z-index: 998;
+    background-image: linear-gradient(to right, rgba(102, 102, 255, 0.4), rgba(179, 179, 255, 0.4));
+    background-size: 8.33333%;
+    background-origin: content-box;
+    background-clip: content-box;
+    background-position: left top;
+  }
+}
+
+@media (min-width: 1440px) {
+  .partners .partners__content {
+    width: 100%;
+    float: left;
+    padding-left: 0.83333%;
+    padding-right: 0.83333%;
+    padding-left: 0;
+    padding-right: 0;
+    -webkit-flex-direction: row;
+        -ms-flex-direction: row;
+            flex-direction: row;
+  }
+}
+
 .partners .partners__content .partners__card {
-  border-color: black;
   margin-top: 20px;
   margin-bottom: 8px;
   width: 100%;
@@ -617,14 +760,15 @@ To change `display` (e.g. `display: inline-block;`), we suggest using a common C
           align-items: center;
 }
 
-@media (min-width: 785px) {
+@media (min-width: 768px) {
   .partners .partners__content .partners__card {
     width: 50%;
     float: left;
-    padding-left: 0.83333%;
-    padding-right: 0.83333%;
-    padding-left: 0;
-    padding-right: 0;
+    padding-left: 5%;
+    padding-right: 5%;
+    padding-left: 1.66667%;
+    padding-right: 1.66667%;
+    margin-top: 33px;
   }
 }
 
@@ -634,8 +778,16 @@ To change `display` (e.g. `display: inline-block;`), we suggest using a common C
     float: left;
     padding-left: 0.83333%;
     padding-right: 0.83333%;
-    padding-left: 0;
-    padding-right: 0;
+  }
+  .partners .partners__content .partners__card:nth-of-type(2) {
+    -webkit-order: 3;
+        -ms-flex-order: 3;
+            order: 3;
+  }
+  .partners .partners__content .partners__card:nth-of-type(4) {
+    -webkit-order: 4;
+        -ms-flex-order: 4;
+            order: 4;
   }
 }
 
@@ -692,9 +844,10 @@ To change `display` (e.g. `display: inline-block;`), we suggest using a common C
   opacity: 0.7;
 }
 
-@media (min-width: 785px) {
+@media (min-width: 768px) {
   .partners .partners__btn {
     width: auto;
+    margin-top: 28px;
     padding-left: 28px;
     padding-right: 28px;
   }
@@ -706,7 +859,6 @@ To change `display` (e.g. `display: inline-block;`), we suggest using a common C
               -ms-grid-row-align: stretch;
           align-self: stretch;
   height: 540px;
-  background-color: #c6a57a;
   background-image: url("../img/bg-promo.jpg");
   background-repeat: no-repeat;
   background-position: top -10px left 51.4%;
@@ -729,6 +881,51 @@ To change `display` (e.g. `display: inline-block;`), we suggest using a common C
   clear: both;
 }
 
+head {
+  display: block;
+  position: fixed;
+  right: 10px;
+  top: 10px;
+  z-index: 999;
+  color: #333;
+  background: rgba(255, 255, 255, 0.25);
+}
+
+head:before {
+  content: "|||";
+  display: block;
+  padding: 5px 10px;
+  font-family: sans-serif;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+head:hover {
+  background: rgba(255, 255, 255, 0.5);
+  color: red;
+}
+
+head:hover ~ .promo .promo__wraper,
+head:hover ~ body .promo .promo__wraper {
+  position: relative;
+}
+
+head:hover ~ .promo .promo__wraper:before,
+head:hover ~ body .promo .promo__wraper:before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  content: " ";
+  z-index: 998;
+  background-image: linear-gradient(to right, rgba(102, 102, 255, 0.4), rgba(179, 179, 255, 0.4));
+  background-size: 8.33333%;
+  background-origin: content-box;
+  background-clip: content-box;
+  background-position: left top;
+}
+
 .promo .promo__header {
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -743,7 +940,7 @@ To change `display` (e.g. `display: inline-block;`), we suggest using a common C
   padding-right: 0;
 }
 
-@media (min-width: 785px) {
+@media (min-width: 768px) {
   .promo .promo__header {
     -webkit-flex-direction: row;
         -ms-flex-direction: row;
@@ -754,7 +951,7 @@ To change `display` (e.g. `display: inline-block;`), we suggest using a common C
   }
 }
 
-@media (min-width: 785px) {
+@media (min-width: 768px) {
   .promo {
     min-width: 768px;
     background-position: center;
@@ -788,7 +985,7 @@ To change `display` (e.g. `display: inline-block;`), we suggest using a common C
   text-transform: uppercase;
 }
 
-@media (min-width: 785px) {
+@media (min-width: 768px) {
   .promo__slogan {
     padding-top: 140px;
     font-size: 52px;
@@ -807,7 +1004,7 @@ To change `display` (e.g. `display: inline-block;`), we suggest using a common C
   text-align: center;
 }
 
-@media (min-width: 785px) {
+@media (min-width: 768px) {
   .promo__subslogan {
     padding-top: 28px;
     font-size: 24px;

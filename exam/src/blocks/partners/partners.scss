@@ -4,11 +4,8 @@
   @include span(12 of 12);
   display: flex;
   flex-direction: column;
-  // justify-content: center;
   align-items: center;
-  background-color: lightgrey;
-  // padding-left: 10px;
-  // padding-right: 10px;
+  // background-color: lightgrey;
   padding-left: 0;
   padding-right: 0;
   
@@ -18,12 +15,38 @@
     font-family: $font-main-bold;
     font-size: 22px;
     text-align: center;
+    
+    @media (min-width: $mediaTablet) {
+      margin-top: 99px;
+    }
+
   }
   
   .partners__content {
+    @include span(12 of 12);
+    padding-left: 0;
+    padding-right: 0;
         
+    @media (min-width: $mediaTablet) {
+      @include span(8 of 12);
+      padding-left: 0;
+      padding-right: 0;
+      display: flex;
+      flex-direction: column;
+      flex-wrap: wrap;
+      align-items: stretch;
+      max-height: 550px;
+      @include container;
+    }
+
+    @media (min-width: $desktop) {
+      @include span(12 of 12);
+      padding-left: 0;
+      padding-right: 0;
+      flex-direction: row;
+    }
+
     .partners__card {
-      border-color: black;
       margin-top: 20px;
       margin-bottom: 8px;
       
@@ -35,15 +58,22 @@
       align-items: center;
       
       @media (min-width: $mediaTablet) {
-        @include span(6 of 12);
-        padding-left: 0;
-        padding-right: 0;
+        @include span(1 of 2);
+        padding-left: gutter(6);
+        padding-right: gutter(6);
+        margin-top: 33px;
       }
 
       @media (min-width: $desktop) {
         @include span(3 of 12);
-        padding-left: 0;
-        padding-right: 0;
+        
+        &:nth-of-type(2) {
+          order: 3;
+        }
+        &:nth-of-type(4) {
+          order: 4;
+        }
+        
       }
 
       .partners__avatar {
@@ -104,6 +134,7 @@
 
     @media (min-width: $mediaTablet) {
       width: auto;
+      margin-top: 28px;
       padding-left: 28px;
       padding-right: 28px;
     }
