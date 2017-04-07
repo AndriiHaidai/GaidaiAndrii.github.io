@@ -4,26 +4,27 @@
   @include span(12 of 12);
   padding-left: 0;
   padding-right: 0;
-  background-color: lightgrey;
+  // background-color: lightgrey;
 }
 
 .hiw__header {
   text-align: center;
-  margin-top: 37px;
+  margin-top: 37px; 
   font-size: 22px;
+  
+  @media (min-width: $mediaTablet) {
+    margin-top: 97px;
+  }
+
 }
 
-.hiw__steps {
+.hiw__content {
   margin-top: 16px;
   padding-left: 0;
   padding-right: 0;
   
   @media (min-width: $mediaTablet) {
-    ///
-  }
-
-  @media (min-width: $desktop) {
-    ///
+    margin-top: 20px;
   }
 
 }

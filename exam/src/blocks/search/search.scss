@@ -1,6 +1,9 @@
 @import '../globals/globals';
 
 .search {
+  height: 70px;
+  border: 10px solid #999;
+
   @include span(12);
   background-color: lightgrey;
 }
