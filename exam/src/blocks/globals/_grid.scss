@@ -24,6 +24,7 @@ $susy: (
   container-position: center, // center / left / right
   columns: $susy_columns, // количество колонок
   gutters: $susy_gutter, // ширина пробельчика для каждой колонки
+  gutter-override: 20px,
   global-box-sizing: border-box, // можно еще content-box
   debug: (
     image: show, // варианты: show | hide | show-columns | show-baseline для показа всех вариантов колонок и линеечек
