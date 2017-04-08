@@ -1,8 +1,10 @@
 @import '../globals/globals';
 
 .footer {
+  margin-top: 40px;
   height: 100px;
   border: 10px solid #999;
+  border-top: 4px solid $main-red;
 
   @include span(12);
   background-color: lightgrey;

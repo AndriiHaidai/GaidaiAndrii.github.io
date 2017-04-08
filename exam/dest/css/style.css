@@ -106,6 +106,18 @@ a, input[type="button"], input[type="submit"], button {
   font-family: MontserratReg, Arial, sans-serif;
 }
 
+.footer {
+  margin-top: 40px;
+  height: 100px;
+  border: 10px solid #999;
+  border-top: 4px solid #f66;
+  width: 100%;
+  float: left;
+  padding-left: 10px;
+  padding-right: 10px;
+  background-color: lightgrey;
+}
+
 .btn {
   padding-left: 17px;
   padding-right: 17px;
@@ -443,18 +455,6 @@ To change `display` (e.g. `display: inline-block;`), we suggest using a common C
   background-position: -101px 0px;
   width: 40px;
   height: 40px;
-}
-
-.footer {
-  margin-top: 40px;
-  height: 100px;
-  border: 10px solid #999;
-  border-top: 4px solid #f66;
-  width: 100%;
-  float: left;
-  padding-left: 10px;
-  padding-right: 10px;
-  background-color: lightgrey;
 }
 
 .hiw {
