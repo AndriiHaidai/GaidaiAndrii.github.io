@@ -11,15 +11,17 @@
   background-color: lightyellow;
   
   .footer__logo {
+    margin-top: 19px;
     font-family: $font-main-bold;
     font-size: 16px;
+    line-height: 1;
     color: $main-red;
-    
   }
 
   .footer__menu {
     font-family: $font-main-bold;
     font-size: 14;
+    line-height: 1;
     color: $main-black;
     padding-left: 10px;
     padding-right: 10px;
@@ -30,15 +32,15 @@
       margin-right: span(1 of 6);
 
       .footer__company-header {
+        margin-top: 14px;
         text-align: center;
-        
       }
       
       .footer__company-menu {
         display: flex;
         flex-direction: row;
         justify-content: space-between;
-        
+        margin-top: 2px;
         
         .footer__company-item {
 
@@ -56,6 +58,7 @@
     }
     
     .footer__partners {
+      margin-top: 13px;
       text-align: center;
     }
 
@@ -64,6 +67,7 @@
   .footer__legal {
 
     .footer__legal-label {
+      margin-top: 13px;
       font-family: $font-main_bold;
       font-size: 10px;
       line-height: 16px;
@@ -74,7 +78,8 @@
     }
     
     .footer__legal-logo {
-      
+      margin-top: 5px;
+      margin-bottom: 18px;
     }
 
   }

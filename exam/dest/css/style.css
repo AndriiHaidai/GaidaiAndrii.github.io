@@ -106,78 +106,6 @@ a, input[type="button"], input[type="submit"], button {
   font-family: MontserratReg, Arial, sans-serif;
 }
 
-.footer {
-  margin-top: 40px;
-  width: 100%;
-  border-top: 4px solid #f66;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: column;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-align-items: center;
-      -ms-flex-align: center;
-          align-items: center;
-  background-color: lightyellow;
-}
-
-.footer .footer__logo {
-  font-family: MontserratBold, Arial, sans-serif;
-  font-size: 16px;
-  color: #f66;
-}
-
-.footer .footer__menu {
-  font-family: MontserratBold, Arial, sans-serif;
-  font-size: 14;
-  color: #333;
-  padding-left: 10px;
-  padding-right: 10px;
-  width: 100%;
-}
-
-.footer .footer__menu .footer__company {
-  margin-left: 16.66667%;
-  margin-right: 16.66667%;
-}
-
-.footer .footer__menu .footer__company .footer__company-header {
-  text-align: center;
-}
-
-.footer .footer__menu .footer__company .footer__company-menu {
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: row;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -webkit-justify-content: space-between;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-}
-
-.footer .footer__menu .footer__company .footer__company-menu .footer__company-item > a {
-  font-family: Roboto, Tahoma, sans-serif;
-  font-size: 14px;
-  line-height: 20px;
-  color: #666;
-}
-
-.footer .footer__menu .footer__partners {
-  text-align: center;
-}
-
-.footer .footer__legal .footer__legal-label {
-  font-family: MontserratBold, Arial, sans-serif;
-  font-size: 10px;
-  line-height: 16px;
-  color: #ccc;
-  text-transform: uppercase;
-  text-align: center;
-}
-
 .btn {
   padding-left: 17px;
   padding-right: 17px;
@@ -515,6 +443,90 @@ To change `display` (e.g. `display: inline-block;`), we suggest using a common C
   background-position: -101px 0px;
   width: 40px;
   height: 40px;
+}
+
+.footer {
+  margin-top: 40px;
+  width: 100%;
+  border-top: 4px solid #f66;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: lightyellow;
+}
+
+.footer .footer__logo {
+  margin-top: 19px;
+  font-family: MontserratBold, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1;
+  color: #f66;
+}
+
+.footer .footer__menu {
+  font-family: MontserratBold, Arial, sans-serif;
+  font-size: 14;
+  line-height: 1;
+  color: #333;
+  padding-left: 10px;
+  padding-right: 10px;
+  width: 100%;
+}
+
+.footer .footer__menu .footer__company {
+  margin-left: 16.66667%;
+  margin-right: 16.66667%;
+}
+
+.footer .footer__menu .footer__company .footer__company-header {
+  margin-top: 14px;
+  text-align: center;
+}
+
+.footer .footer__menu .footer__company .footer__company-menu {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-top: 2px;
+}
+
+.footer .footer__menu .footer__company .footer__company-menu .footer__company-item > a {
+  font-family: Roboto, Tahoma, sans-serif;
+  font-size: 14px;
+  line-height: 20px;
+  color: #666;
+}
+
+.footer .footer__menu .footer__partners {
+  margin-top: 13px;
+  text-align: center;
+}
+
+.footer .footer__legal .footer__legal-label {
+  margin-top: 13px;
+  font-family: MontserratBold, Arial, sans-serif;
+  font-size: 10px;
+  line-height: 16px;
+  color: #ccc;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.footer .footer__legal .footer__legal-logo {
+  margin-top: 5px;
+  margin-bottom: 18px;
 }
 
 .hiw {
