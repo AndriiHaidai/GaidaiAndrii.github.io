@@ -1,7 +1,7 @@
 @import '../globals/globals';
 
 .partners {
-  @include span(12 of 12);
+  @include span(full);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -14,6 +14,7 @@
     margin-top: 37px;
     font-family: $font-main-bold;
     font-size: 22px;
+    color: $main-black;
     text-align: center;
     
     @media (min-width: $mediaTablet) {
@@ -23,7 +24,6 @@
   }
   
   .partners__content {
-    @include span(12 of 12);
     padding-left: 0;
     padding-right: 0;
         
@@ -40,7 +40,7 @@
     }
 
     @media (min-width: $desktop) {
-      @include span(12 of 12);
+      @include span(full);
       padding-left: 0;
       padding-right: 0;
       flex-direction: row;
@@ -49,8 +49,6 @@
     .partners__card {
       margin-top: 20px;
       margin-bottom: 8px;
-      
-      @include span(12 of 12);
       padding-left: 13%; 
       padding-right: 13%;
       display: flex;
@@ -102,6 +100,10 @@
         font-family: $font-main-bold;
         font-size: 14px;
         margin-top: 21px;
+        color: $main-black;
+        &:hover {
+          color: $main-red;
+        }
       }
 
       .partners__about {
@@ -139,25 +141,6 @@
       padding-right: 28px;
     }
 
-    @media (min-width: $desktop) {
-      // @include span(3 of 12);
-      // padding-left: 0;
-      // padding-right: 0;
-    }
-
   }
   
-  @media (min-width: $mediaTablet) {
-    // @include span(6 of 12);
-    // padding-left: 0;
-    // padding-left: 0;
-    // padding-right: 0;
-  }
-
-  @media (min-width: $desktop) {
-    // @include span(3 of 12);
-    // padding-left: 0;
-    // padding-right: 0;
-  }
-
 }

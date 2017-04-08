@@ -1,9 +1,202 @@
 @import '../globals/globals';
 
-.footer {
-  height: 100px;
-  border: 10px solid #999;
+.prefooter {
+  width: 100vw;
+  border-top: 4px solid $main-red;
+}
 
-  @include span(12);
-  background-color: lightgrey;
+.footer {
+  padding-top: 19px;
+  margin-bottom: 18px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  
+  .footer__logo {
+    // margin-top: 19px;
+    font-family: $font-main-bold;
+    font-size: 16px;
+    line-height: 1;
+    color: $main-red;
+
+    &:hover {
+      text-shadow: 0 0 1px $main-red;
+    }
+
+    @media (min-width: $mediaTablet) {
+      @include span(3 of 12);
+      padding-left: 40px;
+    }
+
+    @media (min-width: $mediaDesktop) {
+      @include span(2 of 12);
+      padding-left: 0;
+    }
+  }
+
+  .footer__menu {
+    font-family: $font-main-bold;
+    font-size: 14;
+    line-height: 1;
+    color: $main-black;
+    padding-left: 10px;
+    padding-right: 10px;
+    width: 100%;
+    
+    @media (min-width: $mediaTablet) {
+      @include span(6 of 12);
+      display: flex;
+      flex-direction: row;
+      align-items: flex-start;
+    }
+
+    @media (min-width: $mediaDesktop) {
+      @include span(3 of 12);
+      margin-left: span(1 of 12);
+      padding-left: 0;
+      padding-right: 0;
+      margin-right: span(4 of 12);
+      justify-content: space-between;
+    }
+
+    .footer__company {
+      margin-left: span(1 of 6);
+      margin-right: span(1 of 6);
+
+      .footer__company-header {
+        margin-top: 14px;
+        text-align: center;
+        
+        @media (min-width: $mediaTablet) {
+          margin-top: 0;
+          text-align: left;
+          margin-bottom: 10px;
+        }
+      }
+      
+      .footer__company-menu {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        margin-top: 2px;
+        
+        .footer__company-item > a {
+          font-family: $font-plain;
+          font-size: 14px;
+          line-height: 20px;
+          color: $plain-on-light;
+          
+          &:hover {
+            text-shadow: 0px 0px 1px $main-black;
+          }
+          
+          @media (min-width: $mediaTablet) {
+            line-height: 24px;
+          }
+        }
+
+        @media (min-width: $mediaTablet) {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+        }
+      }
+
+      @media (min-width: $mediaTablet) {
+        @include span(3 of 12);
+        padding-left: 0;
+        padding-right: 0;
+        margin-left: span(1 of 6);
+        margin-right: span(1 of 6);
+      }
+
+      @media (min-width: $mediaDesktop) {
+        @include span(2 of 3);
+        margin-left: 0;
+        margin-right: 0;
+        padding-left: 0;
+        // padding-right: 0;
+      }
+    }
+    
+    .footer__partners {
+      margin-top: 13px;
+      text-align: center;
+      
+      @media (min-width: $mediaTablet) {
+        margin-top: 0;
+        @include span(3 of 12);
+        padding-left: 0;
+        padding-right: 0;
+        margin-left: span(1 of 6) - gutter(3);
+        margin-right: span(1 of 6) + gutter(3);
+        text-align: left;
+      }
+
+      @media (min-width: $mediaDesktop) {
+        @include span(1 of 3);
+        margin-left: 0;
+        margin-right: 0;
+        padding-right: 0;
+      }
+    }
+
+  }
+
+  .footer__legal {
+
+    @media (min-width: $mediaTablet) {
+      @include span(2 of 12);
+      padding-right: 0;
+      margin-right: span(1 of 12);
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+    }
+
+    @media (min-width: $mediaDesktop) {
+      margin-right: 0;
+    }
+
+    .footer__legal-label {
+      margin-top: 13px;
+      font-family: $font-main_bold;
+      font-size: 10px;
+      line-height: 16px;
+      color: $legal-header;
+      text-transform: uppercase;
+      text-align: center;
+      
+      @media (min-width: $mediaTablet) {
+        margin-top: 0;
+      }
+    }
+    
+    .footer__legal-link {
+      &:hover {
+        cursor: pointer;
+        background: linear-gradient(to top, rgba($main-black, 0.2), transparent);
+      }
+
+      .footer__legal-logo {
+        margin-top: 5px;
+      }
+    }
+  }
+
+  @media (min-width: $mediaTablet) {
+    @include container;
+    padding-top: 40px;
+    margin-bottom: 37px;
+    flex-direction: row;
+    align-items: flex-start;
+  }
+
+  @media (min-width: $desktop) {
+    // @include span(3 of 12);
+    // padding-left: gutter(6);
+    // padding-right: gutter(6);
+  }
+
 }
