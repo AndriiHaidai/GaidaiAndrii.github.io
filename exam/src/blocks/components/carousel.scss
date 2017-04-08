@@ -1,16 +1,15 @@
 @import '../globals/globals';
 
 .carousel__container {
-  @include span(full 12 of 12);
+  // @include span(full 12 of 12);
   display: flex;
   justify-content: center;
   visibility: hidden;
-  // margin: 15px auto;
   margin-top: 10px;
-  margin-bottom: 0px;
-  padding-left: 0;
-  padding-right: 0;
-  width: 100%;
+  // margin-bottom: 0px;
+  // padding-left: 0;
+  // padding-right: 0;
+  // width: 100%;
   
   &::after {
     content: '';
