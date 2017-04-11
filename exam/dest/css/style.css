@@ -120,30 +120,8 @@ a, input[type="button"], input[type="submit"], button {
 
 .btn:hover {
   cursor: pointer;
-}
-
-.promo__btn-gostart {
-  display: block;
-  line-height: 36px;
-  margin-top: 16px;
-  width: 280px;
-  margin-left: auto;
-  margin-right: auto;
-  background-color: #f66;
-  text-align: center;
-}
-
-.promo__btn-gostart:hover {
   background-color: rgba(255, 102, 102, 0.7);
   border-color: transparent;
-}
-
-@media (min-width: 768px) {
-  .promo__btn-gostart {
-    padding-left: 21px;
-    margin-top: 37px;
-    width: 226px;
-  }
 }
 
 .carousel__container {
@@ -345,6 +323,15 @@ a, input[type="button"], input[type="submit"], button {
   z-index: 10;
 }
 
+.input {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-shadow: 0 1px 0 #eee;
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
 .promo__logo {
   display: block;
   margin-top: 115px;
@@ -446,7 +433,7 @@ To change `display` (e.g. `display: inline-block;`), we suggest using a common C
 }
 
 .prefooter {
-  width: 100vw;
+  width: 100%;
   border-top: 4px solid #f66;
 }
 
@@ -1277,6 +1264,7 @@ head:hover ~ body .promo .promo__wraper:before {
 
 .promo__login > .promo__login-btn:hover {
   border-color: #fff;
+  background-color: transparent;
 }
 
 .promo__slogan {
@@ -1313,12 +1301,139 @@ head:hover ~ body .promo .promo__wraper:before {
   }
 }
 
+.promo__btn-gostart {
+  display: block;
+  line-height: 36px;
+  margin-top: 16px;
+  width: 280px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #f66;
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .promo__btn-gostart {
+    padding-left: 21px;
+    margin-top: 37px;
+    width: 226px;
+  }
+}
+
 .search {
-  height: 70px;
-  border: 10px solid #999;
   width: 100%;
   float: left;
   padding-left: 10px;
   padding-right: 10px;
-  background-color: lightgrey;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding-left: 0;
+  padding-right: 0;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+@media (min-width: 768px) {
+  .search {
+    margin-bottom: 40px;
+    margin-bottom: 100px;
+  }
+}
+
+.search .search__header {
+  font-family: MontserratBold, Arial, sans-serif;
+  font-size: 22px;
+  line-height: 1.1818;
+  color: #333;
+  margin-top: 34px;
+}
+
+@media (min-width: 768px) {
+  .search .search__header {
+    margin-top: 96px;
+  }
+}
+
+.search .search__label {
+  font-family: Roboto, Tahoma, sans-serif;
+  font-size: 18px;
+  line-height: 1.2;
+  color: #333;
+  margin-top: 12px;
+}
+
+@media (min-width: 768px) {
+  .search .search__label {
+    margin-top: 32px;
+  }
+}
+
+.search .search__form {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 93.3333%;
+  margin-top: 15px;
+}
+
+@media (min-width: 768px) {
+  .search .search__form {
+    margin-top: 37px;
+    width: 410px;
+    -webkit-flex-direction: row;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-justify-content: space-between;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+}
+
+.search .search__form .search__input {
+  font-family: Roboto, Tahoma, sans-serif;
+  font-size: 14px;
+  line-height: 38px;
+  color: #999;
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .search .search__form .search__input {
+    width: 240px;
+  }
+}
+
+.search .search__form .search__submit {
+  font-family: MontserratBold, Arial, sans-serif;
+  font-size: 14px;
+  line-height: 36px;
+  color: #fff;
+  background-color: #f66;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.search .search__form .search__submit:hover {
+  background-color: rgba(255, 102, 102, 0.7);
+}
+
+@media (min-width: 768px) {
+  .search .search__form .search__submit {
+    margin-top: 10px;
+    margin-top: 0px;
+    width: 160px;
+  }
 }

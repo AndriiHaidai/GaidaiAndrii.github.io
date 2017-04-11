@@ -1,9 +1,91 @@
 @import '../globals/globals';
 
 .search {
-  height: 70px;
-  border: 10px solid #999;
+  
+  @include span(full);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-left: 0;
+  padding-right: 0;
+  text-align: center;
+  margin-bottom: 40px;
+  
+  @media (min-width: $mediaTablet) {
+    margin-bottom: 40px;
+    margin-bottom: 100px;
+  }
+  
+  .search__header {
+    font-family: $font-main-bold;
+    font-size: 22px;
+    line-height: 1.1818;
+    color: $main-black;
+    margin-top: 34px;
+    
+    @media (min-width: $mediaTablet) {
+      margin-top: 96px;
+    }
+  }
 
-  @include span(12);
-  background-color: lightgrey;
+  .search__label {
+    font-family: $font-plain;
+    font-size: 18px;
+    line-height: 1.2;
+    color: $main-black;
+    margin-top: 12px;
+    
+    @media (min-width: $mediaTablet) {
+      margin-top: 32px;
+    }
+  }
+  
+  .search__form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 93.3333%;
+    margin-top: 15px;
+    
+    @media (min-width: $mediaTablet) {
+      margin-top: 37px;
+      width: 410px;
+      flex-direction: row;
+      justify-content: space-between;
+    }
+
+    .search__input {
+      font-family: $font-plain;
+      font-size: 14px;
+      line-height: 38px;
+      color: $form-placeholder;
+      width: 100%;
+      
+      @media (min-width: $mediaTablet) {
+        width: 240px;
+      }
+    }
+
+    .search__submit {
+      font-family: $font-main-bold;
+      font-size: 14px;
+      line-height: 36px;
+      color: $main-white;
+      background-color: $main-red;
+      width: 100%;
+      margin-top: 10px;
+      
+      &:hover {
+        background-color: rgba($main-red, 0.7);
+      }
+
+      @media (min-width: $mediaTablet) {
+        margin-top: 10px;
+        margin-top: 0px;
+        width: 160px;
+      }
+    }
+  }
 }
+
+
