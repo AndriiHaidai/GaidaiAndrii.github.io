@@ -13,28 +13,7 @@
   
   &:hover {
     cursor: pointer;
-  }
-}
-
-.promo__btn-gostart {
-  display: block;
-  line-height: 36px;
-  margin-top: 16px;
-  width: 280px;
-  margin-left: auto;
-  margin-right: auto;
-  background-color: $main-red;
-  text-align: center;
-  
-  &:hover {
     background-color: rgba($main-red, 0.7);
     border-color: transparent;
   }
-
-  @media (min-width: $mediaTablet) {
-    padding-left: 21px;
-    margin-top: 37px;
-    width: 226px;
-  }
-
 }

@@ -4,7 +4,6 @@
   
   align-self: stretch;
   height: 540px;
-  // background-color: #c6a57a;
   background-image: url('../img/bg-promo.jpg');
   background-repeat: no-repeat;
   background-position: top -10px left 51.4%;
@@ -55,6 +54,7 @@
   
   &:hover {
     border-color: $main-white;
+    background-color: transparent;
   }
 }
 
@@ -86,6 +86,24 @@
   @media (min-width: $mediaTablet) {
     padding-top: 28px;
     font-size: 24px;
+  }
+
+}
+
+.promo__btn-gostart {
+  display: block;
+  line-height: 36px;
+  margin-top: 16px;
+  width: 280px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: $main-red;
+  text-align: center;
+  
+  @media (min-width: $mediaTablet) {
+    padding-left: 21px;
+    margin-top: 37px;
+    width: 226px;
   }
 
 }
