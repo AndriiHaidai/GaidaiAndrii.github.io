@@ -27,7 +27,7 @@
   margin: auto;
 }
 .menu .menu__item {
-  text-align: center;
+  text-align: left;
 }
 .menu .menu__item:hover {
   background-color: grey;
