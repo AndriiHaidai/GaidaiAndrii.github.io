@@ -27,7 +27,11 @@
   margin: auto;
 }
 .menu .menu__item {
-  text-align: left;
+    margin-top: 5px;
+    border-radius: 5px;
+    background-color: #efefef;
+    text-align: left;
+    line-height: 1.5;
 }
 .menu .menu__item:hover {
   background-color: grey;
