@@ -49,8 +49,10 @@
 
 }
 
-.promo__login>.promo__login-btn {
+.promo__login > .promo__login-btn {
   border-color: transparent;
+  background-color: transparent;
+  // font-weight: bold;
   
   &:hover {
     border-color: $main-white;

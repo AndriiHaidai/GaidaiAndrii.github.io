@@ -11,9 +11,10 @@
   
   
   .partners__header {
-    margin-top: 37px;
+    margin-top: 35px;
     font-family: $font-main-bold;
     font-size: 22px;
+    line-height: 26px;
     color: $main-black;
     text-align: center;
     
@@ -26,6 +27,7 @@
   .partners__content {
     padding-left: 0;
     padding-right: 0;
+    margin-top: -5px;
         
     @media (min-width: $mediaTablet) {
       @include span(8 of 12);
@@ -48,7 +50,7 @@
 
     .partners__card {
       margin-top: 20px;
-      margin-bottom: 8px;
+      margin-bottom: 27px;
       padding-left: 13%; 
       padding-right: 13%;
       display: flex;
@@ -76,6 +78,8 @@
 
       .partners__avatar {
         position: relative;
+        width: 120px;
+        height: 120px;
 
         &:hover .partners__face {
           box-shadow: 0 0 0px 4px $main-red;
@@ -86,14 +90,13 @@
 
         & > .icon {
           position: absolute;
-          right: 0;
-          bottom: 0;
+          right: -4px;
+          bottom: -4px;
         }
         
         & .partners__face {
           border-radius: 50%;
         }
-
       }
 
       .partners__name {
@@ -107,7 +110,7 @@
       }
 
       .partners__about {
-        margin-top: 15px;
+        margin-top: 12px;
         font-family: $font-plain;
         font-size: 14px; 
         line-height: 17px;
@@ -121,7 +124,7 @@
 
   .partners__btn {
     width: 93%;
-    margin-top: 17px;
+    margin-top: 2px;
     text-align: center;
     font-family: $font-main-bold;
     font-size: 14px;
