@@ -91,23 +91,35 @@
     .carousel__element-btn {
       width: 70px;
       background-color: $main-red;
+      margin-bottom: 15px;
+      
       font-family: $font-main;
+      font-weight: normal;
       font-size: 10px;
       line-height: 14px;
-      margin-bottom: 15px;
+      line-height: 14px;
+      color: $main-white;
+      text-transform: uppercase;
+      white-space: nowrap;
+      padding-left: 0;
+      padding-right: 0;
+      text-align: center;
+      text-indent: 3px;
+      letter-spacing: 2px;
+      vertical-align: 5px;
     }
 
     .carousel__element-header {
       font-family: $font-main-bold;
       font-size: 24px;
       line-height: 29px;
-      margin-bottom: 12px;
+      margin-bottom: 10px;
     }
     .carousel__element-text {
       color: $plain-on-dark;
       font-family: $font-plain;
       font-size: 14px;
-      line-height: 16px;
+      line-height: 17px;
       margin-bottom: 17px;
     }
     
@@ -123,6 +135,7 @@
   z-index: 10;
   height: 100%;
   
+  
   &-prev > .icon {
     float: left;
   }
@@ -133,9 +146,10 @@
   &-prev,
   &-next {
     width: 50%;
-    
-    &>.icon {
+
+    & > .icon {
       visibility: hidden;
+      
       @media (min-width: $mediaTablet) {
         visibility: visible;
       }
