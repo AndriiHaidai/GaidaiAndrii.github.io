@@ -60,20 +60,19 @@ function showResults() {
   userRequest.open('GET', URL);
   userRequest.send();
 
-  imagesLoaded( '.ideas__img', function() {
+  // imagesLoaded( '.ideas__img', function() {
   
-  // (document.scrollingElement || document.documentElement).scrollTop = ideas.offsetTop;
+    // var msnry = new Masonry( tile, {
+    //   // options
+    //   itemSelector: '.ideas__img'
+    //   ,columnWidth: 300 
+    //   // - If columnWidth is not set, Masonry will use the outer width of the first item.
+    //   // - Как его к сетке Susy привязать?
+    //   ,gutter: 10
+    // });
+
   body.scrollTop = ideas.offsetTop;
 
-  });
-
-// var msnry = new Masonry( tile, {
-//   // options
-//   itemSelector: '.ideas__img'
-//   ,columnWidth: 300 
-//   // - If columnWidth is not set, Masonry will use the outer width of the first item.
-//   // - Как его к сетке Susy привязать?
-//   ,gutter: 10
-// });
+  // });
 
 }
