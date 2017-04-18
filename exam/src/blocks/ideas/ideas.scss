@@ -4,6 +4,7 @@
   // border: 10px solid #999;
 
   @include span(full);
+  // @include break;
   padding-left: 0;
   padding-right: 0;
   background-color: lightgrey;
@@ -22,17 +23,10 @@
 
   .ideas__content {
     margin-top: 13px;
-    // height: 900px;
-    // border: 1px solid #000;
-
-    // .search__result-container {
-    //   // height: 10px;
-    // }
   }
 
   .ideas__item {
     margin-top: 9px;
-    max-height: 120px;
     border-radius: 4px;
     position: relative;
     display: flex;
@@ -42,20 +36,67 @@
   }
 
   .ideas__img {
-    max-width: 100%;
+    // max-width: 100%;
+    
+    @media (min-width: $mediaTablet) {
+      position: absolute;
+      width: auto;
+    }
+
+    @media (min-width: $desktop) {
+      //
+    }
   }
 
   .ideas__title {
     position: absolute;
     display: block;
-    width: 100%;
+    // width: 100%;
     text-align: center;
     font-family: $font-main-bold;
     font-weight: bold;
     font-size: 22px;
     line-height: 40px;
     color: $main-white;
+    text-shadow: 0 0 1px $plain-on-light;
   }
+}
 
+.msnry {
+  
+}
 
+.msnry__item {
+  // width: span(12);
+  width: 100%;
+  // @include span(12);
+  height: 120px;
+  
+  @media (min-width: $mediaTablet) {
+    min-height: 310px; // Переписать это в размерах Susy !
+    // @include span(4);
+    // width: span(4 of 12 wide);
+    // width: 33.3333%;
+    // width: 31.5508%;
+    width: 31.6%;
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+.msnry__item-width2 {
+  @include span(12);
+  
+  @media (min-width: $mediaTablet) {
+    min-height: 310px; // Переписать это в размерах Susy !
+    @include span(8);
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+.msnry__gutter {
+  // width: 9px;
+  // @include gutter();
+  width: 2,6738%;
 }

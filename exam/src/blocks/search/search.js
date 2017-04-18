@@ -5,9 +5,8 @@ var input = document.getElementById('search__text');
 var btn = document.getElementById('search__button');
 var body = document.getElementById('body');
 var ideas = document.getElementById('ideas');
-var tile = document.getElementById('search__result');
+var msnryContainer = document.getElementById('search__result');
 
-// input.onkeydown = waitForEnterKey;
 input.addEventListener('keydown', waitForEnterKey);
 btn.addEventListener('click', showResults);
 
@@ -17,7 +16,6 @@ function waitForEnterKey(e){
     showResults();
   }
 }
-
 
 
 function showResults() {
@@ -38,20 +36,45 @@ function showResults() {
       for ( i = 0 ; i < Math.min(7, data.hits.length); ) {
         imgUrl = data.hits[i].webformatURL;
         imgTitle = data.hits[i].tags;
-        imgTitle = imgTitle.substring(0, imgTitle.indexOf(",",imgTitle.indexOf(",",0)+1)); // Limit text to 2 first phrases.
+        imgTitle = imgTitle.substring(0, imgTitle.indexOf(",",imgTitle.indexOf(",",0)+1)); // Now limit text to 2 first phrases.
         // webformatHeight
         // webformatWidth 
-
+/*
         html += '<li class="ideas__item">';
         html +=   '<img class="ideas__img" src="' + imgUrl + '" alt="image ' + (++i) + ' of ' + searchText + '">';
         html +=   '<h3 class="ideas__title">' + imgTitle + '</h3>';
         html += '</li>';
+*/
+        htmlItemClass = '"ideas__item msnry__item"';
+        htmlItemStyle = '"background: url(' + imgUrl + ') no-repeat center; background-size: cover;"';
+
+        html += '<li class=' + htmlItemClass + ' style=' + htmlItemStyle + ' alt="image ' + (++i) + ' of ' + searchText + '">';
+        html +=   '<h3 class="ideas__title">' + imgTitle + '</h3>';
+        html += '</li>';
       }
     
-      tile.innerHTML = html;
+      msnryContainer.innerHTML = html;
       
+      
+      imagesLoaded( '.ideas__img', function() {
+      
+        var msnry = new Masonry( msnryContainer, {
+          // options
+          itemSelector: '.msnry__item',
+          columnWidth: '.msnry__item',
+        //   // - If columnWidth is not set, Masonry will use the outer width of the first item.
+        //   // - Как его к сетке Susy привязать?
+          // gutter: '.msnry__gutter',
+          gutter: 20,
+          percentPosition: true
+        });
+
+        body.scrollTop = ideas.offsetTop;
+      });
+      msnry.layout();
+
       // imagesLoaded( 'ideas__item', function() {
-        // tile.innerHTML = html;
+        // msnryContainer.innerHTML = html;
         // body.scrollTop = ideas.offsetTop;
       // });
 
@@ -73,20 +96,4 @@ function showResults() {
   // userRequest.open('GET', 'https://api.tenor.co/v1/search?tag=' + searchText + '&key=LIVDSRZULELA');
   userRequest.open('GET', URL);
   userRequest.send();
-
-  imagesLoaded( '.ideas__img', function() {
-  
-    // var msnry = new Masonry( tile, {
-    //   // options
-    //   itemSelector: '.ideas__img'
-    //   ,columnWidth: 300 
-    //   // - If columnWidth is not set, Masonry will use the outer width of the first item.
-    //   // - Как его к сетке Susy привязать?
-    //   ,gutter: 10
-    // });
-
-  body.scrollTop = ideas.offsetTop;
-
-  });
-
 }
