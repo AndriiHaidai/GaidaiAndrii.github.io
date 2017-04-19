@@ -929,7 +929,7 @@ To change `display` (e.g. `display: inline-block;`), we suggest using a common C
   }
 }
 
-.page__wrapper {
+.page__sizer {
   max-width: 940px;
   margin-left: auto;
   margin-right: auto;
@@ -939,7 +939,7 @@ To change `display` (e.g. `display: inline-block;`), we suggest using a common C
   overflow: hidden;
 }
 
-.page__wrapper:after {
+.page__sizer:after {
   content: " ";
   display: block;
   clear: both;
@@ -969,13 +969,13 @@ head:hover {
   color: red;
 }
 
-head:hover ~ .page__wrapper,
-head:hover ~ body .page__wrapper {
+head:hover ~ .page__sizer,
+head:hover ~ body .page__sizer {
   position: relative;
 }
 
-head:hover ~ .page__wrapper:before,
-head:hover ~ body .page__wrapper:before {
+head:hover ~ .page__sizer:before,
+head:hover ~ body .page__sizer:before {
   position: absolute;
   top: 0;
   left: 0;
@@ -991,13 +991,13 @@ head:hover ~ body .page__wrapper:before {
 }
 
 @media (min-width: 768px) {
-  .page__wrapper {
+  .page__sizer {
     min-width: 748px;
   }
 }
 
 @media (min-width: 1440px) {
-  .page__wrapper {
+  .page__sizer {
     min-width: 940px;
   }
 }
