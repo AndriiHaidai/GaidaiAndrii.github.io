@@ -31,7 +31,7 @@ function carousel(el, options) {
 
   // Присвоение Объектов
   var page = document.querySelector('.page');
-  var pageWrapper = document.querySelector('.page__wrapper');
+  var pageWrapper = document.querySelector('.page__sizer');
   var container = el;
   var carouselHider = container.querySelector('.carousel__hider');
   var carouselList = carouselHider.querySelector('.carousel__list');

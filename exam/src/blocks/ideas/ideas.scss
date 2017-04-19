@@ -26,7 +26,6 @@
   }
 
   .ideas__item {
-    margin-top: 9px;
     border-radius: 4px;
     position: relative;
     display: flex;
@@ -41,10 +40,6 @@
     @media (min-width: $mediaTablet) {
       position: absolute;
       width: auto;
-    }
-
-    @media (min-width: $desktop) {
-      //
     }
   }
 
@@ -62,41 +57,56 @@
   }
 }
 
-.msnry {
-  
-}
-
-.msnry__item {
+.msnry__sizer {
   // width: span(12);
   width: 100%;
   // @include span(12);
-  height: 120px;
   
   @media (min-width: $mediaTablet) {
-    min-height: 310px; // Переписать это в размерах Susy !
-    // @include span(4);
+    @include span(4);
     // width: span(4 of 12 wide);
     // width: 33.3333%;
     // width: 31.5508%;
     width: 31.6%;
     padding-left: 0;
     padding-right: 0;
-  }
+  }  
 }
 
-.msnry__item-width2 {
-  @include span(12);
+.msnry__item {
+  margin-top: 9px;
+  // width: span(12);
+  width: 100%;
+  // @include span(12);
+  height: 120px;
   
   @media (min-width: $mediaTablet) {
+    margin-top: 20px;
     min-height: 310px; // Переписать это в размерах Susy !
-    @include span(8);
+    // @include span(4 of 12);
+    // width: span(4 of 12 narrow);
+    // width: 33.3333%;
+    width: 31.5508%;
+    width: 31.55%;
+    // width: 31.6%;
     padding-left: 0;
     padding-right: 0;
   }
 }
 
-.msnry__gutter {
+.msnry__item-width2 {
+  @media (min-width: $mediaTablet) {
+    width: 65.73%;
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+.msnry__gutter-sizer {
   // width: 9px;
   // @include gutter();
-  width: 2,6738%;
+  // width: gutter();
+  width: 2.6738%;
+  width: 2.63%;
+  // width: 20px;
 }

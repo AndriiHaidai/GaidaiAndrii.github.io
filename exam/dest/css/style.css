@@ -823,7 +823,6 @@ To change `display` (e.g. `display: inline-block;`), we suggest using a common C
 }
 
 .ideas .ideas__item {
-  margin-top: 9px;
   border-radius: 4px;
   position: relative;
   display: -webkit-flex;
@@ -857,41 +856,50 @@ To change `display` (e.g. `display: inline-block;`), we suggest using a common C
   text-shadow: 0 0 1px #666;
 }
 
-.msnry__item {
+.msnry__sizer {
   width: 100%;
-  height: 120px;
 }
 
 @media (min-width: 768px) {
-  .msnry__item {
-    min-height: 310px;
+  .msnry__sizer {
+    width: 33.33333%;
+    float: left;
+    padding-left: 10px;
+    padding-right: 10px;
     width: 31.6%;
     padding-left: 0;
     padding-right: 0;
   }
 }
 
-.msnry__item-width2 {
+.msnry__item {
+  margin-top: 9px;
   width: 100%;
-  float: left;
-  padding-left: 10px;
-  padding-right: 10px;
+  height: 120px;
 }
 
 @media (min-width: 768px) {
-  .msnry__item-width2 {
+  .msnry__item {
+    margin-top: 20px;
     min-height: 310px;
-    width: 66.66667%;
-    float: left;
-    padding-left: 10px;
-    padding-right: 10px;
+    width: 31.5508%;
+    width: 31.55%;
     padding-left: 0;
     padding-right: 0;
   }
 }
 
-.msnry__gutter {
-  width: 2,6738%;
+@media (min-width: 768px) {
+  .msnry__item-width2 {
+    width: 65.73%;
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+.msnry__gutter-sizer {
+  width: 2.6738%;
+  width: 2.63%;
 }
 
 .page {
@@ -929,7 +937,7 @@ To change `display` (e.g. `display: inline-block;`), we suggest using a common C
   }
 }
 
-.page__wrapper {
+.page__sizer {
   max-width: 940px;
   margin-left: auto;
   margin-right: auto;
@@ -939,7 +947,7 @@ To change `display` (e.g. `display: inline-block;`), we suggest using a common C
   overflow: hidden;
 }
 
-.page__wrapper:after {
+.page__sizer:after {
   content: " ";
   display: block;
   clear: both;
@@ -969,13 +977,13 @@ head:hover {
   color: red;
 }
 
-head:hover ~ .page__wrapper,
-head:hover ~ body .page__wrapper {
+head:hover ~ .page__sizer,
+head:hover ~ body .page__sizer {
   position: relative;
 }
 
-head:hover ~ .page__wrapper:before,
-head:hover ~ body .page__wrapper:before {
+head:hover ~ .page__sizer:before,
+head:hover ~ body .page__sizer:before {
   position: absolute;
   top: 0;
   left: 0;
@@ -991,13 +999,13 @@ head:hover ~ body .page__wrapper:before {
 }
 
 @media (min-width: 768px) {
-  .page__wrapper {
+  .page__sizer {
     min-width: 748px;
   }
 }
 
 @media (min-width: 1440px) {
-  .page__wrapper {
+  .page__sizer {
     min-width: 940px;
   }
 }
