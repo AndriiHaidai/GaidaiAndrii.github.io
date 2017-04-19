@@ -30,22 +30,27 @@ function showResults() {
 
       var imgUrl;
       var imgTitle;
-      var html = '';
+      var html = '<li class="msnry__sizer"></li><li class="msnry__gutter-sizer"></li>';
+      var widerImageIndex1, widerImageIndex2;
       console.log('data: ', data);
 
-      for ( i = 0 ; i < Math.min(7, data.hits.length); ) {
+      widerImageIndex1 = Math.floor( totalImagesNeeded * Math.random() );
+      do {
+        widerImageIndex2 = Math.floor( totalImagesNeeded * Math.random() );
+      } while( widerImageIndex1 === widerImageIndex2 );
+      
+      for ( i = 0 ; i < Math.min(totalImagesNeeded, data.hits.length); ) {
         imgUrl = data.hits[i].webformatURL;
         imgTitle = data.hits[i].tags;
         imgTitle = imgTitle.substring(0, imgTitle.indexOf(",",imgTitle.indexOf(",",0)+1)); // Now limit text to 2 first phrases.
         // webformatHeight
         // webformatWidth 
-/*
-        html += '<li class="ideas__item">';
-        html +=   '<img class="ideas__img" src="' + imgUrl + '" alt="image ' + (++i) + ' of ' + searchText + '">';
-        html +=   '<h3 class="ideas__title">' + imgTitle + '</h3>';
-        html += '</li>';
-*/
+
         htmlItemClass = '"ideas__item msnry__item"';
+        if ( i === widerImageIndex1 || i === widerImageIndex2 ) {
+          htmlItemClass = '"ideas__item msnry__item msnry__item-width2"';
+        }
+
         htmlItemStyle = '"background: url(' + imgUrl + ') no-repeat center; background-size: cover;"';
 
         html += '<li class=' + htmlItemClass + ' style=' + htmlItemStyle + ' alt="image ' + (++i) + ' of ' + searchText + '">';
@@ -55,34 +60,25 @@ function showResults() {
     
       msnryContainer.innerHTML = html;
       
-      
       imagesLoaded( '.ideas__img', function() {
-      
         var msnry = new Masonry( msnryContainer, {
-          // options
           itemSelector: '.msnry__item',
-          columnWidth: '.msnry__item',
+          columnWidth: '.msnry__sizer',
         //   // - If columnWidth is not set, Masonry will use the outer width of the first item.
         //   // - Как его к сетке Susy привязать?
-          // gutter: '.msnry__gutter',
-          gutter: 20,
+          gutter: '.msnry__gutter-sizer',
+          // gutter: 18,
           percentPosition: true
         });
 
         body.scrollTop = ideas.offsetTop;
       });
-      msnry.layout();
-
-      // imagesLoaded( 'ideas__item', function() {
-        // msnryContainer.innerHTML = html;
-        // body.scrollTop = ideas.offsetTop;
-      // });
-
     }
   };
 
+  var totalImagesNeeded = 7;
   var API_KEY = '5116679-27723e47bc3390bc786097a34';
-  var perPage = 7 + Math.floor( 8 * Math.random() );
+  var perPage = totalImagesNeeded + Math.floor( (totalImagesNeeded + 1) * Math.random() );
   var page = 1 + Math.floor( Math.floor(500/perPage) * Math.random() );
   var URL = 'https://pixabay.com/api/?key=' + API_KEY +
             '&image_type=photo' +
