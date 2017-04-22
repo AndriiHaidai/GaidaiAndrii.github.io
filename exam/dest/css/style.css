@@ -383,6 +383,16 @@ a, input[type="button"], input[type="submit"], button {
   }
 }
 
+.warning {
+  text-align: center;
+  font-family: Roboto, Tahoma, sans-serif;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 3;
+  color: #f66;
+  text-transform: uppercase;
+}
+
 /*
 Icon classes can be used entirely standalone. They are named after their original file names.
 
@@ -875,7 +885,7 @@ To change `display` (e.g. `display: inline-block;`), we suggest using a common C
 .msnry__item {
   margin-top: 9px;
   width: 100%;
-  height: 120px;
+  min-height: 120px;
 }
 
 @media (min-width: 768px) {
