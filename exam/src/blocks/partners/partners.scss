@@ -9,8 +9,8 @@
   padding-left: 0;
   padding-right: 0;
   
-  
   .partners__header {
+    // @include span(full);
     margin-top: 35px;
     font-family: $font-main-bold;
     font-size: 22px;
@@ -21,10 +21,10 @@
     @media (min-width: $mediaTablet) {
       margin-top: 99px;
     }
-
   }
   
   .partners__content {
+    @include span(full);
     padding-left: 0;
     padding-right: 0;
     margin-top: -5px;
@@ -41,7 +41,7 @@
       @include container;
     }
 
-    @media (min-width: $desktop) {
+    @media (min-width: $mediaDesktop) {
       @include span(full);
       padding-left: 0;
       padding-right: 0;
@@ -64,7 +64,7 @@
         margin-top: 33px;
       }
 
-      @media (min-width: $desktop) {
+      @media (min-width: $mediaDesktop) {
         @include span(3 of 12);
         
         &:nth-of-type(2) {
@@ -117,9 +117,7 @@
         color: $plain-on-light;
         text-align: center;
       }
-      
     }
-    
   }
 
   .partners__btn {
@@ -143,7 +141,5 @@
       padding-left: 28px;
       padding-right: 28px;
     }
-
   }
-  
 }

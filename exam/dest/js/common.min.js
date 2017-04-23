@@ -127,14 +127,19 @@ function carousel(el, options) {
     var pageMarginRight = parseInt(getComputedStyle(pageWrapper).marginRight);
     var pageMargins = pageMarginLeft + pageMarginRight;
     var pageWrapperWidth = pageWrapper.offsetWidth;
+    // var pageWrapperWidth = pageWrapper.scrollWidth;
 
     list.bgImageWidth = page.offsetWidth >= 768 ? 620 : 358;
+    // list.bgImageWidth = page.scrollWidth >= 768 ? 620 : 358;
 
     hiderWidth = Math.min(
       list.bgImageWidth, 
       (page.offsetWidth >= 768 ? 
         pageWrapperWidth / 3 :
         page.offsetWidth - pageMargins)
+      // (page.scrollWidth >= 768 ? 
+      //   pageWrapperWidth / 3 :
+      //   page.scrollWidth - pageMargins)
     ); 
     
     settings.pictureWidthPixels = Math.min(

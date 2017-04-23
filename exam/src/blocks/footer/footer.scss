@@ -193,11 +193,4 @@
     flex-direction: row;
     align-items: flex-start;
   }
-
-  @media (min-width: $desktop) {
-    // @include span(3 of 12);
-    // padding-left: gutter(6);
-    // padding-right: gutter(6);
-  }
-
 }
