@@ -1,0 +1,11 @@
+@import '../globals/globals';
+
+.warning {
+  text-align: center;
+  font-family: $font-plain;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 3;
+  color: $main-red;
+  text-transform: uppercase;
+}

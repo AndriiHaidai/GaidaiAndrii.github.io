@@ -75,10 +75,8 @@
 
 .msnry__item {
   margin-top: 9px;
-  // width: span(12);
   width: 100%;
-  // @include span(12);
-  height: 120px;
+  min-height: 120px;
   
   @media (min-width: $mediaTablet) {
     margin-top: 20px;
