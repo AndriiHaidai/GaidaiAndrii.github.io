@@ -27,9 +27,6 @@ function showResults(e) {
   }
 
   var searchString = input.value;
-  // Modify here to make available several words search:
-  // var searchText = encodeURIComponent(searchString);//.replace(/(\s+)/g,'+');
-  // var searchText = "'" + encodeURIComponent(searchString.trim().replace(/(\s+)/g,'+')) + "'";
   var searchText = encodeURIComponent(searchString.trim().replace(/(\s+)/g,'+'));
   var userRequest = new XMLHttpRequest();
 
@@ -61,7 +58,6 @@ function showResults(e) {
         } else {
           html = '<li class="msnry__sizer"></li><li class="msnry__gutter-sizer"></li>';
           var widerImageIndex1, widerImageIndex2;
-          // console.log('data: ', data);
 
           widerImageIndex1 = Math.floor( totalImagesNeeded * Math.random() );
           do {
@@ -75,7 +71,8 @@ function showResults(e) {
 
           for ( i = 0 ; i < Math.min(totalImagesNeeded, data.hits.length); i++) {
             imgTitle = data.hits[i].tags;
-            // imgTitle = imgTitle.substring(0, imgTitle.indexOf(",",imgTitle.indexOf(",",0)+1)); // Now limit text to 2 first phrases.
+            /*Uncomment next line to limit text to 2 first phrases:*/
+            /*imgTitle = imgTitle.substring(0, imgTitle.indexOf(",",imgTitle.indexOf(",",0)+1)); */
 
             htmlItemClass = '"ideas__item msnry__item"';
             if ( i === widerImageIndex1 || i === widerImageIndex2 ) {
