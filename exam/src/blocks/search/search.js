@@ -95,7 +95,8 @@ function showResults(e) {
             percentPosition: true
           });
 
-          body.scrollTop = ideas.offsetTop;
+          // body.scrollTop = ideas.offsetTop;
+          scrollPageAnimated(body, 'scrollTop', '', body.scrollTop, ideas.offsetTop, 200, true);
         }); // END Masonry initialize
       }     // END if ( userRequest.status == 200 )
     }       // END if ( userRequest.readyState == 4 )
@@ -103,4 +104,28 @@ function showResults(e) {
   
   userRequest.open('POST', xhrURL, true);
   userRequest.send();
+}
+
+function scrollPageAnimated(elem, style, unit, from, to, time, prop) {
+  if (!elem) {
+    return;
+  }
+
+  var start = new Date().getTime();
+  var timer = setInterval(function () {
+    var step = Math.min(1, (new Date().getTime() - start) / time);
+    if (prop) {
+      elem[style] = (from + step * (to - from))+unit;
+    } else {
+      elem.style[style] = (from + step * (to - from))+unit;
+    }
+    if (step === 1) {
+      clearInterval(timer);
+    }
+  }, 25);
+  if (prop) {
+    elem[style] = from+unit;
+  } else {
+    elem.style[style] = from+unit;
+  }
 }
