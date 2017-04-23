@@ -12,9 +12,9 @@ btn.addEventListener('click', showResults);
 
 function waitForEnterKey(e){
   if (e.target.id == 'search__text' && (e.type == 'keydown' || e.type == 'keypress') && e.keyCode == 13) {
-    e.preventDefault();
     e.target.blur();
     showResults();
+    e.preventDefault();
   }
 }
 
@@ -23,10 +23,14 @@ function showResults(e) {
 
   if (e !== undefined) {
     e.target.blur();
+    e.preventDefault();
   }
 
-  var searchText = input.value;
-  // Midify here to make available several words search
+  var searchString = input.value;
+  // Modify here to make available several words search:
+  // var searchText = encodeURIComponent(searchString);//.replace(/(\s+)/g,'+');
+  // var searchText = "'" + encodeURIComponent(searchString.trim().replace(/(\s+)/g,'+')) + "'";
+  var searchText = encodeURIComponent(searchString.trim().replace(/(\s+)/g,'+'));
   var userRequest = new XMLHttpRequest();
 
 
@@ -34,7 +38,7 @@ function showResults(e) {
   var API_KEY = '5116679-27723e47bc3390bc786097a34';
   var perPage = totalImagesNeeded + Math.floor( (totalImagesNeeded + 1) * Math.random() );
   var page = 1 + Math.floor( Math.floor(500/perPage) * Math.random() );
-  var URL = 'https://pixabay.com/api/?key=' + API_KEY +
+  var xhrURL = 'https://pixabay.com/api/?key=' + API_KEY +
             '&image_type=photo' +
             '&min_width=320' + '&min_height=120' +
             '&orientation=horizontal' + // Accepted values: "all", "horizontal", "vertical". Default: "all".
@@ -46,62 +50,60 @@ function showResults(e) {
 
   userRequest.onreadystatechange = function() {
     
-    if (userRequest.readyState == 4 && userRequest.status == 200) {
-      var data = JSON.parse(userRequest.responseText);
-      var html, imgTitle;
+    if ( userRequest.readyState == 4 ) {
+      if ( userRequest.status == 200 ) {
+        var data = JSON.parse(userRequest.responseText);
+        var html, imgTitle;
 
-      if (data.total === 0) {
-        html = '<p class="warning">[ No images for your request ! ]</p>';
-      } else {
-        html = '<li class="msnry__sizer"></li><li class="msnry__gutter-sizer"></li>';
-        var widerImageIndex1, widerImageIndex2;
-        console.log('data: ', data);
+        if (data.total === 0) {
+          // Server reply is empty:
+          html = '<p class="warning">[ No images for your request ! ]</p>';
+        } else {
+          html = '<li class="msnry__sizer"></li><li class="msnry__gutter-sizer"></li>';
+          var widerImageIndex1, widerImageIndex2;
+          // console.log('data: ', data);
 
-        widerImageIndex1 = Math.floor( totalImagesNeeded * Math.random() );
-        do {
-          widerImageIndex2 = Math.floor( totalImagesNeeded * Math.random() );
-        } while ( 
-          widerImageIndex1 === widerImageIndex2 || 
-          /* It's OK to have 2 last items not fit all row by Masonry's philosophy. 
-          But for further beatifiyng I forbid having such case.
-          Next row maintains this:*/
-          (widerImageIndex1 + widerImageIndex2 === ((totalImagesNeeded - 1) * 2 - 1)) 
-        );
+          widerImageIndex1 = Math.floor( totalImagesNeeded * Math.random() );
+          do {
+            widerImageIndex2 = Math.floor( totalImagesNeeded * Math.random() );
+          } while ( 
+            widerImageIndex1 === widerImageIndex2 || 
+            /* It's OK to have 2 last items not fit all row by Masonry's philosophy. 
+            But for further beatifiyng I forbid having such case. Next row maintains this:*/
+            (widerImageIndex1 + widerImageIndex2 === ((totalImagesNeeded - 1) * 2 - 1)) 
+          );
 
-        for ( i = 0 ; i < Math.min(totalImagesNeeded, data.hits.length); i++) {
-          imgTitle = data.hits[i].tags;
-          imgTitle = imgTitle.substring(0, imgTitle.indexOf(",",imgTitle.indexOf(",",0)+1)); // Now limit text to 2 first phrases.
-          // webformatHeight
-          // webformatWidth 
+          for ( i = 0 ; i < Math.min(totalImagesNeeded, data.hits.length); i++) {
+            imgTitle = data.hits[i].tags;
+            // imgTitle = imgTitle.substring(0, imgTitle.indexOf(",",imgTitle.indexOf(",",0)+1)); // Now limit text to 2 first phrases.
 
-          htmlItemClass = '"ideas__item msnry__item"';
-          if ( i === widerImageIndex1 || i === widerImageIndex2 ) {
-            htmlItemClass = '"ideas__item msnry__item msnry__item-width2"';
+            htmlItemClass = '"ideas__item msnry__item"';
+            if ( i === widerImageIndex1 || i === widerImageIndex2 ) {
+              htmlItemClass = '"ideas__item msnry__item msnry__item-width2"';
+            }
+
+            html += '<li class=' + htmlItemClass + ' style="background: url(' + data.hits[i].webformatURL + ') no-repeat center; background-size: cover;" alt="image">';
+            html +=   '<h3 class="ideas__title">' + imgTitle + '</h3>';
+            html += '</li>';
           }
-
-          html += '<li class=' + htmlItemClass + ' style="background: url(' + data.hits[i].webformatURL + ') no-repeat center; background-size: cover;" alt="image">';
-          html +=   '<h3 class="ideas__title">' + imgTitle + '</h3>';
-          html += '</li>';
         }
-      }
-    
-      // Masonry initialize:
-      msnryContainer.innerHTML = html;
-      imagesLoaded( '.ideas__img', function() {
-        var msnry = new Masonry( msnryContainer, {
-          itemSelector: '.msnry__item',
-          columnWidth: '.msnry__sizer',
-          //   // - If columnWidth is not set, Masonry will use the outer width of the first item.
-          gutter: '.msnry__gutter-sizer',
-          // gutter: 18,
-          percentPosition: true
-        });
+      
+        // Masonry initialize:
+        msnryContainer.innerHTML = html;
+        imagesLoaded( '.ideas__img', function() {
+          var msnry = new Masonry( msnryContainer, {
+            itemSelector: '.msnry__item',
+            columnWidth: '.msnry__sizer',
+            gutter: '.msnry__gutter-sizer',
+            percentPosition: true
+          });
 
-        body.scrollTop = ideas.offsetTop;
-      });
-    }
-  };
+          body.scrollTop = ideas.offsetTop;
+        }); // END Masonry initialize
+      }     // END if ( userRequest.status == 200 )
+    }       // END if ( userRequest.readyState == 4 )
+  };        // END userRequest.onreadystatechange
   
-  userRequest.open('GET', URL);
+  userRequest.open('POST', xhrURL, true);
   userRequest.send();
 }
