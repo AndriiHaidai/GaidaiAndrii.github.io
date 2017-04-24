@@ -364,12 +364,6 @@ a, input[type="button"], input[type="submit"], button {
   }
 }
 
-@media (min-width: 1457px) {
-  .promo__logo {
-    margin-left: 15%;
-  }
-}
-
 .promo__login {
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -387,12 +381,6 @@ a, input[type="button"], input[type="submit"], button {
     -webkit-align-self: flex-end;
         -ms-flex-item-align: end;
             align-self: flex-end;
-  }
-}
-
-@media (min-width: 1457px) {
-  .promo__login {
-    margin-right: 15%;
   }
 }
 
@@ -962,7 +950,6 @@ head:hover ~ body .hiw__sizer:before {
 }
 
 .ideas .ideas__title {
-  position: absolute;
   display: block;
   text-align: center;
   font-family: MontserratBold, Arial, sans-serif;
@@ -1401,9 +1388,17 @@ head:hover ~ body .page__sizer:before {
 }
 
 .promo {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
   -webkit-align-self: stretch;
       -ms-flex-item-align: stretch;
-              -ms-grid-row-align: stretch;
           align-self: stretch;
   height: 540px;
   background-image: url("../img/bg-promo.jpg");
@@ -1417,6 +1412,7 @@ head:hover ~ body .page__sizer:before {
 }
 
 .promo .promo__header {
+  width: 100%;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
@@ -1438,6 +1434,15 @@ head:hover ~ body .page__sizer:before {
     -webkit-justify-content: space-between;
         -ms-flex-pack: justify;
             justify-content: space-between;
+    padding-left: 6%;
+    padding-right: 6%;
+  }
+}
+
+@media (min-width: 1457px) {
+  .promo .promo__header {
+    padding-left: 17.4%;
+    padding-right: 17.4%;
   }
 }
 
@@ -1447,8 +1452,6 @@ head:hover ~ body .page__sizer:before {
     background-size: cover;
     height: 700px;
     padding-top: 38px;
-    padding-left: 50px;
-    padding-right: 50px;
   }
 }
 

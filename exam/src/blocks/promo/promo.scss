@@ -2,6 +2,14 @@
 
 .promo {
   
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  // min-width: $mobile;
+  // max-width: $mediaDesktop;
+  // margin-left: auto;
+  // margin-right: auto;
+
   align-self: stretch;
   height: 540px;
   background-image: url('../img/bg-promo.jpg');
@@ -15,6 +23,7 @@
   color: $main-white;
 
   .promo__header {
+    width: 100%;
     display: flex;
     flex-direction: column-reverse;
     align-items: center;
@@ -25,7 +34,13 @@
     @media (min-width: $mediaTablet) {
       flex-direction: row;
       justify-content: space-between;
-    } 
+      padding-left: 6%;
+      padding-right: 6%;
+    }
+    @media (min-width: $mediaDesktop) {
+      padding-left: 17.4%;
+      padding-right: 17.4%;
+    }
   }
 
   @media (min-width: $mediaTablet) {
@@ -35,8 +50,8 @@
     background-size: cover;
     height: 700px;
     padding-top: 38px;
-    padding-left: 50px;
-    padding-right: 50px;
+    // padding-left: 50px;
+    // padding-right: 50px;
   }
   
   @media (min-width: $mediaDesktop) {
@@ -68,7 +83,6 @@
     font-size: 52px;
     line-height: 62px;
   }
-  
 }
 
 .promo__subslogan {
@@ -85,7 +99,6 @@
     padding-top: 28px;
     font-size: 24px;
   }
-
 }
 
 .promo__btn-gostart {
@@ -103,5 +116,4 @@
     margin-top: 37px;
     width: 226px;
   }
-
 }
