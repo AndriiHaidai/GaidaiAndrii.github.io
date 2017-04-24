@@ -33,7 +33,7 @@
 
     @media (min-width: $mediaDesktop) {
       @include span(2 of 12);
-      padding-left: 0;
+      padding-left: 10px;
     }
   }
 
@@ -59,8 +59,6 @@
     @media (min-width: $mediaDesktop) {
       @include span(3 of 12);
       margin-left: span(1 of 12);
-      padding-left: 0;
-      padding-right: 0;
       margin-right: span(4 of 12);
       justify-content: space-between;
     }
@@ -137,17 +135,12 @@
         margin-left: span(1 of 6) - gutter(3);
         margin-right: span(1 of 6) + gutter(3);
         text-align: left;
-        // font-size: 14px;
       }
 
       @media (min-width: $mediaDesktop) {
-        @include span(1 of 3);
-        margin-left: 0;
-        margin-right: 0;
-        padding-right: 0;
+        margin-right: 5px;
       }
     }
-
   }
 
   .footer__legal {
@@ -162,6 +155,7 @@
     }
 
     @media (min-width: $mediaDesktop) {
+      @include span(2 of 12);
       margin-right: 0;
     }
 
@@ -198,5 +192,9 @@
     margin-bottom: 37px;
     flex-direction: row;
     align-items: flex-start;
+  }
+
+  @media (min-width: $mediaDesktop) {
+    padding-top: 39px;
   }
 }
