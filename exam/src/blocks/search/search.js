@@ -21,11 +21,6 @@ function waitForEnterKey(e){
 
 function showResults(e) {
 
-  if (e !== undefined) {
-    e.target.blur();
-    e.preventDefault();
-  }
-
   var searchString = input.value;
   var searchText = encodeURIComponent(searchString.trim().replace(/(\s+)/g,'+'));
   var userRequest = new XMLHttpRequest();
@@ -95,8 +90,6 @@ function showResults(e) {
             percentPosition: true
           });
 
-          // body.scrollTop = ideas.offsetTop;
-          scrollPageAnimated(body, 'scrollTop', '', body.scrollTop, ideas.offsetTop, 200, true);
         }); // END Masonry initialize
       }     // END if ( userRequest.status == 200 )
     }       // END if ( userRequest.readyState == 4 )
@@ -104,6 +97,13 @@ function showResults(e) {
   
   userRequest.open('POST', xhrURL, true);
   userRequest.send();
+
+  if (e !== undefined) {
+    e.target.blur();
+    e.preventDefault();
+    scrollPageAnimated(body, 'scrollTop', '', body.scrollTop, ideas.offsetTop, 200, true);
+  }
+
 }
 
 function scrollPageAnimated(elem, style, unit, from, to, time, prop) {

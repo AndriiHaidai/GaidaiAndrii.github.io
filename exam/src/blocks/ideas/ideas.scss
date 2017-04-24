@@ -3,11 +3,14 @@
 .ideas {
   // border: 10px solid #999;
 
-  @include span(full);
+  @include span(12 of 12);
   // @include break;
   padding-left: 0;
   padding-right: 0;
-  // background-color: lightgrey;
+  @media (min-width: $mediaTablet) {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
   
   .ideas__header {
     font-family: $font-main-bold;
@@ -16,9 +19,11 @@
     line-height: 1.1818;
     color: $main-black;
     text-align: center;
-    
     margin-top: 35px;
-    // border: 1px solid black;
+    
+    @media (min-width: $mediaTablet) {
+      margin-top: 96px;
+    }
   }
 
   .ideas__content {

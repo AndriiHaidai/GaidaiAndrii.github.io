@@ -38,7 +38,7 @@
       flex-wrap: wrap;
       align-items: stretch;
       max-height: 550px;
-      @include container;
+      @include container(2);
     }
 
     @media (min-width: $mediaDesktop) {
@@ -65,7 +65,7 @@
       }
 
       @media (min-width: $mediaDesktop) {
-        @include span(3 of 12);
+        @include span(1 of 4);
         
         &:nth-of-type(2) {
           order: 3;
@@ -116,6 +116,11 @@
         line-height: 17px;
         color: $plain-on-light;
         text-align: center;
+        
+        @media (min-width: $mediaTablet) {
+          display: block;
+          width: 100%;
+        }
       }
     }
   }
