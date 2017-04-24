@@ -63,6 +63,14 @@
       line-height: 36px;
       color: $main-black;
       @include placeholder($font-family: $font-plain, $font-size: 14px, $color: $form-placeholder);
+      
+      &:focus,
+      &:hover {
+        outline-offset: -2px;
+        outline-width: 5px;
+        outline-color: $main-red;
+        outline-style: auto;
+      }
 
       @media (min-width: $mediaTablet) {
         width: 240px;

@@ -123,6 +123,10 @@ a, input[type="button"], input[type="submit"], button {
   border-color: transparent;
 }
 
+.btn:focus {
+  outline: none;
+}
+
 .carousel__container {
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -1636,6 +1640,13 @@ head:hover ~ body .page__sizer:before {
   font-family: Roboto, Tahoma, sans-serif;
   font-size: 14px;
   color: #999;
+}
+
+.search .search__form .search__input:focus, .search .search__form .search__input:hover {
+  outline-offset: -2px;
+  outline-width: 5px;
+  outline-color: #f66;
+  outline-style: auto;
 }
 
 @media (min-width: 785px) {

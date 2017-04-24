@@ -16,4 +16,8 @@
     background-color: rgba($main-red, 0.7);
     border-color: transparent;
   }
+
+  &:focus {
+    outline: none;
+  }
 }
