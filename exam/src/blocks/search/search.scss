@@ -12,7 +12,6 @@
   margin-bottom: 40px;
   
   @media (min-width: $mediaTablet) {
-    margin-bottom: 40px;
     margin-bottom: 100px;
   }
   
@@ -21,7 +20,7 @@
     font-size: 22px;
     line-height: 1.1818;
     color: $main-black;
-    margin-top: 34px;
+    margin-top: 36px;
     
     @media (min-width: $mediaTablet) {
       margin-top: 96px;
@@ -33,7 +32,7 @@
     font-size: 18px;
     line-height: 1.2;
     color: $main-black;
-    margin-top: 12px;
+    margin-top: 14px;
     
     @media (min-width: $mediaTablet) {
       margin-top: 32px;
@@ -55,21 +54,23 @@
     }
 
     .search__input {
-      font-family: $font-plain;
-      font-size: 14px;
-      line-height: 38px;
-      color: $form-placeholder;
       width: 100%;
-      
+      font-family: $font-main;
+      font-size: 16px;
+      line-height: 36px;
+      color: $main-black;
+      @include placeholder($font-family: $font-plain, $font-size: 14px, $color: $form-placeholder);
+
       @media (min-width: $mediaTablet) {
         width: 240px;
+        line-height: 38;
       }
     }
 
     .search__submit {
       font-family: $font-main-bold;
       font-size: 14px;
-      line-height: 36px;
+      line-height: 34px;
       color: $main-white;
       background-color: $main-red;
       width: 100%;
@@ -83,6 +84,7 @@
         margin-top: 10px;
         margin-top: 0px;
         width: 160px;
+        line-height: 36;
       }
     }
   }

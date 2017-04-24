@@ -1,16 +1,11 @@
 @import '../globals/globals';
 
 .ideas {
-  // border: 10px solid #999;
-
   @include span(12 of 12);
-  // @include break;
-  padding-left: 0;
-  padding-right: 0;
-  @media (min-width: $mediaTablet) {
-    padding-left: 10px;
-    padding-right: 10px;
-  }
+  // @media (min-width: $mediaTablet) {
+  //   padding-left: 10px;
+  //   padding-right: 10px;
+  // }
   
   .ideas__header {
     font-family: $font-main-bold;
@@ -27,7 +22,11 @@
   }
 
   .ideas__content {
-    margin-top: 13px;
+    margin-top: 6px;
+    
+    @media (min-width: $mediaTablet) {
+      margin-top: 13px;
+    }
   }
 
   .ideas__item {
@@ -39,14 +38,14 @@
     overflow: hidden;
   }
 
-  .ideas__img {
-    // max-width: 100%;
+  // .ideas__img {
+  //   // max-width: 100%;
     
-    @media (min-width: $mediaTablet) {
-      position: absolute;
-      width: auto;
-    }
-  }
+  //   @media (min-width: $mediaTablet) {
+  //     position: absolute;
+  //     width: auto;
+  //   }
+  // }
 
   .ideas__title {
     position: absolute;
@@ -63,15 +62,10 @@
 }
 
 .msnry__sizer {
-  // width: span(12);
   width: 100%;
-  // @include span(12);
   
   @media (min-width: $mediaTablet) {
     @include span(4);
-    // width: span(4 of 12 wide);
-    // width: 33.3333%;
-    // width: 31.5508%;
     width: 31.6%;
     padding-left: 0;
     padding-right: 0;
@@ -79,9 +73,11 @@
 }
 
 .msnry__item {
-  margin-top: 9px;
+  margin-top: 10px;
   width: 100%;
   min-height: 120px;
+  // margin-left: 10px;
+  // margin-right: 10px;
   
   @media (min-width: $mediaTablet) {
     margin-top: 20px;

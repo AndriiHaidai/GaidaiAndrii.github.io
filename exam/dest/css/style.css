@@ -473,6 +473,7 @@ To change `display` (e.g. `display: inline-block;`), we suggest using a common C
   font-size: 16px;
   line-height: 1;
   color: #f66;
+  letter-spacing: 1px;
 }
 
 .footer .footer__logo:hover {
@@ -502,7 +503,7 @@ To change `display` (e.g. `display: inline-block;`), we suggest using a common C
 
 .footer .footer__menu {
   font-family: MontserratBold, Arial, sans-serif;
-  font-size: 14;
+  font-size: 14px;
   line-height: 1;
   color: #333;
   padding-left: 10px;
@@ -562,7 +563,6 @@ To change `display` (e.g. `display: inline-block;`), we suggest using a common C
     margin-top: 0;
     text-align: left;
     margin-bottom: 10px;
-    font-size: 14px;
   }
 }
 
@@ -581,7 +581,6 @@ To change `display` (e.g. `display: inline-block;`), we suggest using a common C
 
 .footer .footer__menu .footer__company .footer__company-menu .footer__company-item > a {
   font-family: Roboto, Tahoma, sans-serif;
-  font-size: 14px;
   line-height: 20px;
   color: #666;
 }
@@ -652,7 +651,6 @@ To change `display` (e.g. `display: inline-block;`), we suggest using a common C
     margin-left: 13.33333%;
     margin-right: 20%;
     text-align: left;
-    font-size: 14px;
   }
 }
 
@@ -702,12 +700,12 @@ To change `display` (e.g. `display: inline-block;`), we suggest using a common C
   color: #ccc;
   text-transform: uppercase;
   text-align: center;
+  letter-spacing: 1px;
 }
 
 @media (min-width: 785px) {
   .footer .footer__legal .footer__legal-label {
     margin-top: 0;
-    letter-spacing: 1px;
   }
 }
 
@@ -810,122 +808,6 @@ To change `display` (e.g. `display: inline-block;`), we suggest using a common C
   }
 }
 
-.ideas {
-  width: 100%;
-  float: left;
-  padding-left: 10px;
-  padding-right: 10px;
-  padding-left: 0;
-  padding-right: 0;
-}
-
-@media (min-width: 785px) {
-  .ideas {
-    padding-left: 10px;
-    padding-right: 10px;
-  }
-}
-
-.ideas .ideas__header {
-  font-family: MontserratBold, Arial, sans-serif;
-  font-weight: bold;
-  font-size: 22px;
-  line-height: 1.1818;
-  color: #333;
-  text-align: center;
-  margin-top: 35px;
-}
-
-@media (min-width: 785px) {
-  .ideas .ideas__header {
-    margin-top: 96px;
-  }
-}
-
-.ideas .ideas__content {
-  margin-top: 13px;
-}
-
-.ideas .ideas__item {
-  border-radius: 4px;
-  position: relative;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-justify-content: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  overflow: hidden;
-}
-
-@media (min-width: 785px) {
-  .ideas .ideas__img {
-    position: absolute;
-    width: auto;
-  }
-}
-
-.ideas .ideas__title {
-  position: absolute;
-  display: block;
-  text-align: center;
-  font-family: MontserratBold, Arial, sans-serif;
-  font-weight: bold;
-  font-size: 22px;
-  line-height: 40px;
-  color: #fff;
-  text-shadow: 0 0 1px #666;
-}
-
-.msnry__sizer {
-  width: 100%;
-}
-
-@media (min-width: 785px) {
-  .msnry__sizer {
-    width: 33.33333%;
-    float: left;
-    padding-left: 10px;
-    padding-right: 10px;
-    width: 31.6%;
-    padding-left: 0;
-    padding-right: 0;
-  }
-}
-
-.msnry__item {
-  margin-top: 9px;
-  width: 100%;
-  min-height: 120px;
-}
-
-@media (min-width: 785px) {
-  .msnry__item {
-    margin-top: 20px;
-    min-height: 310px;
-    width: 31.5508%;
-    width: 31.55%;
-    padding-left: 0;
-    padding-right: 0;
-  }
-}
-
-@media (min-width: 785px) {
-  .msnry__item-width2 {
-    width: 65.73%;
-    padding-left: 0;
-    padding-right: 0;
-  }
-}
-
-.msnry__gutter-sizer {
-  width: 2.6738%;
-  width: 2.63%;
-}
-
 .page {
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -946,11 +828,11 @@ To change `display` (e.g. `display: inline-block;`), we suggest using a common C
   max-width: 940px;
   margin-left: auto;
   margin-right: auto;
-  min-width: 300px;
+  width: 100%;
   margin-left: auto;
   margin-right: auto;
-  padding-left: 0px;
-  padding-right: 0px;
+  padding-left: 10px;
+  padding-right: 10px;
   overflow: hidden;
 }
 
@@ -1406,7 +1288,6 @@ head:hover ~ body .page__sizer:before {
 
 @media (min-width: 785px) {
   .search {
-    margin-bottom: 40px;
     margin-bottom: 100px;
   }
 }
@@ -1416,7 +1297,7 @@ head:hover ~ body .page__sizer:before {
   font-size: 22px;
   line-height: 1.1818;
   color: #333;
-  margin-top: 34px;
+  margin-top: 36px;
 }
 
 @media (min-width: 785px) {
@@ -1430,7 +1311,7 @@ head:hover ~ body .page__sizer:before {
   font-size: 18px;
   line-height: 1.2;
   color: #333;
-  margin-top: 12px;
+  margin-top: 14px;
 }
 
 @media (min-width: 785px) {
@@ -1467,23 +1348,49 @@ head:hover ~ body .page__sizer:before {
 }
 
 .search .search__form .search__input {
+  width: 100%;
+  font-family: MontserratReg, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 36px;
+  color: #333;
+}
+
+.search .search__form .search__input::-webkit-input-placeholder {
   font-family: Roboto, Tahoma, sans-serif;
   font-size: 14px;
-  line-height: 38px;
   color: #999;
-  width: 100%;
+}
+
+.search .search__form .search__input::-moz-placeholder {
+  opacity: 1;
+  font-family: Roboto, Tahoma, sans-serif;
+  font-size: 14px;
+  color: #999;
+}
+
+.search .search__form .search__input:-ms-input-placeholder {
+  font-family: Roboto, Tahoma, sans-serif;
+  font-size: 14px;
+  color: #999;
+}
+
+.search .search__form .search__input:-moz-placeholder {
+  font-family: Roboto, Tahoma, sans-serif;
+  font-size: 14px;
+  color: #999;
 }
 
 @media (min-width: 785px) {
   .search .search__form .search__input {
     width: 240px;
+    line-height: 38;
   }
 }
 
 .search .search__form .search__submit {
   font-family: MontserratBold, Arial, sans-serif;
   font-size: 14px;
-  line-height: 36px;
+  line-height: 34px;
   color: #fff;
   background-color: #f66;
   width: 100%;
@@ -1499,5 +1406,112 @@ head:hover ~ body .page__sizer:before {
     margin-top: 10px;
     margin-top: 0px;
     width: 160px;
+    line-height: 36;
   }
+}
+
+.ideas {
+  width: 100%;
+  float: left;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.ideas .ideas__header {
+  font-family: MontserratBold, Arial, sans-serif;
+  font-weight: bold;
+  font-size: 22px;
+  line-height: 1.1818;
+  color: #333;
+  text-align: center;
+  margin-top: 35px;
+}
+
+@media (min-width: 785px) {
+  .ideas .ideas__header {
+    margin-top: 96px;
+  }
+}
+
+.ideas .ideas__content {
+  margin-top: 6px;
+}
+
+@media (min-width: 785px) {
+  .ideas .ideas__content {
+    margin-top: 13px;
+  }
+}
+
+.ideas .ideas__item {
+  border-radius: 4px;
+  position: relative;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  overflow: hidden;
+}
+
+.ideas .ideas__title {
+  position: absolute;
+  display: block;
+  text-align: center;
+  font-family: MontserratBold, Arial, sans-serif;
+  font-weight: bold;
+  font-size: 22px;
+  line-height: 40px;
+  color: #fff;
+  text-shadow: 0 0 1px #666;
+}
+
+.msnry__sizer {
+  width: 100%;
+}
+
+@media (min-width: 785px) {
+  .msnry__sizer {
+    width: 33.33333%;
+    float: left;
+    padding-left: 10px;
+    padding-right: 10px;
+    width: 31.6%;
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+.msnry__item {
+  margin-top: 10px;
+  width: 100%;
+  min-height: 120px;
+}
+
+@media (min-width: 785px) {
+  .msnry__item {
+    margin-top: 20px;
+    min-height: 310px;
+    width: 31.5508%;
+    width: 31.55%;
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+@media (min-width: 785px) {
+  .msnry__item-width2 {
+    width: 65.73%;
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+.msnry__gutter-sizer {
+  width: 2.6738%;
+  width: 2.63%;
 }

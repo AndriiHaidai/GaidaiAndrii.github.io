@@ -24,11 +24,12 @@
 
 .page__sizer {
   @include container;
-  min-width: 300px;
+  // min-width: 300px;
+  width: 100%;
   margin-left: auto;
   margin-right: auto;
-  padding-left: 0px;
-  padding-right: 0px;
+  padding-left: 10px;
+  padding-right: 10px;
   overflow: hidden;
   
   @media (min-width: $mediaTablet) {

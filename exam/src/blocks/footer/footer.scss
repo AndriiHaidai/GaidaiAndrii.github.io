@@ -19,6 +19,7 @@
     font-size: 16px;
     line-height: 1;
     color: $main-red;
+    letter-spacing: 1px;
 
     &:hover {
       text-shadow: 0 0 1px $main-red;
@@ -38,7 +39,7 @@
 
   .footer__menu {
     font-family: $font-main-bold;
-    font-size: 14;
+    font-size: 14px;
     line-height: 1;
     color: $main-black;
     padding-left: 10px;
@@ -71,12 +72,12 @@
       .footer__company-header {
         margin-top: 14px;
         text-align: center;
+        // font-size: 14px;
         
         @media (min-width: $mediaTablet) {
           margin-top: 0;
           text-align: left;
           margin-bottom: 10px;
-          font-size: 14px;
         }
       }
       
@@ -88,7 +89,7 @@
         
         .footer__company-item > a {
           font-family: $font-plain;
-          font-size: 14px;
+          // font-size: 14px;
           line-height: 20px;
           color: $plain-on-light;
           
@@ -136,7 +137,7 @@
         margin-left: span(1 of 6) - gutter(3);
         margin-right: span(1 of 6) + gutter(3);
         text-align: left;
-        font-size: 14px;
+        // font-size: 14px;
       }
 
       @media (min-width: $mediaDesktop) {
@@ -172,10 +173,10 @@
       color: $legal-header;
       text-transform: uppercase;
       text-align: center;
+      letter-spacing: 1px;
       
       @media (min-width: $mediaTablet) {
         margin-top: 0;
-        letter-spacing: 1px;
       }
     }
     
