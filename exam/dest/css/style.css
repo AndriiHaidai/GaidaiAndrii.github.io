@@ -940,6 +940,25 @@ To change `display` (e.g. `display: inline-block;`), we suggest using a common C
   max-width: 1457px;
   margin-left: auto;
   margin-right: auto;
+  background-color: lightpink;
+}
+
+@media (min-width: 337px) {
+  .page {
+    background-color: lightgreen;
+  }
+}
+
+@media (min-width: 785px) {
+  .page {
+    background-color: lightblue;
+  }
+}
+
+@media (min-width: 1457px) {
+  .page {
+    background-color: lightyellow;
+  }
 }
 
 .page__sizer {
