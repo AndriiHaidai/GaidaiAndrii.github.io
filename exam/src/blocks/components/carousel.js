@@ -5,17 +5,23 @@
 var $carousels = document.querySelectorAll('.carousel__container');
 
 for (var i = 0; i <= $carousels.length - 1; i++) {
-  $carousels[i]
-}
-
-[].forEach.call($carousels, function(item){
-  carousel(item, { 
+  carousel($carousels[i], { 
     picturesVisible: 1,
     pictureWidthPixels: 300,
     gutterPixels: 20,
-    durationAnimation: 250
+    durationAnimation: 250,
+    initialIndex: i
   });
-});
+}
+
+// [].forEach.call($carousels, function(item){
+//   carousel(item, { 
+//     picturesVisible: 1,
+//     pictureWidthPixels: 300,
+//     gutterPixels: 20,
+//     durationAnimation: 250
+//   });
+// });
 
 
 
@@ -25,7 +31,8 @@ function carousel(el, options) {
     picturesVisible: 4,
     pictureWidthPixels: 100,
     gutterPixels: 15,
-    durationAnimation: 1000
+    durationAnimation: 1000,
+    initialIndex: 0
   };
   var settings = extend(defaults, options);
 
@@ -53,23 +60,18 @@ function carousel(el, options) {
     rightmostPosition: 0,
     currentPosition: 0,
     prevPosition: 0,
-    currentItem: 0
+    currentItem: settings.initialIndex
   };
   
-  var noElementsTotal;
-  var noElementsShown;
-  var noElementsHidden;
   // var showElementsStartingFrom; // Если мы в режиме "карусель", то с какого элемента начинаются отображаемые элемены. Нумерация с 1.
   // END Объявление Ширины
   
 
-  noElementsTotal = $carouselElements.length;
-  noElementsShown = settings.picturesVisible;
-  noElementsHidden = noElementsTotal - noElementsShown;
+  var noElementsTotal = $carouselElements.length;
+  var noElementsShown = settings.picturesVisible;
+  var noElementsHidden = noElementsTotal - noElementsShown;
   // showElementsStartingFrom = 1; // Нумерация порядковых номеров элементов, начиная с 1.
   
-
-  // settings.pictureMaxWidthPixels = 358;
 
   var initialWidth = window.innerWidth;
   applyWidth();
@@ -125,14 +127,19 @@ function carousel(el, options) {
     var pageMarginRight = parseInt(getComputedStyle(pageWrapper).marginRight);
     var pageMargins = pageMarginLeft + pageMarginRight;
     var pageWrapperWidth = pageWrapper.offsetWidth;
+    // var pageWrapperWidth = pageWrapper.scrollWidth;
 
     list.bgImageWidth = page.offsetWidth >= 768 ? 620 : 358;
+    // list.bgImageWidth = page.scrollWidth >= 768 ? 620 : 358;
 
     hiderWidth = Math.min(
       list.bgImageWidth, 
       (page.offsetWidth >= 768 ? 
         pageWrapperWidth / 3 :
         page.offsetWidth - pageMargins)
+      // (page.scrollWidth >= 768 ? 
+      //   pageWrapperWidth / 3 :
+      //   page.scrollWidth - pageMargins)
     ); 
     
     settings.pictureWidthPixels = Math.min(

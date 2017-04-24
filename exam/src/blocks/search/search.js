@@ -21,15 +21,7 @@ function waitForEnterKey(e){
 
 function showResults(e) {
 
-  if (e !== undefined) {
-    e.target.blur();
-    e.preventDefault();
-  }
-
   var searchString = input.value;
-  // Modify here to make available several words search:
-  // var searchText = encodeURIComponent(searchString);//.replace(/(\s+)/g,'+');
-  // var searchText = "'" + encodeURIComponent(searchString.trim().replace(/(\s+)/g,'+')) + "'";
   var searchText = encodeURIComponent(searchString.trim().replace(/(\s+)/g,'+'));
   var userRequest = new XMLHttpRequest();
 
@@ -61,7 +53,6 @@ function showResults(e) {
         } else {
           html = '<li class="msnry__sizer"></li><li class="msnry__gutter-sizer"></li>';
           var widerImageIndex1, widerImageIndex2;
-          // console.log('data: ', data);
 
           widerImageIndex1 = Math.floor( totalImagesNeeded * Math.random() );
           do {
@@ -75,7 +66,8 @@ function showResults(e) {
 
           for ( i = 0 ; i < Math.min(totalImagesNeeded, data.hits.length); i++) {
             imgTitle = data.hits[i].tags;
-            // imgTitle = imgTitle.substring(0, imgTitle.indexOf(",",imgTitle.indexOf(",",0)+1)); // Now limit text to 2 first phrases.
+            /*Uncomment next line to limit text to 2 first phrases:*/
+            /*imgTitle = imgTitle.substring(0, imgTitle.indexOf(",",imgTitle.indexOf(",",0)+1)); */
 
             htmlItemClass = '"ideas__item msnry__item"';
             if ( i === widerImageIndex1 || i === widerImageIndex2 ) {
@@ -98,7 +90,6 @@ function showResults(e) {
             percentPosition: true
           });
 
-          body.scrollTop = ideas.offsetTop;
         }); // END Masonry initialize
       }     // END if ( userRequest.status == 200 )
     }       // END if ( userRequest.readyState == 4 )
@@ -106,4 +97,35 @@ function showResults(e) {
   
   userRequest.open('POST', xhrURL, true);
   userRequest.send();
+
+  if (e !== undefined) {
+    e.target.blur();
+    e.preventDefault();
+    scrollPageAnimated(body, 'scrollTop', '', body.scrollTop, ideas.offsetTop, 200, true);
+  }
+
+}
+
+function scrollPageAnimated(elem, style, unit, from, to, time, prop) {
+  if (!elem) {
+    return;
+  }
+
+  var start = new Date().getTime();
+  var timer = setInterval(function () {
+    var step = Math.min(1, (new Date().getTime() - start) / time);
+    if (prop) {
+      elem[style] = (from + step * (to - from))+unit;
+    } else {
+      elem.style[style] = (from + step * (to - from))+unit;
+    }
+    if (step === 1) {
+      clearInterval(timer);
+    }
+  }, 25);
+  if (prop) {
+    elem[style] = from+unit;
+  } else {
+    elem.style[style] = from+unit;
+  }
 }

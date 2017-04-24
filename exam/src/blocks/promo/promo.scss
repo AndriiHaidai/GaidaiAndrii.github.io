@@ -14,10 +14,6 @@
   font-weight: bold;
   color: $main-white;
 
-  .promo__wraper {
-    @include container();
-  }
-
   .promo__header {
     display: flex;
     flex-direction: column-reverse;
@@ -29,12 +25,12 @@
     @media (min-width: $mediaTablet) {
       flex-direction: row;
       justify-content: space-between;
-    }
-    
+    } 
   }
 
   @media (min-width: $mediaTablet) {
-    min-width: $tablet;
+    // min-width: $tablet;
+    // min-width: 700px;
     background-position: center;
     background-size: cover;
     height: 700px;
@@ -43,8 +39,8 @@
     padding-right: 50px;
   }
   
-  @media (min-width: $desktop) {
-    min-width: $desktop;
+  @media (min-width: $mediaDesktop) {
+    // min-width: $mediaDesktop;
   }
 
 }

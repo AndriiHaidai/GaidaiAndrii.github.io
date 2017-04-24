@@ -15,7 +15,6 @@
   align-items: center;
   
   .footer__logo {
-    // margin-top: 19px;
     font-family: $font-main-bold;
     font-size: 16px;
     line-height: 1;
@@ -28,6 +27,7 @@
     @media (min-width: $mediaTablet) {
       @include span(3 of 12);
       padding-left: 40px;
+      letter-spacing: 0.8px;
     }
 
     @media (min-width: $mediaDesktop) {
@@ -50,6 +50,9 @@
       display: flex;
       flex-direction: row;
       align-items: flex-start;
+      padding-top: 2px;
+      padding-left: 15px;
+      padding-right: 21px;
     }
 
     @media (min-width: $mediaDesktop) {
@@ -73,6 +76,7 @@
           margin-top: 0;
           text-align: left;
           margin-bottom: 10px;
+          font-size: 14px;
         }
       }
       
@@ -117,7 +121,6 @@
         margin-left: 0;
         margin-right: 0;
         padding-left: 0;
-        // padding-right: 0;
       }
     }
     
@@ -133,6 +136,7 @@
         margin-left: span(1 of 6) - gutter(3);
         margin-right: span(1 of 6) + gutter(3);
         text-align: left;
+        font-size: 14px;
       }
 
       @media (min-width: $mediaDesktop) {
@@ -148,9 +152,9 @@
   .footer__legal {
 
     @media (min-width: $mediaTablet) {
-      @include span(2 of 12);
-      padding-right: 0;
-      margin-right: span(1 of 12);
+      @include span(3 of 12);
+      padding-right: 40px;
+      margin-right: 0px;
       display: flex;
       flex-direction: column;
       align-items: flex-end;
@@ -171,6 +175,7 @@
       
       @media (min-width: $mediaTablet) {
         margin-top: 0;
+        letter-spacing: 1px;
       }
     }
     
@@ -188,16 +193,9 @@
 
   @media (min-width: $mediaTablet) {
     @include container;
-    padding-top: 40px;
+    padding-top: 37px;
     margin-bottom: 37px;
     flex-direction: row;
     align-items: flex-start;
   }
-
-  @media (min-width: $desktop) {
-    // @include span(3 of 12);
-    // padding-left: gutter(6);
-    // padding-right: gutter(6);
-  }
-
 }

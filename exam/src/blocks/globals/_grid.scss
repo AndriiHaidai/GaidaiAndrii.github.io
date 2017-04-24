@@ -3,15 +3,16 @@
 $scrollbar: 17px;
 
 $mobile: 320px;
+$mediaMobile: $mobile;
 $mediaMobile: $mobile + $scrollbar;
 
 $tablet: 768px;
 $mediaTablet: $tablet;
-// $mediaTablet: $tablet + $scrollbar;
+$mediaTablet: $tablet + $scrollbar;
 
 $desktop: 1440px;
 $mediaDesktop: $desktop;
-// $mediaDesktop: $desktop + $scrollbar;
+$mediaDesktop: $desktop + $scrollbar;
 
 
 $susy_container: 940px;

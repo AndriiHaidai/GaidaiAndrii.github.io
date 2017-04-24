@@ -9,8 +9,8 @@
   padding-left: 0;
   padding-right: 0;
   
-  
   .partners__header {
+    // @include span(full);
     margin-top: 35px;
     font-family: $font-main-bold;
     font-size: 22px;
@@ -21,10 +21,10 @@
     @media (min-width: $mediaTablet) {
       margin-top: 99px;
     }
-
   }
   
   .partners__content {
+    @include span(full);
     padding-left: 0;
     padding-right: 0;
     margin-top: -5px;
@@ -38,10 +38,10 @@
       flex-wrap: wrap;
       align-items: stretch;
       max-height: 550px;
-      @include container;
+      @include container(2);
     }
 
-    @media (min-width: $desktop) {
+    @media (min-width: $mediaDesktop) {
       @include span(full);
       padding-left: 0;
       padding-right: 0;
@@ -64,8 +64,8 @@
         margin-top: 33px;
       }
 
-      @media (min-width: $desktop) {
-        @include span(3 of 12);
+      @media (min-width: $mediaDesktop) {
+        @include span(1 of 4);
         
         &:nth-of-type(2) {
           order: 3;
@@ -116,10 +116,13 @@
         line-height: 17px;
         color: $plain-on-light;
         text-align: center;
+        
+        @media (min-width: $mediaTablet) {
+          display: block;
+          width: 100%;
+        }
       }
-      
     }
-    
   }
 
   .partners__btn {
@@ -143,7 +146,5 @@
       padding-left: 28px;
       padding-right: 28px;
     }
-
   }
-  
 }

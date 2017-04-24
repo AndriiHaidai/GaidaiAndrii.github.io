@@ -5,34 +5,37 @@
   flex-direction: column;
   align-items: center;
   min-width: $mobile;
-  max-width: $desktop;
+  max-width: $mediaDesktop;
   margin-left: auto;
   margin-right: auto;
   // Для Перефект Пиксель. Потом убрать !!!
   // margin-left: -8.5px; 
   
-  background-color: lightpink;
+  // background-color: lightpink;
 
-  @media (min-width: 320px) {background-color: lightgreen; }
-  @media (min-width: 768px) {background-color: lightblue; }
-  @media (min-width: 1440px) {background-color: lightyellow; }
-
+  // // @media (min-width: 320px) {background-color: lightgreen; }
+  // @media (min-width: $mediaMobile) {background-color: lightgreen; }
+  // // @media (min-width: 768px) {background-color: lightblue; }
+  // @media (min-width: $mediaTablet) {background-color: lightblue; }
+  // // @media (min-width: 1440px) {background-color: lightyellow; }
+  // @media (min-width: $mediaDesktop) {background-color: lightyellow; }
 
 }
 
 .page__sizer {
   @include container;
   min-width: 300px;
-  margin-left: 10px;
-  margin-right: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 0px;
+  padding-right: 0px;
   overflow: hidden;
   
   @media (min-width: $mediaTablet) {
     min-width: 748px;
   }
   
-  @media (min-width: $desktop) {
+  @media (min-width: $mediaDesktop) {
     min-width: 940px;
   }
-
 }
