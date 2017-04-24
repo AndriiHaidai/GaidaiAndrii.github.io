@@ -24,7 +24,7 @@
   }
   
   .partners__content {
-    @include span(full);
+    @include span(12 of 12);
     padding-left: 0;
     padding-right: 0;
     margin-top: -5px;
@@ -37,14 +37,17 @@
       flex-direction: column;
       flex-wrap: wrap;
       align-items: stretch;
-      max-height: 550px;
+      max-height: 700px;
       @include container(2);
     }
 
     @media (min-width: $mediaDesktop) {
-      @include span(full);
+      @include span(12 of 12);
+      @include container(2);
       padding-left: 0;
       padding-right: 0;
+      // margin-left: -10px;
+      // margin-right: -10px;
       flex-direction: row;
     }
 
@@ -59,9 +62,10 @@
       
       @media (min-width: $mediaTablet) {
         @include span(1 of 2);
-        padding-left: gutter(6);
-        padding-right: gutter(6);
-        margin-top: 33px;
+        // padding-left: gutter(6);
+        // padding-right: gutter(6);
+        margin-top: 35px;
+        margin-bottom: 23px;
       }
 
       @media (min-width: $mediaDesktop) {
@@ -116,10 +120,17 @@
         line-height: 17px;
         color: $plain-on-light;
         text-align: center;
+        padding-left: 1%;
+        padding-right: 1%;
         
         @media (min-width: $mediaTablet) {
           display: block;
-          width: 100%;
+          padding-left: 3%;
+          padding-right: 3%;
+        }
+        @media (min-width: $mediaDesktop) {
+          padding-left: 2%;
+          padding-right: 2%;
         }
       }
     }
@@ -142,7 +153,7 @@
 
     @media (min-width: $mediaTablet) {
       width: auto;
-      margin-top: 28px;
+      margin-top: 14px;
       padding-left: 28px;
       padding-right: 28px;
     }

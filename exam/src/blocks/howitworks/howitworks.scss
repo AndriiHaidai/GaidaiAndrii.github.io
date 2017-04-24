@@ -1,5 +1,26 @@
 @import '../globals/globals';
 
+.hiw__sizer {
+  @include container;
+  // min-width: 300px;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 10px;
+  padding-right: 10px;
+  overflow: hidden;
+  
+  @media (min-width: $mediaTablet) {
+    min-width: 748px;
+    padding-left: 0;
+    padding-right: 0;
+  }
+  
+  @media (min-width: $mediaDesktop) {
+    min-width: 960px;
+  }
+}
+
 .hiw {
   padding-left: 0;
   padding-right: 0;

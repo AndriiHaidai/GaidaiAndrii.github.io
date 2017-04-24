@@ -17,7 +17,7 @@
     margin-top: 35px;
     
     @media (min-width: $mediaTablet) {
-      margin-top: 96px;
+      margin-top: 97px;
     }
   }
 
@@ -25,8 +25,13 @@
     margin-top: 6px;
     
     @media (min-width: $mediaTablet) {
-      margin-top: 13px;
+      margin-top: 14px;
     }
+    @media (min-width: $mediaDesktop) {
+      width: 940px;
+      margin-left: auto;
+      margin-right: auto;
+    }    
   }
 
   .ideas__item {

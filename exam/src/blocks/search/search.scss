@@ -35,7 +35,10 @@
     margin-top: 14px;
     
     @media (min-width: $mediaTablet) {
-      margin-top: 32px;
+      margin-top: 33px;
+    }
+    @media (min-width: $mediaDesktop) {
+      margin-top: 35px;
     }
   }
   
@@ -63,7 +66,7 @@
 
       @media (min-width: $mediaTablet) {
         width: 240px;
-        line-height: 38;
+        // line-height: 36px;
       }
     }
 
@@ -84,7 +87,7 @@
         margin-top: 10px;
         margin-top: 0px;
         width: 160px;
-        line-height: 36;
+        // line-height: 34px;
       }
     }
   }
