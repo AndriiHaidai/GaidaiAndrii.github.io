@@ -11,24 +11,25 @@
   // Для Перефект Пиксель. Потом убрать !!!
   // margin-left: -8.5px; 
   
-  background-color: lightpink;
+  // background-color: lightpink;
 
-  // @media (min-width: 320px) {background-color: lightgreen; }
-  @media (min-width: $mediaMobile) {background-color: lightgreen; }
-  // @media (min-width: 768px) {background-color: lightblue; }
-  @media (min-width: $mediaTablet) {background-color: lightblue; }
-  // @media (min-width: 1440px) {background-color: lightyellow; }
-  @media (min-width: $mediaDesktop) {background-color: lightyellow; }
+  // // @media (min-width: 320px) {background-color: lightgreen; }
+  // @media (min-width: $mediaMobile) {background-color: lightgreen; }
+  // // @media (min-width: 768px) {background-color: lightblue; }
+  // @media (min-width: $mediaTablet) {background-color: lightblue; }
+  // // @media (min-width: 1440px) {background-color: lightyellow; }
+  // @media (min-width: $mediaDesktop) {background-color: lightyellow; }
 
 }
 
 .page__sizer {
   @include container;
-  min-width: 300px;
+  // min-width: 300px;
+  width: 100%;
   margin-left: auto;
   margin-right: auto;
-  padding-left: 0px;
-  padding-right: 0px;
+  padding-left: 10px;
+  padding-right: 10px;
   overflow: hidden;
   
   @media (min-width: $mediaTablet) {

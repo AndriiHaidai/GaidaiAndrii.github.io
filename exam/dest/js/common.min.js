@@ -38,7 +38,7 @@ function carousel(el, options) {
 
   // Присвоение Объектов
   var page = document.querySelector('.page');
-  var pageWrapper = document.querySelector('.page__sizer');
+  var pageSizer = document.querySelector('.page__sizer');
   var container = el;
   var carouselHider = container.querySelector('.carousel__hider');
   var carouselList = carouselHider.querySelector('.carousel__list');
@@ -123,11 +123,11 @@ function carousel(el, options) {
 
   function applyWidth(){
     
-    var pageMarginLeft = parseInt(getComputedStyle(pageWrapper).marginLeft);
-    var pageMarginRight = parseInt(getComputedStyle(pageWrapper).marginRight);
+    var pageMarginLeft = parseInt(getComputedStyle(pageSizer).marginLeft) + parseInt(getComputedStyle(pageSizer).paddingLeft);
+    var pageMarginRight = parseInt(getComputedStyle(pageSizer).marginRight) + parseInt(getComputedStyle(pageSizer).paddingRight);
     var pageMargins = pageMarginLeft + pageMarginRight;
-    var pageWrapperWidth = pageWrapper.offsetWidth;
-    // var pageWrapperWidth = pageWrapper.scrollWidth;
+    var pageSizerWidth = pageSizer.offsetWidth;
+    // var pageSizerWidth = pageSizer.scrollWidth;
 
     list.bgImageWidth = page.offsetWidth >= 768 ? 620 : 358;
     // list.bgImageWidth = page.scrollWidth >= 768 ? 620 : 358;
@@ -135,10 +135,10 @@ function carousel(el, options) {
     hiderWidth = Math.min(
       list.bgImageWidth, 
       (page.offsetWidth >= 768 ? 
-        pageWrapperWidth / 3 :
+        pageSizerWidth / 3 :
         page.offsetWidth - pageMargins)
       // (page.scrollWidth >= 768 ? 
-      //   pageWrapperWidth / 3 :
+      //   pageSizerWidth / 3 :
       //   page.scrollWidth - pageMargins)
     ); 
     
