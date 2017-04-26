@@ -2,10 +2,6 @@
 
 .ideas {
   @include span(12 of 12);
-  // @media (min-width: $mediaTablet) {
-  //   padding-left: 10px;
-  //   padding-right: 10px;
-  // }
   .ideas__header {
     font-family: $font-main-bold;
     font-size: 22px;
@@ -43,23 +39,14 @@
     align-items: center;
     justify-content: center;
   }
-  // .ideas__img {
-  //   // max-width: 100%;
-  //   @media (min-width: $mediaTablet) {
-  //     position: absolute;
-  //     width: auto;
-  //   }
-  // }
   .ideas__title {
     font-family: $font-main-bold;
     font-size: 22px;
     font-weight: bold;
     line-height: 40px;
-    // position: absolute;
 
     display: block;
-    // width: 100%;
-
+    
     text-align: center;
 
     color: $main-white;
@@ -82,18 +69,11 @@
   width: 100%;
   min-height: 120px;
   margin-top: 10px;
-  // margin-left: 10px;
-  // margin-right: 10px;
   @media (min-width: $mediaTablet) {
-    // @include span(4 of 12);
-    // width: span(4 of 12 narrow);
-    // width: 33.3333%;
-    width: 31.5508%;
     width: 31.55%;
-    min-height: 310px; // Переписать это в размерах Susy !
+    min-height: 310px; 
     margin-top: 20px;
     padding-right: 0;
-    // width: 31.6%;
     padding-left: 0;
   }
 }
@@ -107,10 +87,5 @@
 }
 
 .msnry__gutter-sizer {
-  // width: 9px;
-  // @include gutter();
-  // width: gutter();
-  width: 2.6738%;
   width: 2.63%;
-  // width: 20px;
 }

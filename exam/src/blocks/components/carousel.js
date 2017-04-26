@@ -14,16 +14,6 @@ for (var i = 0; i <= $carousels.length - 1; i++) {
   });
 }
 
-// [].forEach.call($carousels, function(item){
-//   carousel(item, { 
-//     picturesVisible: 1,
-//     pictureWidthPixels: 300,
-//     gutterPixels: 20,
-//     durationAnimation: 250
-//   });
-// });
-
-
 
 function carousel(el, options) {
 
@@ -62,20 +52,16 @@ function carousel(el, options) {
     prevPosition: 0,
     currentItem: settings.initialIndex
   };
-  
-  // var showElementsStartingFrom; // Если мы в режиме "карусель", то с какого элемента начинаются отображаемые элемены. Нумерация с 1.
   // END Объявление Ширины
   
 
   var noElementsTotal = $carouselElements.length;
   var noElementsShown = settings.picturesVisible;
   var noElementsHidden = noElementsTotal - noElementsShown;
-  // showElementsStartingFrom = 1; // Нумерация порядковых номеров элементов, начиная с 1.
   
 
   var initialWidth = window.innerWidth;
   applyWidth();
-  // window.addEventListener('resize', applyWidth);
   window.addEventListener('resize', function(event){
     if (initialWidth != window.innerWidth) {
       applyWidth();
@@ -117,29 +103,20 @@ function carousel(el, options) {
   });
 
 
-  function checkWidthChange(target){
-
-  }
-
   function applyWidth(){
     
     var pageMarginLeft = parseInt(getComputedStyle(pageSizer).marginLeft) + parseInt(getComputedStyle(pageSizer).paddingLeft);
     var pageMarginRight = parseInt(getComputedStyle(pageSizer).marginRight) + parseInt(getComputedStyle(pageSizer).paddingRight);
     var pageMargins = pageMarginLeft + pageMarginRight;
     var pageSizerWidth = pageSizer.offsetWidth;
-    // var pageSizerWidth = pageSizer.scrollWidth;
 
     list.bgImageWidth = page.offsetWidth >= 768 ? 620 : 358;
-    // list.bgImageWidth = page.scrollWidth >= 768 ? 620 : 358;
 
     hiderWidth = Math.min(
       list.bgImageWidth, 
       (page.offsetWidth >= 768 ? 
         pageSizerWidth / 3 :
         page.offsetWidth - pageMargins)
-      // (page.scrollWidth >= 768 ? 
-      //   pageSizerWidth / 3 :
-      //   page.scrollWidth - pageMargins)
     ); 
     
     settings.pictureWidthPixels = Math.min(

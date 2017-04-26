@@ -10,15 +10,6 @@
   margin-left: auto;
 
   align-items: center;
-  // Для Перефект Пиксель. Потом убрать !!!
-  // margin-left: -8.5px; 
-  // background-color: lightpink;
-  // // @media (min-width: 320px) {background-color: lightgreen; }
-  // @media (min-width: $mediaMobile) {background-color: lightgreen; }
-  // // @media (min-width: 768px) {background-color: lightblue; }
-  // @media (min-width: $mediaTablet) {background-color: lightblue; }
-  // // @media (min-width: 1440px) {background-color: lightyellow; }
-  // @media (min-width: $mediaDesktop) {background-color: lightyellow; }
 }
 
 .page__sizer {
@@ -31,7 +22,6 @@
   margin-left: auto;
   padding-right: 10px;
   padding-left: 10px;
-  // min-width: 300px;
   @media (min-width: $mediaTablet) {
     min-width: 748px;
   }

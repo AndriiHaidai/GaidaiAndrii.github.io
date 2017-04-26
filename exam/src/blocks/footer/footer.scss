@@ -76,7 +76,6 @@
         margin-top: 14px;
 
         text-align: center;
-        // font-size: 14px;
         @media (min-width: $mediaTablet) {
           margin-top: 0;
           margin-bottom: 10px;
@@ -93,7 +92,6 @@
         justify-content: space-between;
         .footer__company-item > a {
           font-family: $font-plain;
-          // font-size: 14px;
           line-height: 20px;
 
           color: $plain-on-light;

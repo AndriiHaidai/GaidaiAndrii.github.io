@@ -23,9 +23,6 @@
 
     letter-spacing: .9px;
   }
-  @media (min-width: $mediaDesktop) {
-    // margin-left: 15%;
-  }
 }
 
 .promo__login {
@@ -34,8 +31,5 @@
   @media (min-width: $mediaTablet) {
     justify-content: space-around;
     align-self: flex-end;
-  }
-  @media (min-width: $mediaDesktop) {
-    // margin-right: 15%;
   }
 }

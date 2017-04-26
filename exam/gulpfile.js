@@ -53,7 +53,7 @@ gulp.task('styles', ['sprite'], function() {
     .pipe(plugins.concat('style.css'))
     .pipe(autoprefixer({browsers: ['last 5 versions', 'IE 9'], cascade: true }))
     // .pipe(plugins.sourcemaps.write())
-    // .pipe(cssnano()) - Это куда вообще внедрять?..
+    .pipe(cssnano())
     .pipe(gulp.dest(destin.css))
     .pipe(browserSync.reload( {stream: true} ));
 });

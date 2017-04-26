@@ -7,7 +7,6 @@
   flex-direction: column;
 
   padding-right: 0;
-  // background-color: lightgrey;
   padding-left: 0;
 
   align-items: center;
@@ -15,7 +14,6 @@
     font-family: $font-main-bold;
     font-size: 22px;
     line-height: 26px;
-    // @include span(full);
 
     margin-top: 35px;
 
@@ -49,8 +47,6 @@
     @media (min-width: $mediaDesktop) {
       @include span(12 of 12);
       @include container(2);
-      // margin-left: -10px;
-      // margin-right: -10px;
 
       flex-direction: row;
 
@@ -69,8 +65,6 @@
       align-items: center;
       @media (min-width: $mediaTablet) {
         @include span(1 of 2);
-        // padding-left: gutter(6);
-        // padding-right: gutter(6);
 
         margin-top: 35px;
         margin-bottom: 23px;
