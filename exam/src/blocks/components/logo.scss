@@ -1,40 +1,41 @@
 @import '../globals/globals';
 
 .promo__logo {
-  display: block;
-  margin-top: 115px;
   font-size: 20px;
+
+  display: block;
+
+  margin-top: 115px;
+
   letter-spacing: 1.1px;
-  
   &:hover {
     cursor: pointer;
+
     color: $main-red;
   }
-
   @media (min-width: $mediaTablet) {
-    margin-top: 0;
-    float: left;
     font-size: 20px;
-    padding-top: 2px;
-    letter-spacing: 0.9px;
-  }
 
-  @media (min-width: $mediaDesktop) {
-    margin-left: 15%;
+    float: left;
+
+    margin-top: 0;
+    padding-top: 2px;
+
+    letter-spacing: .9px;
   }
-  
+  @media (min-width: $mediaDesktop) {
+    // margin-left: 15%;
+  }
 }
 
 .promo__login {
   display: flex;
   flex-direction: row-reverse;
-  
   @media (min-width: $mediaTablet) {
     justify-content: space-around;
     align-self: flex-end;
   }
-  
   @media (min-width: $mediaDesktop) {
-    margin-right: 15%;
+    // margin-right: 15%;
   }
 }
