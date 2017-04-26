@@ -2,20 +2,20 @@
 
 .carousel__container {
   display: flex;
-  justify-content: center;
   visibility: hidden;
+
   margin-top: 10px;
-  
+
+  justify-content: center;
   &::after {
-    content: '';
     display: block;
     clear: both;
-  }
 
+    content: '';
+  }
   @media (min-width: $mediaTablet) {
     @include span(4 of 12);
   }
-
   @media (min-width: $mediaDesktop) {
     // &:nth-of-type(1) {
     //   padding-left: 0;
@@ -24,16 +24,16 @@
     //   padding-right: 0;
     // } 
   }
-
 }
 
 
 .carousel__hider {
   position: relative;
+
   float: left;
   overflow: hidden;
+
   border-radius: 4px;
-  
   &:hover .carousel__element {
     box-shadow: none;
   }
@@ -42,89 +42,94 @@
 
 .carousel__list {
   position: relative;
+
   width: 10000px;
 }
 
 
 .carousel__element {
   position: relative;
+
   display: block;
   float: left;
-  margin-right: 25px;
+
   height: 240px;
-  
-  background-size: cover;
-  background-position: top center;
+  margin-right: 25px;
+
   background-repeat: no-repeat;
-  box-shadow: 0px -360px 240px -240px rgba(0, 0, 0, 0.6) inset;
-
-    @media (min-width: $mediaTablet) {
-      height: 400px;
-    }
-
+  background-position: top center;
+  background-size: cover;
+  box-shadow: 0 -360px 240px -240px rgba(0, 0, 0, .6) inset;
+  @media (min-width: $mediaTablet) {
+    height: 400px;
+  }
   @each $n in 1, 2, 3 {
     &-#{$n} {
       background-image: url(../img/Mobile-step#{$n}.jpg);
-  
       @media (min-width: $mediaTablet) {
         background-image: url(../img/Desktop-step#{$n}.jpg);
       }
-
     }
   }
-  
   &-description {
     position: absolute;
-    width: 100%; // Здесь нужно унаследовать ширину не своего родителя, а хайдера. - 3-го родителя.
+    z-index: 10;
     bottom: 0;
-    padding-left: 20px;
-    padding-right: 20px;
+
     display: flex;
     flex-direction: column;
+
+    width: 100%; // Здесь нужно унаследовать ширину не своего родителя, а хайдера. - 3-го родителя.
+    padding-right: 20px;
+    padding-left: 20px;
+
+    color: $main-white;
+
     justify-content: flex-end;
     align-items: flex-start;
-    z-index: 10;
-    color: $main-white;
     @media (min-width: $mediaTablet) {
       //
     }
     @media (min-width: $mediaDesktop) {
       width: 92%;
     }
-
     .carousel__element-btn {
-      width: 70px;
-      background-color: $main-red;
-      margin-bottom: 15px;
-      
       font-family: $font-main;
-      font-weight: normal;
       font-size: 10px;
+      font-weight: normal;
       line-height: 14px;
       line-height: 14px;
-      color: $main-white;
-      text-transform: uppercase;
-      white-space: nowrap;
-      padding-left: 0;
+
+      width: 70px;
+      margin-bottom: 15px;
       padding-right: 0;
+      padding-left: 0;
+
       text-align: center;
+      vertical-align: 5px;
+      white-space: nowrap;
       text-indent: 3px;
       letter-spacing: 2px;
-      vertical-align: 5px;
-    }
+      text-transform: uppercase;
 
+      color: $main-white;
+      background-color: $main-red;
+    }
     .carousel__element-header {
       font-family: $font-main-bold;
       font-size: 24px;
       line-height: 29px;
+
       margin-bottom: 10px;
     }
     .carousel__element-text {
-      color: $plain-on-dark;
       font-family: $font-plain;
       font-size: 14px;
       line-height: 17px;
+
       margin-bottom: 17px;
+
+      color: $plain-on-dark;
     }
   }
 }
@@ -132,44 +137,39 @@
 
 .carousel__controls {
   position: absolute;
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
   z-index: 10;
+
+  display: flex;
+
+  width: 100%;
   height: 100%;
-  
-  
+
+  justify-content: space-between;
   &-prev > .icon {
     float: left;
   }
   &-next > .icon {
     float: right;
   }
-
   &-prev,
   &-next {
     width: 50%;
-
     & > .icon {
       visibility: hidden;
-      
       @media (min-width: $mediaTablet) {
         visibility: visible;
       }
     }
-
     @media (min-width: $mediaTablet) {
       padding: 40px 20px;
     }
-
     @media (min-width: $mediaDesktop) {
       padding-top: 150px;
     }
-
     &:hover {
-      opacity: 0.7;
       cursor: pointer;
-    }
 
+      opacity: .7;
+    }
   }
-} 
+}

@@ -1,39 +1,41 @@
 @import '../globals/globals';
 
 .search {
-  
   @include span(full);
+
   display: flex;
   flex-direction: column;
-  align-items: center;
-  padding-left: 0;
-  padding-right: 0;
-  text-align: center;
+
   margin-bottom: 40px;
-  
+  padding-right: 0;
+  padding-left: 0;
+
+  text-align: center;
+
+  align-items: center;
   @media (min-width: $mediaTablet) {
     margin-bottom: 100px;
   }
-  
   .search__header {
     font-family: $font-main-bold;
     font-size: 22px;
     line-height: 1.1818;
-    color: $main-black;
+
     margin-top: 36px;
-    
+
+    color: $main-black;
     @media (min-width: $mediaTablet) {
       margin-top: 96px;
     }
   }
-
   .search__label {
     font-family: $font-plain;
     font-size: 18px;
     line-height: 1.2;
-    color: $main-black;
+
     margin-top: 14px;
-    
+
+    color: $main-black;
     @media (min-width: $mediaTablet) {
       margin-top: 33px;
     }
@@ -41,64 +43,63 @@
       margin-top: 35px;
     }
   }
-  
   .search__form {
     display: flex;
     flex-direction: column;
-    align-items: center;
+
     width: 93.3333%;
     margin-top: 15px;
-    
+
+    align-items: center;
     @media (min-width: $mediaTablet) {
-      margin-top: 37px;
-      width: 410px;
       flex-direction: row;
+
+      width: 410px;
+      margin-top: 37px;
+
       justify-content: space-between;
     }
-
     .search__input {
-      width: 100%;
+      @include placeholder($font-family: $font-plain, $font-size: 14px, $color: $form-placeholder);
+
       font-family: $font-main;
       font-size: 16px;
       line-height: 36px;
+
+      width: 100%;
+
       color: $main-black;
-      @include placeholder($font-family: $font-plain, $font-size: 14px, $color: $form-placeholder);
-      
       &:focus,
       &:hover {
-        outline-offset: -2px;
         outline-width: 5px;
-        outline-color: $main-red;
         outline-style: auto;
+        outline-color: $main-red;
+        outline-offset: -2px;
       }
-
       @media (min-width: $mediaTablet) {
         width: 240px;
         // line-height: 36px;
       }
     }
-
     .search__submit {
       font-family: $font-main-bold;
       font-size: 14px;
       line-height: 34px;
-      color: $main-white;
-      background-color: $main-red;
+
       width: 100%;
       margin-top: 10px;
-      
-      &:hover {
-        background-color: rgba($main-red, 0.7);
-      }
 
+      color: $main-white;
+      background-color: $main-red;
+      &:hover {
+        background-color: rgba($main-red, .7);
+      }
       @media (min-width: $mediaTablet) {
-        margin-top: 10px;
-        margin-top: 0px;
         width: 160px;
+        margin-top: 10px;
+        margin-top: 0;
         // line-height: 34px;
       }
     }
   }
 }
-
-

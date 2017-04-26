@@ -107,20 +107,20 @@ a, input[type="button"], input[type="submit"], button {
 }
 
 .btn {
-  padding-left: 17px;
-  padding-right: 17px;
-  border: 2px solid #f66;
-  border-radius: 50px;
   font-size: 14px;
   line-height: 32px;
+  padding-right: 17px;
+  padding-left: 17px;
   text-decoration: none;
   color: inherit;
+  border: 2px solid #f66;
+  border-radius: 50px;
 }
 
 .btn:hover {
   cursor: pointer;
-  background-color: rgba(255, 102, 102, 0.7);
   border-color: transparent;
+  background-color: rgba(255, 102, 102, 0.7);
 }
 
 .btn:focus {
@@ -131,17 +131,17 @@ a, input[type="button"], input[type="submit"], button {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+  visibility: hidden;
+  margin-top: 10px;
   -webkit-justify-content: center;
       -ms-flex-pack: center;
           justify-content: center;
-  visibility: hidden;
-  margin-top: 10px;
 }
 
 .carousel__container::after {
-  content: '';
   display: block;
   clear: both;
+  content: '';
 }
 
 @media (min-width: 785px) {
@@ -173,12 +173,12 @@ a, input[type="button"], input[type="submit"], button {
   position: relative;
   display: block;
   float: left;
-  margin-right: 25px;
   height: 240px;
-  background-size: cover;
-  background-position: top center;
+  margin-right: 25px;
   background-repeat: no-repeat;
-  box-shadow: 0px -360px 240px -240px rgba(0, 0, 0, 0.6) inset;
+  background-position: top center;
+  background-size: cover;
+  box-shadow: 0 -360px 240px -240px rgba(0, 0, 0, 0.6) inset;
 }
 
 @media (min-width: 785px) {
@@ -219,24 +219,24 @@ a, input[type="button"], input[type="submit"], button {
 
 .carousel__element-description {
   position: absolute;
-  width: 100%;
+  z-index: 10;
   bottom: 0;
-  padding-left: 20px;
-  padding-right: 20px;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
   -webkit-flex-direction: column;
       -ms-flex-direction: column;
           flex-direction: column;
+  width: 100%;
+  padding-right: 20px;
+  padding-left: 20px;
+  color: #fff;
   -webkit-justify-content: flex-end;
       -ms-flex-pack: end;
           justify-content: flex-end;
   -webkit-align-items: flex-start;
       -ms-flex-align: start;
           align-items: flex-start;
-  z-index: 10;
-  color: #fff;
 }
 
 @media (min-width: 1457px) {
@@ -246,23 +246,23 @@ a, input[type="button"], input[type="submit"], button {
 }
 
 .carousel__element-description .carousel__element-btn {
-  width: 70px;
-  background-color: #f66;
-  margin-bottom: 15px;
   font-family: MontserratReg, Arial, sans-serif;
-  font-weight: normal;
   font-size: 10px;
+  font-weight: normal;
   line-height: 14px;
   line-height: 14px;
-  color: #fff;
-  text-transform: uppercase;
-  white-space: nowrap;
-  padding-left: 0;
+  width: 70px;
+  margin-bottom: 15px;
   padding-right: 0;
+  padding-left: 0;
   text-align: center;
+  vertical-align: 5px;
+  white-space: nowrap;
   text-indent: 3px;
   letter-spacing: 2px;
-  vertical-align: 5px;
+  text-transform: uppercase;
+  color: #fff;
+  background-color: #f66;
 }
 
 .carousel__element-description .carousel__element-header {
@@ -273,24 +273,24 @@ a, input[type="button"], input[type="submit"], button {
 }
 
 .carousel__element-description .carousel__element-text {
-  color: #ccc;
   font-family: Roboto, Tahoma, sans-serif;
   font-size: 14px;
   line-height: 17px;
   margin-bottom: 17px;
+  color: #ccc;
 }
 
 .carousel__controls {
   position: absolute;
-  width: 100%;
+  z-index: 10;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+  width: 100%;
+  height: 100%;
   -webkit-justify-content: space-between;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  z-index: 10;
-  height: 100%;
 }
 
 .carousel__controls-prev > .icon {
@@ -328,8 +328,8 @@ a, input[type="button"], input[type="submit"], button {
 }
 
 .carousel__controls-prev:hover, .carousel__controls-next:hover {
-  opacity: 0.7;
   cursor: pointer;
+  opacity: .7;
 }
 
 .icon {
@@ -338,18 +338,18 @@ a, input[type="button"], input[type="submit"], button {
 }
 
 .input {
-  background-color: #fff;
+  padding-right: 16px;
+  padding-left: 16px;
   border: 1px solid #ccc;
   border-radius: 4px;
+  background-color: #fff;
   box-shadow: 0 1px 0 #eee;
-  padding-left: 16px;
-  padding-right: 16px;
 }
 
 .promo__logo {
+  font-size: 20px;
   display: block;
   margin-top: 115px;
-  font-size: 20px;
   letter-spacing: 1.1px;
 }
 
@@ -360,11 +360,11 @@ a, input[type="button"], input[type="submit"], button {
 
 @media (min-width: 785px) {
   .promo__logo {
-    margin-top: 0;
-    float: left;
     font-size: 20px;
+    float: left;
+    margin-top: 0;
     padding-top: 2px;
-    letter-spacing: 0.9px;
+    letter-spacing: .9px;
   }
 }
 
@@ -389,13 +389,13 @@ a, input[type="button"], input[type="submit"], button {
 }
 
 .warning {
-  text-align: center;
   font-family: Roboto, Tahoma, sans-serif;
-  font-weight: bold;
   font-size: 16px;
+  font-weight: bold;
   line-height: 3;
-  color: #f66;
+  text-align: center;
   text-transform: uppercase;
+  color: #f66;
 }
 
 /*
@@ -464,15 +464,15 @@ To change `display` (e.g. `display: inline-block;`), we suggest using a common C
 }
 
 .footer {
-  padding-top: 19px;
-  margin-bottom: 18px;
-  width: 100%;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
   -webkit-flex-direction: column;
       -ms-flex-direction: column;
           flex-direction: column;
+  width: 100%;
+  margin-bottom: 18px;
+  padding-top: 19px;
   -webkit-align-items: center;
       -ms-flex-align: center;
           align-items: center;
@@ -482,8 +482,8 @@ To change `display` (e.g. `display: inline-block;`), we suggest using a common C
   font-family: MontserratBold, Arial, sans-serif;
   font-size: 16px;
   line-height: 1;
-  color: #f66;
   letter-spacing: 1px;
+  color: #f66;
 }
 
 .footer .footer__logo:hover {
@@ -497,7 +497,7 @@ To change `display` (e.g. `display: inline-block;`), we suggest using a common C
     padding-left: 10px;
     padding-right: 10px;
     padding-left: 40px;
-    letter-spacing: 0.8px;
+    letter-spacing: .8px;
   }
 }
 
@@ -515,10 +515,10 @@ To change `display` (e.g. `display: inline-block;`), we suggest using a common C
   font-family: MontserratBold, Arial, sans-serif;
   font-size: 14px;
   line-height: 1;
-  color: #333;
-  padding-left: 10px;
-  padding-right: 10px;
   width: 100%;
+  padding-right: 10px;
+  padding-left: 10px;
+  color: #333;
 }
 
 @media (min-width: 785px) {
@@ -533,12 +533,12 @@ To change `display` (e.g. `display: inline-block;`), we suggest using a common C
     -webkit-flex-direction: row;
         -ms-flex-direction: row;
             flex-direction: row;
+    padding-top: 2px;
+    padding-right: 21px;
+    padding-left: 15px;
     -webkit-align-items: flex-start;
         -ms-flex-align: start;
             align-items: flex-start;
-    padding-top: 2px;
-    padding-left: 15px;
-    padding-right: 21px;
   }
 }
 
@@ -548,8 +548,8 @@ To change `display` (e.g. `display: inline-block;`), we suggest using a common C
     float: left;
     padding-left: 10px;
     padding-right: 10px;
-    margin-left: 8.33333%;
     margin-right: 33.33333%;
+    margin-left: 8.33333%;
     -webkit-justify-content: space-between;
         -ms-flex-pack: justify;
             justify-content: space-between;
@@ -557,8 +557,8 @@ To change `display` (e.g. `display: inline-block;`), we suggest using a common C
 }
 
 .footer .footer__menu .footer__company {
-  margin-left: 16.66667%;
   margin-right: 16.66667%;
+  margin-left: 16.66667%;
 }
 
 .footer .footer__menu .footer__company .footer__company-header {
@@ -569,8 +569,8 @@ To change `display` (e.g. `display: inline-block;`), we suggest using a common C
 @media (min-width: 785px) {
   .footer .footer__menu .footer__company .footer__company-header {
     margin-top: 0;
-    text-align: left;
     margin-bottom: 10px;
+    text-align: left;
   }
 }
 
@@ -581,10 +581,10 @@ To change `display` (e.g. `display: inline-block;`), we suggest using a common C
   -webkit-flex-direction: row;
       -ms-flex-direction: row;
           flex-direction: row;
+  margin-top: 2px;
   -webkit-justify-content: space-between;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  margin-top: 2px;
 }
 
 .footer .footer__menu .footer__company .footer__company-menu .footer__company-item > a {
@@ -594,7 +594,7 @@ To change `display` (e.g. `display: inline-block;`), we suggest using a common C
 }
 
 .footer .footer__menu .footer__company .footer__company-menu .footer__company-item > a:hover {
-  text-shadow: 0px 0px 1px #333;
+  text-shadow: 0 0 1px #333;
 }
 
 @media (min-width: 785px) {
@@ -623,10 +623,10 @@ To change `display` (e.g. `display: inline-block;`), we suggest using a common C
     float: left;
     padding-left: 10px;
     padding-right: 10px;
-    padding-left: 0;
-    padding-right: 0;
-    margin-left: 16.66667%;
     margin-right: 16.66667%;
+    margin-left: 16.66667%;
+    padding-right: 0;
+    padding-left: 0;
   }
 }
 
@@ -636,8 +636,8 @@ To change `display` (e.g. `display: inline-block;`), we suggest using a common C
     float: left;
     padding-left: 10px;
     padding-right: 10px;
-    margin-left: 0;
     margin-right: 0;
+    margin-left: 0;
     padding-left: 0;
   }
 }
@@ -649,15 +649,15 @@ To change `display` (e.g. `display: inline-block;`), we suggest using a common C
 
 @media (min-width: 785px) {
   .footer .footer__menu .footer__partners {
-    margin-top: 0;
     width: 25%;
     float: left;
     padding-left: 10px;
     padding-right: 10px;
-    padding-left: 0;
-    padding-right: 0;
-    margin-left: 13.33333%;
+    margin-top: 0;
     margin-right: 20%;
+    margin-left: 13.33333%;
+    padding-right: 0;
+    padding-left: 0;
     text-align: left;
   }
 }
@@ -674,14 +674,14 @@ To change `display` (e.g. `display: inline-block;`), we suggest using a common C
     float: left;
     padding-left: 10px;
     padding-right: 10px;
-    padding-right: 40px;
-    margin-right: 0px;
     display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
     -webkit-flex-direction: column;
         -ms-flex-direction: column;
             flex-direction: column;
+    margin-right: 0;
+    padding-right: 40px;
     -webkit-align-items: flex-end;
         -ms-flex-align: end;
             align-items: flex-end;
@@ -699,14 +699,14 @@ To change `display` (e.g. `display: inline-block;`), we suggest using a common C
 }
 
 .footer .footer__legal .footer__legal-label {
-  margin-top: 13px;
   font-family: MontserratBold, Arial, sans-serif;
   font-size: 10px;
   line-height: 16px;
-  color: #ccc;
-  text-transform: uppercase;
+  margin-top: 13px;
   text-align: center;
   letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #ccc;
 }
 
 @media (min-width: 785px) {
@@ -729,11 +729,11 @@ To change `display` (e.g. `display: inline-block;`), we suggest using a common C
     max-width: 960px;
     margin-left: auto;
     margin-right: auto;
-    padding-top: 37px;
-    margin-bottom: 37px;
     -webkit-flex-direction: row;
         -ms-flex-direction: row;
             flex-direction: row;
+    margin-bottom: 37px;
+    padding-top: 37px;
     -webkit-align-items: flex-start;
         -ms-flex-align: start;
             align-items: flex-start;
@@ -795,12 +795,12 @@ To change `display` (e.g. `display: inline-block;`), we suggest using a common C
   max-width: 960px;
   margin-left: auto;
   margin-right: auto;
-  width: 100%;
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: 10px;
-  padding-right: 10px;
   overflow: hidden;
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: 10px;
+  padding-left: 10px;
 }
 
 .hiw__sizer:after {
@@ -857,8 +857,8 @@ head:hover ~ body .hiw__sizer:before {
 @media (min-width: 785px) {
   .hiw__sizer {
     min-width: 748px;
-    padding-left: 0;
     padding-right: 0;
+    padding-left: 0;
   }
 }
 
@@ -869,14 +869,14 @@ head:hover ~ body .hiw__sizer:before {
 }
 
 .hiw {
-  padding-left: 0;
   padding-right: 0;
+  padding-left: 0;
 }
 
 .hiw__header {
-  text-align: center;
-  margin-top: 37px;
   font-size: 22px;
+  margin-top: 37px;
+  text-align: center;
 }
 
 @media (min-width: 785px) {
@@ -887,8 +887,8 @@ head:hover ~ body .hiw__sizer:before {
 
 .hiw__content {
   margin-top: 16px;
-  padding-left: 0;
   padding-right: 0;
+  padding-left: 0;
 }
 
 @media (min-width: 785px) {
@@ -906,12 +906,12 @@ head:hover ~ body .hiw__sizer:before {
 
 .ideas .ideas__header {
   font-family: MontserratBold, Arial, sans-serif;
-  font-weight: bold;
   font-size: 22px;
+  font-weight: bold;
   line-height: 1.1818;
-  color: #333;
-  text-align: center;
   margin-top: 35px;
+  text-align: center;
+  color: #333;
 }
 
 @media (min-width: 785px) {
@@ -933,33 +933,33 @@ head:hover ~ body .hiw__sizer:before {
 @media (min-width: 1457px) {
   .ideas .ideas__content {
     width: 940px;
-    margin-left: auto;
     margin-right: auto;
+    margin-left: auto;
   }
 }
 
 .ideas .ideas__item {
-  border-radius: 4px;
   position: relative;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+  overflow: hidden;
+  border-radius: 4px;
   -webkit-align-items: center;
       -ms-flex-align: center;
           align-items: center;
   -webkit-justify-content: center;
       -ms-flex-pack: center;
           justify-content: center;
-  overflow: hidden;
 }
 
 .ideas .ideas__title {
+  font-family: MontserratBold, Arial, sans-serif;
+  font-size: 22px;
+  font-weight: bold;
+  line-height: 40px;
   display: block;
   text-align: center;
-  font-family: MontserratBold, Arial, sans-serif;
-  font-weight: bold;
-  font-size: 22px;
-  line-height: 40px;
   color: #fff;
   text-shadow: 0 0 1px #666;
 }
@@ -975,33 +975,33 @@ head:hover ~ body .hiw__sizer:before {
     padding-left: 10px;
     padding-right: 10px;
     width: 31.6%;
-    padding-left: 0;
     padding-right: 0;
+    padding-left: 0;
   }
 }
 
 .msnry__item {
-  margin-top: 10px;
   width: 100%;
   min-height: 120px;
+  margin-top: 10px;
 }
 
 @media (min-width: 785px) {
   .msnry__item {
-    margin-top: 20px;
-    min-height: 310px;
     width: 31.5508%;
     width: 31.55%;
-    padding-left: 0;
+    min-height: 310px;
+    margin-top: 20px;
     padding-right: 0;
+    padding-left: 0;
   }
 }
 
 @media (min-width: 785px) {
   .msnry__item-width2 {
     width: 65.73%;
-    padding-left: 0;
     padding-right: 0;
+    padding-left: 0;
   }
 }
 
@@ -1017,25 +1017,25 @@ head:hover ~ body .hiw__sizer:before {
   -webkit-flex-direction: column;
       -ms-flex-direction: column;
           flex-direction: column;
+  min-width: 320px;
+  max-width: 1457px;
+  margin-right: auto;
+  margin-left: auto;
   -webkit-align-items: center;
       -ms-flex-align: center;
           align-items: center;
-  min-width: 320px;
-  max-width: 1457px;
-  margin-left: auto;
-  margin-right: auto;
 }
 
 .page__sizer {
   max-width: 960px;
   margin-left: auto;
   margin-right: auto;
-  width: 100%;
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: 10px;
-  padding-right: 10px;
   overflow: hidden;
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: 10px;
+  padding-left: 10px;
 }
 
 .page__sizer:after {
@@ -1098,8 +1098,8 @@ head:hover ~ body .page__sizer:before {
 @media (min-width: 1457px) {
   .page__sizer {
     min-width: 980px;
-    padding-left: 0;
     padding-right: 0;
+    padding-left: 0;
   }
 }
 
@@ -1114,20 +1114,20 @@ head:hover ~ body .page__sizer:before {
   -webkit-flex-direction: column;
       -ms-flex-direction: column;
           flex-direction: column;
+  padding-right: 0;
+  padding-left: 0;
   -webkit-align-items: center;
       -ms-flex-align: center;
           align-items: center;
-  padding-left: 0;
-  padding-right: 0;
 }
 
 .partners .partners__header {
-  margin-top: 35px;
   font-family: MontserratBold, Arial, sans-serif;
   font-size: 22px;
   line-height: 26px;
-  color: #333;
+  margin-top: 35px;
   text-align: center;
+  color: #333;
 }
 
 @media (min-width: 785px) {
@@ -1141,9 +1141,9 @@ head:hover ~ body .page__sizer:before {
   float: left;
   padding-left: 10px;
   padding-right: 10px;
-  padding-left: 0;
-  padding-right: 0;
   margin-top: -5px;
+  padding-right: 0;
+  padding-left: 0;
 }
 
 @media (min-width: 785px) {
@@ -1152,24 +1152,24 @@ head:hover ~ body .page__sizer:before {
     float: left;
     padding-left: 10px;
     padding-right: 10px;
-    padding-left: 0;
-    padding-right: 0;
+    max-width: 960px;
+    margin-left: auto;
+    margin-right: auto;
     display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
     -webkit-flex-direction: column;
         -ms-flex-direction: column;
             flex-direction: column;
+    max-height: 700px;
+    padding-right: 0;
+    padding-left: 0;
     -webkit-flex-wrap: wrap;
         -ms-flex-wrap: wrap;
             flex-wrap: wrap;
     -webkit-align-items: stretch;
         -ms-flex-align: stretch;
             align-items: stretch;
-    max-height: 700px;
-    max-width: 960px;
-    margin-left: auto;
-    margin-right: auto;
   }
   .partners .partners__content:after {
     content: " ";
@@ -1227,11 +1227,11 @@ head:hover ~ body .page__sizer:before {
     max-width: 960px;
     margin-left: auto;
     margin-right: auto;
-    padding-left: 0;
-    padding-right: 0;
     -webkit-flex-direction: row;
         -ms-flex-direction: row;
             flex-direction: row;
+    padding-right: 0;
+    padding-left: 0;
   }
   .partners .partners__content:after {
     content: " ";
@@ -1260,16 +1260,16 @@ head:hover ~ body .page__sizer:before {
 }
 
 .partners .partners__content .partners__card {
-  margin-top: 20px;
-  margin-bottom: 27px;
-  padding-left: 13%;
-  padding-right: 13%;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
   -webkit-flex-direction: column;
       -ms-flex-direction: column;
           flex-direction: column;
+  margin-top: 20px;
+  margin-bottom: 27px;
+  padding-right: 13%;
+  padding-left: 13%;
   -webkit-align-items: center;
       -ms-flex-align: center;
           align-items: center;
@@ -1312,7 +1312,7 @@ head:hover ~ body .page__sizer:before {
 }
 
 .partners .partners__content .partners__card .partners__avatar:hover .partners__face {
-  box-shadow: 0 0 0px 4px #f66;
+  box-shadow: 0 0 0 4px #f66;
 }
 
 .partners .partners__content .partners__card .partners__avatar:hover {
@@ -1341,93 +1341,93 @@ head:hover ~ body .page__sizer:before {
 }
 
 .partners .partners__content .partners__card .partners__about {
-  margin-top: 12px;
   font-family: Roboto, Tahoma, sans-serif;
   font-size: 14px;
   line-height: 17px;
-  color: #666;
-  text-align: center;
-  padding-left: 1%;
+  margin-top: 12px;
   padding-right: 1%;
+  padding-left: 1%;
+  text-align: center;
+  color: #666;
 }
 
 @media (min-width: 785px) {
   .partners .partners__content .partners__card .partners__about {
     display: block;
-    padding-left: 3%;
     padding-right: 3%;
+    padding-left: 3%;
   }
 }
 
 @media (min-width: 1457px) {
   .partners .partners__content .partners__card .partners__about {
-    padding-left: 2%;
     padding-right: 2%;
+    padding-left: 2%;
   }
 }
 
 .partners .partners__btn {
-  width: 93%;
-  margin-top: 2px;
-  text-align: center;
   font-family: MontserratBold, Arial, sans-serif;
   font-size: 14px;
   line-height: 36px;
+  width: 93%;
+  margin-top: 2px;
+  text-align: center;
   color: #f66;
 }
 
 .partners .partners__btn:hover {
+  opacity: .7;
   color: #fff;
   background-color: #f66;
-  opacity: 0.7;
 }
 
 @media (min-width: 785px) {
   .partners .partners__btn {
     width: auto;
     margin-top: 14px;
-    padding-left: 28px;
     padding-right: 28px;
+    padding-left: 28px;
   }
 }
 
 .promo {
+  font-family: MontserratBold, Arial, sans-serif;
+  font-weight: bold;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
   -webkit-flex-direction: column;
       -ms-flex-direction: column;
           flex-direction: column;
+  height: 540px;
+  padding-top: 20px;
+  color: #fff;
+  background-image: url("../img/bg-promo.jpg");
+  background-repeat: no-repeat;
+  background-position: top -10px left 51.4%;
+  background-size: auto 102.4%;
   -webkit-align-items: center;
       -ms-flex-align: center;
           align-items: center;
   -webkit-align-self: stretch;
       -ms-flex-item-align: stretch;
           align-self: stretch;
-  height: 540px;
-  background-image: url("../img/bg-promo.jpg");
-  background-repeat: no-repeat;
-  background-position: top -10px left 51.4%;
-  background-size: auto 102.4%;
-  padding-top: 20px;
-  font-family: MontserratBold, Arial, sans-serif;
-  font-weight: bold;
-  color: #fff;
 }
 
 .promo .promo__header {
-  width: 100%;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
   -webkit-flex-direction: column-reverse;
       -ms-flex-direction: column-reverse;
           flex-direction: column-reverse;
+  width: 100%;
+  padding-right: 0;
+  padding-left: 0;
   -webkit-align-items: center;
       -ms-flex-align: center;
           align-items: center;
-  padding-left: 0;
-  padding-right: 0;
 }
 
 @media (min-width: 785px) {
@@ -1435,27 +1435,27 @@ head:hover ~ body .page__sizer:before {
     -webkit-flex-direction: row;
         -ms-flex-direction: row;
             flex-direction: row;
+    padding-right: 6%;
+    padding-left: 6%;
     -webkit-justify-content: space-between;
         -ms-flex-pack: justify;
             justify-content: space-between;
-    padding-left: 6%;
-    padding-right: 6%;
   }
 }
 
 @media (min-width: 1457px) {
   .promo .promo__header {
-    padding-left: 17.4%;
     padding-right: 17.4%;
+    padding-left: 17.4%;
   }
 }
 
 @media (min-width: 785px) {
   .promo {
-    background-position: center;
-    background-size: cover;
     height: 700px;
     padding-top: 38px;
+    background-position: center;
+    background-size: cover;
   }
 }
 
@@ -1470,55 +1470,55 @@ head:hover ~ body .page__sizer:before {
 }
 
 .promo__slogan {
-  padding-top: 30px;
   font-size: 30px;
   line-height: 36px;
+  padding-top: 30px;
   text-align: center;
   text-transform: uppercase;
 }
 
 @media (min-width: 785px) {
   .promo__slogan {
-    padding-top: 140px;
     font-size: 52px;
     line-height: 62px;
+    padding-top: 140px;
   }
 }
 
 .promo__subslogan {
-  padding-top: 9px;
-  padding-left: 15%;
-  padding-right: 15%;
-  font-size: 18px;
-  line-height: 21px;
   font-family: Roboto, Tahoma, sans-serif;
+  font-size: 18px;
   font-weight: lighter;
+  line-height: 21px;
+  padding-top: 9px;
+  padding-right: 15%;
+  padding-left: 15%;
   text-align: center;
 }
 
 @media (min-width: 785px) {
   .promo__subslogan {
-    padding-top: 28px;
     font-size: 24px;
+    padding-top: 28px;
   }
 }
 
 .promo__btn-gostart {
-  display: block;
   line-height: 36px;
-  margin-top: 16px;
+  display: block;
   width: 280px;
-  margin-left: auto;
+  margin-top: 16px;
   margin-right: auto;
-  background-color: #f66;
+  margin-left: auto;
   text-align: center;
+  background-color: #f66;
 }
 
 @media (min-width: 785px) {
   .promo__btn-gostart {
-    padding-left: 21px;
-    margin-top: 37px;
     width: 226px;
+    margin-top: 37px;
+    padding-left: 21px;
   }
 }
 
@@ -1533,13 +1533,13 @@ head:hover ~ body .page__sizer:before {
   -webkit-flex-direction: column;
       -ms-flex-direction: column;
           flex-direction: column;
+  margin-bottom: 40px;
+  padding-right: 0;
+  padding-left: 0;
+  text-align: center;
   -webkit-align-items: center;
       -ms-flex-align: center;
           align-items: center;
-  padding-left: 0;
-  padding-right: 0;
-  text-align: center;
-  margin-bottom: 40px;
 }
 
 @media (min-width: 785px) {
@@ -1552,8 +1552,8 @@ head:hover ~ body .page__sizer:before {
   font-family: MontserratBold, Arial, sans-serif;
   font-size: 22px;
   line-height: 1.1818;
-  color: #333;
   margin-top: 36px;
+  color: #333;
 }
 
 @media (min-width: 785px) {
@@ -1566,8 +1566,8 @@ head:hover ~ body .page__sizer:before {
   font-family: Roboto, Tahoma, sans-serif;
   font-size: 18px;
   line-height: 1.2;
-  color: #333;
   margin-top: 14px;
+  color: #333;
 }
 
 @media (min-width: 785px) {
@@ -1589,20 +1589,20 @@ head:hover ~ body .page__sizer:before {
   -webkit-flex-direction: column;
       -ms-flex-direction: column;
           flex-direction: column;
+  width: 93.3333%;
+  margin-top: 15px;
   -webkit-align-items: center;
       -ms-flex-align: center;
           align-items: center;
-  width: 93.3333%;
-  margin-top: 15px;
 }
 
 @media (min-width: 785px) {
   .search .search__form {
-    margin-top: 37px;
-    width: 410px;
     -webkit-flex-direction: row;
         -ms-flex-direction: row;
             flex-direction: row;
+    width: 410px;
+    margin-top: 37px;
     -webkit-justify-content: space-between;
         -ms-flex-pack: justify;
             justify-content: space-between;
@@ -1610,10 +1610,10 @@ head:hover ~ body .page__sizer:before {
 }
 
 .search .search__form .search__input {
-  width: 100%;
   font-family: MontserratReg, Arial, sans-serif;
   font-size: 16px;
   line-height: 36px;
+  width: 100%;
   color: #333;
 }
 
@@ -1624,9 +1624,9 @@ head:hover ~ body .page__sizer:before {
 }
 
 .search .search__form .search__input::-moz-placeholder {
-  opacity: 1;
   font-family: Roboto, Tahoma, sans-serif;
   font-size: 14px;
+  opacity: 1;
   color: #999;
 }
 
@@ -1643,10 +1643,10 @@ head:hover ~ body .page__sizer:before {
 }
 
 .search .search__form .search__input:focus, .search .search__form .search__input:hover {
-  outline-offset: -2px;
   outline-width: 5px;
-  outline-color: #f66;
   outline-style: auto;
+  outline-color: #f66;
+  outline-offset: -2px;
 }
 
 @media (min-width: 785px) {
@@ -1659,10 +1659,10 @@ head:hover ~ body .page__sizer:before {
   font-family: MontserratBold, Arial, sans-serif;
   font-size: 14px;
   line-height: 34px;
-  color: #fff;
-  background-color: #f66;
   width: 100%;
   margin-top: 10px;
+  color: #fff;
+  background-color: #f66;
 }
 
 .search .search__form .search__submit:hover {
@@ -1671,8 +1671,8 @@ head:hover ~ body .page__sizer:before {
 
 @media (min-width: 785px) {
   .search .search__form .search__submit {
-    margin-top: 10px;
-    margin-top: 0px;
     width: 160px;
+    margin-top: 10px;
+    margin-top: 0;
   }
 }
