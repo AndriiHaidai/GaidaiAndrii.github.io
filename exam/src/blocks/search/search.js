@@ -9,6 +9,11 @@ var msnryContainer = document.getElementById('search__result');
 
 input.addEventListener('keydown', waitForEnterKey);
 btn.addEventListener('click', showResults);
+document.addEventListener('DOMContentLoaded', ready);
+
+function ready() {
+  showResults();
+}
 
 function waitForEnterKey(e){
   if (e.target.id == 'search__text' && (e.type == 'keydown' || e.type == 'keypress') && e.keyCode == 13) {
@@ -17,7 +22,6 @@ function waitForEnterKey(e){
     e.preventDefault();
   }
 }
-
 
 function showResults(e) {
 

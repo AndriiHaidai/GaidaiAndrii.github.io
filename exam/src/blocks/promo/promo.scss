@@ -17,10 +17,6 @@
   background-size: auto 102.4%;
 
   align-items: center;
-  // min-width: $mobile;
-  // max-width: $mediaDesktop;
-  // margin-left: auto;
-  // margin-right: auto;
   align-self: stretch;
   .promo__header {
     display: flex;
@@ -47,23 +43,15 @@
   @media (min-width: $mediaTablet) {
     height: 700px;
     padding-top: 38px;
-    // min-width: $tablet;
-    // min-width: 700px;
 
     background-position: center;
     background-size: cover;
-    // padding-left: 50px;
-    // padding-right: 50px;
-  }
-  @media (min-width: $mediaDesktop) {
-    // min-width: $mediaDesktop;
   }
 }
 
 .promo__login > .promo__login-btn {
   border-color: transparent;
   background-color: transparent;
-  // font-weight: bold;
   &:hover {
     border-color: $main-white;
     background-color: transparent;

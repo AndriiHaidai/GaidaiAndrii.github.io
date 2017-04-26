@@ -3,15 +3,12 @@
 $scrollbar: 17px;
 
 $mobile: 320px;
-$mediaMobile: $mobile;
 $mediaMobile: $mobile + $scrollbar;
 
 $tablet: 768px;
-$mediaTablet: $tablet;
 $mediaTablet: $tablet + $scrollbar;
 
 $desktop: 1440px;
-$mediaDesktop: $desktop;
 $mediaDesktop: $desktop + $scrollbar;
 
 
@@ -27,7 +24,7 @@ $susy: (
   gutter-override: 20px,
   global-box-sizing: border-box, // можно еще content-box
   debug: (
-    image: show, // варианты: show | hide | show-columns | show-baseline для показа всех вариантов колонок и линеечек
+    image: hide, // варианты: show | hide | show-columns | show-baseline для показа всех вариантов колонок и линеечек
     color: rgba(#66f, 0.4), // менять цвет у колонок
     output: overlay, // background - постоянно, overlay - при наведении
   )
