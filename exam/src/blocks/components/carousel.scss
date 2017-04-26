@@ -79,7 +79,8 @@
     display: flex;
     flex-direction: column;
 
-    width: 100%; // Здесь нужно унаследовать ширину не своего родителя, а хайдера. - 3-го родителя.
+    width: 100%;
+    // (КАК ? ) Здесь нужно унаследовать ширину не своего родителя, а хайдера. - 3-го родителя.
     padding-right: 20px;
     padding-left: 20px;
 
@@ -114,6 +115,10 @@
 
       color: $main-white;
       background-color: $main-red;
+      &:hover {
+        border-color: transparent;
+        background-color: rgba($main-red, .7);
+      }
     }
     .carousel__element-header {
       font-family: $font-main-bold;
@@ -142,18 +147,10 @@
   display: flex;
 
   width: 100%;
-  height: 100%;
 
   justify-content: space-between;
-  &-prev > .icon {
-    float: left;
-  }
-  &-next > .icon {
-    float: right;
-  }
   &-prev,
   &-next {
-    width: 50%;
     & > .icon {
       visibility: hidden;
       @media (min-width: $mediaTablet) {
@@ -161,10 +158,11 @@
       }
     }
     @media (min-width: $mediaTablet) {
-      padding: 40px 20px;
+      padding: 20px;
     }
     @media (min-width: $mediaDesktop) {
-      padding-top: 150px;
+      margin-top: 130px;
+      padding-top: 20px;
     }
     &:hover {
       cursor: pointer;

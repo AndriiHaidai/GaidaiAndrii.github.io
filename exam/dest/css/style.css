@@ -265,6 +265,11 @@ a, input[type="button"], input[type="submit"], button {
   background-color: #f66;
 }
 
+.carousel__element-description .carousel__element-btn:hover {
+  border-color: transparent;
+  background-color: rgba(255, 102, 102, 0.7);
+}
+
 .carousel__element-description .carousel__element-header {
   font-family: MontserratBold, Arial, sans-serif;
   font-size: 24px;
@@ -287,22 +292,9 @@ a, input[type="button"], input[type="submit"], button {
   display: -ms-flexbox;
   display: flex;
   width: 100%;
-  height: 100%;
   -webkit-justify-content: space-between;
       -ms-flex-pack: justify;
           justify-content: space-between;
-}
-
-.carousel__controls-prev > .icon {
-  float: left;
-}
-
-.carousel__controls-next > .icon {
-  float: right;
-}
-
-.carousel__controls-prev, .carousel__controls-next {
-  width: 50%;
 }
 
 .carousel__controls-prev > .icon, .carousel__controls-next > .icon {
@@ -317,13 +309,14 @@ a, input[type="button"], input[type="submit"], button {
 
 @media (min-width: 785px) {
   .carousel__controls-prev, .carousel__controls-next {
-    padding: 40px 20px;
+    padding: 20px;
   }
 }
 
 @media (min-width: 1457px) {
   .carousel__controls-prev, .carousel__controls-next {
-    padding-top: 150px;
+    margin-top: 130px;
+    padding-top: 20px;
   }
 }
 
