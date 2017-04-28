@@ -97,7 +97,7 @@
 
   display: block;
 
-  width: 280px;
+  width: 88%;
   margin-top: 16px;
   margin-right: auto;
   margin-left: auto;
@@ -106,8 +106,9 @@
 
   background-color: $main-red;
   @media (min-width: $mediaTablet) {
-    width: 226px;
+    width: auto;
     margin-top: 37px;
+    padding-right: 21px;
     padding-left: 21px;
   }
 }
