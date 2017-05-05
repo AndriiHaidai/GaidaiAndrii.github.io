@@ -1,0 +1,117 @@
+@import '../globals/globals';
+
+.size-a4 {
+  position: relative;
+
+  display: block; ///
+  overflow: hidden;
+
+  width: 21cm;
+  height: 29.7cm;
+  margin: 1rem auto;
+  padding: 3.5rem; ///
+
+  background: #fff; ///
+  box-shadow: 0 0 .5cm rgba(0, 0, 0, .5); ///
+}
+
+#header {
+  margin-bottom: 2rem;
+}
+.header {
+  height: 134px;
+  padding-top: 12px;
+  position: relative;
+  &::before {
+    content: '';
+    position: absolute;
+    height: 20px;
+    left: 0;
+    right: 0;
+    top: 56px;
+    background-color: #dbdbdb;
+  }
+  .header__inner {
+    width: 476px;
+    margin: 0 auto;
+    position: relative;
+    background-color: #fff;
+    z-index: 2;
+    overflow: hidden;
+    
+    .header__avatar {
+      width: 31%;
+      float: left;
+      .header__userfoto {
+        width: 108px;
+        height: 108px;
+        border-radius: 50%;
+        display: block;
+        background-position: center center;
+        background-size: cover;
+        margin-left: auto;
+        margin-right: auto;
+      }
+    }
+
+    .header__text {
+      width: 68.9%;
+      float: left;
+      position: relative;
+    }
+    
+    .header__username {
+      font-size: 2rem;
+      margin: 0;
+      margin-bottom: 0.5rem;
+      color: $nameBlack;
+    }
+
+    .header__position {
+      font-size: 1.4rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .article__contacts {
+      width: 49.9%;
+      float: left;
+      li {
+        font-size: 13px;
+        line-height: 1.4;
+      }
+    } 
+    .header__item-link {
+      
+      &:hover .header__item-text {
+        color: $mainGreen;
+      }
+    }
+    .header__item-icon {
+      // float: left;
+    }
+    .header__item-text {
+      color: $mainGrey;
+      font-size: 11px;
+    }
+  }
+}
+
+.section {
+  // background: // Полоска на всю ширину подкладки.
+  // ;
+  .section__icon {} // напр, Education, Work, About, Skills, Courses, ...
+  .section__name {} // напр, Education, Work, About, Skills, Courses, ...
+  
+  .article { // article
+    .article__header { // напр, Unilever, Mondeleze, ...
+      span.article__years {}
+    }
+    .article__subheader {} // должность, звание, факультет, ...
+    .article__acievement-point {}
+  }
+  
+  & > p {} // например, как в секции "about" - без буллетов.
+  
+  .percented-item__text {}  // English
+  .percented-item__value {} // 70% - точками из 10.
+}
