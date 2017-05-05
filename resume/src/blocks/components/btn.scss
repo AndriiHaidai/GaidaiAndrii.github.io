@@ -1,0 +1,25 @@
+@import '../globals/globals';
+
+.btn {
+  font-size: 14px;
+  line-height: 32px;
+
+  padding-right: 17px;
+  padding-left: 17px;
+
+  white-space: nowrap;
+  text-decoration: none;
+
+  color: inherit;
+  border: 2px solid $mainGreen;
+  border-radius: 50px;
+  &:hover {
+    cursor: pointer;
+
+    border-color: transparent;
+    background-color: rgba($mainGreen, .7);
+  }
+  &:focus {
+    outline: none;
+  }
+}
