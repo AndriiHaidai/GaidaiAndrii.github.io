@@ -29,13 +29,13 @@
     left: 0;
     right: 0;
     top: 56px;
-    background-color: #dbdbdb;
+    background-color: $bgGrey;
   }
   .header__inner {
     width: 476px;
     margin: 0 auto;
     position: relative;
-    background-color: #fff;
+    background-color: $mainWhite;
     z-index: 2;
     overflow: hidden;
     
@@ -86,8 +86,8 @@
         color: $mainGreen;
       }
     }
-    .header__item-icon {
-      // float: left;
+    .header__item-icon.fa {
+      margin-right: 0.25rem;
     }
     .header__item-text {
       color: $mainGrey;
@@ -96,18 +96,118 @@
   }
 }
 
+#content {
+  width: 61%;
+  margin-right: 4%;
+  float: left;
+}
+
+#sidebar {
+  width: 35%;
+  float: left;
+}
+
+$sectionHeaderFontSize: 1.125rem;
+$sectionHeaderIconSize: 2.5rem;
+$sectionHeaderLineHeight: 0.4rem;
+$sectionHeaderLineTop: 1.05rem;
+$sectionHeaderTextIndent: 0.5rem;
+$articleIndent: $sectionHeaderIconSize + $sectionHeaderTextIndent;
 .section {
+  position: relative;
+  &::before {
+    content: '';
+    position: absolute;
+    height: $sectionHeaderLineHeight;
+    left: 0;
+    right: 0;
+    top: $sectionHeaderLineTop;
+    background-color: $bgGrey;
+  }
+  .section__header {
+    position: relative;
+    background-color: $mainWhite;
+    z-index: 2;
+    overflow: hidden;
+    display: inline-block;
+    // line-height: $sectionHeaderIconSize;
+    
+    .section__icon {
+      font-size: $sectionHeaderFontSize;
+      text-align: center;
+      line-height: $sectionHeaderIconSize;
+      width: $sectionHeaderIconSize;
+      height: $sectionHeaderIconSize;
+      background-color: $bgGrey;
+      border-radius: 50%;
+    } // напр, Education, Work, About, Skills, Courses, ...
+    
+    .section__name {
+      float: left;
+      text-transform: uppercase;
+      color: $mainGreen;
+      white-space: nowrap;
+      margin: 0 $sectionHeaderTextIndent;
+      line-height: $sectionHeaderIconSize;
+    } // напр, Education, Work, About, Skills, Courses, ...
+  }
+    
   // background: // Полоска на всю ширину подкладки.
   // ;
-  .section__icon {} // напр, Education, Work, About, Skills, Courses, ...
-  .section__name {} // напр, Education, Work, About, Skills, Courses, ...
+    
   
+  $articleBulletSize: 0.625rem;
+  $artcleFontSize: 0.75rem;
+  $articleBulletLeft: - ($articleIndent - $sectionHeaderIconSize / 2 + $articleBulletSize / 2);
+  $articleBulletTop: ($artcleFontSize - $articleBulletSize) / 2;
   .article { // article
-    .article__header { // напр, Unilever, Mondeleze, ...
-      span.article__years {}
+    position: relative;
+    margin-left: $articleIndent;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+    font-size: $artcleFontSize;
+    line-height: 1;
+    color: $mainGrey;
+    &::before {
+      content: '';
+      position: absolute;
+      width: $articleBulletSize;
+      height: $articleBulletSize;
+      border-radius: 50%;
+      background-color: $bgGrey;
+      top: $articleBulletTop;
+      left: $articleBulletLeft;
     }
-    .article__subheader {} // должность, звание, факультет, ...
-    .article__acievement-point {}
+    .article__header { // напр, Unilever, Mondeleze, ...
+      text-transform: uppercase;
+      color: $mainGreen;
+      margin-bottom: 0.25rem;
+      & a {
+        display: inline-block;
+      }
+      span.article__years {
+        color: $mainBlack;
+      }
+    }
+    .article__subheader {
+      line-height: 1.125;
+      margin-bottom: 0.25rem;
+    } // должность, звание, факультет, ...
+    .article__pointsList {}
+    .article__point {
+      line-height: 1.4;
+      margin-bottom: 0.125rem;
+        
+      .article__point-bullet {
+        width: 1rem;
+        float: left;
+        display: block;
+      }
+      .article__point-text {
+        display: block;
+        padding-left: 1rem;
+      }
+    }
   }
   
   & > p {} // например, как в секции "about" - без буллетов.
