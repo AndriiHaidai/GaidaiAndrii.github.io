@@ -1,34 +1,20 @@
-/*
-(!) font face - Выяснить, есть ли в системе, или можно скачать официально бесплатный. Иначе - решить с заказчиком!
-(!) font size - Сделать классы для всех комбинаций font-face / font-size / font-color
-(!) font color
-
-(!) img: изображения, фоны, иконки и т.п.
-(!) структура елементов (HTML)
-(!) тексты (HTML)
-(!) позиции, отступы елементов
-(!) цвета элементов, границы
-*/
-
 @import "reset.css";
-
-.clr{/*После сфлоаченных блоков добавляем <div class="clr"> без содержимого и он прекратит сфлоачивание. */
-  clear:both;
-}
-.clearfix::after{/*Добавляем этот класс к parent-элементу, у которого есть только сфлоачиваемые дети. Это прекратит сфлоачивание. */
-  content: '';
-  display: table;
-  clear: both;
-}
 
 .menu {
   display: block;
-  width: 20%;
-  margin: auto;
+  width: 55%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 1.5rem;
 }
 .menu .menu__item {
-  text-align: center;
+    margin-top: 0.25rem;
+    border-radius: 5px;
+    background-color: #eee;
+    text-align: left;
+    line-height: 1.5rem;
 }
 .menu .menu__item:hover {
-  background-color: grey;
+  background-color: #ddd;
+  cursor: pointer;
 }
