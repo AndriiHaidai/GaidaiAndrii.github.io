@@ -61,10 +61,10 @@
       "department":"dep-2",
       "specialistField":"",
       "achievements":[
-        'ach-1',
-        'ach-2',
-        'ach-3',
-        'ach-4',
+        'achievement-1',
+        'achievement-2',
+        'achievement-3',
+        'achievement-4',
         ]
     }
   ];
