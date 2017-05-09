@@ -187,16 +187,22 @@ $articleIndent: $sectionHeaderIconSize + $sectionHeaderTextIndent;
       }
       span.article__years {
         color: $mainBlack;
+        text-transform: none;
       }
     }
     .article__subheader {
       line-height: 1.125;
-      margin-bottom: 0.25rem;
+      margin-bottom: 0.5rem;
+      text-align: justify;
     } // должность, звание, факультет, ...
-    .article__pointsList {}
+    .article__pointsList {
+      // margin-left: -31px;
+    }
     .article__point {
       line-height: 1.4;
       margin-bottom: 0.125rem;
+      text-align: justify;
+      
         
       .article__point-bullet {
         width: 1rem;
