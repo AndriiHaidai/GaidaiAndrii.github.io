@@ -19,8 +19,6 @@
   margin-bottom: 2rem;
 }
 .header {
-  height: 134px;
-  padding-top: 12px;
   position: relative;
   &::before {
     content: '';
@@ -28,7 +26,7 @@
     height: 20px;
     left: 0;
     right: 0;
-    top: 56px;
+    top: 44px;
     background-color: $bgGrey;
   }
   .header__inner {
@@ -115,6 +113,7 @@ $sectionHeaderTextIndent: 0.5rem;
 $articleIndent: $sectionHeaderIconSize + $sectionHeaderTextIndent;
 .section {
   position: relative;
+  margin-bottom: 2rem;
   &::before {
     content: '';
     position: absolute;
@@ -164,7 +163,6 @@ $articleIndent: $sectionHeaderIconSize + $sectionHeaderTextIndent;
     position: relative;
     margin-left: $articleIndent;
     margin-top: 1rem;
-    margin-bottom: 2rem;
     font-size: $artcleFontSize;
     line-height: 1;
     color: $mainGrey;
@@ -177,6 +175,20 @@ $articleIndent: $sectionHeaderIconSize + $sectionHeaderTextIndent;
       background-color: $bgGrey;
       top: $articleBulletTop;
       left: $articleBulletLeft;
+    }
+    &.article_narrow {
+      // margin-top: 0.25rem;
+      // margin-bottom: 0.25rem;
+    }
+    &.article_plain {
+      margin-top: 0.25rem;
+      margin-bottom: 0.25rem;
+      margin-left: 0.5rem;
+      text-align: justify;
+      text-indent: -0.5rem;
+      &::before {
+        display: none;
+      }
     }
     .article__header { // напр, Unilever, Mondeleze, ...
       text-transform: uppercase;
