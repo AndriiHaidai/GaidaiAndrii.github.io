@@ -140,27 +140,64 @@
   ];
   
   const jsonSkills = [
-    // like in jsonLanguages
+    {
+      "itemName":"HTML / CSS",
+      "itemValueOf10":"7"
+    },
+    {
+      "itemName":"JavaScript",
+      "itemValueOf10":"6"
+    },
+    {
+      "itemName":"jQuery",
+      "itemValueOf10":"6"
+    },
+    {
+      "itemName":"Gulp",
+      "itemValueOf10":"4"
+    },
+    {
+      "itemName":"scss / Sass",
+      "itemValueOf10":"6"
+    },
+    {
+      "itemName":"Git / GitHub",
+      "itemValueOf10":"4"
+    },
+    {
+      "itemName":"Bootstrap",
+      "itemValueOf10":"6"
+    },
+    {
+      "itemName":"grid Susy",
+      "itemValueOf10":"6"
+    },
+    {
+      "itemName":"Command-line interface",
+      "itemValueOf10":"6"
+    },
+    {
+      "itemName":"SQL Server Databases",
+      "itemValueOf10":"7"
+    },
+    {
+      "itemName":"Photoshop for Frontend",
+      "itemValueOf10":"7"
+    },
   ]; 
 
   const jsonLanguages = [
     {
-      "itemName":"English",
-      "ItemValueOf10":"7",
-      "ItemScaleName":"CEFR",
-      "ItemScaleValue":"B2",
+      "itemName":"English (CEFR:B2)",
+      "itemValueOf10":"7"
     },
     {
-      "itemName":"Russian",
-      "ItemValueOf10":"10",
-      "ItemScaleName":"",
-      "ItemScaleValue":""
+      "itemName":"Русский",
+      "itemValueOf10":"10"
     },
     {
-      "itemName":"Ukrainian",
-      "ItemValueOf10":"10",
-      "ItemScaleName":"",
-      "ItemScaleValue":""
+      "itemName":"Українська",
+      "itemValueOf10":"10"
     }
   ];
 
@@ -249,7 +286,7 @@
             <h3 class="section__name">${sectionName}</h3>
           </div>
           ${arrOfObjects.map(obj => 
-          `
+            `
             <div class="article">
 
               <h4 class="article__header">
@@ -271,7 +308,6 @@
             </div>
             `).join('')
           }
-
         </section>
       `
     );
@@ -304,7 +340,7 @@
             ${obj.plainItems === undefined ? '': obj.plainItems.length === 0 ? '':
               `
                 ${obj.plainItems.map(plainItem => 
-                  `<div class="article article_narrow article_plain">${plainItem}</div>`
+                  `<div class="article article_plain">${plainItem}</div>`
                 ).join('')}
               `
             }
@@ -323,6 +359,21 @@
             <i class="section__icon fa fa-${faIconName}"></i>
             <h3 class="section__name">${sectionName}</h3>
           </div>
+        ${arrOfObjects.map(obj => 
+          `
+          <div class="article article_plain article_scaled">
+            ${obj.itemName === undefined ? '': obj.itemName.length === 0 ? '':
+              `<div class="item_scaled">` +
+                `<span class="item_scaled__text">${obj.itemName}</span>` +
+                `<span class="item_scaled__scale">` +
+                  `${'<i class="full"></i>'.repeat(obj.itemValueOf10)}` + 
+                  `${'<i class="empty"></i>'.repeat(10 - obj.itemValueOf10)}` +
+                `</span>
+              </div>`
+            }
+          </div>
+          `).join('')
+        }
         </section>
       `
     );
