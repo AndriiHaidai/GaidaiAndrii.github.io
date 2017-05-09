@@ -3328,16 +3328,19 @@ a, input[type="button"], input[type="submit"], button {
 
 .section .article .article__header span.article__years {
   color: #000;
+  text-transform: none;
 }
 
 .section .article .article__subheader {
   line-height: 1.125;
-  margin-bottom: 0.25rem;
+  margin-bottom: 0.5rem;
+  text-align: justify;
 }
 
 .section .article .article__point {
   line-height: 1.4;
   margin-bottom: 0.125rem;
+  text-align: justify;
 }
 
 .section .article .article__point .article__point-bullet {

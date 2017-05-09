@@ -28,7 +28,9 @@
       "cite":"Taras&nbsp;Shevchenko National&nbsp;University of&nbsp;Kyiv",
       "citeLink":"http://www.univ.kiev.ua/",
       "startYear":"2000",
+      "startMonth":"",
       "endYear":"2005",
+      "endMonth":"",
       "position":"Specialist.",
       "department":"Faculty&nbsp;of&nbsp;Computer&nbsp;Science&nbsp;and&nbsp;Cybernetics.",
       "specialistField":"Applied&nbsp;Mathematics.",
@@ -38,41 +40,81 @@
   
   const jsonWorkExperience = [
     {
+      "cite":"Mondelez Ukraine",
+      "citeLink":"http://ua.mondelezinternational.com/",
+      "startYear":"2015",
+      "startMonth":"Oct",
+      "endYear":"2016",
+      "endMonth":"May",
+      "position":"Sales IS Support Specialist.",
+      "department":"Sales.",
+      "specialistField":"",
+      "achievements":[
+        'SQL Server + Analysis Services Cubes + VBA + Excel + PowerPivot + pivottable : Developed \"100-Denka\" - an aggregat report from different data storages.',
+        'Smaller user automation tools developed and implemented.'
+      ]
+    },
+    {
       "cite":"Unilever",
       "citeLink":"https://www.unilever.com/",
-      "startYear":"05.2008",
-      "endYear":"01.2012",
+      "startYear":"2012",
+      "startMonth":"Jan",
+      "endYear":"2015",
+      "endMonth":"Oct",
+      "position":"jr.Demand Planning Manager.",
+      "department":"Supply&nbsp;Chain.",
+      "specialistField":"",
+      "achievements":[
+        'Added more automation to the forecasting model that includes baselines + demand drivers.',
+        'Cross-functional Communication: communicated to Departments of KA, Mkt, TM, Sales during monthly demand data preparing.',
+        'Prepared monthly demand reports with explanations.'
+      ]
+    },
+    {
+      "cite":"Unilever",
+      "citeLink":"https://www.unilever.com/",
+      "startYear":"2008",
+      "startMonth":"May",
+      "endYear":"2012",
+      "endMonth":"Jan",
       "position":"Analyst,",
       "department":"Supply&nbsp;Chain.",
       "specialistField":"",
       "achievements":[
-        'Created reliable automated tool for certain documents complete management process. Used VBA-Excel-SQL Server.',
-        'Created automated Outlook mailing process based on SQL Server data analyze results. Used VBA-Outlook.',
+        'VBA + Excel + SQL Server: Developed and Created reliable automated tool \"Novator\" for certain documents complete management process.',
+        'VBA + Outlook: Created smart automated Outlook mailing process based on SQL Server data analyze results.',
         'SQL Server administrating: created new tables, views; edited stored procedures, triggers, set up maintenance plan.',
-        'Daily tasks: SAP to SQL upload; BusinessObjects reports creation & edition including VBA for BO use, uploading to SQL'
+        'VBA + SQL Server: created / modified number of small end-user tools.',
+        'Set up Multy-Technolodgy environment Coordination: SAP, SQL Server, Access, Excel, VBA, Desktop Intelligence (BO).'
+        // 'Daily tasks: SAP to SQL upload; BusinessObjects reports creation & edition including VBA for BO use, uploading to SQL'
       ]
     },
     {
-      "cite":"Job-2",
-      "citeLink":"Link-2",
-      "startYear":"start-year-2",
-      "endYear":"end-year-2",
-      "position":"position-2",
-      "department":"dep-2",
+      "cite":"Oschadbank",
+      "citeLink":"https://www.oschadbank.ua/ua/",
+      "startYear":"2005",
+      "startMonth":"Dec",
+      "endYear":"2007",
+      "endMonth":"Oct",
+      "position":"Chief Engineer.",
+      "department":"Department of Information Management Systems Development.",
       "specialistField":"",
       "achievements":[
-        'achievement-1',
-        'achievement-2',
-        'achievement-3',
-        'achievement-4',
+        'SQL Server (tbl, idx, vw, sp): developed part of a bank Rates database structure.',
+        'VBA: developed imports from SQL Server to Excel.'
         ]
     }
   ];
   
-  const jsonAbout = {
-    "chapter":"About",
-    "date of birth":"01.12.1981",
-    "about":"Have experience in Frontend & teamwork.\n8+yrs experience in Excel + VBA + SQL Server.\nLike to create tools which will work reliably and require minimal or no maintenance subsequently."
+  const jsonSummary = {
+    "chapter":"Summary",
+    "Summary":"Have experience in Frontend & teamwork.\n8+yrs experience in Excel + VBA + SQL Server.\nLike to create tools which will work reliably and require minimal or no maintenance subsequently."
+  };
+
+  const jsonMore = {
+    "chapter":"More",
+    "dateOfBirth":"01.12.1981",
+    "age":"35"
   };
 
   let header = document.getElementById('header');
@@ -130,9 +172,17 @@
   ;
 
   let sidebar = document.getElementById('sidebar');
-  sidebar.innerHTML = createSidebarMarkup(jsonHeader, jsonContacts); // Изменить параметры вызова.
+  sidebar.innerHTML = 
+    createSidebarMarkup(jsonSummary, 'Summary', 'star') + // Общее предложение о всем резюме.
+    createSidebarMarkup(jsonSummary, 'Courses', 'certificate') + // Можно по функции как для Образования.
+    createSidebarMarkup(jsonSummary, 'Skills', 'circle') +
+    createSidebarMarkup(jsonSummary, 'Languages', 'language') + 
+    createSidebarMarkup(jsonSummary, 'Learning from', 'bookmark') + 
+    createSidebarMarkup(jsonMore, 'More', 'info')
+  ; // Изменить параметры вызова.
 
   function createContentMarkup(obj, sectionName, faIconName) {
+    // - ‒ // Длинное тире.
     return(
       `
         <section class="section">
@@ -153,7 +203,7 @@
                 `<ul class="article__pointsList">
                   ${obj.achievements.map(achieveItem => `
                     <li class="article__point">
-                      <b class="article__point-bullet">‒</b>
+                      <b class="article__point-bullet">-</b>
                       <div class="article__point-text">${achieveItem}</div>
                     </li>
                   `).join('')}
@@ -169,34 +219,13 @@
     );
   }
 
-  function createSidebarMarkup(obj, obj2) {
+  function createSidebarMarkup(obj, sectionName, faIconName) {
     return(
       `
         <section class="section">
           <div class="section__header">
-            <i class="section__icon fa fa-${obj.faIconName}"></i>
-            <h3 class="section__name">About</h3>
-          </div>
-        </section>
-        
-        <section class="section">
-          <div class="section__header">
-            <i class="section__icon fa fa-${obj.faIconName}"></i>
-            <h3 class="section__name">Skills</h3>
-          </div>
-        </section>
-
-        <section class="section">
-          <div class="section__header">
-            <i class="section__icon fa fa-${obj.faIconName}"></i>
-            <h3 class="section__name">Languages</h3>
-          </div>
-        </section>
-
-        <section class="section">
-          <div class="section__header">
-            <i class="section__icon fa fa-${obj.faIconName}"></i>
-            <h3 class="section__name">Courses</h3>
+            <i class="section__icon fa fa-${faIconName}"></i>
+            <h3 class="section__name">${sectionName}</h3>
           </div>
         </section>
       `
