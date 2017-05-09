@@ -106,16 +106,74 @@
     }
   ];
   
-  const jsonSummary = {
-    "chapter":"Summary",
-    "Summary":"Have experience in Frontend & teamwork.\n8+yrs experience in Excel + VBA + SQL Server.\nLike to create tools which will work reliably and require minimal or no maintenance subsequently."
-  };
+  const jsonSummary = [
+    {
+      "plainItems":[
+        "Have examples in Frontend and experience in Agile.",
+        "8+ years experience in VBA + Excel + SQL Server.",
+        "Like to create tools which will work reliably and require minimal or no maintenance subsequently."
+        ]
+    }
+  ];
+  
+  const jsonCourses = [
+    {
+      "cite":"GoIT",
+      "citeLink":"http://fe.goit.ua/",
+      "position":"Frontend Developer.",
+      "startYear":"2016",
+      "startMonth":"Oct",
+      "endYear":"2017",
+      "endMonth":"Mar",
+      "achievements":[]
+    },
+    {
+      "cite":"Prometheus",
+      "citeLink":"https://courses.prometheus.org.ua:18090/downloads/232760875ce241f6a6a9e39db4b33ed4/Certificate.pdf",
+      "position":"Основи Web UI розробки",
+      "startYear":"", // 2016
+      "startMonth":"", // Apr
+      "endYear":"2016",
+      "endMonth":"May",
+      "achievements":[]
+    }
+  ];
+  
+  const jsonSkills = [
+    // like in jsonLanguages
+  ]; 
 
-  const jsonMore = {
-    "chapter":"More",
-    "dateOfBirth":"01.12.1981",
-    "age":"35"
-  };
+  const jsonLanguages = [
+    {
+      "itemName":"English",
+      "ItemValueOf10":"7",
+      "ItemScaleName":"CEFR",
+      "ItemScaleValue":"B2",
+    },
+    {
+      "itemName":"Russian",
+      "ItemValueOf10":"10",
+      "ItemScaleName":"",
+      "ItemScaleValue":""
+    },
+    {
+      "itemName":"Ukrainian",
+      "ItemValueOf10":"10",
+      "ItemScaleName":"",
+      "ItemScaleValue":""
+    }
+  ];
+
+  const jsonFurtherLearning = [
+    // like in jsonCourses
+  ];
+
+  const jsonMore = [
+    {
+      "dateOfBirth":["01.12.1981"],
+      "age":["35"]
+    }
+  ];
 
   let header = document.getElementById('header');
   header.innerHTML = createHeaderMarkup(jsonHeader, jsonContacts);
@@ -167,21 +225,21 @@
 
   let content = document.getElementById('content');
   content.innerHTML = 
-    createContentMarkup(jsonHigherEducation, 'Education', 'graduation-cap') +
-    createContentMarkup(jsonWorkExperience, 'Work Experience', 'briefcase')
+    createSublevelsMarkup(jsonHigherEducation, 'Education', 'graduation-cap') +
+    createSublevelsMarkup(jsonWorkExperience, 'Work Experience', 'briefcase')
   ;
 
   let sidebar = document.getElementById('sidebar');
   sidebar.innerHTML = 
-    createSidebarMarkup(jsonSummary, 'Summary', 'star') + // Общее предложение о всем резюме.
-    createSidebarMarkup(jsonSummary, 'Courses', 'certificate') + // Можно по функции как для Образования.
-    createSidebarMarkup(jsonSummary, 'Skills', 'circle') +
-    createSidebarMarkup(jsonSummary, 'Languages', 'language') + 
-    createSidebarMarkup(jsonSummary, 'Learning from', 'bookmark') + 
-    createSidebarMarkup(jsonMore, 'More', 'info')
-  ; // Изменить параметры вызова.
+    createSidebarPlainMarkup(jsonSummary, 'Summary', 'star') +
+    createSublevelsMarkup(jsonCourses, 'Courses', 'certificate') +
+    createSidebarScaledMarkup(jsonSkills, 'Skills', 'circle') +
+    createSidebarScaledMarkup(jsonLanguages, 'Languages', 'language') +
+    createSidebarBulletsMarkup(jsonFurtherLearning, 'Learning from', 'bookmark') +
+    createSidebarPlainMarkup(jsonMore, 'More', 'info')
+  ;
 
-  function createContentMarkup(obj, sectionName, faIconName) {
+  function createSublevelsMarkup(arrOfObjects, sectionName, faIconName) {
     // - ‒ // Длинное тире.
     return(
       `
@@ -190,16 +248,16 @@
             <i class="section__icon fa fa-${faIconName}"></i>
             <h3 class="section__name">${sectionName}</h3>
           </div>
-          ${obj.map(obj => 
+          ${arrOfObjects.map(obj => 
           `
             <div class="article">
 
               <h4 class="article__header">
                 <a href="${obj.citeLink}" target="_blank">${obj.cite}</a>
-                <span class="article__years"> /&nbsp;${obj.startYear}&nbsp;-&nbsp;${obj.endYear}</span>
+                <span class="article__years"> /&nbsp;${obj.startYear === undefined ? '': obj.startYear.length === 0 ? '': obj.startYear + '&nbsp;-&nbsp;'}${obj.endYear}</span>
               </h4>
-              <h5 class="article__subheader">${obj.position} ${obj.department} ${obj.specialistField}</h5>
-              ${obj.achievements.length === 0 ? '':
+              <h5 class="article__subheader">${obj.position} ${obj.department === undefined ? '': obj.department} ${obj.specialistField === undefined ? '': obj.specialistField}</h5>
+              ${obj.achievements === undefined ? '': obj.achievements.length === 0 ? '':
                 `<ul class="article__pointsList">
                   ${obj.achievements.map(achieveItem => `
                     <li class="article__point">
@@ -219,7 +277,45 @@
     );
   }
 
-  function createSidebarMarkup(obj, sectionName, faIconName) {
+  function createSidebarBulletsMarkup(arrOfObjects, sectionName, faIconName) {
+    // Учесть варианты для Courses - с указанием специальности и для Learning from - без деталей.
+    return(
+      `
+        <section class="section">
+          <div class="section__header">
+            <i class="section__icon fa fa-${faIconName}"></i>
+            <h3 class="section__name">${sectionName}</h3>
+          </div>
+        </section>
+      `
+    );
+  }
+
+  function createSidebarPlainMarkup(arrOfObjects, sectionName, faIconName) {
+    return(
+      `
+        <section class="section">
+          <div class="section__header">
+            <i class="section__icon fa fa-${faIconName}"></i>
+            <h3 class="section__name">${sectionName}</h3>
+          </div>
+        ${arrOfObjects.map(obj => 
+          `
+            ${obj.plainItems === undefined ? '': obj.plainItems.length === 0 ? '':
+              `
+                ${obj.plainItems.map(plainItem => 
+                  `<div class="article article_narrow article_plain">${plainItem}</div>`
+                ).join('')}
+              `
+            }
+          `).join('')
+        }
+        </section>
+      `
+    );
+  }
+
+  function createSidebarScaledMarkup(arrOfObjects, sectionName, faIconName) {
     return(
       `
         <section class="section">
