@@ -3145,7 +3145,7 @@ a, input[type="button"], input[type="submit"], button {
   font-family: Roboto, sans-serif;
 }
 
-.size-a4 {
+.sizeA4 {
   position: relative;
   display: block;
   overflow: hidden;
@@ -3157,11 +3157,8 @@ a, input[type="button"], input[type="submit"], button {
   box-shadow: 0 0 0.5cm rgba(0, 0, 0, 0.5);
 }
 
-#header {
-  margin-bottom: 2rem;
-}
-
 .header {
+  margin-bottom: 2rem;
   position: relative;
 }
 
@@ -3241,13 +3238,13 @@ a, input[type="button"], input[type="submit"], button {
   font-size: 11px;
 }
 
-#content {
+.content {
   width: 61%;
   margin-right: 4%;
   float: left;
 }
 
-#sidebar {
+.sidebar {
   width: 35%;
   float: left;
 }
@@ -3255,6 +3252,10 @@ a, input[type="button"], input[type="submit"], button {
 .section {
   position: relative;
   margin-bottom: 2rem;
+}
+
+.sidebar .section {
+  margin-bottom: 1.5rem;
 }
 
 .section::before {
@@ -3326,6 +3327,44 @@ a, input[type="button"], input[type="submit"], button {
   display: none;
 }
 
+.section .article.article_scaled {
+  margin-left: 0;
+  text-indent: 0;
+}
+
+.section .article .item_scaled {
+  padding-left: 0;
+  text-align: right;
+}
+
+.section .article .item_scaled__text {
+  display: inline-block;
+  text-align: justify;
+  text-align-last: right;
+  max-width: 58.8%;
+}
+
+.section .article .item_scaled__scale {
+  display: inline-block;
+  width: 41%;
+}
+
+.section .article .item_scaled__scale i {
+  display: inline-block;
+  width: 0.375rem;
+  height: 0.375rem;
+  margin-right: 0.1875rem;
+  border-radius: 50%;
+}
+
+.section .article .item_scaled__scale .full {
+  background-color: #339b54;
+}
+
+.section .article .item_scaled__scale .empty {
+  background-color: #dbdbdb;
+}
+
 .section .article .article__header {
   text-transform: uppercase;
   color: #339b54;
@@ -3353,13 +3392,13 @@ a, input[type="button"], input[type="submit"], button {
   text-align: justify;
 }
 
-.section .article .article__point .article__point-bullet {
+.section .article .article__point-bullet {
   width: 1rem;
   float: left;
   display: block;
 }
 
-.section .article .article__point .article__point-text {
+.section .article .article__point-text {
   display: block;
   padding-left: 1rem;
 }
