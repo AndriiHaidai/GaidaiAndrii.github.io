@@ -76,19 +76,35 @@
         line-height: 1.4;
       }
     } 
-    .header__item-link {
-      
-      &:hover .header__item-text {
-        color: $mainGreen;
-      }
-    }
-    .header__item-icon.fa {
-      margin-right: 0.25rem;
-    }
-    .header__item-text {
-      color: $mainGrey;
-      font-size: 11px;
-    }
+  }
+}
+
+.article__item_inline {
+  display: inline-block;
+}
+.article__item-icon {
+  text-indent: 0;
+  font-size: 0.75rem;
+  line-height: 1.4;
+  .article__item-link:hover & {
+    font-size: 1.05rem;
+    line-height: 1;
+  }
+}
+.article__item-icon.fa {
+  margin-right: 0.25rem;
+}
+.article__item-text {
+  color: $mainGrey;
+  font-size: 0.75rem;
+  line-height: 1.4;
+  text-indent: 0;
+  .article__item_inline & {
+    float: left;
+  }
+  
+  .article__item-link:hover & {
+    color: $mainGreen;
   }
 }
 
@@ -160,14 +176,14 @@ $articleIndent: $sectionHeaderIconSize + $sectionHeaderTextIndent;
   $artcleFontSize: 0.75rem;
   $articleBulletLeft: - ($articleIndent - $sectionHeaderIconSize / 2 + $articleBulletSize / 2);
   $articleBulletTop: ($artcleFontSize - $articleBulletSize) / 2;
-  .article { // article
+  .article {
     position: relative;
     margin-left: $articleIndent;
     margin-top: 1rem;
     font-size: $artcleFontSize;
     line-height: 1;
     color: $mainGrey;
-    &::before {
+    &.article_bullets::before {
       content: '';
       position: absolute;
       width: $articleBulletSize;
@@ -178,18 +194,26 @@ $articleIndent: $sectionHeaderIconSize + $sectionHeaderTextIndent;
       left: $articleBulletLeft;
     }
     &.article_plain {
-      margin-top: 0.25rem;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      margin-top: 0.5rem;
       margin-bottom: 0.25rem;
       margin-left: 0.5rem;
-      text-align: justify;
       text-indent: -0.5rem;
-      &::before {
-        display: none;
-      }
+      margin-left: 0;
+      text-indent: 0.75rem;
+      text-align: justify;
+      @include clearfix;
     }
     &.article_scaled {
+      margin-top: 0.25rem;
+      margin-bottom: 0.25rem;
       margin-left: 0;
       text-indent: 0;
+      text-align: justify;
     }
     .item_scaled {
       padding-left: 0;
