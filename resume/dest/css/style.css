@@ -3158,7 +3158,7 @@ a, input[type="button"], input[type="submit"], button {
 }
 
 .header {
-  margin-bottom: 2rem;
+  margin-bottom: 2.625rem;
   position: relative;
 }
 
@@ -3172,7 +3172,7 @@ a, input[type="button"], input[type="submit"], button {
   background-color: #dbdbdb;
 }
 
-.header .header__inner {
+.header__inner {
   width: 476px;
   margin: 0 auto;
   position: relative;
@@ -3181,12 +3181,12 @@ a, input[type="button"], input[type="submit"], button {
   overflow: hidden;
 }
 
-.header .header__inner .header__avatar {
+.header__avatar {
   width: 31%;
   float: left;
 }
 
-.header .header__inner .header__avatar .header__userfoto {
+.header__userfoto {
   width: 108px;
   height: 108px;
   border-radius: 50%;
@@ -3197,36 +3197,50 @@ a, input[type="button"], input[type="submit"], button {
   margin-right: auto;
 }
 
-.header .header__inner .header__text {
+.header__text {
   width: 68.9%;
   float: left;
   position: relative;
 }
 
-.header .header__inner .header__username {
+.header__username {
   font-size: 2rem;
   margin: 0;
   margin-bottom: 0.5rem;
   color: #1b1b1b;
 }
 
-.header .header__inner .header__position {
+.header__position {
   font-size: 1.4rem;
   margin-bottom: 0.5rem;
 }
 
-.header .header__inner .article__contacts {
+.article__contacts {
   width: 49.9%;
   float: left;
 }
 
-.header .header__inner .article__contacts li {
-  font-size: 13px;
+.article__item_inline {
+  display: inline-block;
+}
+
+.article__item-link {
   line-height: 1.4;
 }
 
-.article__item_inline {
-  display: inline-block;
+.article__item_inline > .article__item-link {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-align-items: flex-start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
 .article__item-icon {
@@ -3316,7 +3330,7 @@ a, input[type="button"], input[type="submit"], button {
   line-height: 2.5rem;
 }
 
-.section .article {
+.article {
   position: relative;
   margin-left: 3rem;
   margin-top: 1rem;
@@ -3325,7 +3339,7 @@ a, input[type="button"], input[type="submit"], button {
   color: #5e5e5e;
 }
 
-.section .article.article_bullets::before {
+.article.article_bullets::before {
   content: '';
   position: absolute;
   width: 0.625rem;
@@ -3336,7 +3350,15 @@ a, input[type="button"], input[type="submit"], button {
   left: -2.0625rem;
 }
 
-.section .article.article_plain {
+.article.article_small-indent {
+  margin-left: 0.75rem;
+}
+
+.article.article_small-indent > .article__subheader {
+  margin-left: -0.75rem;
+}
+
+.article.article_plain {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
@@ -3361,13 +3383,27 @@ a, input[type="button"], input[type="submit"], button {
   text-align: justify;
 }
 
-.section .article.article_plain::after {
+.article.article_plain::after {
   display: block;
   clear: both;
   content: '';
 }
 
-.section .article.article_scaled {
+.article.article_space-around {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-justify-content: flex-start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  margin-left: 0;
+  margin-top: 0.5rem;
+}
+
+.article.article_scaled {
   margin-top: 0.25rem;
   margin-bottom: 0.25rem;
   margin-left: 0;
@@ -3375,24 +3411,24 @@ a, input[type="button"], input[type="submit"], button {
   text-align: justify;
 }
 
-.section .article .item_scaled {
+.article .item_scaled {
   padding-left: 0;
   text-align: right;
 }
 
-.section .article .item_scaled__text {
+.article .item_scaled__text {
   display: inline-block;
   text-align: justify;
   text-align-last: right;
   max-width: 58.8%;
 }
 
-.section .article .item_scaled__scale {
+.article .item_scaled__scale {
   display: inline-block;
   width: 41%;
 }
 
-.section .article .item_scaled__scale i {
+.article .item_scaled__scale i {
   display: inline-block;
   width: 0.375rem;
   height: 0.375rem;
@@ -3400,48 +3436,52 @@ a, input[type="button"], input[type="submit"], button {
   border-radius: 50%;
 }
 
-.section .article .item_scaled__scale .full {
+.article .item_scaled__scale .full {
   background-color: #339b54;
 }
 
-.section .article .item_scaled__scale .empty {
+.article .item_scaled__scale .empty {
   background-color: #dbdbdb;
 }
 
-.section .article .article__header {
+.article .article__header {
   text-transform: uppercase;
   color: #339b54;
   margin-bottom: 0.25rem;
 }
 
-.section .article .article__header a {
+.article .article__header a {
   display: inline-block;
 }
 
-.section .article .article__header span.article__years {
+.article .article__header a:hover {
+  font-weight: bold;
+}
+
+.article .article__header span.article__years {
   color: #000;
   text-transform: none;
 }
 
-.section .article .article__subheader {
+.article .article__subheader {
   line-height: 1.125;
   margin-bottom: 0.5rem;
   text-align: justify;
 }
 
-.section .article .article__point {
+.article .article__point {
   line-height: 1.4;
   margin-bottom: 0.125rem;
   text-align: justify;
 }
 
-.section .article .article__point-bullet {
+.article .article__point-bullet {
   width: 1rem;
   float: left;
   display: block;
 }
 
-.section .article .article__point-text {
+.article .article__point-text {
   display: block;
   padding-left: 1rem;
 }

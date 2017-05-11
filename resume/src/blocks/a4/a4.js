@@ -32,12 +32,12 @@
     },
     {
       "label":"Frontend portfolio",
-      "link":"",
-      "icon":"eye"
+      "link":"https://gaidaiandrii.github.io/",
+      "icon":"link"
     },
     {
-      "label":"Online copy of this Resume",
-      "link":"",
+      "label":"This Resume online",
+      "link":"https://gaidaiandrii.github.io/resume/dest/",
       "icon":"link"
     },
   ];
@@ -112,7 +112,7 @@
   
   const jsonHigherEducation = [
     {
-      "cite":"Taras&nbsp;Shevchenko National&nbsp;University of&nbsp;Kyiv",
+      "cite":"Taras&nbsp;Shevchenko National University of&nbsp;Kyiv",
       "citeLink":"http://www.univ.kiev.ua/",
       "startYear":"2000",
       "startMonth":"",
@@ -182,15 +182,31 @@
       "itemValueOf10":"6"
     },
     {
+      "itemName":"BEM",
+      "itemValueOf10":"5"
+    },
+    {
+      "itemName":"Responsive",
+      "itemValueOf10":"6"
+    },
+    {
+      "itemName":"Mobile First",
+      "itemValueOf10":"6"
+    },
+    {
+      "itemName":"Pixel Perfect",
+      "itemValueOf10":"7"
+    },
+    {
       "itemName":"Command-line interface",
       "itemValueOf10":"6"
     },
     {
-      "itemName":"SQL Server Databases",
+      "itemName":"Photoshop for Frontend",
       "itemValueOf10":"7"
     },
     {
-      "itemName":"Photoshop for Frontend",
+      "itemName":"SQL Server Databases",
       "itemValueOf10":"7"
     },
   ]; 
@@ -246,14 +262,24 @@
       "citeLink":"https://www.facebook.com/groups/frontend.magazine/",
       "faIconName":"facebook"
     },
+    {
+      "cite":"JavaScript. Шаблоны - Стоян Стефанов.",
+      "citeLink":"http://www.ozon.ru/context/detail/id/6287517/",
+      "faIconName":"book"
+    },
+    {
+      "cite":"Разработка одностраничных веб-приложений - Майкл С. Миковски, Джош К. Пауэлл.",
+      "citeLink":"https://www.ozon.ru/context/detail/id/25457206/",
+      "faIconName":"book"
+    },
   ];
 
-  const jsonMore = [
-    {
-      "dateOfBirth":["01.12.1981"],
-      "age":["35"]
-    }
-  ];
+  // const jsonMore = [
+  //   {
+  //     "dateOfBirth":["01.12.1981"],
+  //     "age":["35"]
+  //   }
+  // ];
 
   let header = document.getElementById('header');
   header.innerHTML = createHeaderMarkup(jsonHeader, jsonContacts);
@@ -315,24 +341,27 @@
     createSublevelsMarkup(jsonCourses, 'Courses', 'certificate') +
     createSidebarScaledMarkup(jsonSkills, 'Skills', 'circle') +
     createSidebarScaledMarkup(jsonLanguages, 'Languages', 'comments') +
-    createSidebarBulletsMarkup(jsonLearningFrom, 'Learning from', 'book') +
-    createSidebarPlainMarkup(jsonMore, 'More', 'info')
+    createSidebarBulletsMarkup(jsonLearningFrom, 'Learning from', 'book')// +
+    // createSidebarPlainMarkup(jsonMore, 'More', 'info')
   ;
 
   function createSublevelsMarkup(arrOfObjects, sectionName, faIconName) {
     // - ‒ // Длинное тире.
     return(
       `<section class="section">` +
+
         `<div class="section__header">` +
           `<i class="section__icon fa fa-${faIconName}"></i>` +
           `<h3 class="section__name">${sectionName}</h3>` +
         `</div>` +
+
         `${arrOfObjects.map(obj => 
-          `<div class="article article_bullets">` +
+          `<div class="article${arrOfObjects.length > 1 ? ' article_bullets': ' article_small-indent'}">` +
 
             `<h4 class="article__header">` +
-              `<a href="${obj.citeLink}" target="_blank">${obj.cite}</a>` +
-              `<span class="article__years"> /&nbsp;${obj.startYear === undefined ? '': obj.startYear.length === 0 ? '': obj.startYear + '&nbsp;-&nbsp;'}${obj.endYear}</span>` +
+              `<a href="${obj.citeLink}" target="_blank">${obj.cite}` +
+                `<span class="article__years"> /&nbsp;${obj.startYear === undefined ? '': obj.startYear.length === 0 ? '': obj.startYear + '&nbsp;-&nbsp;'}${obj.endYear}</span>` +
+              `</a>` +
             `</h4>` +
             `<h5 class="article__subheader">${obj.position} ${obj.department === undefined ? '': obj.department} ${obj.specialistField === undefined ? '': obj.specialistField}</h5>` +
             `${obj.achievements === undefined ? '': obj.achievements.length === 0 ? '':
@@ -347,8 +376,8 @@
             }` +
 
           `</div>`
-          ).join('')
-        }` +
+        ).join('')}` +
+
       `</section>`
       
     );
@@ -366,7 +395,11 @@
           `${arrOfObjects.map(obj => 
             `<span class="article__item_inline">` +
               `<a class="article__item-link" href="${obj.citeLink}">` +
-                `<i class="article__item-icon fa fa-${obj.faIconName === '' ? 'link' : obj.faIconName}"></i>` +
+                
+                `${obj.faIconName === 'no-icon' ? '' :
+                  `<i class="article__item-icon fa fa-${obj.faIconName === '' ? 'link' : obj.faIconName}"></i>`
+                }` +
+
                 `<span class="article__item-text">${obj.cite}</span>` +
               `</a>` +
             `</span>`
@@ -383,18 +416,30 @@
           `<i class="section__icon fa fa-${faIconName}"></i>` +
           `<h3 class="section__name">${sectionName}</h3>` +
         `</div>` +
+
+        // JSON structure includes 'plainItems' field:
         `${arrOfObjects.map(obj => 
           `${obj.plainItems === undefined ? '': obj.plainItems.length === 0 ? '':
             `${obj.plainItems.map(plainItem =>
               `<div class="article article_plain">${plainItem}</div>`
             ).join('')}`
-          }` +
-          `${obj.label === undefined ? '': obj.label.length === 0 ? '': '' +
-            // `${obj.label}` +
-              //`<div class="article article_plain">${plainItem}</div>`
-            // `}` +
-          `}
+          }`
         ).join('')}` +
+        
+        // JSON structure includes 'label' field:
+        `<div class="article article_space-around">` +
+          `${arrOfObjects.map(obj => 
+            `${obj.label === undefined ? '': obj.label.length === 0 ? '':
+              
+              `<a class="article__item-link" href="${obj.link}">` +
+                `<i class="article__item-icon fa fa-${obj.icon === '' ? 'link' : obj.icon}"></i>` +
+                `<span class="article__item-text">${obj.label}: ${obj.link}</span>` +
+              `</a>`
+
+            }`
+          ).join('')}` +
+        `</div>` +
+
       `</section>`
     );
   }
