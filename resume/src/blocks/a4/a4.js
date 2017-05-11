@@ -23,19 +23,23 @@
     "GitHubLink":"https://gaidaiandrii.github.io/"
   };
 
-  const jsonHigherEducation = [
+  const jsonSummary = [
     {
-      "cite":"Taras&nbsp;Shevchenko National&nbsp;University of&nbsp;Kyiv",
-      "citeLink":"http://www.univ.kiev.ua/",
-      "startYear":"2000",
-      "startMonth":"",
-      "endYear":"2005",
-      "endMonth":"",
-      "position":"Specialist.",
-      "department":"Faculty&nbsp;of&nbsp;Computer&nbsp;Science&nbsp;and&nbsp;Cybernetics.",
-      "specialistField":"Applied&nbsp;Mathematics.",
-      "achievements":[]
-    }
+      "plainItems":[
+        "Have examples in Frontend and experience in Scrum, 8+ years of VBA + Excel + SQL Server programming.",
+        "Like to create tools which will work reliably and require minimal or no maintenance subsequently."
+      ]
+    },
+    {
+      "label":"Frontend portfolio",
+      "link":"https://gaidaiandrii.github.io/",
+      "icon":"link"
+    },
+    {
+      "label":"This Resume online",
+      "link":"https://gaidaiandrii.github.io/resume/dest/",
+      "icon":"link"
+    },
   ];
   
   const jsonWorkExperience = [
@@ -106,13 +110,18 @@
     }
   ];
   
-  const jsonSummary = [
+  const jsonHigherEducation = [
     {
-      "plainItems":[
-        "Have examples in Frontend and experience in Agile.",
-        "8+ years experience in VBA + Excel + SQL Server.",
-        "Like to create tools which will work reliably and require minimal or no maintenance subsequently."
-        ]
+      "cite":"Taras&nbsp;Shevchenko National University of&nbsp;Kyiv",
+      "citeLink":"http://www.univ.kiev.ua/",
+      "startYear":"2000",
+      "startMonth":"",
+      "endYear":"2005",
+      "endMonth":"",
+      "position":"Specialist.",
+      "department":"Faculty of Computer Science and Cybernetics.",
+      "specialistField":"Dept.&nbsp;of&nbsp;Applied Mathematics.",
+      "achievements":[]
     }
   ];
   
@@ -173,15 +182,31 @@
       "itemValueOf10":"6"
     },
     {
+      "itemName":"BEM",
+      "itemValueOf10":"5"
+    },
+    {
+      "itemName":"Responsive",
+      "itemValueOf10":"6"
+    },
+    {
+      "itemName":"Mobile First",
+      "itemValueOf10":"6"
+    },
+    {
+      "itemName":"Pixel Perfect",
+      "itemValueOf10":"7"
+    },
+    {
       "itemName":"Command-line interface",
       "itemValueOf10":"6"
     },
     {
-      "itemName":"SQL Server Databases",
+      "itemName":"Photoshop for Frontend",
       "itemValueOf10":"7"
     },
     {
-      "itemName":"Photoshop for Frontend",
+      "itemName":"SQL Server Databases",
       "itemValueOf10":"7"
     },
   ]; 
@@ -201,16 +226,60 @@
     }
   ];
 
-  const jsonFurtherLearning = [
-    // like in jsonCourses
+  const jsonLearningFrom = [
+    {
+      "cite":"freeCodeCamp",
+      "citeLink":"https://www.freecodecamp.com/gaidaiandrii",
+      "faIconName":"free-code-camp"
+    },
+    {
+      "cite":"freeCodeCamp",
+      "citeLink":"https://www.youtube.com/channel/UC8butISFwT-Wl7EV0hUK0BQ",
+      "faIconName":"youtube-play"
+    },
+    {
+      "cite":"JavaScript.ru",
+      "citeLink":"http://learn.javascript.ru/",
+      "faIconName":""
+    },
+    {
+      "cite":"WebDesign Master",
+      "citeLink":"https://www.youtube.com/channel/UC7enHM_oJRYJOnyJrcRzwbg",
+      "faIconName":"youtube-play"
+    },
+    {
+      "cite":"DOU",
+      "citeLink":"https://dou.ua/",
+      "faIconName":""
+    },
+    {
+      "cite":"ITVDN",
+      "citeLink":"https://www.youtube.com/channel/UCzxRv9BtqrM946JmaMLtv_w",
+      "faIconName":"youtube-play"
+    },
+    {
+      "cite":"Front-end Magazine",
+      "citeLink":"https://www.facebook.com/groups/frontend.magazine/",
+      "faIconName":"facebook"
+    },
+    {
+      "cite":"JavaScript. Шаблоны - Стоян Стефанов.",
+      "citeLink":"http://www.ozon.ru/context/detail/id/6287517/",
+      "faIconName":"book"
+    },
+    {
+      "cite":"Разработка одностраничных веб-приложений - Майкл С. Миковски, Джош К. Пауэлл.",
+      "citeLink":"https://www.ozon.ru/context/detail/id/25457206/",
+      "faIconName":"book"
+    },
   ];
 
-  const jsonMore = [
-    {
-      "dateOfBirth":["01.12.1981"],
-      "age":["35"]
-    }
-  ];
+  // const jsonMore = [
+  //   {
+  //     "dateOfBirth":["01.12.1981"],
+  //     "age":["35"]
+  //   }
+  // ];
 
   let header = document.getElementById('header');
   header.innerHTML = createHeaderMarkup(jsonHeader, jsonContacts);
@@ -229,27 +298,27 @@
             
             <ul class="article__contacts">
               <li>
-                <i class="header__item-icon fa fa-mobile"></i>
-                <p class="header__item-text">${obj2.mobile}</p>
+                <i class="article__item-icon fa fa-mobile"></i>
+                <p class="article__item-text">${obj2.mobile}</p>
               </li>
               <li>
-                <a class="header__item-link" href="mailto:${obj2.email}">
-                  <i class="header__item-icon fa fa-envelope"></i>
-                  <p class="header__item-text">${obj2.email}</p>
+                <a class="article__item-link" href="mailto:${obj2.email}">
+                  <i class="article__item-icon fa fa-envelope"></i>
+                  <p class="article__item-text">${obj2.email}</p>
                 </a>
               </li>
             </ul>
             <ul class="article__contacts">
               <li>
-                <a class="header__item-link" href="${obj2.LinkedInLink}">
-                  <i class="header__item-icon fa fa-linkedin"></i>
-                  <p class="header__item-text">${obj2.LinkedInLabel}</p>
+                <a class="article__item-link" href="${obj2.LinkedInLink}">
+                  <i class="article__item-icon fa fa-linkedin"></i>
+                  <p class="article__item-text">${obj2.LinkedInLabel}</p>
                 </a>
               </li>
               <li>
-                <a class="header__item-link" href="${obj2.facebookLink}">
-                  <i class="header__item-icon fa fa-facebook"></i>
-                  <p class="header__item-text">${obj2.facebookLabel}</p>
+                <a class="article__item-link" href="${obj2.facebookLink}">
+                  <i class="article__item-icon fa fa-facebook"></i>
+                  <p class="article__item-text">${obj2.facebookLabel}</p>
                 </a>
               </li>
             </ul>
@@ -262,92 +331,116 @@
 
   let content = document.getElementById('content');
   content.innerHTML = 
-    createSublevelsMarkup(jsonHigherEducation, 'Education', 'graduation-cap') +
+    createSidebarPlainMarkup(jsonSummary, 'Summary', 'star') +
     createSublevelsMarkup(jsonWorkExperience, 'Work Experience', 'briefcase')
   ;
 
   let sidebar = document.getElementById('sidebar');
   sidebar.innerHTML = 
-    createSidebarPlainMarkup(jsonSummary, 'Summary', 'star') +
+    createSublevelsMarkup(jsonHigherEducation, 'Education', 'graduation-cap') +
     createSublevelsMarkup(jsonCourses, 'Courses', 'certificate') +
     createSidebarScaledMarkup(jsonSkills, 'Skills', 'circle') +
-    createSidebarScaledMarkup(jsonLanguages, 'Languages', 'language') +
-    createSidebarBulletsMarkup(jsonFurtherLearning, 'Learning from', 'bookmark') +
-    createSidebarPlainMarkup(jsonMore, 'More', 'info')
+    createSidebarScaledMarkup(jsonLanguages, 'Languages', 'comments') +
+    createSidebarBulletsMarkup(jsonLearningFrom, 'Learning from', 'book')// +
+    // createSidebarPlainMarkup(jsonMore, 'More', 'info')
   ;
 
   function createSublevelsMarkup(arrOfObjects, sectionName, faIconName) {
     // - ‒ // Длинное тире.
     return(
-      `
-        <section class="section">
-          <div class="section__header">
-            <i class="section__icon fa fa-${faIconName}"></i>
-            <h3 class="section__name">${sectionName}</h3>
-          </div>
-          ${arrOfObjects.map(obj => 
-            `
-            <div class="article">
+      `<section class="section">` +
 
-              <h4 class="article__header">
-                <a href="${obj.citeLink}" target="_blank">${obj.cite}</a>
-                <span class="article__years"> /&nbsp;${obj.startYear === undefined ? '': obj.startYear.length === 0 ? '': obj.startYear + '&nbsp;-&nbsp;'}${obj.endYear}</span>
-              </h4>
-              <h5 class="article__subheader">${obj.position} ${obj.department === undefined ? '': obj.department} ${obj.specialistField === undefined ? '': obj.specialistField}</h5>
-              ${obj.achievements === undefined ? '': obj.achievements.length === 0 ? '':
-                `<ul class="article__pointsList">
-                  ${obj.achievements.map(achieveItem => `
-                    <li class="article__point">
-                      <b class="article__point-bullet">-</b>
-                      <div class="article__point-text">${achieveItem}</div>
-                    </li>
-                  `).join('')}
-                </ul>`
-              }
+        `<div class="section__header">` +
+          `<i class="section__icon fa fa-${faIconName}"></i>` +
+          `<h3 class="section__name">${sectionName}</h3>` +
+        `</div>` +
 
-            </div>
-            `).join('')
-          }
-        </section>
-      `
+        `${arrOfObjects.map(obj => 
+          `<div class="article${arrOfObjects.length > 1 ? ' article_bullets': ' article_small-indent'}">` +
+
+            `<h4 class="article__header">` +
+              `<a href="${obj.citeLink}" target="_blank">${obj.cite}` +
+                `<span class="article__years"> /&nbsp;${obj.startYear === undefined ? '': obj.startYear.length === 0 ? '': obj.startYear + '&nbsp;-&nbsp;'}${obj.endYear}</span>` +
+              `</a>` +
+            `</h4>` +
+            `<h5 class="article__subheader">${obj.position} ${obj.department === undefined ? '': obj.department} ${obj.specialistField === undefined ? '': obj.specialistField}</h5>` +
+            `${obj.achievements === undefined ? '': obj.achievements.length === 0 ? '':
+              `<ul class="article__pointsList">` +
+                `${obj.achievements.map(achieveItem => 
+                  `<li class="article__point">` +
+                    `<b class="article__point-bullet">-</b>` +
+                    `<div class="article__point-text">${achieveItem}</div>` +
+                  `</li>`
+                ).join('')}` +
+              `</ul>`
+            }` +
+
+          `</div>`
+        ).join('')}` +
+
+      `</section>`
+      
     );
   }
 
   function createSidebarBulletsMarkup(arrOfObjects, sectionName, faIconName) {
-    // Учесть варианты для Courses - с указанием специальности и для Learning from - без деталей.
+    // Учесть вариант для Learning from - без деталей.
     return(
-      `
-        <section class="section">
-          <div class="section__header">
-            <i class="section__icon fa fa-${faIconName}"></i>
-            <h3 class="section__name">${sectionName}</h3>
-          </div>
-        </section>
-      `
+      `<section class="section">` +
+        `<div class="section__header">` +
+          `<i class="section__icon fa fa-${faIconName}"></i>` +
+          `<h3 class="section__name">${sectionName}</h3>` +
+        `</div>` +
+        `<div class="article article_plain">` +
+          `${arrOfObjects.map(obj => 
+            `<span class="article__item_inline">` +
+              `<a class="article__item-link" href="${obj.citeLink}">` +
+                
+                `${obj.faIconName === 'no-icon' ? '' :
+                  `<i class="article__item-icon fa fa-${obj.faIconName === '' ? 'link' : obj.faIconName}"></i>`
+                }` +
+
+                `<span class="article__item-text">${obj.cite}</span>` +
+              `</a>` +
+            `</span>`
+          ).join('')}` +
+        `</div>` +
+      `</section>`
     );
   }
 
   function createSidebarPlainMarkup(arrOfObjects, sectionName, faIconName) {
     return(
-      `
-        <section class="section">
-          <div class="section__header">
-            <i class="section__icon fa fa-${faIconName}"></i>
-            <h3 class="section__name">${sectionName}</h3>
-          </div>
-        ${arrOfObjects.map(obj => 
-          `
-            ${obj.plainItems === undefined ? '': obj.plainItems.length === 0 ? '':
-              `
-                ${obj.plainItems.map(plainItem => 
-                  `<div class="article article_plain">${plainItem}</div>`
-                ).join('')}
-              `
-            }
-          `).join('')
-        }
-        </section>
-      `
+      `<section class="section">` +
+        `<div class="section__header">` +
+          `<i class="section__icon fa fa-${faIconName}"></i>` +
+          `<h3 class="section__name">${sectionName}</h3>` +
+        `</div>` +
+
+        // JSON structure includes 'plainItems' field:
+        `${arrOfObjects.map(obj => 
+          `${obj.plainItems === undefined ? '': obj.plainItems.length === 0 ? '':
+            `${obj.plainItems.map(plainItem =>
+              `<div class="article article_plain">${plainItem}</div>`
+            ).join('')}`
+          }`
+        ).join('')}` +
+        
+        // JSON structure includes 'label' field:
+        `<div class="article article_space-around">` +
+          `${arrOfObjects.map(obj => 
+            `${obj.label === undefined ? '': obj.label.length === 0 ? '':
+              
+              `<a class="article__item-link" href="${obj.link}">` +
+                `<i class="article__item-icon fa fa-${obj.icon === '' ? 'link' : obj.icon}"></i>` +
+                `<span class="article__item-text">${obj.label}: ${obj.link}</span>` +
+              `</a>`
+
+            }`
+          ).join('')}` +
+        `</div>` +
+
+      `</section>`
     );
   }
 
@@ -361,7 +454,7 @@
           </div>
         ${arrOfObjects.map(obj => 
           `
-          <div class="article article_plain article_scaled">
+          <div class="article article_scaled">
             ${obj.itemName === undefined ? '': obj.itemName.length === 0 ? '':
               `<div class="item_scaled">` +
                 `<span class="item_scaled__text">${obj.itemName}</span>` +
