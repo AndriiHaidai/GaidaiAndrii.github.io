@@ -27,7 +27,7 @@
     {
       "plainItems":[
         "Have examples in Frontend and experience in Scrum, 8+ years of VBA + Excel + SQL Server programming.",
-        "Like to create tools which will work reliably and require minimal or no maintenance subsequently."
+        "Like to create tools which will work reliably and require minimal or no maintenance subsequently. Ready to path a test task."
       ]
     },
     {
@@ -206,7 +206,7 @@
       "itemValueOf10":"7"
     },
     {
-      "itemName":"SQL Server Databases",
+      "itemName":"SQL Server Database",
       "itemValueOf10":"7"
     },
   ]; 
@@ -265,12 +265,12 @@
     {
       "cite":"JavaScript. Шаблоны - Стоян Стефанов.",
       "citeLink":"http://www.ozon.ru/context/detail/id/6287517/",
-      "faIconName":"book"
+      "faIconName":"no-icon"
     },
     {
       "cite":"Разработка одностраничных веб-приложений - Майкл С. Миковски, Джош К. Пауэлл.",
       "citeLink":"https://www.ozon.ru/context/detail/id/25457206/",
-      "faIconName":"book"
+      "faIconName":"no-icon"
     },
   ];
 
