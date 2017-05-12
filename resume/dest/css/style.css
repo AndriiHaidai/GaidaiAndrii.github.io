@@ -3145,34 +3145,6 @@ a, input[type="button"], input[type="submit"], button {
   font-family: Roboto, sans-serif;
 }
 
-.btn {
-  font-size: 14px;
-  line-height: 32px;
-  padding-right: 17px;
-  padding-left: 17px;
-  white-space: nowrap;
-  text-decoration: none;
-  color: inherit;
-  border: 2px solid #339b54;
-  border-radius: 50px;
-}
-
-.btn:hover {
-  cursor: pointer;
-  border-color: transparent;
-  background-color: rgba(51, 155, 84, 0.7);
-}
-
-.btn:focus {
-  outline: none;
-}
-
-.fa {
-  float: left;
-  color: #339b54;
-  margin-right: 0.25rem;
-}
-
 .size-a4 {
   position: relative;
   display: block;
@@ -3265,6 +3237,34 @@ a, input[type="button"], input[type="submit"], button {
 .header .header__inner .header__item-text {
   color: #5e5e5e;
   font-size: 11px;
+}
+
+.btn {
+  font-size: 14px;
+  line-height: 32px;
+  padding-right: 17px;
+  padding-left: 17px;
+  white-space: nowrap;
+  text-decoration: none;
+  color: inherit;
+  border: 2px solid #339b54;
+  border-radius: 50px;
+}
+
+.btn:hover {
+  cursor: pointer;
+  border-color: transparent;
+  background-color: rgba(51, 155, 84, 0.7);
+}
+
+.btn:focus {
+  outline: none;
+}
+
+.fa {
+  float: left;
+  color: #339b54;
+  margin-right: 0.25rem;
 }
 
 .page {
