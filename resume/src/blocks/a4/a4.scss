@@ -11,6 +11,7 @@ $articleIndent: $sectionHeaderIconSize + $sectionHeaderTextIndent;
 
 $articleBulletSize: 0.625rem;
 $articleFontSize: 0.75rem;
+$articleLineHeight: 1.4;
 $articleBulletLeft: - ($articleIndent - $sectionHeaderIconSize / 2 + $articleBulletSize / 2);
 $articleBulletTop: ($articleFontSize - $articleBulletSize) / 2;
 
@@ -88,7 +89,7 @@ $articleBulletTop: ($articleFontSize - $articleBulletSize) / 2;
   display: inline-block;
 }
 .article__item-link {
-  line-height: 1.4;
+  line-height: $articleLineHeight;
   .article__item_inline > & {
     display: flex;
     flex-direction: row;
@@ -98,20 +99,23 @@ $articleBulletTop: ($articleFontSize - $articleBulletSize) / 2;
 }
 .article__item-icon {
   text-indent: 0;
-  font-size: $articleFontSize;
-  line-height: 1.4;
+  font-size: $articleFontSize; // 0.75
+  line-height: $articleLineHeight;
+  width: $articleFontSize * $articleLineHeight * 1.3; // for wider icons
+  // margin-right: 0.25rem;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
   .article__item-link:hover & {
-    font-size: 1.05rem;
+    font-size: $articleFontSize * $articleLineHeight;
     line-height: 1;
+    // margin-right: 0;
   }
-}
-.article__item-icon.fa {
-  margin-right: 0.25rem;
 }
 .article__item-text {
   color: $mainGrey;
   font-size: $articleFontSize;
-  line-height: 1.4;
+  line-height: $articleLineHeight;
   text-indent: 0;
   .article__item_inline & {
     float: left;
@@ -123,13 +127,13 @@ $articleBulletTop: ($articleFontSize - $articleBulletSize) / 2;
 }
 
 .content {
-  width: 61%;
+  width: 60%;
   margin-right: 4%;
   float: left;
 }
 
 .sidebar {
-  width: 35%;
+  width: 36%;
   float: left;
 }
 
@@ -287,7 +291,7 @@ $articleBulletTop: ($articleFontSize - $articleBulletSize) / 2;
     text-align: justify;
   } // должность, звание, факультет, ...
   .article__point {
-    line-height: 1.4;
+    line-height: $articleLineHeight;
     margin-bottom: 0.125rem;
     text-align: justify;
   }
