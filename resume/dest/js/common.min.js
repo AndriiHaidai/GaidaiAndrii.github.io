@@ -302,7 +302,7 @@
                 <p class="article__item-text">${obj2.mobile}</p>
               </li>
               <li>
-                <a class="article__item-link" href="mailto:${obj2.email}">
+                <a class="article__item-link" href="mailto:${obj2.email}" target="_blank">
                   <i class="article__item-icon fa fa-envelope"></i>
                   <p class="article__item-text">${obj2.email}</p>
                 </a>
@@ -310,13 +310,13 @@
             </ul>
             <ul class="article__contacts">
               <li>
-                <a class="article__item-link" href="${obj2.LinkedInLink}">
+                <a class="article__item-link" href="${obj2.LinkedInLink}" target="_blank">
                   <i class="article__item-icon fa fa-linkedin"></i>
                   <p class="article__item-text">${obj2.LinkedInLabel}</p>
                 </a>
               </li>
               <li>
-                <a class="article__item-link" href="${obj2.facebookLink}">
+                <a class="article__item-link" href="${obj2.facebookLink}" target="_blank">
                   <i class="article__item-icon fa fa-facebook"></i>
                   <p class="article__item-text">${obj2.facebookLabel}</p>
                 </a>
@@ -394,7 +394,7 @@
         `<div class="article article_plain">` +
           `${arrOfObjects.map(obj => 
             `<span class="article__item_inline">` +
-              `<a class="article__item-link" href="${obj.citeLink}">` +
+              `<a class="article__item-link" href="${obj.citeLink}" target="_blank">` +
                 
                 `${obj.faIconName === 'no-icon' ? '' :
                   `<i class="article__item-icon fa fa-${obj.faIconName === '' ? 'link' : obj.faIconName}"></i>`
@@ -431,7 +431,7 @@
           `${arrOfObjects.map(obj => 
             `${obj.label === undefined ? '': obj.label.length === 0 ? '':
               
-              `<a class="article__item-link" href="${obj.link}">` +
+              `<a class="article__item-link" href="${obj.link}" target="_blank">` +
                 `<i class="article__item-icon fa fa-${obj.icon === '' ? 'link' : obj.icon}"></i>` +
                 `<span class="article__item-text">${obj.label}: ${obj.link}</span>` +
               `</a>`
