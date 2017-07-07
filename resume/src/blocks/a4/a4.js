@@ -158,6 +158,13 @@
       "itemValueOf10":"6"
     },
     {
+      "itemName":"emmet",
+      "itemValueOf10":"8"
+    },    {
+      "itemName":"valid markup",
+      "itemValueOf10":"8"
+    },
+    {
       "itemName":"jQuery",
       "itemValueOf10":"6"
     },
@@ -240,6 +247,11 @@
     {
       "cite":"JavaScript.ru",
       "citeLink":"http://learn.javascript.ru/",
+      "faIconName":""
+    },
+    {
+      "cite":"w3cschools",
+      "citeLink":"https://www.w3schools.com/",
       "faIconName":""
     },
     {
