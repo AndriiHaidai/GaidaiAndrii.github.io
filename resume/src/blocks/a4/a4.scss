@@ -30,12 +30,6 @@ $articleBulletTop: ($articleFontSize - $articleBulletSize) / 2;
   box-shadow: 0 0 .5cm $pageShadow;
 }
 
-svg {
-  position: absolute;
-  top: 15px;
-  right: 15px;
-}
-
 .header {
   margin-bottom: 0.75 * $a4Padding;
   position: relative;
@@ -50,16 +44,17 @@ svg {
   }
 }
 .header__inner {
-  width: 476px;
-  margin: 0 auto;
+  width: 580px;
+  margin-left: auto;
   position: relative;
   background-color: $mainWhite;
-  z-index: 2;
   overflow: hidden;
+  display: flex;
+  justify-content: flex-end;
 }
 .header__avatar {
-  width: 31%;
-  float: left;
+  // width: 31%;
+  width: 160px;
 }
 .header__userfoto {
   width: 108px;
@@ -72,9 +67,8 @@ svg {
   margin-right: auto;
 }
 .header__text {
-  width: 68.9%;
-  float: left;
-  position: relative;
+  // width: 68.9%;
+  width: 310px;
 }
 .header__username {
   font-size: 2rem;
@@ -90,6 +84,9 @@ svg {
   width: 49.9%;
   float: left;
 } 
+.header__QR {
+}
+
 
 .article__item_inline {
   display: inline-block;
