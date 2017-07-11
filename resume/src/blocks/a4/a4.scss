@@ -32,8 +32,9 @@ $articleBulletTop: ($articleFontSize - $articleBulletSize) / 2;
 
 svg {
   position: absolute;
-  top: 15px;
-  right: 15px;
+  top: $a4Padding;
+  right: $a4Padding;
+  z-index: 1;
 }
 
 .header {

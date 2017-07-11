@@ -190,8 +190,9 @@ a, input[type="button"], input[type="submit"], button {
 
 svg {
   position: absolute;
-  top: 15px;
-  right: 15px;
+  top: 3.5rem;
+  right: 3.5rem;
+  z-index: 1;
 }
 
 .header {
