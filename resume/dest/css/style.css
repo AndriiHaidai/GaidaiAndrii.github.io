@@ -188,13 +188,6 @@ a, input[type="button"], input[type="submit"], button {
   box-shadow: 0 0 0.5cm rgba(0, 0, 0, 0.5);
 }
 
-svg {
-  position: absolute;
-  top: 3.5rem;
-  right: 3.5rem;
-  z-index: 1;
-}
-
 .header {
   margin-bottom: 2.625rem;
   position: relative;
@@ -211,17 +204,21 @@ svg {
 }
 
 .header__inner {
-  width: 476px;
-  margin: 0 auto;
+  width: 580px;
+  margin-left: auto;
   position: relative;
   background-color: #fff;
-  z-index: 2;
   overflow: hidden;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-justify-content: flex-end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
 }
 
 .header__avatar {
-  width: 31%;
-  float: left;
+  width: 160px;
 }
 
 .header__userfoto {
@@ -236,9 +233,7 @@ svg {
 }
 
 .header__text {
-  width: 68.9%;
-  float: left;
-  position: relative;
+  width: 310px;
 }
 
 .header__username {
