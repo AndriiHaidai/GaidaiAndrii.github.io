@@ -188,6 +188,12 @@ a, input[type="button"], input[type="submit"], button {
   box-shadow: 0 0 0.5cm rgba(0, 0, 0, 0.5);
 }
 
+svg {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+}
+
 .header {
   margin-bottom: 2.625rem;
   position: relative;
