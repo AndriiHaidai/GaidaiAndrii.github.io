@@ -90,7 +90,6 @@
         'SQL Server administrating: created new tables, views; edited stored procedures, triggers, set up maintenance plan.',
         'VBA + SQL Server: created / modified number of small end-user tools.',
         'Set up Multy-Technolodgy environment Coordination: SAP, SQL Server, Access, Excel, VBA, Desktop Intelligence (BO).'
-        // 'Daily tasks: SAP to SQL upload; BusinessObjects reports creation & edition including VBA for BO use, uploading to SQL'
       ]
     },
     {
@@ -154,27 +153,24 @@
       "itemValueOf10":"7"
     },
     {
-      "itemName":"JavaScript",
+      "itemName":"JavaScript, jQuery",
       "itemValueOf10":"6"
     },
     {
-      "itemName":"emmet",
+      "itemName":"Emmet, Valid markup",
       "itemValueOf10":"8"
-    },    {
-      "itemName":"valid markup",
-      "itemValueOf10":"8"
-    },
-    {
-      "itemName":"jQuery",
-      "itemValueOf10":"6"
     },
     {
       "itemName":"Gulp",
-      "itemValueOf10":"4"
+      "itemValueOf10":"5"
     },
     {
       "itemName":"scss / Sass",
       "itemValueOf10":"6"
+    },
+    {
+      "itemName":"PHP + MySQL",
+      "itemValueOf10":"4"
     },
     {
       "itemName":"Git / GitHub",
@@ -189,16 +185,12 @@
       "itemValueOf10":"6"
     },
     {
+      "itemName":"Responsive, Mobile First",
+      "itemValueOf10":"6"
+    },
+    {
       "itemName":"BEM",
       "itemValueOf10":"5"
-    },
-    {
-      "itemName":"Responsive",
-      "itemValueOf10":"6"
-    },
-    {
-      "itemName":"Mobile First",
-      "itemValueOf10":"6"
     },
     {
       "itemName":"Pixel Perfect",
@@ -224,11 +216,7 @@
       "itemValueOf10":"7"
     },
     {
-      "itemName":"Русский",
-      "itemValueOf10":"10"
-    },
-    {
-      "itemName":"Українська",
+      "itemName":"Українська, Русский",
       "itemValueOf10":"10"
     }
   ];
