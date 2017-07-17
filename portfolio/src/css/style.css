@@ -121,10 +121,58 @@ a:hover {
   cursor: pointer;
 }
 
-header {
+.about {
+  opacity: 0;
+  transition: 0.6s linear;
+}
+
+.about > header {
+  display: block;
+  text-align: center;
+}
+
+.about > header > h2 {
+  display: inline;
+  padding-left: 63px;
+  padding-right: 63px;
+  font-family: Open Sans;
+  font-size: 48px;
+  line-height: 2;
+  color: var(--main);
+  font-weight: 600;
+  text-transform: uppercase;
+  border-bottom: 2px solid #ccc;
+}
+
+.about.scrolled {
+  opacity: 1;
+  transition: 0.6s linear;
+}
+
+.right {
+  float: right;
+}
+
+
+
+
+.header {
   background-color: var(--section-dark-bg);
   color: var(--section-dark-textcolor);
   height: 100vh;
+  visibility: visible;
+  -webkit-transform: translateY(0);
+      -ms-transform: translateY(0);
+          transform: translateY(0);
+  transition: 0.4s linear;
+}
+
+.header.scrolled {
+  visibility: hidden;
+  -webkit-transform: translateY(-100%);
+      -ms-transform: translateY(-100%);
+          transform: translateY(-100%);
+  transition: 0.4s linear;
 }
 
 .menu {
@@ -243,11 +291,16 @@ header {
   padding: 89px;
 }
 
+
+
+
+
 body {
   background-color: #ada;
 }
 
 :root {
+  --main: #000;
   --accent: #f93;
   --section-dark-bg: #000;
   --section-dark-textcolor: #fff;

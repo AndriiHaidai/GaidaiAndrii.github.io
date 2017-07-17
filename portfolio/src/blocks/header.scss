@@ -1,7 +1,15 @@
-header {
+.header {
   background-color: var(--section-dark-bg);
   color: var(--section-dark-textcolor);
   height: 100vh;
+  visibility: visible;
+  transform: translateY(0);
+  transition: 0.4s linear;
+  &.scrolled {
+    visibility: hidden;
+    transform: translateY(-100%);
+    transition: 0.4s linear;
+  }
 }
 
 .menu {
