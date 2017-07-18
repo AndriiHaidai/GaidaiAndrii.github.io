@@ -1,15 +1,20 @@
+@import "../tools/vars.scss";
+
 body {
   background-color: #ada;
+  min-width: $minimal-width;
 }
-// ↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑ Временный цвет заливки.
+// ↑ ↑ ↑ ↑ Временный цвет заливки. ↑ ↑ ↑ ↑
 
 :root {
+  --main: #000;
   --accent: #f93;
   --section-dark-bg: #000;
   --section-dark-textcolor: #fff;
-  --page-width: 1170px;
-  --gutter: 15px;
-  --columns: 12;
+  --page-width: $page-width;
+  --gutter: $gutter;
+  --columns: $columns;
+  font-size: 15px;
 }
 
 .wrapper {
