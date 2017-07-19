@@ -87,11 +87,14 @@ a:hover {
   clear: both;
 }
 
+
 .banner {
+  font-family: 'Montserrat', sans-serif;
+  line-height: 65px;
   width: 100%;
   height: 646px;
+  padding: 210px 16% 0 8%;
   color: #fff;
-  padding: 210px 79px 0;
   background-color: #0ca3b9;
   background-image: linear-gradient(-29deg, rgba(0, 0, 0, 0.18) 0%, rgba(255, 255, 255, 0.18) 100%);
 }
@@ -99,7 +102,7 @@ a:hover {
 .banner .banner__title {
   font-size: 60px;
   font-weight: 400;
-  line-height: 65px;
+  padding-bottom: 31px;
 }
 
 .banner .banner__link {
@@ -108,11 +111,10 @@ a:hover {
 }
 
 .banner .banner__text {
-  opacity: 0.5;
   font-size: 34px;
   font-weight: 400;
-  line-height: 65px;
   float: left;
+  opacity: .5;
 }
 
 .banner .banner__text:hover {
@@ -120,18 +122,21 @@ a:hover {
 }
 
 .banner .banner__next-btn {
-  display: block;
-  float: right;
+  font-family: 'Quicksand', sans-serif;
   font-size: 36px;
   font-weight: 400;
-  line-height: 65px;
+  display: inline-block;
+  float: right;
+  padding-right: 9%;
+  padding-left: 9%;
 }
 
-.banner .banner__next-btn:hover {
-  text-shadow: 2px 0 6px rgba(255, 255, 255, 0.7);
+.next-btn:hover {
+  text-shadow: 0 0 8px #fff;
 }
 
 header {
+  font-family: 'Montserrat', sans-serif;
   position: absolute;
   top: 0;
   width: 100%;
@@ -185,7 +190,7 @@ header {
   font-size: 24px;
   line-height: 37px;
   display: block;
-  text-indent: 19px;
+  text-indent: 17px;
   color: inherit;
   background-color: #373c3f;
 }
@@ -193,7 +198,7 @@ header {
 @media screen and (min-width: 640px) {
   .menu__handheld {
     line-height: 74px;
-    text-indent: 38px;
+    text-indent: 36px;
   }
 }
 
@@ -211,18 +216,17 @@ header {
 @media screen and (min-width: 980px) {
   .menu__wide {
     display: block;
-    width: auto;
+    float: left;
     margin-right: -15px;
     margin-left: -15px;
-    float: left;
-    border: none;
   }
 }
 
 .menu__wide.show {
+  font-size: 15px;
   display: block;
-  min-width: 50%;
   float: right;
+  min-width: 50%;
 }
 
 .nav .menu__wide.show {
@@ -253,10 +257,9 @@ header {
 
 .menu__link {
   display: block;
-  color: inherit;
-  font-size: 1rem;
-  text-transform: uppercase;
   padding: 11px;
+  text-transform: uppercase;
+  color: inherit;
 }
 
 .menu__link:hover {
@@ -273,6 +276,34 @@ header {
   .menu__link {
     padding: 41px 15px;
   }
+}
+
+
+.slogan {
+  background-color: #27212c;
+}
+
+.slogan__text {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 30px;
+  font-weight: 400;
+  line-height: 234px;
+  display: inline-block;
+  text-indent: 81px;
+  color: #9282a0;
+}
+
+.slogan__next-btn {
+  font-family: Quicksand;
+  font-size: 50px;
+  font-weight: 700;
+  line-height: 234px;
+  display: inline-block;
+  float: right;
+  width: 22.6%;
+  text-align: center;
+  color: #fff;
+  background-color: #bc3183;
 }
 
 body {

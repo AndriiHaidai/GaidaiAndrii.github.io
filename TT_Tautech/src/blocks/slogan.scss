@@ -1,0 +1,36 @@
+@import './tools/vars.scss';
+
+.slogan {
+  background-color: #27212c;
+}
+
+.slogan__text {
+  @include main-font;
+
+  font-size: 30px;
+  font-weight: 400;
+  line-height: 234px;
+
+  display: inline-block;
+
+  text-indent: 81px;
+
+  color: #9282a0;
+}
+
+.slogan__next-btn {
+  font-family: Quicksand;
+  font-size: 50px;
+  font-weight: 700;
+  line-height: 234px;
+
+  display: inline-block;
+  float: right;
+
+  width: 22.6%;
+
+  text-align: center;
+
+  color: $primary;
+  background-color: #bc3183;
+}

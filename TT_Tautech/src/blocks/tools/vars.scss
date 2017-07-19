@@ -1,8 +1,14 @@
 //Font settings
+$base-font-size: 1rem;
 $base-font: Tahoma, sans-serif;
 $title-font: Arial, sans-serif;
 $link-font: Arial, sans-serif;
-$base-font-size: 1rem;
+@mixin main-font{
+  font-family: 'Montserrat', sans-serif;
+}
+@mixin secondary-font {
+  font-family: 'Quicksand', sans-serif;
+}  
 
 // Directories
 // $img-dir: "../img";

@@ -8,11 +8,16 @@ $mob-menu-icon-width: 82px;
 $menu-lighter: #373c3f;
 $menu-darker: #202529;
 
+
 header {
+  @include main-font;
+
   position: absolute;
   top: 0;
+
   width: 100%;
 }
+
 
 .nav {
   color: $primary;
@@ -20,7 +25,7 @@ header {
   
   @media #{$mobile} {
   }
-
+  
   @media #{$tablet} {
     padding-left: 54px;
 
@@ -41,7 +46,6 @@ header {
   text-align: center;
 
   background-color: $menu-darker;
-
   &:hover {
     cursor: pointer;
   }
@@ -51,15 +55,18 @@ header {
 
     width: $mob-menu-icon-width;
   }
+
   @media #{$tablet} {
     display: none;
     float: none;
   }
 }
 
+
 .svg-ico-menu {
   fill: $primary;
 }
+
 
 .menu__handheld {
   font-size: 24px;
@@ -67,14 +74,15 @@ header {
 
   display: block;
 
-  text-indent: 19px;
+  text-indent: 17px;
 
   color: inherit;
   background-color: $menu-lighter;
   
   @media #{$mobile} {
     line-height: $mob-menu-height;
-    text-indent: 38px;
+
+    text-indent: 36px;
   }
 
   @media #{$tablet} {
@@ -82,31 +90,33 @@ header {
   }
 }
 
+
 .menu__wide {
   display: none;
   float: none;
-
+  
   @media #{$tablet} {
     display: block;
-    width: auto;
+    float: left;
 
     margin-right: #{-$gutter};
     margin-left: #{-$gutter};
-
-    float: left;
-    border: none;
   }
 }
 
+
 .menu__wide.show {
+  font-size: 15px;
+  
   display: block;
-  min-width: 50%;
   float: right;
 
+  min-width: 50%;
+  
   .nav & {
     background-color: $menu-lighter;
   }
-
+  
   & ~ .menu__handheld {
     display: none;
   }
@@ -114,11 +124,12 @@ header {
   @media #{$mobile} {
     min-width: 30%;
   }
-
+  
   @media #{$tablet} {
     float: none;
   }
 }
+
 
 .menu__item {
   @media #{$tablet} {
@@ -126,21 +137,24 @@ header {
   }
 }
 
+
 .menu__link {
+  display: block;
+
+  padding: 11px;
+
+  text-transform: uppercase;
+
+  color: inherit;
+  
   &:hover {
     background-color: $menu-darker;
   }
-
-  display: block;
-  color: inherit;
-  font-size: 1rem;
-  text-transform: uppercase;
-  padding: 11px;
   
   @media #{$mobile} {
     padding: 1rem;
   }
-
+  
   @media #{$tablet} {
     padding: $min-menu-icon-width $gutter;
   }

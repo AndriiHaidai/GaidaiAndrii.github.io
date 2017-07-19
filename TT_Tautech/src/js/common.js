@@ -8,7 +8,7 @@
   
   document.addEventListener('keydown', function(e) {
     if (e.code == 'KeyM') {
-      menuShow();
+      menuShowHide();
     }
     if (e.code == 'Escape') {
       menuHide();
