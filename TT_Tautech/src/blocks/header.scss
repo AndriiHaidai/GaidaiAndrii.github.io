@@ -8,6 +8,11 @@ $mob-menu-icon-width: 82px;
 $menu-lighter: #373c3f;
 $menu-darker: #202529;
 
+header {
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
 
 .nav {
   color: $primary;

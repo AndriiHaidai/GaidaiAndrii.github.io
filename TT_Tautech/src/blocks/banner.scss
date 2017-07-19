@@ -1,9 +1,12 @@
 @import "./tools/vars.scss";
 
 .banner {
+  width: 100%;
   height: 646px;
   color: $primary;
-  padding-left: 79px;
+  // padding-left: 79px;
+  // padding-top: 210px;
+  padding: 210px 79px 0;
   background-color: #0ca3b9;
   background-image: linear-gradient(-29deg, rgba(0, 0, 0, 0.18) 0%, rgba(255, 255, 255, 0.18) 100%);
   
@@ -13,6 +16,11 @@
     line-height: 65px;
   }
   
+  .banner__link {
+    display: block;
+    float: left;
+  }
+
   .banner__text {
     opacity: 0.5;
     font-size: 34px;
@@ -25,6 +33,8 @@
   }
 
   .banner__next-btn {
+    display: block;
+    float: right;
     font-size: 36px;
     font-weight: 400;
     line-height: 65px;
