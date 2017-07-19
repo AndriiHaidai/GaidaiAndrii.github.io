@@ -1,3 +1,16 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="82" height="74" viewBox="0 0 82 74">
-  <image id="ico-menu" y="-6" width="97" height="90" xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGEAAABaAgMAAADV1dBeAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAACVBMVEUgJSn///8AAAAahBGvAAAAAWJLR0QCZgt8ZAAAAAlwSFlzAAALEgAACxIB0t1+/AAAACNJREFUSMdjYBgFo2AUUAgYQyEggMYyo/4Z9c8oGAWjgI4AALy6H7FkBNAZAAAAAElFTkSuQmCC"/>
+<?xml version="1.0" ?>
+<!DOCTYPE svg  PUBLIC '-//W3C//DTD SVG 1.1//EN'  'http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd'>
+<svg 
+  enable-background="new 0 0 31 28" 
+  width="31px" 
+  height="28px" 
+  version="1.1" 
+  viewBox="0 0 31 28" 
+  xmlns="http://www.w3.org/2000/svg" 
+  xmlns:xlink="http://www.w3.org/1999/xlink">
+  <g>
+    <rect fill="#FFF" height="4" width="31" y="4"/>
+    <rect fill="#FFF" height="4" width="31" y="12"/>
+    <rect fill="#FFF" height="4" width="31" y="20"/>
+  </g>
 </svg>

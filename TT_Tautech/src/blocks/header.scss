@@ -1,12 +1,23 @@
 @import "./tools/vars.scss";
 
-$min-menu-height: 37px;
-$min-menu-icon-width: 41px;
-$mob-menu-height: 74px;
-$mob-menu-icon-width: 82px;
+$mob-menu-height: 11.563vw;
+// $mob-menu-height: 11.563vw;
+$mob-menu-icon-width: 12.813vw;
+// $mob-menu-icon-width: 12.813vw;
 
 $menu-lighter: #373c3f;
 $menu-darker: #202529;
+
+
+header {
+  @include main-font;
+
+  position: fixed;
+  top: 0;
+
+  width: 100%;
+  z-index: 10;
+}
 
 
 .nav {
@@ -15,7 +26,7 @@ $menu-darker: #202529;
   
   @media #{$mobile} {
   }
-
+  
   @media #{$tablet} {
     padding-left: 54px;
 
@@ -25,83 +36,87 @@ $menu-darker: #202529;
 
 
 .menu__icon {
-  font-size: $min-menu-height;
-  line-height: $min-menu-height;
-
-  display: inline-block;
+  display: block;
   float: right;
 
-  width: $min-menu-icon-width;
+  width: $mob-menu-icon-width;
+  height: $mob-menu-height;
 
   text-align: center;
 
   background-color: $menu-darker;
+  
+  & .ico-menu {
+    line-height: $mob-menu-height;
+
+    display: inline;
+
+    width: 5vw;
+    height: $mob-menu-height;
+  }
 
   &:hover {
     cursor: pointer;
   }
 
   @media #{$mobile} {
+    font-size: $mob-menu-height;
     line-height: $mob-menu-height;
 
     width: $mob-menu-icon-width;
   }
+
   @media #{$tablet} {
     display: none;
     float: none;
   }
 }
 
-.svg-ico-menu {
-  fill: $primary;
-}
+
 
 .menu__handheld {
-  font-size: 24px;
-  line-height: $min-menu-height;
+  font-size: 3.75vw;
+  line-height: $mob-menu-height;
 
   display: block;
 
-  text-indent: 19px;
+  text-indent: 5.938vw;
 
   color: inherit;
   background-color: $menu-lighter;
   
-  @media #{$mobile} {
-    line-height: $mob-menu-height;
-    text-indent: 38px;
-  }
-
   @media #{$tablet} {
     display: none;
   }
 }
 
+
 .menu__wide {
   display: none;
   float: none;
-
+  
   @media #{$tablet} {
     display: block;
-    width: auto;
+    float: left;
 
     margin-right: #{-$gutter};
     margin-left: #{-$gutter};
-
-    float: left;
-    border: none;
   }
 }
 
+
 .menu__wide.show {
+  font-size: 15px;
+  
   display: block;
-  min-width: 50%;
   float: right;
 
+  min-width: 50%;
+  
   .nav & {
     background-color: $menu-lighter;
   }
-
+  
   & ~ .menu__handheld {
     display: none;
   }
@@ -109,11 +124,12 @@ $menu-darker: #202529;
   @media #{$mobile} {
     min-width: 30%;
   }
-
+  
   @media #{$tablet} {
     float: none;
   }
 }
+
 
 .menu__item {
   @media #{$tablet} {
@@ -121,22 +137,25 @@ $menu-darker: #202529;
   }
 }
 
+
 .menu__link {
+  display: block;
+
+  padding: 11px;
+
+  text-transform: uppercase;
+
+  color: inherit;
+  
   &:hover {
     background-color: $menu-darker;
   }
-
-  display: block;
-  color: inherit;
-  font-size: 1rem;
-  text-transform: uppercase;
-  padding: 11px;
   
   @media #{$mobile} {
     padding: 1rem;
   }
-
+  
   @media #{$tablet} {
-    padding: $min-menu-icon-width $gutter;
+    padding: 41px $gutter;
   }
 }

@@ -1,35 +1,56 @@
-@import "./tools/vars.scss";
+@import './tools/vars.scss';
 
 .banner {
-  height: 646px;
+  @include main-font;
+
+  // line-height: 65px;
+  line-height: 6.633vw;
+
+  // width: 100%;
+  // height: 646px;
+  height: 65.918vw;
+  padding: 210px 16% 0 8%;
+  padding: 21.429vw 16% 0 8%;
+
   color: $primary;
-  padding-left: 79px;
   background-color: #0ca3b9;
-  background-image: linear-gradient(-29deg, rgba(0, 0, 0, 0.18) 0%, rgba(255, 255, 255, 0.18) 100%);
+  background-image: linear-gradient(-29deg, rgba(0, 0, 0, .18) 0%, rgba(255, 255, 255, .18) 100%);
   
   .banner__title {
-    font-size: 60px;
+    font-size: 6.122vw;
     font-weight: 400;
-    line-height: 65px;
+
+    // padding-bottom: 31px;
+    padding-bottom: 3.163vw;
   }
   
-  .banner__text {
-    opacity: 0.5;
-    font-size: 34px;
-    font-weight: 400;
-    line-height: 65px;
+  .banner__link {
+    display: block;
     float: left;
+  }
+
+  .banner__text {
+    font-size: 3.469vw;
+    font-weight: 400;
+
+    float: left;
+
+    opacity: .5;
+    
     &:hover {
       opacity: 1;
     }
   }
-
   .banner__next-btn {
-    font-size: 36px;
+    @include secondary-font;
+
+    font-size: 3.673vw;
     font-weight: 400;
-    line-height: 65px;
-    &:hover {
-      text-shadow: 2px 0 6px rgba($primary, 0.7);
-    }
+
+    display: inline-block;
+    float: right;
+
+    padding-right: 9%;
+    padding-left: 9%;
   }
 }

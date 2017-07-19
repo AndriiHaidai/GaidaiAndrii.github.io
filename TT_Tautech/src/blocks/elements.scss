@@ -1,0 +1,7 @@
+@import './tools/vars.scss';
+
+.next-btn {
+  &:hover {
+    text-shadow: 0 0 8px $primary;
+  }
+}
