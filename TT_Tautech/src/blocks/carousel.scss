@@ -2,65 +2,77 @@
 
 .carousel__container {
   display: flex;
-
-  justify-content: center;
-  align-items: stretch;
+  flex-direction: column;
+  
+  @media #{$tablet} {
+    flex-direction: row;
+    justify-content: center;
+    align-items: stretch;
+  }
 }
 
 
 .carousel__controls {
   display: inline-block;
-  float: left;
+  float: none;
 
-  width: 33.333%;
+  width: 100%;
+  
+  @media #{$tablet} {
+    display: block;
+    float: left;
+
+    width: 33.333%;
+  }
   
   .carousel__next-btn {
     @include secondary-font;
 
-    font-size: 4.01vw;
+    $fz: 12.0408vw;
+    font-size: $fz;
+    width: calc(17 / 100vw);
+    height: 85vw;
+    line-height: 85vw;
     font-weight: 700;
 
     display: block;
-
-    height: 100%;
-    padding-top: 11.7vw;
 
     text-align: center;
 
     color: $primary;
     background-color: #5b0fa1;
+    
+    @media #{$tablet} {
+      font-size: 4.01vw;
+      line-height: 28.56vw;
+      font-weight: 700;
+
+      display: block;
+
+      height: auto;
+
+      text-align: center;
+    }
+    
+    @media #{$desktop} {
+      line-height: 28.62vw;
+    }
   }
 }
 
 
-
 .carousel__list {
-  width: 66.667%;
-  // overflow: hidden;
+  @media#{$tablet} {
+    width: 66.667%;
+  }
 }
 
 .carousel__element {
-  position: relative;
-
   display: block;
-  float: left;
+  float: none;
 
-  width: 50%;
-  // height: 240px;
-  // margin-right: 25px;
-
-  background-repeat: no-repeat;
-  background-position: top center;
-  background-size: cover;
-  // box-shadow: 0 -360px 240px -240px rgba(0, 0, 0, .6) inset;
+  @media#{$tablet} {
+    float: left;
+    width: 50%;
+  }
 }
-
-// @for $n from 1 through 3 {
-//   .carousel__element-#{$n} {
-//     background-image: url("../Non-functional images/#{$n}.jpg");
-//   }
-// }
-
-// .carousel__element-1 {
-//   background-image: url("../Non-functional images/1.jpg");
-// }
