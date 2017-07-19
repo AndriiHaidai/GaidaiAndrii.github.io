@@ -2,33 +2,65 @@
 
 .carousel__container {
   display: flex;
-  // width: 100%;
-  // visibility: hidden;
-
-  margin-top: 10px;
 
   justify-content: center;
-  &::after {
-    display: block;
-    clear: both;
-
-    content: '';
-  }
+  align-items: stretch;
 }
 
 
 .carousel__controls {
+  display: inline-block;
   float: left;
 
-  width: 33%;
+  width: 33.333%;
+  
   .carousel__next-btn {
     @include secondary-font;
 
-    // font-size: 118px;
+    font-size: 4.01vw;
     font-weight: 700;
-    // line-height: 65px;
+
+    display: block;
+
+    height: 100%;
+    padding-top: 11.7vw;
+
+    text-align: center;
 
     color: $primary;
     background-color: #5b0fa1;
   }
 }
+
+
+
+.carousel__list {
+  width: 66.667%;
+  // overflow: hidden;
+}
+
+.carousel__element {
+  position: relative;
+
+  display: block;
+  float: left;
+
+  width: 50%;
+  // height: 240px;
+  // margin-right: 25px;
+
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-size: cover;
+  // box-shadow: 0 -360px 240px -240px rgba(0, 0, 0, .6) inset;
+}
+
+// @for $n from 1 through 3 {
+//   .carousel__element-#{$n} {
+//     background-image: url("../Non-functional images/#{$n}.jpg");
+//   }
+// }
+
+// .carousel__element-1 {
+//   background-image: url("../Non-functional images/1.jpg");
+// }

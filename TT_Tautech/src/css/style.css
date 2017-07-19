@@ -135,28 +135,44 @@ a:hover {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  margin-top: 10px;
   -webkit-justify-content: center;
       -ms-flex-pack: center;
           justify-content: center;
-}
-
-.carousel__container::after {
-  display: block;
-  clear: both;
-  content: '';
+  -webkit-align-items: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
 }
 
 .carousel__controls {
+  display: inline-block;
   float: left;
-  width: 33%;
+  width: 33.333%;
 }
 
 .carousel__controls .carousel__next-btn {
   font-family: 'Quicksand', sans-serif;
+  font-size: 4.01vw;
   font-weight: 700;
+  display: block;
+  height: 100%;
+  padding-top: 11.7vw;
+  text-align: center;
   color: #fff;
   background-color: #5b0fa1;
+}
+
+.carousel__list {
+  width: 66.667%;
+}
+
+.carousel__element {
+  position: relative;
+  display: block;
+  float: left;
+  width: 50%;
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-size: cover;
 }
 
 .next-btn:hover {
