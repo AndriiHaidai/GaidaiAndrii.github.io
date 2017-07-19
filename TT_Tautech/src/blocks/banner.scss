@@ -1,0 +1,35 @@
+@import "./tools/vars.scss";
+
+.banner {
+  height: 646px;
+  color: $primary;
+  padding-left: 79px;
+  background-color: #0ca3b9;
+  background-image: linear-gradient(-29deg, rgba(0, 0, 0, 0.18) 0%, rgba(255, 255, 255, 0.18) 100%);
+  
+  .banner__title {
+    font-size: 60px;
+    font-weight: 400;
+    line-height: 65px;
+  }
+  
+  .banner__text {
+    opacity: 0.5;
+    font-size: 34px;
+    font-weight: 400;
+    line-height: 65px;
+    float: left;
+    &:hover {
+      opacity: 1;
+    }
+  }
+
+  .banner__next-btn {
+    font-size: 36px;
+    font-weight: 400;
+    line-height: 65px;
+    &:hover {
+      text-shadow: 2px 0 6px rgba($primary, 0.7);
+    }
+  }
+}

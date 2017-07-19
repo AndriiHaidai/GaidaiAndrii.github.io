@@ -1,0 +1,142 @@
+@import "./tools/vars.scss";
+
+$min-menu-height: 37px;
+$min-menu-icon-width: 41px;
+$mob-menu-height: 74px;
+$mob-menu-icon-width: 82px;
+
+$menu-lighter: #373c3f;
+$menu-darker: #202529;
+
+
+.nav {
+  color: $primary;
+  background-color: inherit;
+  
+  @media #{$mobile} {
+  }
+
+  @media #{$tablet} {
+    padding-left: 54px;
+
+    background-color: $menu-lighter;
+  }
+}
+
+
+.menu__icon {
+  font-size: $min-menu-height;
+  line-height: $min-menu-height;
+
+  display: inline-block;
+  float: right;
+
+  width: $min-menu-icon-width;
+
+  text-align: center;
+
+  background-color: $menu-darker;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  @media #{$mobile} {
+    line-height: $mob-menu-height;
+
+    width: $mob-menu-icon-width;
+  }
+  @media #{$tablet} {
+    display: none;
+    float: none;
+  }
+}
+
+.svg-ico-menu {
+  fill: $primary;
+}
+
+.menu__handheld {
+  font-size: 24px;
+  line-height: $min-menu-height;
+
+  display: block;
+
+  text-indent: 19px;
+
+  color: inherit;
+  background-color: $menu-lighter;
+  
+  @media #{$mobile} {
+    line-height: $mob-menu-height;
+    text-indent: 38px;
+  }
+
+  @media #{$tablet} {
+    display: none;
+  }
+}
+
+.menu__wide {
+  display: none;
+  float: none;
+
+  @media #{$tablet} {
+    display: block;
+    width: auto;
+
+    margin-right: #{-$gutter};
+    margin-left: #{-$gutter};
+
+    float: left;
+    border: none;
+  }
+}
+
+.menu__wide.show {
+  display: block;
+  min-width: 50%;
+  float: right;
+
+  .nav & {
+    background-color: $menu-lighter;
+  }
+
+  & ~ .menu__handheld {
+    display: none;
+  }
+  
+  @media #{$mobile} {
+    min-width: 30%;
+  }
+
+  @media #{$tablet} {
+    float: none;
+  }
+}
+
+.menu__item {
+  @media #{$tablet} {
+    float: left;
+  }
+}
+
+.menu__link {
+  &:hover {
+    background-color: $menu-darker;
+  }
+
+  display: block;
+  color: inherit;
+  font-size: 1rem;
+  text-transform: uppercase;
+  padding: 11px;
+  
+  @media #{$mobile} {
+    padding: 1rem;
+  }
+
+  @media #{$tablet} {
+    padding: $min-menu-icon-width $gutter;
+  }
+}
