@@ -24,7 +24,7 @@
   function menuHide(){
     if (menuWide.classList.contains('show')) {
       menuShowHide();
-    }
+    } 
   }
 
   function menuShowHide() {

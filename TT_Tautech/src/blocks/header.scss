@@ -61,7 +61,6 @@ $menu-darker: #202529;
   line-height: $min-menu-height;
 
   display: block;
-  // float: left;
 
   text-indent: 19px;
 
@@ -82,7 +81,6 @@ $menu-darker: #202529;
   display: none;
   float: none;
 
-
   @media #{$tablet} {
     display: block;
     width: auto;
@@ -99,7 +97,6 @@ $menu-darker: #202529;
   display: block;
   min-width: 50%;
   float: right;
-  // border: 2px solid $menu-darker;
 
   .nav & {
     background-color: $menu-lighter;
