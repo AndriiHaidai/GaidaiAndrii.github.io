@@ -90,19 +90,19 @@ a:hover {
 
 .banner {
   font-family: 'Montserrat', sans-serif;
-  line-height: 65px;
-  width: 100%;
-  height: 646px;
+  line-height: 6.633vw;
+  height: 65.918vw;
   padding: 210px 16% 0 8%;
+  padding: 21.429vw 16% 0 8%;
   color: #fff;
   background-color: #0ca3b9;
   background-image: linear-gradient(-29deg, rgba(0, 0, 0, 0.18) 0%, rgba(255, 255, 255, 0.18) 100%);
 }
 
 .banner .banner__title {
-  font-size: 60px;
+  font-size: 6.122vw;
   font-weight: 400;
-  padding-bottom: 31px;
+  padding-bottom: 3.163vw;
 }
 
 .banner .banner__link {
@@ -111,7 +111,7 @@ a:hover {
 }
 
 .banner .banner__text {
-  font-size: 34px;
+  font-size: 3.469vw;
   font-weight: 400;
   float: left;
   opacity: .5;
@@ -123,12 +123,40 @@ a:hover {
 
 .banner .banner__next-btn {
   font-family: 'Quicksand', sans-serif;
-  font-size: 36px;
+  font-size: 3.673vw;
   font-weight: 400;
   display: inline-block;
   float: right;
   padding-right: 9%;
   padding-left: 9%;
+}
+
+.carousel__container {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  margin-top: 10px;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.carousel__container::after {
+  display: block;
+  clear: both;
+  content: '';
+}
+
+.carousel__controls {
+  float: left;
+  width: 33%;
+}
+
+.carousel__controls .carousel__next-btn {
+  font-family: 'Quicksand', sans-serif;
+  font-weight: 700;
+  color: #fff;
+  background-color: #5b0fa1;
 }
 
 .next-btn:hover {
@@ -155,13 +183,19 @@ header {
 }
 
 .menu__icon {
-  font-size: 37px;
-  line-height: 37px;
-  display: inline-block;
+  display: block;
   float: right;
-  width: 41px;
+  width: 12.813vw;
+  height: 11.563vw;
   text-align: center;
   background-color: #202529;
+}
+
+.menu__icon .ico-menu {
+  line-height: 11.563vw;
+  display: inline;
+  width: 5vw;
+  height: 11.563vw;
 }
 
 .menu__icon:hover {
@@ -170,8 +204,9 @@ header {
 
 @media screen and (min-width: 640px) {
   .menu__icon {
-    line-height: 74px;
-    width: 82px;
+    font-size: 11.563vw;
+    line-height: 11.563vw;
+    width: 12.813vw;
   }
 }
 
@@ -182,24 +217,13 @@ header {
   }
 }
 
-.svg-ico-menu {
-  fill: #fff;
-}
-
 .menu__handheld {
-  font-size: 24px;
-  line-height: 37px;
+  font-size: 3.75vw;
+  line-height: 11.563vw;
   display: block;
-  text-indent: 17px;
+  text-indent: 5.938vw;
   color: inherit;
   background-color: #373c3f;
-}
-
-@media screen and (min-width: 640px) {
-  .menu__handheld {
-    line-height: 74px;
-    text-indent: 36px;
-  }
 }
 
 @media screen and (min-width: 980px) {
@@ -278,29 +302,28 @@ header {
   }
 }
 
-
 .slogan {
   background-color: #27212c;
 }
 
 .slogan__text {
   font-family: 'Montserrat', sans-serif;
-  font-size: 30px;
+  font-size: 3.061vw;
   font-weight: 400;
-  line-height: 234px;
+  line-height: 23.878vw;
   display: inline-block;
-  text-indent: 81px;
+  text-indent: 8.265vw;
   color: #9282a0;
 }
 
 .slogan__next-btn {
   font-family: Quicksand;
-  font-size: 50px;
+  font-size: 5.102vw;
   font-weight: 700;
-  line-height: 234px;
+  line-height: 23.878vw;
   display: inline-block;
   float: right;
-  width: 22.6%;
+  width: 22.245vw;
   text-align: center;
   color: #fff;
   background-color: #bc3183;

@@ -1,9 +1,9 @@
 @import "./tools/vars.scss";
 
-$min-menu-height: 37px;
-$min-menu-icon-width: 41px;
-$mob-menu-height: 74px;
-$mob-menu-icon-width: 82px;
+$mob-menu-height: 11.563vw;
+// $mob-menu-height: 11.563vw;
+$mob-menu-icon-width: 12.813vw;
+// $mob-menu-icon-width: 12.813vw;
 
 $menu-lighter: #373c3f;
 $menu-darker: #202529;
@@ -35,22 +35,31 @@ header {
 
 
 .menu__icon {
-  font-size: $min-menu-height;
-  line-height: $min-menu-height;
-
-  display: inline-block;
+  display: block;
   float: right;
 
-  width: $min-menu-icon-width;
+  width: $mob-menu-icon-width;
+  height: $mob-menu-height;
 
   text-align: center;
 
   background-color: $menu-darker;
+  
+  & .ico-menu {
+    line-height: $mob-menu-height;
+
+    display: inline;
+
+    width: 5vw;
+    height: $mob-menu-height;
+  }
+
   &:hover {
     cursor: pointer;
   }
 
   @media #{$mobile} {
+    font-size: $mob-menu-height;
     line-height: $mob-menu-height;
 
     width: $mob-menu-icon-width;
@@ -63,28 +72,18 @@ header {
 }
 
 
-.svg-ico-menu {
-  fill: $primary;
-}
-
 
 .menu__handheld {
-  font-size: 24px;
-  line-height: $min-menu-height;
+  font-size: 3.75vw;
+  line-height: $mob-menu-height;
 
   display: block;
 
-  text-indent: 17px;
+  text-indent: 5.938vw;
 
   color: inherit;
   background-color: $menu-lighter;
   
-  @media #{$mobile} {
-    line-height: $mob-menu-height;
-
-    text-indent: 36px;
-  }
-
   @media #{$tablet} {
     display: none;
   }
@@ -156,6 +155,6 @@ header {
   }
   
   @media #{$tablet} {
-    padding: $min-menu-icon-width $gutter;
+    padding: 41px $gutter;
   }
 }

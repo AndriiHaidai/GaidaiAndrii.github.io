@@ -1,0 +1,34 @@
+@import './tools/vars.scss';
+
+.carousel__container {
+  display: flex;
+  // width: 100%;
+  // visibility: hidden;
+
+  margin-top: 10px;
+
+  justify-content: center;
+  &::after {
+    display: block;
+    clear: both;
+
+    content: '';
+  }
+}
+
+
+.carousel__controls {
+  float: left;
+
+  width: 33%;
+  .carousel__next-btn {
+    @include secondary-font;
+
+    // font-size: 118px;
+    font-weight: 700;
+    // line-height: 65px;
+
+    color: $primary;
+    background-color: #5b0fa1;
+  }
+}
