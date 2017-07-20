@@ -11,14 +11,41 @@ var gulp 								= require('gulp'),
 		plugins 						= require('gulp-load-plugins')();
 
 var paths = {
-		srcSass: ['./src/blocks/tools/*.scss', './src/blocks/default/*.scss', './src/blocks/**/*.scss'],
-  	srcJs: './src/blocks/**/*.js',
-  	srcHtml: './src/index.html',
-		srcSvg: './src/**/*.svg',
-  	destCss: './src/css',
-  	destJs: './src/js',
-		destSvg: './src/img'
+	srcHtml:    './src/index.html',
+	srcFavicon: './src/favicon.ico',
+	srcFonts:   './src/fonts/*',
+	srcSass:   ['./src/blocks/tools/*.scss', './src/blocks/default/*.scss', './src/blocks/**/*.scss'],
+	srcJs:      './src/blocks/**/*.js',
+	srcImg:    ['./src/Non-functional_images/*.jpg', './src/Non-functional_images/*.png'],
+	srcSvg:     './src/img/*.svg',
+
+	destHtml:    './dest',
+	destFavicon: './dest',
+	destFonts:   './dest/Content/fonts',
+	destCss:     './dest/Content/css',
+	destJs:      './dest/Scripts/js',
+	destImg:     './dest/Non-functional_images',
+	destSvg:     './dest/Content/img'
 };
+
+
+// Copy HTML to target folder
+gulp.task('bundleHtml' , function(){
+	var buildHtml = gulp.src(paths.srcHtml)
+		.pipe(gulp.dest(paths.destHtml));
+});
+
+// Copy favicon.ico to target folder
+gulp.task('getFavicon' , function(){
+	var buildFavicon = gulp.src(paths.srcFavicon)
+		.pipe(gulp.dest(paths.destFavicon));
+});
+
+// Copy Fonts to target folder
+gulp.task('bundleFonts' , function(){
+	var buildFonts = gulp.src(paths.srcFonts)
+		.pipe(gulp.dest(paths.destFonts));
+});
 
 // Assembling .scss files
 gulp.task('bundleCss' , function(){
@@ -42,6 +69,25 @@ gulp.task('bundleJs', function() {
 		}));
 });
 
+// Assembling Images
+gulp.task('bundleImg', function() {
+	gulp.src(paths.srcImg)
+	.pipe(cache(imagemin({
+		interlaced: true,
+		progressive: true,
+		svgoPlugins: [{removeViewBox: false}],
+		use: [pngquant()]
+	})))
+	.pipe(gulp.dest(paths.destImg));
+});
+
+// Assembling SVG Images
+gulp.task('bundleSvg', function() {
+	gulp.src(paths.srcSvg)
+	.pipe(gulp.dest(paths.destSvg));
+});
+
+
 
 gulp.task('watch', function(){
 	gulp.watch(paths.srcHtml, browserSync.reload);
@@ -52,14 +98,14 @@ gulp.task('watch', function(){
 gulp.task('browser-sync', function(){
 	browserSync({
 		server: {
-			baseDir: 'src'
+			baseDir: 'dest'
 		},
 		notify: false
 	});
 });
 
 
-gulp.task('default', ['browser-sync', 'bundleCss', 'bundleJs', 'watch']);
+gulp.task('default', ['browser-sync', 'bundleHtml', 'getFavicon', 'bundleFonts', 'bundleCss', 'bundleImg', 'bundleSvg', 'bundleJs', 'watch']);
 
 // Cleaning Dist folder
 // gulp.task('clean-dist', function() {
