@@ -1,0 +1,16 @@
+<?xml version="1.0" ?>
+<!DOCTYPE svg  PUBLIC '-//W3C//DTD SVG 1.1//EN'  'http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd'>
+<svg 
+  enable-background="new 0 0 31 28" 
+  width="31px" 
+  height="28px" 
+  version="1.1" 
+  viewBox="0 0 31 28" 
+  xmlns="http://www.w3.org/2000/svg" 
+  xmlns:xlink="http://www.w3.org/1999/xlink">
+  <g>
+    <rect fill="#FFF" height="4" width="31" y="4"/>
+    <rect fill="#FFF" height="4" width="31" y="12"/>
+    <rect fill="#FFF" height="4" width="31" y="20"/>
+  </g>
+</svg>
