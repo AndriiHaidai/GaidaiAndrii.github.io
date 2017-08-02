@@ -1,43 +1,32 @@
 @import "../tools/vars.scss";
 
 body {
-  background-color: #ebebeb;
+  background-color: #eda;
   min-width: $minimal-width;
 }
 // ↑ ↑ ↑ ↑ Временный цвет заливки. ↑ ↑ ↑ ↑
 
-:root {
-  --main: #000;
-  --accent: #f93;
-  --section-dark-bg: #000;
-  --section-dark-textcolor: #fff;
-  --page-width: $page-width;
-  --gutter: $gutter;
-  --columns: $columns;
-  font-size: 15px;
-}
-
 .wrapper {
   display: block;
 
-  max-width: var(--page-width);
+  // max-width: var(--page-width);
   margin-right: auto;
   margin-left: auto;
-  padding-left: var(--gutter);
-  padding-right: var(--gutter);
+  // padding-left: var(--gutter);
+  // padding-right: var(--gutter);
 }
 
-.row {
-  margin-left: calc(-1 * var(--gutter));
-  margin-right: calc(-1 * var(--gutter));
-}
+// .row {
+//   margin-left: calc(-1 * var(--gutter));
+//   margin-right: calc(-1 * var(--gutter));
+// }
 
-.col {
-  display: block;
-  margin-left: var(--gutter);
-  margin-right: var(--gutter);
-}
+// .col {
+//   display: block;
+//   margin-left: var(--gutter);
+//   margin-right: var(--gutter);
+// }
 
-@for $n from 1 through 12 {
-  .col-#{$n} {width: calc( #{$n} / var(--columns) - var(--gutter) * 2 ); }
-}
+// @for $n from 1 through 12 {
+//   .col-#{$n} {width: calc( #{$n} / var(--columns) - var(--gutter) * 2 ); }
+// }

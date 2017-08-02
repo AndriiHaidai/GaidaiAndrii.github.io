@@ -19,13 +19,21 @@ var paths = {
 	srcImg:    ['./src/Non-functional_images/*.jpg', './src/Non-functional_images/*.png'],
 	srcSvg:     './src/img/*.svg',
 
+	destHtml:    './src',
+	destFavicon: './src',
+	destFonts:   './src/fonts',
+	destCss:     './src/css',
+	destJs:      './src/js',
+	destImg:     './src/img',
+	destSvg:     './src/img'
+/*
 	destHtml:    './dest',
 	destFavicon: './dest',
 	destFonts:   './dest/Content/fonts',
 	destCss:     './dest/Content/css',
 	destJs:      './dest/Scripts/js',
 	destImg:     './dest/Non-functional_images',
-	destSvg:     './dest/Content/img'
+	destSvg:     './dest/Content/img'*/
 };
 
 
@@ -98,47 +106,41 @@ gulp.task('watch', function(){
 gulp.task('browser-sync', function(){
 	browserSync({
 		server: {
-			baseDir: 'dest'
+			baseDir: 'src'
+			// baseDir: 'dest'
 		},
 		notify: false
 	});
 });
 
 
-gulp.task('default', ['browser-sync', 'bundleHtml', 'getFavicon', 'bundleFonts', 'bundleCss', 'bundleImg', 'bundleSvg', 'bundleJs', 'watch']);
+/*
+gulp.task(
+	'default', 
+	[
+		'browser-sync', 
+		'bundleHtml', 
+		'getFavicon', 
+		'bundleFonts', 
+		'bundleCss', 
+		'bundleImg', 
+		'bundleSvg', 
+		'bundleJs', 
+		'watch'
+	]
+);*/
+gulp.task(
+	'default', 
+	[
+		'browser-sync', 
+		'bundleHtml', 
+		// 'getFavicon', 
+		// 'bundleFonts', 
+		'bundleCss', 
+		// 'bundleImg', 
+		// 'bundleSvg', 
+		'bundleJs', 
+		'watch'
+	]
+);
 
-// Cleaning Dist folder
-// gulp.task('clean-dist', function() {
-// 	return del.sync('dist');
-// });
-
-// Clearning cache
-// gulp.task('clean-cache', function() {
-// 	cache.clearAll();
-// });
-
-// gulp.task('bundleImg', function() {
-// 	gulp.src('src/img/**/*')
-// 	.pipe(cache(imagemin({
-// 		interlaced: true,
-// 		progressive: true,
-// 		svgoPlugins: [{removeViewBox: false}],
-// 		use: [pngquant()]
-// 	})))
-// 	.pipe(gulp.dest('dist/img'));
-// });
-
-// Building our app
-// gulp.task ('build', ['clean-dist', 'bundleImg', 'bundleCss'], function() {
-// 	var buildCss = gulp.src('app/css/style.css')
-// 		.pipe(gulp.dest('dist/css'));
-//
-// 	var buildFonts = gulp.src('app/fonts/**/*')
-// 		.pipe(gulp.dest('dist/fonts'));
-//
-// 	var buildJs = gulp.src('app/js/*')
-// 		.pipe(gulp.dest('dist/js'));
-//
-// 	var buildHtml = gulp.src('app/*.html')
-// 		.pipe(gulp.dest('dist'));
-// });
