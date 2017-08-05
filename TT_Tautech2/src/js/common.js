@@ -73,7 +73,7 @@ function getDataPoints(_qtyPoints, _hgt) {
 
   for (var i = 0; i <= _qtyPoints; i++) {
     xPoints.push(i * (XX/_qtyPoints));
-    yPoints.push(20+hgtBeg + 3*Math.sin(i) + hgtEnd*i + 5*Math.random() );
+    yPoints.push( Math.round( (20+hgtBeg + 3*Math.sin(i) + hgtEnd*i + 5*Math.random())*10000 )/10000 );
     ar.push(xPoints[i]);
     ar.push(yPoints[i]);
   }
