@@ -19,7 +19,6 @@ var ctxPdngBegX; // Отступ области отрисовки внутри 
 var ctxPdngEndX; // Отступ области отрисовки внутри Canvas справа
 var ctxPdngBegY; // Отступ области отрисовки внутри Canvas сверху
 var ctxPdngEndY; // Отступ области отрисовки внутри Canvas снизу
-var ctxGridStepY;// Шаг сетки Canvas по оси Y
 
 var xx; // начальная координата отрисовки графика внутри Canvas
 var yy; // начальная координата отрисовки графика внутри Canvas
@@ -29,6 +28,8 @@ var YY; // конечная координата отрисовки график
 var grd;
 
 var points = [];
+var xPoints = [];
+var yPoints = [];
 var point = 1;
 // var nextTime = new Date().getTime() + 500;
 // var pace = 200;
@@ -40,7 +41,7 @@ var y = 0;
 
 
 function initCanvas(){
-  ctxWdth = 1000;
+  ctxWdth = 1100;
   ctxHght = 700;
 
   // canvas = document.getElementById('c1');
@@ -52,7 +53,6 @@ function initCanvas(){
   ctxPdngEndX = 100;  // Отступ области отрисовки внутри Canvas справа
   ctxPdngBegY = 50;   // Отступ области отрисовки внутри Canvas сверху
   ctxPdngEndY = 150;  // Отступ области отрисовки внутри Canvas снизу
-  ctxGridStepY = 100;
 
   xx = ctxPdngBegX;           // начальная координата отрисовки графика внутри Canvas
   yy = ctxPdngBegY;           // начальная координата отрисовки графика внутри Canvas
@@ -66,80 +66,141 @@ function initCanvas(){
   ctx.translate(ctxPdngBegX, ctxPdngEndY);
 }
 
-function drawGrid(){
+function getDataPoints(_qtyPoints, _hgt) {
+  var ar = [];
+  var hgtBeg = 50*Math.random(); // 30
+  var hgtEnd = _hgt ? _hgt : (100-hgtBeg)/_qtyPoints*Math.random(); //500
+
+  for (var i = 0; i <= _qtyPoints; i++) {
+    xPoints.push(i * (XX/_qtyPoints));
+    yPoints.push(20+hgtBeg + 3*Math.sin(i) + hgtEnd*i + 5*Math.random() );
+    ar.push(xPoints[i]);
+    ar.push(yPoints[i]);
+  }
+  return ar;
+}
+
+var grid = {};
+function countGrid() {
+  var ValMid;
+  var ValMidOrd = 0;   // Порядок значений
+
+  // Верхняя Масштабированная линия сетки:
+  var ValMax = Math.ceil(Math.max.apply(null, yPoints));
+  var ValMaxOrd = 0;
+  var ValMaxTmp = ValMax;
+  while ( ValMaxTmp > 9) {
+    ValMaxOrd++;
+    ValMaxTmp = Math.floor(ValMaxTmp/10);
+  }
+  grid.End = ++ValMaxTmp * Math.pow(10,ValMaxOrd);
+
+  
+  // Нижняя Масштабированная линия сетки:
+  var ValMin = Math.floor(Math.min.apply(null, yPoints));
+  var ValMinOrd = 0;
+  var ValMinTmp = ValMin;
+  while ( ValMinTmp > 9) {
+    ValMinOrd++;
+    ValMinTmp = Math.floor(ValMinTmp/10);
+  }
+  ValMinTmp *= Math.pow(10, ValMinOrd);
+  grid.Beg = Math.floor(ValMinTmp/Math.pow(10,ValMaxOrd))*Math.pow(10,ValMaxOrd);
+  
+  // Размах данных:
+  var ValDifOrd = Math.pow(10, ValMinOrd); // Порядок Амплитуды значений.
+  ValMaxTmp = Math.ceil(ValMax/ValDifOrd)*ValDifOrd;
+  ValMinTmp = Math.floor(ValMin/ValDifOrd)*ValDifOrd;
+  console.log('ValMinTmp, ValMaxTmp: ', ValMinTmp, ValMaxTmp);
+  var ValDif = ValMaxTmp - ValMinTmp;            // Величина Амплитуды значений.
+  var ValDifTmp = ValDif;
+  ValDifOrd = 0;
+  while ( ValDifTmp > 9 ) {
+    ValDifOrd++;
+    ValDifTmp = Math.floor(ValDifTmp/10);
+  }
+  grid.amplitude = ValDifTmp * Math.pow(10, ValDifOrd);
+
+  // Шаг сетки по оси Y:
+  if ( grid.amplitude <= 1.2*Math.pow(10, ValMaxOrd) ) {
+    grid.Beg = ValMinTmp;
+    grid.End = ValMaxTmp;
+  }
+  grid.stepY = Math.pow(10, ValMinOrd);
+  if ( grid.amplitude/Math.pow(10, ValDifOrd) < 4 ) {
+    grid.stepY /=2;
+  }
+
+  // Смещение Сетки снизу нижней границы, если она не нулевая.
+  grid.shift = (grid.Beg === 0) ? 0 : ((grid.Beg / Math.pow(10, ValMinOrd))-1)*Math.pow(10, ValMinOrd) + 7*Math.pow(10, ValMinOrd-1); 
+
+  grid.scale = YY / (grid.End - grid.shift);
+
+  console.log('grid settings: ', grid);
+}
+
+function drawGrid(_grid){
   // Фон под отрисовку: 2 строки:
   // ctx.fillStyle = '#18223B';
   // ctx.fillRect(0,0, XX,YY);
   
-  // Сама сетка:
   ctx.strokeStyle = "#424A5E";
-  for (var y = 0; y < YY; y += ctxGridStepY) {
+  ctx.font = 'normal normal 100 14px sans-serif';
+  ctx.textAlign = 'center';
+  ctx.textBaseline = 'middle';
+  ctx.fillStyle = '#fff';
+
+  // линия сетки Y=0:
+  ctx.beginPath();
+  ctx.moveTo(0, 0);
+  ctx.lineTo(XX, 0);
+  ctx.stroke();
+  ctx.closePath();
+
+  // Расчитанные линии сетки:
+  for (var y = _grid.Beg; y <= _grid.End; y += _grid.stepY) {
     ctx.beginPath();
-    ctx.moveTo(0, y);
-    ctx.lineTo(XX, y);
+    ctx.moveTo(0, (y-grid.shift)*grid.scale);
+    ctx.lineTo(XX, (y-grid.shift)*grid.scale);
     ctx.stroke();
     ctx.closePath();
-  }
 
+    ctx.scale(1, -1); // >>> Подписи оси Y:
+    ctx.fillText(y, -0.5*ctxPdngBegX, -(y-grid.shift)*grid.scale, 0.8*ctxPdngBegX);
+    ctx.scale(1, -1); // <<< Подписи оси Y.
+  }
+  
+  var x, text; // >>> Подписи оси X:
+  ctx.font = 'normal normal 100 10px Arial';
+  ctx.scale(1, -1);
+    for (var i = 0; i < 10; i++) {
+      x = i/9*XX;
+      text = points[findClosestPoint(x, points)];
+      ctx.fillText(text, x, 30, 0.1*XX);
+    }
+  ctx.scale(1, -1); // <<< Подписи оси X.
+}
+
+var tension = 0.5;
+function drawCurve(ctx, ptsa, tension, isClosed, numOfSegments, showPoints) {
   grd = ctx.createLinearGradient(0, 0, XX, YY);
   grd.addColorStop(0, '#959959');
   grd.addColorStop(1, '#0296E9');
   ctx.strokeStyle = grd;
-  ctx.font = '20px sans-serif';
-}
+  
+  showPoints  = showPoints ? showPoints : false;
 
-function drawLabels() {
-  // y labels:
-    ctx.font = 'normal normal 100 14px sans-serif';
-    ctx.fillStyle = '#fff';
-    ctx.textAlign = 'center';
-    ctx.textBaseline = 'middle';
-    ctx.scale(1, -1);
+  ctx.beginPath();
+  drawLines(ctx, getCurvePoints(ptsa, tension, isClosed, numOfSegments));
 
-    ctx.fillText('0', -0.5*ctxPdngBegX, 0, 0.8*ctxPdngBegX);
-    ctx.fillText('100', -0.5*ctxPdngBegX, -1/4.5*(YY-yy), 0.8*ctxPdngBegX);
-    ctx.fillText('200', -0.5*ctxPdngBegX, -2/4.5*(YY-yy), 0.8*ctxPdngBegX);
-    ctx.fillText('300', -0.5*ctxPdngBegX, -3/4.5*(YY-yy), 0.8*ctxPdngBegX);
-    ctx.fillText('400', -0.5*ctxPdngBegX, -4/4.5*(YY-yy), 0.8*ctxPdngBegX);
-    ctx.fillText(YY, -0.5*ctxPdngBegX, -YY, 0.8*ctxPdngBegX);
-    ctx.scale(1, -1);
-
-  // x labels
-    ctx.font = 'normal normal 100 10px sans-serif';
-    ctx.scale(1, -1);
-    ctx.fillText('2007', 0*0.1*XX, 30, 0.1*XX);
-    ctx.fillText('2008', 1*0.1*XX, 30, 0.1*XX);
-    ctx.fillText('2009', 2*0.1*XX, 30, 0.1*XX);
-    ctx.fillText('2010', 3*0.1*XX, 30, 0.1*XX);
-    ctx.fillText('2011', 4*0.1*XX, 30, 0.1*XX);
-    ctx.fillText('2012', 5*0.1*XX, 30, 0.1*XX);
-    ctx.fillText('2013', 6*0.1*XX, 30, 0.1*XX);
-    ctx.fillText('2014', 7*0.1*XX, 30, 0.1*XX);
-    ctx.fillText('2015', 8*0.1*XX, 30, 0.1*XX);
-    ctx.fillText('2016', 9*0.1*XX, 30, 0.1*XX);
-    ctx.fillText('2017', 10*0.1*XX, 30, 0.1*XX);
-    ctx.scale(1, -1);
-}
-
-var tension = 0.0;
-function drawCurve(ctx, ptsa, tension, isClosed, numOfSegments, showPoints) {
-
-    // debugger;
-    console.log('ctx: ', ctx);
-    showPoints  = showPoints ? showPoints : false;
-
+  ctx.stroke();
+  if (showPoints) {
     ctx.beginPath();
-
-    drawLines(ctx, getCurvePoints(ptsa, tension, isClosed, numOfSegments));
-
-    ctx.stroke();
-    if (showPoints) {
-      ctx.beginPath();
-      for(var i = 0; i < ptsa.length - 1; i += 2) {
-        ctx.fillRect(ptsa[i] - 2, ptsa[i+1] - 2, 4, 4);
-      }
-      ctx.closePath();
+    for(var i = 0; i < ptsa.length - 1; i += 2) {
+      ctx.fillRect(ptsa[i] - 2, ptsa[i+1] - 2, 4, 4);
     }
+    ctx.closePath();
+  }
 }
 
 function getCurvePoints(pts, tension, isClosed, numOfSegments) {
@@ -216,26 +277,19 @@ function getCurvePoints(pts, tension, isClosed, numOfSegments) {
 }
 
 function drawLines(ctx, pts) {
-    ctx.moveTo(pts[0], pts[1]);
-    for(i=2;i<pts.length-1;i+=2) ctx.lineTo(pts[i], pts[i+1]);
+    ctx.moveTo(pts[0], (pts[1]-grid.shift)*grid.scale);
+    for(var i=2; i<pts.length-1; i+=2) ctx.lineTo(pts[i], (pts[i+1]-grid.shift)*grid.scale);
 }
 
-function drawVertical(x_) {
-  const y1 = -40;       // Отступ первой выноски вниз от области рисования графика.
-  const widthVert = 3; // Толщина вертикальной линии с выносками.
-  var x = x_;
-  var y2; // Высота второй выноски - на графике.
-
-  // Найти ближайшую правую точку x:
-  // Формат массива: [x0,y0, x1,y1, ... xN,yN]
-  var left = 0;
+// Найти ближайшую правую точку x:
+// Формат массива: [x0,y0, x1,y1, ... xN,yN]
+function findClosestPoint(x, arPoints, _left, _right) {
+  var points = arPoints.length > 0 ? arPoints : points;
+  var left = _left ? _left : 0;
+  // var right = _right ? _right : qtyPoints*2;
+  var right = _right ? _right : arPoints.length-2;
   var middle;
-  var right = qtyPoints*2;
-  console.log('points[0]: ', points[0]);
-  console.log('points[qtyPoints*2]: ', points[qtyPoints*2]);
-  console.log('points: ', points);
-
-  ctx.fillStyle = '#4A90E2';
+  var k;
 
   while (left <= right) {
     middle = Math.ceil((left+right)/2);
@@ -248,20 +302,32 @@ function drawVertical(x_) {
       left = middle + 2;
     }
   }
-  
-  var k;
+
   if ( Math.abs(x - points[0]) < Math.abs(x - points[2]) ) {
     k = 0; // Костыль для отрисовки нулевой точки.
   } else {
     k = Math.max(left, middle); // Отрисовка ближайшей правой точки.
   }
+  
+  return k;
+}
+
+function drawVertical(x_) {
+  const y1 = -40;       // Отступ первой выноски вниз от области рисования графика.
+  const widthVert = 3; // Толщина вертикальной линии с выносками.
+  var x = x_;
+  var y2; // Высота второй выноски - на графике.
+  var k = findClosestPoint(x, points);
+  
   x = points[k];
   y2 = points[k+1];
+  var calloutText1 = x;
+  var calloutText2 = y2;
 
+  ctx.fillStyle = '#4A90E2';
   ctx.fillRect(x - widthVert/2, y1, widthVert, YY-y1);
-  drawCallout(x, y1, widthVert, x, 'texygt2', '12px Arial', '#4A90E2', '#18223B', 20,8,4, false);
-  drawCallout(x, y2, widthVert, y2, '', '12px Arial', '#3CC182', '#3CC182', 20,8,4, true);
-
+  drawCallout(x, y1, widthVert, calloutText1, '', '12px Arial', '#4A90E2', '#18223B', 20,8,4, false);
+  drawCallout(x, (y2-grid.shift)*grid.scale, widthVert, calloutText2, '', '12px Arial', '#3CC182', '#3CC182', 20,8,4, true);
 }
 
 function drawCallout(x, y, rBullet, text1, text2, font, strokeStyle, fillStyle, R_, r_, r2_, toTop_) {
@@ -285,8 +351,8 @@ function drawCallout(x, y, rBullet, text1, text2, font, strokeStyle, fillStyle, 
   var w = W/2 - R - r;
   var h = H - r - r2;
   
-  var xc, yc; // x.control -  Координаты контрольной точки для дуги;
-  var xe, ye; // x.end - Координаты "последней" точки;
+  var xc, yc; // x.control - Координаты контрольной точки для дуги;
+  var xe, ye; // x.end     - Координаты "последней" точки;
 
 
   ctx.beginPath();
@@ -374,18 +440,16 @@ function drawCallout(x, y, rBullet, text1, text2, font, strokeStyle, fillStyle, 
   ctx.stroke();
 }
 
+
 initCanvas();
 
 // Make some points:
 // Формат массива: [x0,y0, x1,y1, ... xN,yN]
 var qtyPoints = 90;
-for (var i = 0; i <= qtyPoints; i++) {
-  points.push(i * (XX/qtyPoints));
-  points.push(40 + 3*Math.sin(i) + 4*i + 5*Math.random() );
-}
+points = getDataPoints(qtyPoints).slice(0);
 
-drawGrid();
-drawLabels();
+countGrid();
+drawGrid(grid);
 drawCurve(ctx, points, tension, false, false, false);
 drawVertical(0);
 
@@ -393,11 +457,9 @@ canvas.addEventListener('mousemove', function (e) {
   var mouseX = e.clientX - canvas.getBoundingClientRect().left - ctxPdngBegX;
   var mouseY = e.clientY - canvas.getBoundingClientRect().top  - ctxPdngBegY;
   if ( 0 < mouseX && mouseX < XX && 0 < mouseY && mouseY < YY ) {
-    // console.log('mouseX: ', mouseX, '; mouseY: ', mouseY, '; ctx: ', ctx);
 
     initCanvas();
-    drawLabels();
-    drawGrid();
+    drawGrid(grid);
     drawCurve(ctx, points, tension, false, false, false);
     drawVertical(mouseX);
   }
