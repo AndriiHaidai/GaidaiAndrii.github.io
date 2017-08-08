@@ -27,9 +27,11 @@ var YY; // конечная координата отрисовки график
 
 var grd;
 
-var points = [];
+var pointsSrc = [];
 var xPoints = [];
 var yPoints = [];
+var pointsAGA = {x:[], y:[]};
+var pointsWork = {x:[], y:[]};
 var point = 1;
 // var nextTime = new Date().getTime() + 500;
 // var pace = 200;
@@ -76,6 +78,8 @@ function getDataPoints(_qtyPoints, _hgt) {
     yPoints.push( Math.round( (20+hgtBeg + 3*Math.sin(i) + hgtEnd*i + 5*Math.random())*10000 )/10000 );
     ar.push(xPoints[i]);
     ar.push(yPoints[i]);
+    pointsAGA.x.push(xPoints[i]);
+    pointsAGA.y.push(yPoints[i]);
   }
   return ar;
 }
@@ -86,7 +90,8 @@ function countGrid() {
   var ValMidOrd = 0;   // Порядок значений
 
   // Верхняя Масштабированная линия сетки:
-  var ValMax = Math.ceil(Math.max.apply(null, yPoints));
+  // var ValMax = Math.ceil(Math.max.apply(null, yPoints));
+  var ValMax = Math.ceil(Math.max.apply(null, pointsAGA.y));
   var ValMaxOrd = 0;
   var ValMaxTmp = ValMax;
   while ( ValMaxTmp > 9) {
@@ -97,7 +102,7 @@ function countGrid() {
 
   
   // Нижняя Масштабированная линия сетки:
-  var ValMin = Math.floor(Math.min.apply(null, yPoints));
+  var ValMin = Math.floor(Math.min.apply(null, pointsAGA.y));
   var ValMinOrd = 0;
   var ValMinTmp = ValMin;
   while ( ValMinTmp > 9) {
@@ -126,8 +131,10 @@ function countGrid() {
     grid.Beg = ValMinTmp;
     grid.End = ValMaxTmp;
   }
-  grid.stepY = Math.pow(10, ValMinOrd);
-  if ( grid.amplitude/Math.pow(10, ValDifOrd) < 4 ) {
+  grid.stepY = Math.pow(10, ValDifOrd);
+  if ( grid.amplitude/Math.pow(10, ValDifOrd) < 3 ) {
+    grid.stepY /=5;
+  } else if ( grid.amplitude/Math.pow(10, ValDifOrd) < 5 ) {
     grid.stepY /=2;
   }
 
@@ -137,6 +144,7 @@ function countGrid() {
   grid.scale = YY / (grid.End - grid.shift);
 
   console.log('grid settings: ', grid);
+
 }
 
 function drawGrid(_grid){
@@ -175,7 +183,7 @@ function drawGrid(_grid){
   ctx.scale(1, -1);
     for (var i = 0; i < 10; i++) {
       x = i/9*XX;
-      text = points[findClosestPoint(x, points)];
+      text = pointsSrc[findClosestPoint(x, pointsSrc)];
       ctx.fillText(text, x, 30, 0.1*XX);
     }
   ctx.scale(1, -1); // <<< Подписи оси X.
@@ -196,9 +204,12 @@ function drawCurve(ctx, ptsa, tension, isClosed, numOfSegments, showPoints) {
   ctx.stroke();
   if (showPoints) {
     ctx.beginPath();
-    for(var i = 0; i < ptsa.length - 1; i += 2) {
-      ctx.fillRect(ptsa[i] - 2, ptsa[i+1] - 2, 4, 4);
+    for(var i = 0; i < ptsa.x.length - 1; i++) {
+      ctx.fillRect(ptsa.x[i] - 1, ptsa.y[i] - 1, 4, 4);
     }
+    // for(var i = 0; i < ptsa.length - 1; i += 2) {
+    //   ctx.fillRect(ptsa[i] - 2, ptsa[i+1] - 2, 4, 4);
+    // }
     ctx.closePath();
   }
 }
@@ -210,48 +221,70 @@ function getCurvePoints(pts, tension, isClosed, numOfSegments) {
     isClosed = isClosed ? isClosed : false;
     numOfSegments = numOfSegments ? numOfSegments : 16;
 
-    var _pts = [], res = [],    // clone array
-        x, y,           // our x,y coords
-        t1x, t2x, t1y, t2y, // tension vectors
-        c1, c2, c3, c4,     // cardinal points
-        st, t, i;       // steps based on num. of segments
+    var _pts = {x:[], y:[]}, res = {x:[], y:[]};    // clone array
+    // var _pts = [], res = [];    // clone array
+    var x, y;                      // our x,y coords
+    var t1x, t2x, t1y, t2y;        // tension vectors
+    var c1, c2, c3, c4;            // cardinal points
+    var st, t, i;                  // steps based on num. of segments
 
     // clone array so we don't change the original
     //
-    _pts = pts.slice(0);
+    // _pts = pts.slice(0);
+    _pts.x = pts.x.slice(0);
+    _pts.y = pts.y.slice(0);
 
     // The algorithm require a previous and next point to the actual point array.
     // Check if we will draw closed or open curve.
     // If closed, copy end points to beginning and first points to end
     // If open, duplicate first points to befinning, end points to end
     if (isClosed) {
-        _pts.unshift(pts[pts.length - 1]);
-        _pts.unshift(pts[pts.length - 2]);
-        _pts.unshift(pts[pts.length - 1]);
-        _pts.unshift(pts[pts.length - 2]);
-        _pts.push(pts[0]);
-        _pts.push(pts[1]);
+        _pts.x.unshift(pts.x[pts.x.length - 1]); // x
+        _pts.y.unshift(pts.y[pts.y.length - 1]); // y
+        _pts.x.unshift(pts.x[pts.x.length - 1]); // x
+        _pts.y.unshift(pts.y[pts.y.length - 1]); // y
+        _pts.x.push(pts.x[0]);
+        _pts.y.push(pts.y[0]);
     }
     else {
-        _pts.unshift(pts[1]);   //copy 1. point and insert at beginning
-        _pts.unshift(pts[0]);
-        _pts.push(pts[pts.length - 2]); //copy last point and append
-        _pts.push(pts[pts.length - 1]);
+        _pts.x.unshift(pts.x[0]);   //copy 1. point and insert at beginning
+        _pts.y.unshift(pts.y[0]);
+        _pts.x.push(pts.x[pts.x.length - 1]); //copy last point and append
+        _pts.y.push(pts.y[pts.y.length - 1]);
     }
+    // if (isClosed) {
+    //     _pts.unshift(pts[pts.length - 1]);
+    //     _pts.unshift(pts[pts.length - 2]);
+    //     _pts.unshift(pts[pts.length - 1]);
+    //     _pts.unshift(pts[pts.length - 2]);
+    //     _pts.push(pts[0]);
+    //     _pts.push(pts[1]);
+    // }
+    // else {
+    //     _pts.unshift(pts[1]);   //copy 1. point and insert at beginning
+    //     _pts.unshift(pts[0]);
+    //     _pts.push(pts[pts.length - 2]); //copy last point and append
+    //     _pts.push(pts[pts.length - 1]);
+    // }
 
     // ok, lets start..
 
     // 1. loop goes through point array
     // 2. loop goes through each segment between the 2 pts + 1e point before and after
-    for (i=2; i < (_pts.length - 4); i+=2) {
+    // for (i=2; i < (_pts.length - 4); i+=2) {
+    for (i=1; i < (_pts.x.length - 2); i++) {
         for (t=0; t <= numOfSegments; t++) {
 
             // calc tension vectors
-            t1x = (_pts[i+2] - _pts[i-2]) * tension;
-            t2x = (_pts[i+4] - _pts[i]) * tension;
+            // t1x = (_pts[i+2] - _pts[i-2]) * tension;
+            // t2x = (_pts[i+4] - _pts[i]) * tension;
+            t1x = (_pts.x[i+1] - _pts.x[i-1]) * tension;
+            t2x = (_pts.x[i+2] - _pts.x[i]) * tension;
 
-            t1y = (_pts[i+3] - _pts[i-1]) * tension;
-            t2y = (_pts[i+5] - _pts[i+1]) * tension;
+            // t1y = (_pts[i+3] - _pts[i-1]) * tension;
+            // t2y = (_pts[i+5] - _pts[i+1]) * tension;
+            t1y = (_pts.y[i+1] - _pts.y[i-1]) * tension;
+            t2y = (_pts.y[i+2] - _pts.y[i]) * tension;
 
             // calc step
             st = t / numOfSegments;
@@ -263,12 +296,14 @@ function getCurvePoints(pts, tension, isClosed, numOfSegments) {
             c4 =       Math.pow(st, 3)  -     Math.pow(st, 2);
 
             // calc x and y cords with common control vectors
-            x = c1 * _pts[i]    + c2 * _pts[i+2] + c3 * t1x + c4 * t2x;
-            y = c1 * _pts[i+1]  + c2 * _pts[i+3] + c3 * t1y + c4 * t2y;
+            // x = c1 * _pts[i]    + c2 * _pts[i+2] + c3 * t1x + c4 * t2x;
+            // y = c1 * _pts[i+1]  + c2 * _pts[i+3] + c3 * t1y + c4 * t2y;
+            x = c1 * _pts.x[i]     + c2 * _pts.x[i+1] + c3 * t1x + c4 * t2x;
+            y = c1 * _pts.y[i]     + c2 * _pts.y[i+1] + c3 * t1y + c4 * t2y;
 
             //store points in array
-            res.push(x);
-            res.push(y);
+            res.x.push(x);
+            res.y.push(y);
 
         }
     }
@@ -277,8 +312,12 @@ function getCurvePoints(pts, tension, isClosed, numOfSegments) {
 }
 
 function drawLines(ctx, pts) {
-    ctx.moveTo(pts[0], (pts[1]-grid.shift)*grid.scale);
-    for(var i=2; i<pts.length-1; i+=2) ctx.lineTo(pts[i], (pts[i+1]-grid.shift)*grid.scale);
+    // ctx.moveTo(pts[0], (pts[1]-grid.shift)*grid.scale);
+    // for(var i=2; i<pts.length-1; i+=2) ctx.lineTo(pts[i], (pts[i+1]-grid.shift)*grid.scale);
+    ctx.moveTo(pts.x[0], (pts.y[0]-grid.shift)*grid.scale);
+    for ( var i=1; i<pts.x.length-1; i++) {
+      ctx.lineTo(pts.x[i], (pts.y[i]-grid.shift)*grid.scale);
+    }
 }
 
 // Найти ближайшую правую точку x:
@@ -317,10 +356,10 @@ function drawVertical(x_) {
   const widthVert = 3; // Толщина вертикальной линии с выносками.
   var x = x_;
   var y2; // Высота второй выноски - на графике.
-  var k = findClosestPoint(x, points);
+  var k = findClosestPoint(x, pointsSrc);
   
-  x = points[k];
-  y2 = points[k+1];
+  x = pointsSrc[k];
+  y2 = pointsSrc[k+1];
   var calloutText1 = x;
   var calloutText2 = y2;
 
@@ -446,11 +485,14 @@ initCanvas();
 // Make some points:
 // Формат массива: [x0,y0, x1,y1, ... xN,yN]
 var qtyPoints = 90;
-points = getDataPoints(qtyPoints).slice(0);
+pointsSrc = getDataPoints(qtyPoints).slice(0);
+pointsWork.x = pointsAGA.x.slice(0);
+pointsWork.y = pointsAGA.y.slice(0);
 
 countGrid();
+// pointsWork = countGrid();
 drawGrid(grid);
-drawCurve(ctx, points, tension, false, false, false);
+drawCurve(ctx, pointsWork, tension, false, false, false);
 drawVertical(0);
 
 canvas.addEventListener('mousemove', function (e) {
@@ -460,7 +502,7 @@ canvas.addEventListener('mousemove', function (e) {
 
     initCanvas();
     drawGrid(grid);
-    drawCurve(ctx, points, tension, false, false, false);
+    drawCurve(ctx, pointsWork, tension, false, false, false);
     drawVertical(mouseX);
   }
 });
