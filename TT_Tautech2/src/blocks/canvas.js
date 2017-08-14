@@ -2,13 +2,6 @@
 /* jshint browser: true */
 'use strict';
 
-// requestAnim shim layer by Paul Irish
-// window.requestAnimFrame = (function () {
-//     return window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame || window.oRequestAnimationFrame || window.msRequestAnimationFrame || function ( /* function */ callback, /* DOMElement */ element) {
-//         window.setTimeout(callback, 1000 / 6);
-//     };
-// })();
-
 // Variables:
 const canvas = document.getElementById('c1');
 const ctx = canvas.getContext('2d');
@@ -25,8 +18,6 @@ var yy; // начальная координата отрисовки графи
 var XX; // конечная координата отрисовки графика внутри Canvas
 var YY; // конечная координата отрисовки графика внутри Canvas
 
-var grd;
-
 var pointsSrc = {x:[], y:[]}; // pointsSrc = [];
 var pointsWork = {xVal:[], xLbl:[], yVal:[], yLbl:[]};
 var point = 1;
@@ -38,6 +29,9 @@ var tgtY = 0;
 var x = 0;
 var y = 0;
 
+var grd; // Градиент для отрисовки линии графика:
+
+var start = null;
 
 function initCanvas(){
   ctxWdth = 1100;
@@ -63,23 +57,81 @@ function initCanvas(){
   ctx.translate(0, ctxHght);
   ctx.scale(1, -1);
   ctx.translate(ctxPdngBegX, ctxPdngEndY);
+
+  grd = ctx.createLinearGradient(0, 0, XX, YY);
+  grd.addColorStop(0, '#959959');
+  grd.addColorStop(1, '#0296E9');
 }
 
-function getDataPoints(_qtyPoints, _hgt) {
+function readAPI(url, cb){
+  var xhr = new XMLHttpRequest();
+  
+  xhr.onreadystatechange = function() {
+    if ( this.readyState == 4 && this.status == 200 ) {
+      cb(this);
+    }
+  };
+  // xhr.open("GET", url, true);
+  xhr.open("GET", url, true);
+  xhr.send();
+}
+
+function getStringDate(_date) {
+  var sDate = 
+    String(_date.getUTCFullYear()) + '-' + 
+    (new Array(3-String(_date.getUTCMonth()+1).length)).join('0') + String(_date.getUTCMonth()+1) + '-' + 
+    (new Array(3-String(_date.getUTCDate()).length)).join('0') + String(_date.getUTCDate());
+  
+  return sDate;
+}
+
+function getAPIDataPoints(_qtyPoints) {
+  // apiURL = 'https://api.privatbank.ua/p24api/pubinfo?json&exchange&coursid=5&date=2017-08-01';
+  // apiURL = 'http://api.fixer.io/2000-01-17?base=USD';
   var ar = {x:[], y:[]};
-  var hgtBeg = 50*Math.random(); // 30
-  var hgtEnd = _hgt ? _hgt : (70-hgtBeg)/_qtyPoints*Math.random(); //500
-  var xPoints = [];
-  var yPoints = [];
+  var x, y;
+  var resp;
+  var apiURL;
+  var date;
+  var sDate;
+
+  date = new Date();
+  sDate = getStringDate(date);
+  apiURL = 'http://api.fixer.io/' + sDate + '?base=USD';
+
+  readAPI(apiURL, function(xhr){
+    resp = JSON.parse(xhr.responseText);
+    console.log('resp: ', resp);
+  });
 
   for (var i = 0; i <= _qtyPoints; i++) {
-    xPoints.push(i * (XX/_qtyPoints));
-    yPoints.push( Math.round( (20+hgtBeg + 3*Math.sin(i) + hgtEnd*i + 5*Math.random())*10000 )/10000 );
-    ar.x.push(xPoints[i]);
-    ar.y.push(yPoints[i]);
+    x = (i * (XX/_qtyPoints));
+    date.setUTCDate(date.getUTCDate()-1);
+    // x = getStringDate(date);
+    y = accuracy(20 + 3*Math.sin(i) + 5*Math.random(), 4);
+    ar.x.push(x);
+    ar.y.push(y);
   }
   return ar;
 }
+
+function getRandomDataPoints(_qtyPoints, _hgt) {
+  var ar = {x:[], y:[]};
+  var hgtBeg = 50*Math.random(); // 30
+  var hgtEnd = _hgt ? _hgt : (70-hgtBeg)/_qtyPoints*Math.random(); //500
+  var x;
+  var y;
+
+  for (var i = 0; i <= _qtyPoints; i++) {
+    x = i * (XX/_qtyPoints);
+    // y = Math.round( (20+hgtBeg + 3*Math.sin(i) + hgtEnd*i + 5*Math.random())*10000 )/10000;
+    y = accuracy(20+hgtBeg + 3*Math.sin(i) + hgtEnd*i + 5*Math.random(), 4);
+    ar.x.push(x);
+    ar.y.push(y);
+  }
+  return ar;
+}
+
 
 var grid = {};
 var gridScaled = {
@@ -123,11 +175,6 @@ function countScaledGrid(ptsa, _accuracy) {
   
   // Размах данных:
   var ValDifOrd; // Порядок Амплитуды значений.
-  // var ValDifOrd = Math.pow(10, ValMinOrd);
-  // ValMaxTmp = Math.ceil(ValMax/ValDifOrd)*ValDifOrd;
-  // ValMaxTmp = accuracy(ValMax, -ValMinOrd, 'ceil');
-  // ValMinTmp = accuracy(ValMin, -ValMinOrd); // Math.floor(ValMin/ValDifOrd)*ValDifOrd;
-  console.log('ValMinTmp, ValMaxTmp, ValMin, ValMax: ', ValMinTmp, ValMaxTmp, ValMin, ValMax);
   var ValDif = ValMaxTmp - ValMinTmp;            // Величина Амплитуды значений.
   var ValDifTmp = ValDif;
   ValDifOrd = 0;
@@ -150,7 +197,6 @@ function countScaledGrid(ptsa, _accuracy) {
     grid.stepY /=2;
   }
   grid.Beg += grid.stepY * accuracy((ValMin-ValMinTmp)/grid.stepY, 0);
-  console.log('grid.End decreased by: ', grid.stepY * accuracy((ValMaxTmp-ValMax)/grid.stepY, 0));
   grid.End -= grid.stepY * accuracy((ValMaxTmp-ValMax)/grid.stepY, 0);
 
   // Смещение Сетки снизу нижней границы, если она не нулевая.
@@ -246,11 +292,8 @@ function drawGrid(_grid){
   ctx.scale(1, -1); // <<< Подписи оси X.
 }
 
-function drawCurve(ctx, ptsa, _tension, isClosed, numOfSegments, showPoints) {
-  grd = ctx.createLinearGradient(0, 0, XX, YY);
-  grd.addColorStop(0, '#959959');
-  grd.addColorStop(1, '#0296E9');
-  ctx.strokeStyle = grd;
+function drawCurve(ctx, ptsa, _tension, isClosed, numOfSegments, showPoints, _strokeStile) {
+  ctx.strokeStyle = _strokeStile;
   
   showPoints  = showPoints ? showPoints : false;
 
@@ -265,6 +308,7 @@ function drawCurve(ctx, ptsa, _tension, isClosed, numOfSegments, showPoints) {
     }
     ctx.closePath();
   }
+
 } // Зависимости: (drawLines, getCurvePoints)
 
 function getCurvePoints(pts, _tension, isClosed, numOfSegments) {
@@ -513,13 +557,15 @@ initCanvas();
 // Make some points:
 // Формат массива: [x0,y0, x1,y1, ... xN,yN]
 var qtyPoints = 90;
-pointsSrc = getDataPoints(qtyPoints);
+// pointsSrc = getRandomDataPoints(qtyPoints);
+pointsSrc = getAPIDataPoints(qtyPoints);
 
 gridScaled = countScaledGrid(pointsSrc);
-pointsWork = countScaledChart(pointsSrc, 4);
+pointsWork = countScaledChart(pointsSrc);
+
 
 drawGrid(gridScaled);
-drawCurve(ctx, pointsWork, tension, false, false, false);
+drawCurve(ctx, pointsWork, tension, false, false, false, grd);
 drawVertical(pointsWork, 0);
 
 canvas.addEventListener('mousemove', function (e) {
@@ -529,7 +575,7 @@ canvas.addEventListener('mousemove', function (e) {
 
     initCanvas();
     drawGrid(gridScaled);
-    drawCurve(ctx, pointsWork, tension, false, false, false);
+    drawCurve(ctx, pointsWork, tension, false, false, false, grd);
     drawVertical(pointsWork, mouseX);
   }
 });

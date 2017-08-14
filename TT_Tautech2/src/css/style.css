@@ -88,6 +88,14 @@ a:hover {
   clear: both;
 }
 
+#c1 {
+  display: block;
+  width: 1100px;
+  height: 700px;
+  margin: 30px auto;
+  background-color: #18223B;
+}
+
 body {
   background-color: #eda;
   min-width: 320px;
@@ -97,12 +105,4 @@ body {
   display: block;
   margin-right: auto;
   margin-left: auto;
-}
-
-#c1 {
-  display: block;
-  width: 1100px;
-  height: 700px;
-  margin: 30px auto;
-  background-color: #18223B;
 }
